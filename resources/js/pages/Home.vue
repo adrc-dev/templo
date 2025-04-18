@@ -1,5 +1,9 @@
 <script setup lang="ts">
-
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'; // 👈 ojo aquí
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 </script>
 
 <template>
@@ -63,7 +67,7 @@
 
             <!-- eventos -->
             <div class="w-[90%] max-w-[1512px] mx-auto">
-                <h2 class="text-4xl font-bold text-center text-[#320000] my-10">Eventos</h2>
+                <h2 class="text-4xl font-bold text-center text-[#320000] my-20">Eventos</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
 
@@ -130,11 +134,68 @@
 
             </div>
 
+            <!-- TODO CAMBIAR DE COLOR LOS SVG DEL SLIDER -->
+
             <!-- noticias -->
             <div class="w-[90%] max-w-[1512px] mx-auto">
-                <h2 class="text-4xl font-bold text-center text-[#320000] my-10">Últimas noticias</h2>
+                <h2 class="text-4xl font-bold text-center text-[#320000] my-20">Últimas noticias</h2>
 
-
+                <!-- Carrusel de noticias -->
+                <Swiper :modules="[Navigation, Pagination, Autoplay]" :spaceBetween="20" :slidesPerView="1" navigation
+                    :pagination="{ clickable: true }" :loop="true"
+                    :autoplay="{ delay: 5000, disableOnInteraction: false }" class="w-full h-auto text-[#320000]">
+                    <SwiperSlide>
+                        <div class=" bg-amber-50 shadow-lg rounded-4xl overflow-hidden pb-6">
+                            <img src="@assets/accion_social.jpeg" alt="Noticia 1"
+                                class="w-full h-[800px] object-cover rounded-t-lg">
+                            <h3 class="text-2xl font-semibold text-[#320000] text-center mt-6">Noticia 1</h3>
+                            <p class="text-[#320000] text-lg p-4">
+                                Breve descripción de la noticia 1. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit.
+                            </p>
+                            <button class="flex justify-center items-center w-full">
+                                <a href="#"
+                                    class="bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300">
+                                    Leer más
+                                </a>
+                            </button>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="bg-amber-50 shadow-lg rounded-4xl overflow-hidden pb-6">
+                            <img src="@assets/accion_social1.jpeg" alt="Noticia 2"
+                                class="w-full h-[800px] object-cover rounded-t-lg">
+                            <h3 class="text-2xl font-semibold text-[#320000] text-center mt-6">Noticia 2</h3>
+                            <p class="text-[#320000] text-lg p-4">
+                                Breve descripción de la noticia 2. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit.
+                            </p>
+                            <button class="flex justify-center items-center w-full">
+                                <a href="#"
+                                    class="bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300">
+                                    Leer más
+                                </a>
+                            </button>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div class="bg-amber-50 shadow-lg rounded-4xl overflow-hidden pb-6">
+                            <img src="@assets/accion_social2.jpeg" alt="Noticia 3"
+                                class="w-full h-[800px] object-cover rounded-t-lg">
+                            <h3 class="text-2xl font-semibold text-[#320000] text-center mt-6">Noticia 3</h3>
+                            <p class="text-[#320000] text-lg p-4">
+                                Breve descripción de la noticia 3. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit.
+                            </p>
+                            <button class="flex justify-center items-center w-full">
+                                <a href="#"
+                                    class="bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300">
+                                    Leer más
+                                </a>
+                            </button>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
             </div>
         </main>
 
