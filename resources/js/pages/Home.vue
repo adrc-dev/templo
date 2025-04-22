@@ -151,7 +151,6 @@ const products = ref([
             </div>
 
             <!-- TODO! CAMBIAR DE COLOR LOS SVG DEL SLIDER -->
-
             <!-- noticias -->
             <div class="w-[90%] max-w-[1512px] mx-auto">
                 <h2 class="text-4xl font-bold text-center text-[#320000] my-20">Últimas noticias</h2>
@@ -215,7 +214,7 @@ const products = ref([
             </div>
 
             <!-- tienda -->
-            <div class="w-[90%] max-w-[1512px] mx-auto text-[#1F2937]">
+            <div class="w-[90%] max-w-[1512px] mx-auto text-[#320000]">
                 <h2 class="text-4xl font-extrabold text-center my-16 tracking-tight">Nuestra tienda</h2>
                 <router-link to="/tienda"
                     class="text-4xl text-[#320000] hover:text-[#5c0f0f] hover:underline my-8 block text-right font-medium cursor-pointer">
@@ -226,7 +225,7 @@ const products = ref([
                         class="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col items-center">
                         <img :src="product.image" :alt="product.name"
                             class="w-full h-48 object-cover rounded-xl mb-4" />
-                        <h3 class="text-xl font-semibold text-gray-800 mb-1 text-center">{{ product.name }}</h3>
+                        <h3 class="text-xl font-semibold text-[#320000] mb-1 text-center">{{ product.name }}</h3>
                         <p class="text-lg font-medium text-yellow-600 mb-4">{{ product.price }} €</p>
                         <button @click="addToCart(product)"
                             class="mt-auto bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300 cursor-pointer">
@@ -235,6 +234,39 @@ const products = ref([
                     </div>
                 </div>
             </div>
+
+            <!-- contacto -->
+            <div class="w-[90%] max-w-[1512px] mx-auto text-[#320000]">
+                <h2 class="text-4xl font-extrabold text-center mt-16 tracking-tight">
+                    ¿Tienes alguna duda?
+                </h2>
+                <p class="text-2xl font-extrabold text-center tracking-tight">¡Entra en contacto!</p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center mt-8">
+                    <div class="bg-[#320000] text-white rounded-lg p-4 w-full max-w-[600px]">
+                        <form>
+                            <label for="name" class="block text-sm font-medium mb-2">Nombre:</label>
+                            <input type="text" id="name" name="name" required
+                                class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+
+                            <label for="email" class="block text-sm font-medium mb-2">Email:</label>
+                            <input type="email" id="email" name="email" required
+                                class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+
+                            <label for="message" class="block text-sm font-medium mb-2">Mensaje:</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="border border-gray-300 rounded-lg p-2 w-full mb-4"></textarea>
+
+                            <button type="submit"
+                                class="bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300">
+                                Enviar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
         </main>
 
     </div>
