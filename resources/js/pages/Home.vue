@@ -1,9 +1,25 @@
 <script setup lang="ts">
+// noticias
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
+//tienda
+import { ref } from 'vue'
+
+import incienso from '@assets/incienso.jpg'
+import cuenco from '@assets/cuenco.jpg'
+import esterilla from '@assets/esterilla.jpg'
+import lampara from '@assets/lampara.jpg'
+
+const products = ref([
+    { id: 1, name: 'Incienso de Sándalo', price: 8.99, image: incienso },
+    { id: 2, name: 'Cuenco tibetano pequeño', price: 29.99, image: cuenco },
+    { id: 3, name: 'Esterilla de meditación', price: 19.5, image: esterilla },
+    { id: 4, name: 'Lámpara de sal', price: 15.0, image: lampara },
+])
 </script>
 
 <template>
@@ -134,7 +150,7 @@ import 'swiper/css/pagination';
 
             </div>
 
-            <!-- TODO CAMBIAR DE COLOR LOS SVG DEL SLIDER -->
+            <!-- TODO! CAMBIAR DE COLOR LOS SVG DEL SLIDER -->
 
             <!-- noticias -->
             <div class="w-[90%] max-w-[1512px] mx-auto">
@@ -199,8 +215,25 @@ import 'swiper/css/pagination';
             </div>
 
             <!-- tienda -->
-            <div class="w-[90%] max-w-[1512px] mx-auto">
-                <h2 class="text-4xl font-bold text-center text-[#320000] my-20">Nuestra tienda</h2>
+            <div class="w-[90%] max-w-[1512px] mx-auto text-[#1F2937]">
+                <h2 class="text-4xl font-extrabold text-center my-16 tracking-tight">Nuestra tienda</h2>
+                <router-link to="/tienda"
+                    class="text-4xl text-[#320000] hover:text-[#5c0f0f] hover:underline my-8 block text-right font-medium cursor-pointer">
+                    Ver todos los productos →
+                </router-link>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <div v-for="product in products" :key="product.id"
+                        class="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col items-center">
+                        <img :src="product.image" :alt="product.name"
+                            class="w-full h-48 object-cover rounded-xl mb-4" />
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1 text-center">{{ product.name }}</h3>
+                        <p class="text-lg font-medium text-yellow-600 mb-4">{{ product.price }} €</p>
+                        <button @click="addToCart(product)"
+                            class="mt-auto bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300 cursor-pointer">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
             </div>
         </main>
 
@@ -221,7 +254,7 @@ import 'swiper/css/pagination';
     height: 100%;
     width: 100%;
     max-width: 1512px;
-    background: url("@assets/bg4.png") no-repeat left bottom fixed;
+    background: url("@assets/bg.png") no-repeat left bottom fixed;
     background-size: 1200px;
     opacity: 0.2;
     pointer-events: none;
