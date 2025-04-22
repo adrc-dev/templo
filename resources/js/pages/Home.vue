@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'; // 👈 ojo aquí
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -196,6 +196,11 @@ import 'swiper/css/pagination';
                         </div>
                     </SwiperSlide>
                 </Swiper>
+            </div>
+
+            <!-- tienda -->
+            <div class="w-[90%] max-w-[1512px] mx-auto">
+                <h2 class="text-4xl font-bold text-center text-[#320000] my-20">Nuestra tienda</h2>
             </div>
         </main>
 
