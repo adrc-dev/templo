@@ -236,32 +236,56 @@ const products = ref([
             </div>
 
             <!-- contacto -->
-            <div class="w-[90%] max-w-[1512px] mx-auto text-[#320000]">
+            <div class="w-[90%] max-w-[1512px] mx-auto text-[#320000] mb-16">
                 <h2 class="text-4xl font-extrabold text-center mt-16 tracking-tight">
                     ¿Tienes alguna duda?
                 </h2>
-                <p class="text-2xl font-extrabold text-center tracking-tight">¡Entra en contacto!</p>
+                <p class="text-2xl font-extrabold text-center tracking-tight">
+                    ¡Entra en contacto!
+                </p>
+            </div>
 
-                <div class="flex flex-col md:flex-row justify-center items-center mt-8">
-                    <div class="bg-[#320000] text-white rounded-lg p-4 w-full max-w-[600px]">
-                        <form>
-                            <label for="name" class="block text-sm font-medium mb-2">Nombre:</label>
-                            <input type="text" id="name" name="name" required
-                                class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+            <div class="w-[100%] gradient-bg text-white">
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row justify-center items-center mt-8">
+                        <div class="rounded-lg p-4 w-full max-w-[600px]">
+                            <form>
+                                <label for="name" class="block pl-3 text-base font-medium mb-2">Nombre:</label>
+                                <input type="text" id="name" name="name" required
+                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
 
-                            <label for="email" class="block text-sm font-medium mb-2">Email:</label>
-                            <input type="email" id="email" name="email" required
-                                class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+                                <label for="phone" class="block pl-3 text-base font-medium mb-2">Teléfono:</label>
+                                <input type="tel" id="phone" name="phone" required
+                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
 
-                            <label for="message" class="block text-sm font-medium mb-2">Mensaje:</label>
-                            <textarea id="message" name="message" rows="4" required
-                                class="border border-gray-300 rounded-lg p-2 w-full mb-4"></textarea>
+                                <label for="email" class="block pl-3 text-base font-medium mb-2">Email:</label>
+                                <input type="email" id="email" name="email" required
+                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
 
-                            <button type="submit"
-                                class="bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300">
-                                Enviar
-                            </button>
-                        </form>
+                                <label for="message" class="block pl-3 text-base font-medium mb-2">Mensaje:</label>
+                                <textarea id="message" name="message" rows="4" required
+                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4"></textarea>
+
+
+                                <div class="mb-4">
+                                    <label for="privacy"
+                                        class="flex pl-3 items-center text-base font-medium text-white">
+                                        <input type="checkbox" id="privacy" name="privacy" required
+                                            class="mr-2 h-4 w-4 text-[#320000] border-gray-300 rounded focus:ring-[#5c0f0f]">
+                                        <span>
+                                            Al enviar este formulario acepto la
+                                            <a href="#" class="font-bold hover:underline">
+                                                Política de privacidad
+                                            </a>.
+                                        </span>
+                                    </label>
+                                </div>
+                                <button type="submit"
+                                    class="bg-[#320000] w-full text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300">
+                                    Enviar
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -273,6 +297,37 @@ const products = ref([
 </template>
 
 <style scoped>
+/* bg contacto */
+.gradient-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("@assets/bg-contact-home.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.gradient-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 0, 0, 0.7);
+    z-index: 2;
+}
+
 .bg-primary {
     background: #320000 !important;
 }
