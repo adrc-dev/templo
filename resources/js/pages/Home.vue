@@ -28,18 +28,18 @@ const products = ref([
 
         <header class="z-20">
             <!-- barra superior -->
-            <div class="py-1 bg-yellow-600 w-full">
-                <div class="flex items-center justify-between max-w-[1200px] w-[90%] mx-auto px-4">
-                    <div><a href="#" class="text-white hover:text-gray-300">Entrar en contacto</a></div>
-                    <div><a href="#" class="text-white hover:text-gray-300">¡Hazte socio!</a></div>
+            <div class="py-1 bg-[#CC9724] w-full">
+                <div class="flex items-center text-[#320000] justify-between max-w-[1200px] w-[90%] mx-auto px-4">
+                    <div><a href="#" class="hover:text-[#5c0f0f]">Entrar en contacto</a></div>
+                    <div><a href="#" class="hover:text-[#5c0f0f]">¡Hazte socio!</a></div>
                 </div>
             </div>
             <div class="w-full bg-primary h-[100px] flex items-center">
                 <div class="max-w-[1200px] w-[90%] flex justify-between items-center mx-auto px-4 py-2 text-white">
                     <!-- logo -->
                     <div class="flex items-center">
-                        <a href="#"><img src="@assets/logo.png" alt="Logo jardín del despertar"
-                                class="w-20 rounded-full h-full mr-2"></a>
+                        <a href="#"><img src="@assets/logo-claro-solo.png" alt="Logo jardín del despertar"
+                                class="w-45 h-full mr-2"></a>
                     </div>
 
                     <!-- navegador -->
@@ -69,15 +69,13 @@ const products = ref([
 
                 <!-- texto en el video -->
                 <div
-                    class="w-full max-w-[1200px] absolute top-0 left-0 hidden md:flex flex-col items-center text-center text-[#320000] drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-                    <h1 class="text-4xl lg:text-6xl font-bold">Jardín del Despertar</h1>
-                    <p class="text-3xl font-bold mt-2">Un lugar de paz</p>
+                    class="w-full max-w-[1200px] absolute top-20 left-130 hidden md:flex flex-col items-center text-center text-[#320000] drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+                    <img src="@assets/logo-oscuro-rec.png" alt="Logo jardín del despertar" class="w-130 h-full mr-2">
                 </div>
 
                 <!-- texto fuera del video (mobile) -->
                 <div class="block md:hidden mt-6 w-[80%] text-left text-[#320000] mx-auto">
-                    <h1 class="text-4xl font-bold">Jardín del Despertar</h1>
-                    <p class="text-lg font-normal mt-4">Un lugar de paz</p>
+                    <img src="@assets/logo-oscuro-rec.png" alt="Logo jardín del despertar" class="w-130 h-full mr-2">
                 </div>
             </div>
 
@@ -223,7 +221,7 @@ const products = ref([
                         <img :src="product.image" :alt="product.name"
                             class="w-full h-48 object-cover rounded-xl mb-4" />
                         <h3 class="text-xl font-semibold text-[#320000] mb-1 text-center">{{ product.name }}</h3>
-                        <p class="text-lg font-medium text-yellow-600 mb-4">{{ product.price }} €</p>
+                        <p class="text-lg font-medium text-[#CC9724] mb-4">{{ product.price }} €</p>
                         <button @click="addToCart(product)"
                             class="mt-auto bg-[#320000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300 cursor-pointer">
                             Agregar al carrito
@@ -251,10 +249,10 @@ const products = ref([
 
                     <div
                         class="w-full max-w-[1200px] flex flex-col md:flex-row justify-center items-center mt-8 mx-auto">
-                        <div class="w-full max-w-[30%] flex flex-col items-center mb-8 md:mb-0">
-                            <p class="text-lg font-semibold">Teléfono: 123 456 789</p>
-                            <p class="text-lg font-semibold">Email: monjasherab@gmail.com</p>
-                            <p class="text-lg font-semibold">Dirección: Calle de la Paz, 123</p>
+                        <div class="w-full max-w-[30%] flex flex-col items-start justify-start mb-8 md:mb-0">
+                            <p class="text-lg font-semibold">+55 11 98996-4269</p>
+                            <p class="text-lg font-semibold">monjasherab@gmail.com</p>
+                            <p class="text-lg font-semibold">Calle Engenheiro rebouças 1040</p>
                         </div>
 
                         <div class="p-4 w-full max-w-[70%] ">
@@ -263,19 +261,24 @@ const products = ref([
                                 <input type="text" id="name" name="name" required
                                     class="border border-gray-300 rounded-lg p-2 w-full mb-4">
 
-                                <label for="phone" class="block pl-3 text-base font-medium mb-2">Teléfono:</label>
-                                <input type="tel" id="phone" name="phone" required
-                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
-
-                                <label for="email" class="block pl-3 text-base font-medium mb-2">Email:</label>
-                                <input type="email" id="email" name="email" required
-                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+                                <!-- Teléfono y Email en la misma fila desde desktop -->
+                                <div class="md:flex md:space-x-4">
+                                    <div class="md:w-1/2">
+                                        <label for="phone"
+                                            class="block pl-3 text-base font-medium mb-2">Teléfono:</label>
+                                        <input type="tel" id="phone" name="phone" required
+                                            class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+                                    </div>
+                                    <div class="md:w-1/2">
+                                        <label for="email" class="block pl-3 text-base font-medium mb-2">Email:</label>
+                                        <input type="email" id="email" name="email" required
+                                            class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+                                    </div>
+                                </div>
 
                                 <label for="message" class="block pl-3 text-base font-medium mb-2">Mensaje:</label>
-
                                 <textarea id="message" name="message" rows="4" required
-                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
-                                </textarea>
+                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4"></textarea>
 
                                 <div class="mb-4">
                                     <label for="privacy"
@@ -284,9 +287,7 @@ const products = ref([
                                             class="mr-2 h-4 w-4 text-[#320000] border-gray-300 rounded focus:ring-[#5c0f0f]">
                                         <span>
                                             Al enviar este formulario acepto la
-                                            <a href="#" class="font-bold hover:underline">
-                                                Política de privacidad
-                                            </a>.
+                                            <a href="#" class="font-bold hover:underline">Política de privacidad</a>.
                                         </span>
                                     </label>
                                 </div>
