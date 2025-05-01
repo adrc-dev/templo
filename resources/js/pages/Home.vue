@@ -29,13 +29,13 @@ const products = ref([
         <header class="z-20">
             <!-- barra superior -->
             <div class="py-1 bg-yellow-600 w-full">
-                <div class="flex items-center justify-between max-w-[1512px] w-[90%] mx-auto px-4">
+                <div class="flex items-center justify-between max-w-[1200px] w-[90%] mx-auto px-4">
                     <div><a href="#" class="text-white hover:text-gray-300">Entrar en contacto</a></div>
                     <div><a href="#" class="text-white hover:text-gray-300">¡Hazte socio!</a></div>
                 </div>
             </div>
             <div class="w-full bg-primary h-[100px] flex items-center">
-                <div class="max-w-[1512px] w-[90%] flex justify-between items-center mx-auto px-4 py-2 text-white">
+                <div class="max-w-[1200px] w-[90%] flex justify-between items-center mx-auto px-4 py-2 text-white">
                     <!-- logo -->
                     <div class="flex items-center">
                         <a href="#"><img src="@assets/logo.png" alt="Logo jardín del despertar"
@@ -58,10 +58,10 @@ const products = ref([
 
         <main class="z-1">
             <!-- banner -->
-            <div class="w-full max-w-[1512px] mx-auto relative">
+            <div class="w-full mx-auto relative">
                 <!-- video -->
                 <div class="flex justify-center items-center">
-                    <video class="w-full max-w-[1512px] max-h-[700px] object-cover object-top" autoplay muted loop>
+                    <video class="w-full max-h-[700px] object-cover object-top" autoplay muted loop>
                         <source src="@assets/home_banner.mp4" type="video/mp4" />
                         Tu navegador no soporta la etiqueta de video.
                     </video>
@@ -69,7 +69,7 @@ const products = ref([
 
                 <!-- texto en el video -->
                 <div
-                    class="absolute top-40 right-10 hidden md:flex flex-col items-center text-center text-[#320000]  drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+                    class="w-full max-w-[1200px] absolute top-0 left-0 hidden md:flex flex-col items-center text-center text-[#320000] drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
                     <h1 class="text-4xl lg:text-6xl font-bold">Jardín del Despertar</h1>
                     <p class="text-3xl font-bold mt-2">Un lugar de paz</p>
                 </div>
@@ -82,7 +82,7 @@ const products = ref([
             </div>
 
             <!-- eventos -->
-            <div class="w-[90%] max-w-[1512px] mx-auto">
+            <div class="w-[90%] max-w-[1200px] mx-auto">
                 <h2 class="text-4xl font-bold text-center text-[#320000] my-20">Eventos</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
@@ -152,7 +152,7 @@ const products = ref([
 
             <!-- TODO! CAMBIAR DE COLOR LOS SVG DEL SLIDER -->
             <!-- noticias -->
-            <div class="w-[90%] max-w-[1512px] mx-auto">
+            <div class="w-[90%] max-w-[1200px] mx-auto">
                 <h2 class="text-4xl font-bold text-center text-[#320000] my-20">Últimas noticias</h2>
 
                 <!-- Carrusel de noticias -->
@@ -214,12 +214,9 @@ const products = ref([
             </div>
 
             <!-- tienda -->
-            <div class="w-[90%] max-w-[1512px] mx-auto text-[#320000]">
+            <div class="w-[90%] max-w-[1200px] mx-auto text-[#320000] mb-16">
                 <h2 class="text-4xl font-extrabold text-center my-16 tracking-tight">Nuestra tienda</h2>
-                <router-link to="/tienda"
-                    class="text-4xl text-[#320000] hover:text-[#5c0f0f] hover:underline my-8 block text-right font-medium cursor-pointer">
-                    Ver todos los productos →
-                </router-link>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     <div v-for="product in products" :key="product.id"
                         class="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col items-center">
@@ -233,22 +230,34 @@ const products = ref([
                         </button>
                     </div>
                 </div>
+                <router-link to="/tienda"
+                    class="text-xl text-[#320000] hover:text-[#5c0f0f] hover:underline my-8 block text-right font-medium cursor-pointer">
+                    Ver todos los productos →
+                </router-link>
             </div>
 
             <!-- contacto -->
-            <div class="w-[90%] max-w-[1512px] mx-auto text-[#320000] mb-16">
-                <h2 class="text-4xl font-extrabold text-center mt-16 tracking-tight">
-                    ¿Tienes alguna duda?
-                </h2>
-                <p class="text-2xl font-extrabold text-center tracking-tight">
-                    ¡Entra en contacto!
-                </p>
-            </div>
-
-            <div class="w-[100%] gradient-bg text-white">
+            <div class="w-full gradient-bg text-white">
                 <div class="relative z-10">
-                    <div class="flex flex-col md:flex-row justify-center items-center mt-8">
-                        <div class="rounded-lg p-4 w-full max-w-[600px]">
+                    <div class="w-[full] max-w-[1200px] mx-auto text-white mb-16">
+                        <h2 class="text-4xl font-extrabold text-center mt-16 tracking-tight">
+                            ¿Tienes alguna duda?
+                        </h2>
+                        <p class="text-2xl font-extrabold text-center tracking-tight">
+                            ¡Entra en contacto!
+                        </p>
+                    </div>
+
+
+                    <div
+                        class="w-full max-w-[1200px] flex flex-col md:flex-row justify-center items-center mt-8 mx-auto">
+                        <div class="w-full max-w-[30%] flex flex-col items-center mb-8 md:mb-0">
+                            <p class="text-lg font-semibold">Teléfono: 123 456 789</p>
+                            <p class="text-lg font-semibold">Email: monjasherab@gmail.com</p>
+                            <p class="text-lg font-semibold">Dirección: Calle de la Paz, 123</p>
+                        </div>
+
+                        <div class="p-4 w-full max-w-[70%] ">
                             <form>
                                 <label for="name" class="block pl-3 text-base font-medium mb-2">Nombre:</label>
                                 <input type="text" id="name" name="name" required
@@ -263,9 +272,10 @@ const products = ref([
                                     class="border border-gray-300 rounded-lg p-2 w-full mb-4">
 
                                 <label for="message" class="block pl-3 text-base font-medium mb-2">Mensaje:</label>
-                                <textarea id="message" name="message" rows="4" required
-                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4"></textarea>
 
+                                <textarea id="message" name="message" rows="4" required
+                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+                                </textarea>
 
                                 <div class="mb-4">
                                     <label for="privacy"
@@ -280,8 +290,9 @@ const products = ref([
                                         </span>
                                     </label>
                                 </div>
+
                                 <button type="submit"
-                                    class="bg-[#320000] w-full text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] transition duration-300">
+                                    class="bg-transparent border border-white w-full text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] hover:border-[#5c0f0f] transition duration-300 cursor-pointer">
                                     Enviar
                                 </button>
                             </form>
