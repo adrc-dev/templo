@@ -39,7 +39,7 @@ const products = ref([
                     <!-- logo -->
                     <div class="flex items-center">
                         <a href="#"><img src="@assets/logo-claro-solo.png" alt="Logo jardín del despertar"
-                                class="w-45 h-full mr-2"></a>
+                                class="w-45 h-full"></a>
                     </div>
 
                     <!-- navegador -->
@@ -70,12 +70,12 @@ const products = ref([
                 <!-- texto en el video -->
                 <div
                     class="w-full max-w-[1200px] absolute top-20 left-130 hidden md:flex flex-col items-center text-center text-[#320000] drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-                    <img src="@assets/logo-oscuro-rec.png" alt="Logo jardín del despertar" class="w-130 h-full mr-2">
+                    <img src="@assets/logo-oscuro-rec.png" alt="Logo jardín del despertar" class="w-130 h-full">
                 </div>
 
                 <!-- texto fuera del video (mobile) -->
                 <div class="block md:hidden mt-6 w-[80%] text-left text-[#320000] mx-auto">
-                    <img src="@assets/logo-oscuro-rec.png" alt="Logo jardín del despertar" class="w-130 h-full mr-2">
+                    <img src="@assets/logo-oscuro-rec.png" alt="Logo jardín del despertar" class="w-130 h-full">
                 </div>
             </div>
 
@@ -241,27 +241,20 @@ const products = ref([
                         <h2 class="text-4xl font-extrabold text-center mt-16 tracking-tight">
                             ¿Tienes alguna duda?
                         </h2>
-                        <p class="text-2xl font-extrabold text-center tracking-tight">
+                        <p class="text-2xl font-extrabold text-center tracking-tight mt-2">
                             ¡Entra en contacto!
                         </p>
                     </div>
 
 
-                    <div
-                        class="w-full max-w-[1200px] flex flex-col md:flex-row justify-center items-center mt-8 mx-auto">
-                        <div class="w-full max-w-[30%] flex flex-col items-start justify-start mb-8 md:mb-0">
-                            <p class="text-lg font-semibold">+55 11 98996-4269</p>
-                            <p class="text-lg font-semibold">monjasherab@gmail.com</p>
-                            <p class="text-lg font-semibold">Calle Engenheiro rebouças 1040</p>
-                        </div>
+                    <div class="w-full max-w-[1200px] flex flex-row justify-center items-center mt-8 mx-auto">
 
-                        <div class="p-4 w-full max-w-[70%] ">
+                        <div class="p-4 w-full max-w-[60%] ">
                             <form>
                                 <label for="name" class="block pl-3 text-base font-medium mb-2">Nombre:</label>
                                 <input type="text" id="name" name="name" required
                                     class="border border-gray-300 rounded-lg p-2 w-full mb-4">
 
-                                <!-- Teléfono y Email en la misma fila desde desktop -->
                                 <div class="md:flex md:space-x-4">
                                     <div class="md:w-1/2">
                                         <label for="phone"
@@ -293,7 +286,7 @@ const products = ref([
                                 </div>
 
                                 <button type="submit"
-                                    class="bg-transparent border border-white w-full text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#5c0f0f] hover:border-[#5c0f0f] transition duration-300 cursor-pointer">
+                                    class="bg-transparent border border-white w-full text-white font-semibold mt-14 py-2 px-4 rounded-lg hover:bg-[#5c0f0f] hover:border-[#5c0f0f] transition duration-300 cursor-pointer">
                                     Enviar
                                 </button>
                             </form>
@@ -330,7 +323,7 @@ const products = ref([
 }
 
 .gradient-bg::after {
-    content: "";
+    content:"";
     position: absolute;
     top: 0;
     left: 0;
