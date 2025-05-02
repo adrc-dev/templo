@@ -162,7 +162,7 @@ const products = ref([
                     :pagination="{ clickable: true }" :loop="true"
                     :autoplay="{ delay: 5000, disableOnInteraction: false }" class="w-full h-auto text-primary-color">
                     <SwiperSlide>
-                        <div class=" bg-amber-50 shadow-lg rounded-4xl overflow-hidden pb-6">
+                        <div class=" bg-amber-50 rounded-4xl overflow-hidden pb-6">
                             <img src="@assets/accion_social.jpeg" alt="Noticia 1"
                                 class="w-full h-[800px] object-cover rounded-t-lg">
                             <h3 class="text-2xl font-semibold text-primary-color text-center mt-6">Noticia 1</h3>
@@ -179,7 +179,7 @@ const products = ref([
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="bg-amber-50 shadow-lg rounded-4xl overflow-hidden pb-6">
+                        <div class="bg-amber-50 rounded-4xl overflow-hidden pb-6">
                             <img src="@assets/accion_social1.jpeg" alt="Noticia 2"
                                 class="w-full h-[800px] object-cover rounded-t-lg">
                             <h3 class="text-2xl font-semibold text-primary-color text-center mt-6">Noticia 2</h3>
@@ -196,7 +196,7 @@ const products = ref([
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="bg-amber-50 shadow-lg rounded-4xl overflow-hidden pb-6">
+                        <div class="bg-amber-50 rounded-4xl overflow-hidden pb-6">
                             <img src="@assets/accion_social2.jpeg" alt="Noticia 3"
                                 class="w-full h-[800px] object-cover rounded-t-lg">
                             <h3 class="text-2xl font-semibold text-primary-color text-center mt-6">Noticia 3</h3>
@@ -302,7 +302,7 @@ const products = ref([
                                 </div>
 
                                 <button type="submit"
-                                    class="bg-transparent border border-white w-full text-white font-semibold mt-14 py-2 px-4 rounded-lg hover:bg-secondary-color hover:border-secondary-color hover:text-primary-color transition duration-300 cursor-pointer">
+                                    class="bg-transparent border border-white w-full text-white font-semibold mt-8 py-2 px-4 rounded-lg hover:bg-secondary-color hover:border-secondary-color hover:text-primary-color transition duration-300 cursor-pointer">
                                     Enviar
                                 </button>
                             </form>
