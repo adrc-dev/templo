@@ -233,13 +233,13 @@ const products = ref([
                     </div>
                 </div>
                 <router-link to="/tienda"
-                    class="text-xl text-primary-color hover:text-tertiary-color hover:underline my-8 block text-right font-medium cursor-pointer">
+                    class="text-xl text-primary-color hover:text-tertiary-color hover:text-tertiary-color my-8 block text-right font-medium cursor-pointer">
                     Ver todos los productos →
                 </router-link>
             </section>
 
             <!-- contacto -->
-            <section class="w-full gradient-bg text-white">
+            <section class="w-full gradient-bg text-white pb-16">
                 <div class="relative z-10">
                     <div class="w-[full] max-w-[1200px] mx-auto text-white mb-16">
                         <h2 class="text-4xl font-bold text-center mt-16 tracking-tight">
@@ -295,7 +295,8 @@ const products = ref([
 
                                         <span>
                                             Al enviar este formulario acepto la
-                                            <a href="#" class="font-bold hover:underline">Política de privacidad</a>.
+                                            <a href="#" class="font-bold hover:text-gray-300">Política de
+                                                privacidad</a>.
                                         </span>
                                     </label>
                                 </div>
@@ -309,12 +310,60 @@ const products = ref([
                     </div>
                 </div>
             </section>
-
         </main>
 
+        <footer class="z-10 bg-primary-color text-white">
+            <!-- redes sociales en el footer -->
+            <div class="bg-tertiary-color py-4">
+                <div class="max-w-[1200px] mx-auto flex justify-center gap-6">
+                    <!-- facebook -->
+                    <a href="#" aria-label="Facebook"
+                        class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <!-- twitter -->
+                    <a href="#" aria-label="Twitter"
+                        class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <!-- instagram -->
+                    <a href="#" aria-label="Instagram"
+                        class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <!-- tiktok -->
+                    <a href="#" aria-label="Tiktok"
+                        class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <!-- Snapchat -->
+                    <a href="#" aria-label="Snapchat"
+                        class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
+                        <i class="fa-sharp fa-regular fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
 
-        <footer class="z-1">
+            <!-- second footer -->
+            <div class="max-w-[1200px] mx-auto px-4 py-8 flex flex-col items-center">
+                <div class="mb-6">
+                    <a href="#">
+                        <img src="@assets/logo-claro.png" alt="Logo Jardín del Despertar" class="w-100 h-auto" />
+                    </a>
+                </div>
 
+                <nav class="mb-6">
+                    <ul class="flex flex-wrap justify-center gap-6 text-sm">
+                        <li><a href="#" class="hover:text-gray-300 transition">Aviso legal</a></li>
+                        <li><a href="#" class="hover:text-gray-300 transition">Política de cookies</a></li>
+                        <li><a href="#" class="hover:text-gray-300 transition">Política de privacidad</a></li>
+                    </ul>
+                </nav>
+
+                <div class="text-xs text-center border-t border-white/20 pt-6 w-full">
+                    <strong>© 2025 Jardín del Despertar.</strong> Todos los derechos reservados.
+                </div>
+            </div>
         </footer>
     </div>
 </template>
