@@ -13,14 +13,14 @@
             <div class="max-w-[1200px] w-full flex justify-between items-center mx-auto px-4 py-2 text-white">
                 <!-- logo -->
                 <div class="flex items-center">
-                    <a href="#"><img src="@assets/logo-claro-solo.png" alt="Logo jardín del despertar"
+                    <a href="/"><img src="@assets/logo-claro-solo.png" alt="Logo jardín del despertar"
                             class="w-45 h-full"></a>
                 </div>
 
                 <!-- navegador -->
                 <nav class="flex items-center">
                     <ul class="flex space-x-4">
-                        <li><a href="#" class="text-white hover:text-gray-300">Quienes somos</a></li>
+                        <li><a href="/about-us" class="text-white hover:text-gray-300">Quienes somos</a></li>
                         <li><a href="#" class="text-white hover:text-gray-300">Eventos</a></li>
                         <li><a href="#" class="text-white hover:text-gray-300">Aulas</a></li>
                         <li><a href="#" class="text-white hover:text-gray-300">Nuestra tienda</a></li>
