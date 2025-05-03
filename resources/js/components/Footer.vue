@@ -14,7 +14,7 @@
                 <!-- twitter -->
                 <a href="#" aria-label="Twitter"
                     class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
                 </a>
                 <!-- instagram -->
                 <a href="#" aria-label="Instagram"

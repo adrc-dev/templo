@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class="w-full gradient-bg text-white pb-16">
+    <section id="contact" class="w-full gradient-bg text-white pb-16">
         <div class="relative z-10">
             <div class="w-[full] max-w-[1200px] mx-auto text-white mb-16">
                 <h2 class="text-4xl font-bold text-center mt-16 tracking-tight">

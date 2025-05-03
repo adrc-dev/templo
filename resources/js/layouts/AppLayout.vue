@@ -35,7 +35,6 @@ import Footer from '@/components/Footer.vue';
     .background-container::before {
         background-position: left bottom;
         background-size: 600px;
-        /* o usa 'contain' si prefieres que no recorte */
     }
 }
 </style>

@@ -15,7 +15,7 @@ import tarotTibetano from '@assets/tarot-tibetano.webp';
 <template>
     <AppLayout>
         <HeaderBanner :imageUrl="headerImage" pageTitle="¿Quienes somos?" />
-        <div class="w-full max-w-[1200px] mx-auto flex flex-col justify-center my-16 px-4">
+        <div class="w-full max-w-[1200px] mx-auto flex flex-col justify-center mt-16 mb-32 px-4">
             <AboutUsBlock title="Nuestro centro" :image="fachadaTemplo" alt="Imagen de nuestro centro" :paragraphs="[
                 'Fundado en septiembre de 2007 por inspiración de la monja Ani Sherab Wangmo, y pertenece a la linaje Dagpo Shangpa Kagyü, una transmisión oral ininterrumpida de más de mil años. Su apertura fue bendecida por Mingyur Rinpoche y actualmente está bajo la dirección espiritual de Ani Sherab.',
                 'El templo ofrece enseñanzas, oraciones y prácticas con el objetivo de cultivar felicidad, paz, compasión y despertar espiritual. Los retiros están abiertos a personas de todos los niveles.'
@@ -49,7 +49,30 @@ import tarotTibetano from '@assets/tarot-tibetano.webp';
                 'Ofrecemos sesiones individuales donde, a través de la lectura consciente, se abre un espacio de reflexión y guía interna.'
             ]" reverse />
         </div>
+
+        <div id="donation"
+            class="donation-container w-full bg-[url(@assets/buda-maitreya.webp)] bg-cover min-h-[500px] flex items-center justify-center relative">
+            <div class="w-full max-w-[1200px] flex flex-col justify-center items-center text-center relative z-10">
+                <h2 class="text-4xl font-bold text-white mb-4">Ayúdanos a seguir mejorando</h2>
+                <p class="text-lg text-white mb-8">Tu contribución es fundamental para mantener nuestro templo y
+                    actividades.</p>
+                <a href="/donar"
+                    class="bg-transparent text-white border border-white py-3 px-6 rounded-full hover:bg-secondary-color  hover:text-primary-color hover:border-secondary-color transition duration-300">Haz
+                    tu donación</a>
+            </div>
+        </div>
     </AppLayout>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* fondo degradad */
+.donation-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--primary-color);
+    opacity: 0.8;
+    pointer-events: none;
+}
+</style>
