@@ -30,4 +30,12 @@ import Footer from '@/components/Footer.vue';
     opacity: 0.2;
     pointer-events: none;
 }
+
+@media (max-width: 768px) {
+    .background-container::before {
+        background-position: left bottom;
+        background-size: 600px;
+        /* o usa 'contain' si prefieres que no recorte */
+    }
+}
 </style>
