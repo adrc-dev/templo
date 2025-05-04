@@ -4,6 +4,45 @@ import AppLayout from '@/layouts/AppLayout.vue';
 
 import EventsImage from '@assets/eventos-banner.jpg';
 
+const events = [
+    {
+        id: 1,
+        title: "Retiro de Silencio en Montaña",
+        date: "2025-05-10",
+        description: "Un fin de semana de retiro en plena naturaleza, en silencio, con sesiones guiadas de meditación.",
+        image: "https://picsum.photos/800/600"
+    },
+    {
+        id: 2,
+        title: "Charla: La mente y el sufrimiento",
+        date: "2025-05-18",
+        description: "Exploraremos cómo el budismo aborda el sufrimiento mental con herramientas prácticas.",
+        image: "https://picsum.photos/800/600"
+    },
+    {
+        id: 3,
+        title: "Meditación al Atardecer",
+        date: "2025-05-22",
+        description: "Encuentro gratuito al aire libre para meditar al atardecer en el parque de la ciudad.",
+        image: "https://picsum.photos/800/600"
+    },
+    {
+        id: 4,
+        title: "Meditación al Atardecer",
+        date: "2025-05-22",
+        description: "Encuentro gratuito al aire libre para meditar al atardecer en el parque de la ciudad.",
+        image: "https://picsum.photos/800/600"
+    },
+    {
+        id: 5,
+        title: "Meditación al Atardecer",
+        date: "2025-05-22",
+        description: "Encuentro gratuito al aire libre para meditar al atardecer en el parque de la ciudad.",
+        image: "https://picsum.photos/800/600"
+    },
+
+]
+/*
 defineProps({
     events: Array as () => {
         id: number,
@@ -13,7 +52,7 @@ defineProps({
         image: string
     }[]
 })
-
+*/
 const upcomingEvent = events[0]
 const otherEvents = events.slice(1)
 </script>
@@ -24,7 +63,7 @@ const otherEvents = events.slice(1)
 
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Proximo Evento</h2>
-            <div class="max-w-6xl mx-auto py-12 px-4 grid md:grid-cols-2 gap-6 items-center">
+            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-6 items-center">
                 <img :src="upcomingEvent.image" alt="Evento principal"
                     class="w-full h-80 object-cover rounded-xl shadow-lg" />
                 <div>
@@ -43,7 +82,7 @@ const otherEvents = events.slice(1)
         <!-- Otros eventos -->
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Otros Eventos</h2>
-            <div class="max-w-6xl mx-auto py-6 px-4 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="max-w-6xl mx-auto px-4 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-20">
                 <div v-for="event in otherEvents" :key="event.id"
                     class="bg-white shadow rounded-lg overflow-hidden hover:shadow-md transition">
                     <img :src="event.image" alt="event" class="w-full h-40 object-cover" />
