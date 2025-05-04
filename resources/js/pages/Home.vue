@@ -5,6 +5,9 @@ import EventCards from '@/components/Home/EventCards.vue';
 import LastNews from '@/components/Home/LastNews.vue'
 import StoreCards from '@/components/Home/StoreCards.vue';
 import ContactForm from '@/components/Home/ContactForm.vue';
+import DonationBanner from '@/components/DonationBanner.vue';
+
+import DonationImage from '@assets/banderas.jpg'
 </script>
 
 <template>
@@ -12,6 +15,8 @@ import ContactForm from '@/components/Home/ContactForm.vue';
         <VideoHeader />
 
         <EventCards />
+
+        <DonationBanner class="mt-32" :imageUrl="DonationImage" />
 
         <LastNews />
 

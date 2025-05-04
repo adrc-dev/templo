@@ -2,6 +2,7 @@
 import HeaderBanner from '@/components/HeaderBanner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import headerImage from '@assets/about-us-header.jpeg';
+import donationImage from '@assets/buda-maitreya.webp';
 import AboutUsBlock from '@/components/AboutUsBlock.vue';
 
 import fachadaTemplo from '@assets/fachada-templo.png';
@@ -10,6 +11,7 @@ import atencionIndividual from '@assets/atencion-individual.png';
 import introBudismo from '@assets/intro-budismo.png';
 import clasesOnline from '@assets/clases-online.png';
 import tarotTibetano from '@assets/tarot-tibetano.webp';
+import DonationBanner from '@/components/DonationBanner.vue';
 </script>
 
 <template>
@@ -50,29 +52,8 @@ import tarotTibetano from '@assets/tarot-tibetano.webp';
             ]" reverse />
         </div>
 
-        <div id="donation"
-            class="donation-container w-full bg-[url(@assets/buda-maitreya.webp)] bg-cover min-h-[500px] flex items-center justify-center relative">
-            <div class="w-full max-w-[1200px] flex flex-col justify-center items-center text-center relative z-10">
-                <h2 class="text-4xl font-bold text-white mb-4">Ayúdanos a seguir mejorando</h2>
-                <p class="text-lg text-white mb-8">Tu contribución es fundamental para mantener nuestro templo y
-                    actividades.</p>
-                <a href="/donar"
-                    class="bg-transparent text-white border border-white py-3 px-6 rounded-full hover:bg-secondary-color  hover:text-primary-color hover:border-secondary-color transition duration-300">Haz
-                    tu donación</a>
-            </div>
-        </div>
+        <DonationBanner :imageUrl="donationImage" />
     </AppLayout>
 </template>
 
-<style scoped>
-/* fondo degradad */
-.donation-container::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: var(--primary-color);
-    opacity: 0.8;
-    pointer-events: none;
-}
-</style>
+<style scoped></style>
