@@ -12,7 +12,7 @@ function toggleMenu() {
     <header class="z-20">
         <!-- barra superior -->
         <div class="py-1 bg-secondary-color w-full">
-            <div class="flex items-center text-primary-color justify-between max-w-[1200px] w-full mx-auto px-4">
+            <div class="flex items-center text-primary-color justify-between w-full mx-auto px-8">
                 <div><a href="/contact" class="hover:text-tertiary-color">Entrar en contacto</a></div>
                 <div><a href="#" class="hover:text-tertiary-color">¡Hazte socio!</a></div>
             </div>
@@ -20,7 +20,7 @@ function toggleMenu() {
 
         <!-- barra principal -->
         <div class="w-full bg-primary-color h-[100px] flex items-center">
-            <div class="max-w-[1200px] w-full flex justify-between items-center mx-auto px-4 py-2 text-white">
+            <div class="w-full flex justify-between items-center mx-auto px-8 py-2 text-white">
                 <!-- logo -->
                 <div class="flex items-center">
                     <a href="/"><img src="@assets/logo-claro-solo.png" alt="Logo" class="w-45 h-full" /></a>
@@ -53,8 +53,8 @@ function toggleMenu() {
                 class="md:hidden bg-primary-color text-white px-4 pb-4 transition-all duration-300 ease-in-out">
                 <ul class="flex flex-col space-y-2">
                     <li><a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">Quienes somos</a></li>
-                    <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
-                    <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
+                    <li><a href="/events" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
+                    <li><a href="" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
                     <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a></li>
                     <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Novedades</a></li>
                 </ul>
