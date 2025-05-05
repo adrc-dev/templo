@@ -8,7 +8,7 @@ defineProps({
     <div class="w-full mx-auto min-h-[400px] bg-cover bg-center relative"
         :style="{ backgroundImage: `url(${imageUrl})` }">
         <!-- degradado -->
-        <div class="absolute inset-0 bg-gradient-to-l from-primary-color to-primary-color/10]">
+        <div class="hidden md:block absolute inset-0 bg-gradient-to-l from-primary-color to-primary-color/10]">
         </div>
 
         <div
