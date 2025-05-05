@@ -108,10 +108,12 @@ const otherEvents = events.slice(1)
                     </p>
                     <h2 class="text-3xl font-bold text-primary-color mb-4">{{ upcomingEvent.title }}</h2>
                     <p class="text-gray-700 mb-4 line-clamp-8">{{ upcomingEvent.description }}</p>
-                    <a :href="`/eventos/${upcomingEvent.id}`"
-                        class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
-                        Más información
-                    </a>
+                    <div class="mt-4 flex justify-center">
+                        <a :href="`/eventos/${upcomingEvent.id}`"
+                            class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
+                            Más información
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -119,18 +121,18 @@ const otherEvents = events.slice(1)
         <!-- Otros eventos -->
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Otros Eventos</h2>
-            <div class="w-full mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-20">
+            <div class="w-full mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-20">
                 <div v-for="event in otherEvents" :key="event.id"
-                    class="bg-white shadow rounded-lg overflow-hidden hover:shadow-md transition pb-16 relative">
+                    class="bg-amber-50 shadow-lg rounded-xl overflow-hidden hover:shadow-md transition pb-16 relative">
                     <img :src="event.image" :alt="event.title" class="w-full h-40 object-cover" />
-                    <div class="p-4">
+                    <div class="py-4 px-6 md:px-8">
                         <p class="text-xs text-secondary-color mb-1">{{ new Date(event.date).toLocaleDateString() }}</p>
                         <h3 class="text-lg font-semibold text-primary-color mb-2">{{ event.title }}</h3>
-                        <p class="text-sm text-gray-600 line-clamp-4">{{ event.description }}</p>
+                        <p class="text-base text-gray-600 line-clamp-4">{{ event.description }}</p>
                         <div class="mt-4 flex justify-center absolute bottom-0 left-0 right-0 p-4">
                             <a :href="`/eventos/${event.id}`"
                                 class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
-                                Ver evento
+                                Más información
                             </a>
                         </div>
                     </div>
