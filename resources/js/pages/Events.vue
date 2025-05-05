@@ -70,22 +70,23 @@ const otherEvents = events.slice(1)
                     <p class="text-sm text-secondary-color mb-2">Todos los jueves a las 20:00
                     </p>
                     <h2 class="text-3xl font-bold text-primary-color mb-4">Clases de meditación en línea</h2>
-                    <p class="text-gray-700 mb-4">Te invitamos a conectar contigo mismo y encontrar paz interior desde
+                    <p class="text-primary-color mb-4">Te invitamos a conectar contigo mismo y encontrar paz interior
+                        desde
                         la comodidad de tu hogar. Cada jueves ofrecemos sesiones de meditación guiada en línea,
                         diseñadas para reducir el estrés, calmar la mente y cultivar la atención plena. No importa si
                         eres principiante o ya tienes experiencia: nuestras clases están abiertas para todos.</p>
                     <div class="mt-4 grid gap-4 sm:grid-cols-3 text-center text-lg">
                         <div>
-                            <span class="block font-semibold text-gray-700">📅 Cuándo</span>
-                            <span class="text-gray-900">Todos los jueves</span>
+                            <span class="block font-semibold text-primary-color">📅 Cuándo</span>
+                            <span class="text-primary-color">Todos los jueves</span>
                         </div>
                         <div>
-                            <span class="block font-semibold text-gray-700">⏰ Hora</span>
-                            <span class="text-gray-900">20:00 - 21:00</span>
+                            <span class="block font-semibold text-primary-color">⏰ Hora</span>
+                            <span class="text-primary-color">20:00 - 21:00</span>
                         </div>
                         <div>
-                            <span class="block font-semibold text-gray-700">🌐 Modalidad</span>
-                            <span class="text-gray-900">Online por Zoom</span>
+                            <span class="block font-semibold text-primary-color">🌐 Modalidad</span>
+                            <span class="text-primary-color">Online por Zoom</span>
                         </div>
                     </div>
                     <div class="mt-6 flex align-center justify-center">
@@ -107,7 +108,7 @@ const otherEvents = events.slice(1)
                     <p class="text-sm text-secondary-color mb-2">{{ new Date(upcomingEvent.date).toLocaleDateString() }}
                     </p>
                     <h2 class="text-3xl font-bold text-primary-color mb-4">{{ upcomingEvent.title }}</h2>
-                    <p class="text-gray-700 mb-4 line-clamp-8">{{ upcomingEvent.description }}</p>
+                    <p class="text-primary-color mb-4 line-clamp-8">{{ upcomingEvent.description }}</p>
                     <div class="mt-4 flex justify-center">
                         <a :href="`/eventos/${upcomingEvent.id}`"
                             class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
@@ -128,7 +129,7 @@ const otherEvents = events.slice(1)
                     <div class="py-4 px-6 md:px-8">
                         <p class="text-xs text-secondary-color mb-1">{{ new Date(event.date).toLocaleDateString() }}</p>
                         <h3 class="text-lg font-semibold text-primary-color mb-2">{{ event.title }}</h3>
-                        <p class="text-base text-gray-600 line-clamp-4">{{ event.description }}</p>
+                        <p class="text-base text-primary-color line-clamp-4">{{ event.description }}</p>
                         <div class="mt-4 flex justify-center absolute bottom-0 left-0 right-0 p-4">
                             <a :href="`/eventos/${event.id}`"
                                 class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
