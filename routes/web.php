@@ -14,10 +14,16 @@ Route::get('/about-us', function () {
 })->name('about-us');
 
 //events
-
 Route::get('/events', function () {
     return Inertia::render('Events');
 })->name('events');
+
+//contact
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
+
+
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
