@@ -26,10 +26,15 @@
                     class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
                     <i class="fab fa-tiktok"></i>
                 </a>
-                <!-- Snapchat -->
-                <a href="#" aria-label="Snapchat"
+                <!-- email -->
+                <a href="#" aria-label="Email"
                     class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
                     <i class="fa-sharp fa-regular fa-envelope"></i>
+                </a>
+                <!-- whatsapp -->
+                <a href="#" aria-label="WhatsApp"
+                    class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
+                    <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
         </div>
