@@ -13,7 +13,7 @@ function toggleMenu() {
         <!-- barra superior -->
         <div class="py-1 bg-secondary-color w-full">
             <div class="flex items-center text-primary-color justify-between max-w-[1200px] w-full mx-auto px-4">
-                <div><a href="#" class="hover:text-tertiary-color">Entrar en contacto</a></div>
+                <div><a href="/contact" class="hover:text-tertiary-color">Entrar en contacto</a></div>
                 <div><a href="#" class="hover:text-tertiary-color">¡Hazte socio!</a></div>
             </div>
         </div>
