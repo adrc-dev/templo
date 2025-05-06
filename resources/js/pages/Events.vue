@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HeaderBanner from '@/components/HeaderBanner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
+import EventCard from '@/components/EventCard.vue';
 
 import EventsImage from '@assets/eventos-banner.jpg';
 
@@ -119,25 +120,20 @@ const otherEvents = events.slice(1)
             </div>
         </section>
 
-        <!-- Otros eventos -->
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Otros Eventos</h2>
             <div class="w-full mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-20">
-                <div v-for="event in otherEvents" :key="event.id"
-                    class="bg-amber-50 shadow-lg rounded-xl overflow-hidden hover:shadow-md transition pb-16 relative">
-                    <img :src="event.image" :alt="event.title" class="w-full h-40 object-cover" />
-                    <div class="py-4 px-6 md:px-8">
-                        <p class="text-xs text-secondary-color mb-1">{{ new Date(event.date).toLocaleDateString() }}</p>
-                        <h3 class="text-lg font-semibold text-primary-color mb-2">{{ event.title }}</h3>
-                        <p class="text-base text-primary-color line-clamp-4">{{ event.description }}</p>
-                        <div class="mt-4 flex justify-center absolute bottom-0 left-0 right-0 p-4">
-                            <a :href="`/eventos/${event.id}`"
-                                class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
-                                Más información
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <EventCard v-for="event in otherEvents" :key="event.id" :image="event.image" :title="event.title"
+                    :description="event.description" :date="event.date" :link="`/eventos/${event.id}`">
+                    <!-- Puedes sobrescribir slots si quieres, por ejemplo el botón
+                    <template #button>
+                        <a :href="`/eventos/${event.id}`"
+                            class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
+                            Más información
+                        </a>
+                    </template>
+-->
+                </EventCard>
             </div>
         </section>
     </AppLayout>
