@@ -1,6 +1,9 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-
+import { ref } from 'vue';
+import { Link } from '@inertiajs/vue3';
+import { CircleUserRound, UserRoundCheck } from 'lucide-vue-next';
+import UserMenuContent from '@/components/UserMenuContent.vue';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 const isMenuOpen = ref(false)
 
 function toggleMenu() {
@@ -26,6 +29,42 @@ function toggleMenu() {
                     <a href="/"><img src="@assets/logo-claro-solo.png" alt="Logo" class="w-45 h-full" /></a>
                 </div>
 
+                <!-- menú escritorio -->
+                <div class="flex items-center space-x-4">
+                    <nav class="hidden md:flex items-center">
+                        <ul class="flex space-x-4">
+                            <li><a href="/about-us" class="text-white hover:text-gray-300">Quienes somos</a></li>
+                            <li><a href="/posts" class="text-white hover:text-gray-300">Eventos</a></li>
+                            <li><a href="#" class="text-white hover:text-gray-300">Aulas</a></li>
+                            <li><a href="#" class="text-white hover:text-gray-300">Nuestra tienda</a></li>
+                            <!--<li><a href="#" class="text-white hover:text-gray-300">Novedades</a></li>-->
+                        </ul>
+                    </nav>
+
+                    <div v-if="$page.props.auth.user" class="relative flex items-center pl-5">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger as-child>
+                                <button
+                                    class="flex flex-col items-center text-white font-bold hover:text-gray-300 focus:outline-none cursor-pointer">
+                                    <UserRoundCheck class="w-7 h-7" />
+                                    {{ $page.props.auth.user.name }}
+                                </button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" class="w-56 mt-2">
+                                <UserMenuContent :user="$page.props.auth.user" />
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
+
+                    <template v-else>
+                        <Link :href="route('login')"
+                            class="flex flex-col justify-center items-center pl-5 py-1.5 leading-normal hover:text-gray-300 text-white font-bold">
+                        <CircleUserRound class="w-7 h-7 inline-block" />
+                        Entrar
+                        </Link>
+                    </template>
+                </div>
+
                 <!-- botón hamburguesa -->
                 <button class="md:hidden focus:outline-none" @click="toggleMenu">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -34,16 +73,7 @@ function toggleMenu() {
                     </svg>
                 </button>
 
-                <!-- menú escritorio -->
-                <nav class="hidden md:flex items-center">
-                    <ul class="flex space-x-4">
-                        <li><a href="/about-us" class="text-white hover:text-gray-300">Quienes somos</a></li>
-                        <li><a href="/posts" class="text-white hover:text-gray-300">Eventos</a></li>
-                        <li><a href="#" class="text-white hover:text-gray-300">Aulas</a></li>
-                        <li><a href="#" class="text-white hover:text-gray-300">Nuestra tienda</a></li>
-                        <li><a href="#" class="text-white hover:text-gray-300">Novedades</a></li>
-                    </ul>
-                </nav>
+
             </div>
         </div>
 
@@ -56,7 +86,7 @@ function toggleMenu() {
                     <li><a href="/events" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
                     <li><a href="" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
                     <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a></li>
-                    <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Novedades</a></li>
+                    <!--<li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Novedades</a></li>-->
                 </ul>
             </nav>
         </transition>

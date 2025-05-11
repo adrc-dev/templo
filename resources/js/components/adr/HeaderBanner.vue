@@ -16,8 +16,8 @@ defineProps({
             <!-- page title -->
             <div
                 class="flex justify-start items-center flex-wrap w-full max-w-[350px] lg:max-w-[500px] ml-auto mb-2 h-full">
-                <div class="text-xl font-bold text-tertiary-color"
-                    style="text-shadow: 1px 1px 4px var(--secondary-color);">{{ pageTitle }}</div>
+                <div class="text-xl font-bold text-gray-300" style="text-shadow: 1px 1px 4px var(--secondary-color);">{{
+                    pageTitle }}</div>
             </div>
             <!-- title -->
             <div class="flex justify-end items-center flex-wrap w-full max-w-[350px] lg:max-w-[500px] ml-auto h-full">
