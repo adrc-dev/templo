@@ -24,7 +24,7 @@ defineProps<Props>();
         <DropdownMenuItem :as-child="true">
             <Link class="block w-full cursor-pointer" :href="route('profile.edit')" as="button">
             <Settings class="mr-2 h-4 w-4" />
-            Configuración
+            Mi cuenta
             </Link>
         </DropdownMenuItem>
     </DropdownMenuGroup>
@@ -32,7 +32,7 @@ defineProps<Props>();
     <DropdownMenuItem :as-child="true">
         <Link class="block w-full cursor-pointer" method="post" :href="route('logout')" as="button">
         <LogOut class="mr-2 h-4 w-4" />
-        Salir
+        Cerrar sesión
         </Link>
     </DropdownMenuItem>
 </template>
