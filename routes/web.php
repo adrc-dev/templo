@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PostController;
 
 //home
 Route::get('/', function () {
@@ -24,6 +25,8 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
+
+Route::resource('posts', PostController::class);
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');

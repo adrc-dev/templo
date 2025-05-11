@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HeaderBanner from '@/components/HeaderBanner.vue';
+import HeaderBanner from '@/components/adr/HeaderBanner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import EventCard from '@/components/EventCard.vue';
+import EventCard from '@/components/adr/EventCard.vue';
 
 import EventsImage from '@assets/eventos-banner.jpg';
 

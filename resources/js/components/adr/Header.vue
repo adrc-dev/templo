@@ -38,7 +38,7 @@ function toggleMenu() {
                 <nav class="hidden md:flex items-center">
                     <ul class="flex space-x-4">
                         <li><a href="/about-us" class="text-white hover:text-gray-300">Quienes somos</a></li>
-                        <li><a href="/events" class="text-white hover:text-gray-300">Eventos</a></li>
+                        <li><a href="/posts" class="text-white hover:text-gray-300">Eventos</a></li>
                         <li><a href="#" class="text-white hover:text-gray-300">Aulas</a></li>
                         <li><a href="#" class="text-white hover:text-gray-300">Nuestra tienda</a></li>
                         <li><a href="#" class="text-white hover:text-gray-300">Novedades</a></li>
