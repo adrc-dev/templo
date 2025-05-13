@@ -22,11 +22,11 @@ const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.locati
 </script>
 
 <template>
-    <div class="px-4 py-6">
+    <div class="px-4 py-6 mx-auto max-w-[1200px] min-h-[100vh] flex flex-col justify-center">
         <Heading :title="`Tashi delek, ${page.props.auth.user.name} ${page.props.auth.user.surname}`"
             description="Aquí podrás gestionar tu información personal." />
 
-        <div class="flex flex-col space-y-8 md:space-y-0 lg:flex-row lg:space-x-12 lg:space-y-0">
+        <div class="flex flex-col mx-auto space-y-8 md:space-y-0 lg:flex-row lg:space-x-12 lg:space-y-0">
             <aside class="w-full max-w-xl lg:w-48">
                 <nav class="flex flex-col space-x-0 space-y-1">
                     <Button v-for="item in sidebarNavItems" :key="item.href" variant="ghost"

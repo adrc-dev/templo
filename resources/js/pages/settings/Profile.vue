@@ -35,13 +35,14 @@ const submit = () => {
 </script>
 
 <template>
-    <AppLayout :breadcrumbs="breadcrumbs">
+    <AppLayout>
 
-        <Head title="Profile settings" />
+        <Head title="Configuración del perfil" />
 
         <SettingsLayout>
-            <div class="flex flex-col space-y-6">
-                <HeadingSmall title="Profile information" description="Update your name and email address" />
+            <div class="space-y-6 w-xl">
+                <HeadingSmall title="Información del perfil"
+                    description="Actualiza tu nombre o tu correo electrónico" />
 
                 <form @submit.prevent="submit" class="space-y-6">
                     <div class="grid gap-2">
@@ -84,7 +85,7 @@ const submit = () => {
 
                         <Transition enter-active-class="transition ease-in-out" enter-from-class="opacity-0"
                             leave-active-class="transition ease-in-out" leave-to-class="opacity-0">
-                            <p v-show="form.recentlySuccessful" class="text-sm text-neutral-600">Saved.</p>
+                            <p v-show="form.recentlySuccessful" class="text-sm text-green-600">Guardado con éxito.</p>
                         </Transition>
                     </div>
                 </form>
