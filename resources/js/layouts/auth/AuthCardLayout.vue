@@ -10,8 +10,9 @@ defineProps<{
 </script>
 
 <template>
-    <div class="flex min-h-svh flex-col items-center justify-center gap-6 bg-tertiary-color p-6 md:p-10">
-        <div class="flex w-full max-w-md flex-col gap-6">
+    <div
+        class="flex min-h-svh flex-col items-center justify-center gap-6 bg-tertiary-color background-container p-6 md:p-10">
+        <div class="flex w-full max-w-md flex-col gap-6 z-10">
             <Link :href="route('home')" class="flex items-center gap-2 self-center font-medium">
             <div class="flex h-40 w-90 items-center justify-center">
                 <AppLogoIcon />

@@ -18,7 +18,7 @@ defineProps<{
     content: "";
     position: fixed;
     top: 0;
-    left: 50%;
+    left: 40%;
     transform: translateX(-50%);
     height: 100%;
     width: 100%;
