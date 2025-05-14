@@ -65,13 +65,14 @@ const submit = () => {
                     </Label>
                 </div>
 
-                <Button type="submit" class="mt-4 w-full bg-secondary-color" :tabindex="4" :disabled="form.processing">
+                <Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="form.processing"
+                    variant="transparent">
                     <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                     Entrar
                 </Button>
             </div>
 
-            <div class="text-center text-sm text-muted-foreground">
+            <div class="text-center text-sm text-white">
                 No tienes una cuenta?
                 <TextLink :href="route('register')" :tabindex="5">Regístrate</TextLink>
             </div>
