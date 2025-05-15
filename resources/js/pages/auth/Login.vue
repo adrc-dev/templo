@@ -30,7 +30,7 @@ const submit = () => {
 <template>
     <AuthBase title="Accede a tu cuenta" description="Inserta tus credenciales para acceder a tu cuenta.">
 
-        <Head title="Entrar" />
+        <Head title="Iniciar session" />
 
         <div v-if="status" class="mb-4 text-center text-sm font-medium text-green-600">
             {{ status }}
