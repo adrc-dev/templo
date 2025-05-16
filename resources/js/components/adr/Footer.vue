@@ -31,11 +31,6 @@ const modalTitle = computed(() => {
                     class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <!-- twitter -->
-                <a href="#" aria-label="Twitter"
-                    class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
                 <!-- instagram -->
                 <a href="#" aria-label="Instagram"
                     class="bg-primary-color text-white rounded-full w-12 h-12 flex items-center justify-center hover:opacity-80 transition">
