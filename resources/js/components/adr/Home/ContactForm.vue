@@ -1,72 +1,90 @@
 <script setup lang="ts">
+import InputError from '@/components/InputError.vue';
+import TextLink from '@/components/TextLink.vue';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { useForm } from '@inertiajs/vue3';
+import { LoaderCircle } from 'lucide-vue-next';
+import { Textarea } from '@/components/ui/textarea';
+import LegalModal from '@/components/adr/LegalModal.vue';
+import { useLegalModal } from '@/composables/useLegalModal';
 
+const { openModal } = useLegalModal();
+
+const form = useForm({
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+    privacy: false,
+});
+
+const submit = () => {
+    form.post(route('contact.send'), {
+        onFinish: () => form.reset('message'),
+    });
+};
 </script>
 
 <template>
     <section id="contact" class="w-full gradient-bg text-white pb-16">
         <div class="relative z-10">
-            <div class="w-[full] max-w-[1200px] mx-auto text-white mb-16">
-                <h2 class="text-4xl font-bold text-center mt-16 tracking-tight">
-                    ¿Tienes alguna duda?
-                </h2>
-                <p class="text-2xl text-center tracking-tight mt-2">
-                    ¡Entra en contacto!
-                </p>
+            <div class="w-full max-w-[1200px] mx-auto text-white mb-16">
+                <h2 class="text-4xl font-bold text-center mt-16 tracking-tight">¿Tienes alguna duda?</h2>
+                <p class="text-2xl text-center tracking-tight mt-2">¡Entra en contacto!</p>
             </div>
 
-
-            <div class="w-full max-w-[1200px] flex flex-row justify-center items-center mt-8 mx-auto">
-
+            <div class="w-full max-w-[1200px] flex justify-center items-center mt-8 mx-auto">
                 <div class="p-4 w-full md:max-w-[80%] lg:max-w-[60%]">
-                    <form>
-                        <label for="name" class="block pl-3 text-base font-medium mb-2">Nombre:</label>
-                        <input type="text" id="name" name="name" required
-                            class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+                    <form @submit.prevent="submit" class="flex flex-col gap-6">
+
+                        <div class="grid gap-2">
+                            <Label for="name">Nombre:</Label>
+                            <Input id="name" v-model="form.name" type="text" required autofocus placeholder="Nombre" />
+                            <InputError :message="form.errors.name" />
+                        </div>
 
                         <div class="md:flex md:space-x-4">
-                            <div class="md:w-1/2">
-                                <label for="phone" class="block pl-3 text-base font-medium mb-2">Teléfono:</label>
-                                <input type="tel" id="phone" name="phone" required
-                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+                            <div class="md:w-1/2 grid gap-2">
+                                <Label for="phone">Teléfono:</Label>
+                                <Input id="phone" v-model="form.phone" type="tel" required placeholder="Teléfono" />
+                                <InputError :message="form.errors.phone" />
                             </div>
-                            <div class="md:w-1/2">
-                                <label for="email" class="block pl-3 text-base font-medium mb-2">Email:</label>
-                                <input type="email" id="email" name="email" required
-                                    class="border border-gray-300 rounded-lg p-2 w-full mb-4">
+
+                            <div class="md:w-1/2 grid gap-2">
+                                <Label for="email">Correo electrónico:</Label>
+                                <Input id="email" v-model="form.email" type="email" required
+                                    placeholder="email@ejemplo.com" />
+                                <InputError :message="form.errors.email" />
                             </div>
                         </div>
 
-                        <label for="message" class="block pl-3 text-base font-medium mb-2">Mensaje:</label>
-                        <textarea id="message" name="message" rows="4" required
-                            class="border border-gray-300 rounded-lg p-2 w-full mb-4"></textarea>
-
-                        <div class="mb-4">
-                            <label for="privacy"
-                                class="flex pl-3 items-center text-base font-medium text-white cursor-pointer">
-                                <input type="checkbox" id="privacy" name="privacy" required class="sr-only peer">
-
-                                <div class="
-                                            mr-2 h-5 w-5 rounded border border-gray-300
-                                            peer-checked:bg-secondary-color peer-checked:border-secondary-color
-                                            flex items-center justify-center
-                                            transition-colors duration-200
-                                            after:content-['✓'] after:text-primary-color after:text-sm after:font-bold
-                                            after:opacity-0 after:transition-opacity
-                                            peer-checked:after:opacity-100
-                                            "></div>
-
-                                <span>
-                                    Al enviar este formulario acepto la
-                                    <a href="#" class="font-bold hover:text-gray-300">Política de
-                                        privacidad</a>.
-                                </span>
-                            </label>
+                        <div class="grid gap-2">
+                            <Label for="message">Mensaje:</Label>
+                            <Textarea id="message" v-model="form.message" :rows="6" placeholder="Escribe tu mensaje..."
+                                required />
+                            <InputError :message="form.errors.message" />
                         </div>
 
-                        <button type="submit"
-                            class="bg-transparent border border-white w-full text-white font-semibold mt-8 py-2 px-4 rounded-lg hover:bg-secondary-color hover:border-secondary-color hover:text-primary-color transition duration-300 cursor-pointer">
+                        <div class="flex items-start space-x-3">
+                            <Checkbox id="privacy" v-model="form.privacy" required />
+                            <Label for="privacy" class="text-base font-medium text-white">
+                                Al enviar este formulario acepto la
+                                <span @click="openModal('privacyPolicy')"
+                                    class="font-bold hover:text-gray-300 cursor-pointer">Política
+                                    de
+                                    privacidad</span>.
+                            </Label>
+                        </div>
+                        <InputError :message="form.errors.privacy" />
+
+                        <Button type="submit" class="mt-2 w-full" :disabled="form.processing || !form.privacy"
+                            variant="transparent">
+                            <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                             Enviar
-                        </button>
+                        </Button>
                     </form>
                 </div>
             </div>
@@ -101,7 +119,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(50, 0, 0, 0.7);
+    background-color: rgba(50, 0, 0, 0.9);
     z-index: 2;
 }
 </style>
