@@ -88,6 +88,15 @@
         --font-sans:
             'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     }
+    .white-shadow-neon {
+        text-shadow:
+            0 0 4px rgba(255, 255, 255, 0.7),
+            0 0 8px rgba(255, 255, 255, 0.6),
+            0 0 16px rgba(255, 255, 255, 0.5);
+    }
+    .white-shadow {
+        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.4);
+    }
 }
 
 :root {

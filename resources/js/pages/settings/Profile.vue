@@ -38,7 +38,6 @@ const submit = () => {
     <AppLayout>
 
         <Head title="Configuración del perfil" />
-
         <SettingsLayout>
             <div class="space-y-6 w-xl">
                 <HeadingSmall title="Información del perfil"

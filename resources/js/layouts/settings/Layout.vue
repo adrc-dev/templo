@@ -22,29 +22,33 @@ const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.locati
 </script>
 
 <template>
-    <div class="px-4 py-6 mx-auto max-w-[1200px] min-h-[100vh] flex flex-col justify-center">
-        <Heading :title="`Tashi delek, ${page.props.auth.user.name} ${page.props.auth.user.surname}`"
-            description="Aquí podrás gestionar tu información personal." />
+    <div class="bg-tertiary-color/80">
+        <div class="px-4 py-6 mx-auto max-w-[1200px] min-h-[80vh] flex flex-col justify-center">
+            <Heading :title="`Tashi delek, ${page.props.auth.user.name} ${page.props.auth.user.surname}`"
+                description="Aquí podrás gestionar tu información personal." />
 
-        <div class="flex flex-col mx-auto space-y-8 md:space-y-0 lg:flex-row lg:space-x-12 lg:space-y-0">
-            <aside class="w-full max-w-xl lg:w-48">
-                <nav class="flex flex-col space-x-0 space-y-1">
-                    <Button v-for="item in sidebarNavItems" :key="item.href" variant="ghost"
-                        :class="['w-full justify-start', { 'bg-muted': currentPath === item.href }]" as-child>
-                        <Link :href="item.href">
-                        {{ item.title }}
-                        </Link>
-                    </Button>
-                </nav>
-            </aside>
+            <div class="flex flex-col mx-auto space-y-8 md:space-y-0 lg:flex-row lg:space-x-12 lg:space-y-0">
+                <aside class="w-full max-w-xl lg:w-48">
+                    <nav class="flex flex-col space-x-0 space-y-1">
+                        <Button v-for="item in sidebarNavItems" :key="item.href" variant="transparent"
+                            :class="['w-full justify-start', { 'bg-primary-color border-primary-color text-secondary-color': currentPath === item.href }]"
+                            as-child>
+                            <Link :href="item.href">
+                            {{ item.title }}
+                            </Link>
+                        </Button>
+                    </nav>
+                </aside>
 
-            <Separator class="my-6 md:hidden" />
+                <Separator class="my-6 md:hidden" />
 
-            <div class="flex-1 md:max-w-2xl">
-                <section class="max-w-xl space-y-12">
-                    <slot />
-                </section>
+                <div class="flex-1 md:max-w-2xl">
+                    <section class="max-w-xl space-y-12">
+                        <slot />
+                    </section>
+                </div>
             </div>
         </div>
+
     </div>
 </template>

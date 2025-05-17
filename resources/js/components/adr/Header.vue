@@ -4,6 +4,7 @@ import { Link } from '@inertiajs/vue3';
 import { CircleUserRound, UserRoundCheck } from 'lucide-vue-next';
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
+import TextLink from '../TextLink.vue';
 const isMenuOpen = ref(false)
 
 function toggleMenu() {
@@ -15,7 +16,7 @@ function toggleMenu() {
     <header class="z-20">
         <!-- barra superior -->
         <div class="py-1 bg-secondary-color w-full">
-            <div class="flex items-center text-primary-color justify-between w-full mx-auto px-8">
+            <div class="flex items-center text-primary-color justify-between w-full max-w-[1512px] mx-auto px-8">
                 <div><a href="/contact" class="hover:text-tertiary-color">Entrar en contacto</a></div>
                 <div><a href="#" class="hover:text-tertiary-color">¡Hazte socio!</a></div>
             </div>
@@ -23,18 +24,23 @@ function toggleMenu() {
 
         <!-- barra principal -->
         <div class="w-full bg-primary-color h-[100px] flex items-center">
-            <div class="w-full flex justify-between items-center mx-auto px-8 py-2 text-white">
+            <div class="w-full max-w-[1512px] flex justify-between items-center mx-auto px-8 py-2 text-white">
                 <!-- logo -->
                 <div class="flex items-center">
-                    <a href="/"><img src="@assets/logo-claro-solo.png" alt="Logo" class="w-45 h-full" /></a>
+                    <Link :href="route('home')" preserve-scroll><img src="@assets/logo-claro-solo.png" alt="Logo"
+                        class="w-45 h-full" /></Link>
                 </div>
 
                 <!-- menú escritorio -->
                 <div class="flex items-center space-x-4">
                     <nav class="hidden md:flex items-center">
                         <ul class="flex space-x-4">
-                            <li><a href="/about-us" class="text-white hover:text-gray-300">Quienes somos</a></li>
-                            <li><a href="/posts" class="text-white hover:text-gray-300">Eventos</a></li>
+                            <li>
+                                <TextLink :href="route('about-us')" class="font-normal">Quienes somos</TextLink>
+                            </li>
+                            <li>
+                                <TextLink :href="route('posts.index')" class="font-normal">Eventos</TextLink>
+                            </li>
                             <li><a href="#" class="text-white hover:text-gray-300">Aulas</a></li>
                             <li><a href="#" class="text-white hover:text-gray-300">Nuestra tienda</a></li>
                             <!--<li><a href="#" class="text-white hover:text-gray-300">Novedades</a></li>-->
