@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import { Head } from '@inertiajs/vue3';
+
 defineProps({
     imageUrl: String,
     pageTitle: String
 })
 </script>
 <template>
+
+    <Head :title="pageTitle" />
+
     <div class="w-full mx-auto min-h-[400px] bg-cover bg-center relative"
         :style="{ backgroundImage: `url(${imageUrl})` }">
         <!-- degradado -->
