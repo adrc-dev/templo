@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PostController;
+use App\Http\Middleware\RoleMiddleware;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 //home
 Route::get('/', function () {
@@ -28,9 +31,12 @@ Route::get('/contact', function () {
 
 Route::resource('posts', PostController::class);
 
-Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])
+    ->patch('/users/{user}/role', [UserController::class, 'updateRole']);
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

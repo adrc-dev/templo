@@ -13,7 +13,7 @@ defineProps<Props>();
 </script>
 
 <template>
-    <DropdownMenuItem v-if="user.role === 'admin'" :as-child="true">
+    <DropdownMenuItem v-if="user.role === 'admin' || user.role === 'operator'" :as-child="true">
         <Link class="block w-full cursor-pointer" :href="route('dashboard')" as="button">
         <UserSearch class="mr-2 h-4 w-4" />
         <UserInfo :user="user" :show-email="false" class="mr-2 h-4 w-4" />
