@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Carbon;
 
 class UserController extends Controller
 {
@@ -30,6 +31,36 @@ class UserController extends Controller
         $user->update(['role' => $request->role]);
 
         return back()->with('message', 'Rol actualizado correctamente.');
+    }
+
+    public function activateMembership(User $user)
+    {
+        $member = $user->memberships()->where('status', 'pending')->latest()->first();
+
+        if (!$member) {
+            return response()->json(['error' => 'No se encontró comprobante.'], 404);
+        }
+
+        // Cambiar estado del comprobante
+        $member->status = 'active';
+        $member->save();
+
+        // Si ya tiene membresía activa, sumamos 30 días desde la fecha actual de expiración
+        $now = Carbon::now();
+
+        if ($user->membership_expires_at && $user->membership_expires_at->isFuture()) {
+            $user->membership_expires_at = Carbon::parse($user->membership_expires_at)->addDays(30);
+        } else {
+            $user->membership_expires_at = $now->addDays(30);
+        }
+
+        $user->role = 'socio';
+        $user->save();
+
+        return response()->json([
+            'message' => 'Sociedad activada por 30 días.',
+            'expires_at' => $user->membership_expires_at,
+        ]);
     }
 
     public function destroy(User $user)

@@ -45,5 +45,7 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])
 
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('can:delete,user');
 
+Route::post('/admin/users/{user}/activate-membership', [UserController::class, 'activateMembership'])->middleware('auth');
+
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

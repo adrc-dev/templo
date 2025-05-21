@@ -3,8 +3,9 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import Heading from '@/components/Heading.vue';
 import { usePage, router, Head } from '@inertiajs/vue3';
 import FlashMassage from '@/components/FlashMassage.vue';
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 import { SquareX } from 'lucide-vue-next';
+import axios from 'axios'
 
 const search = ref('');
 watch(search, (value) => {
@@ -49,6 +50,27 @@ function formatToSpanishDateTime(isoDate) {
         minute: '2-digit',
     });
 }
+
+async function activateMembership(userId) {
+    try {
+        const response = await axios.post(`/admin/users/${userId}/activate-membership`)
+        alert(response.data.message)
+        showModal.value = false
+        // Opcional: recargar usuarios
+        window.location.reload()
+    } catch (error) {
+        alert('Hubo un error al activar la membresía.')
+    }
+}
+const pendingMemberships = computed(() => {
+    return selectedUser.value?.memberships?.filter(m => m.status === 'pending') || [];
+});
+const activeMemberships = computed(() => {
+    return selectedUser.value?.memberships?.filter(m => m.status === 'active') || [];
+});
+const expiredMemberships = computed(() => {
+    return selectedUser.value?.memberships?.filter(m => m.status === 'expired') || [];
+});
 </script>
 
 <template>
@@ -108,8 +130,8 @@ function formatToSpanishDateTime(isoDate) {
                     </td>
 
                     <td class="p-2">
-                        <button v-if="user.members.length" @click="openModal(user)" class="text-blue-600 underline">
-                            Ver ({{ user.members.length }})
+                        <button v-if="user.memberships.length" @click="openModal(user)" class="text-blue-600 underline">
+                            Ver ({{user.memberships.filter(m => m.status === 'pending').length}})
                         </button>
                         <span v-else class="text-gray-400 italic">No enviado</span>
                     </td>
@@ -144,14 +166,50 @@ function formatToSpanishDateTime(isoDate) {
                     class="absolute top-2 right-2 text-gray-600 hover:text-black">&times;</button>
                 <h2 class="text-lg font-semibold mb-4">Comprobantes de {{ selectedUser.name }} {{ selectedUser.surname
                     }}</h2>
-                <div v-for="(member) in selectedUser.members" :key="member.id" class="mb-4">
-                    <div class="mb-1 text-sm text-gray-600"># {{
-                        formatToSpanishDateTime(member.created_at) }}
+                <!-- PENDING -->
+                <div v-if="pendingMemberships.length">
+                    <h3 class="text-base font-semibold mb-2">⏳ Pendientes</h3>
+                    <div v-for="member in pendingMemberships" :key="member.id" class="mb-4">
+                        <div class="mb-1 text-sm text-gray-600">
+                            # {{ formatToSpanishDateTime(member.created_at) }}
+                        </div>
+                        <a :href="`/storage/${member.payment_proof_path}`" target="_blank"
+                            class="block border p-2 rounded hover:bg-gray-100 text-blue-600 underline">
+                            Ver comprobante
+                        </a>
+                        <button @click="activateMembership(selectedUser.id)"
+                            class="mt-2 bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+                            Activar membresía 30 días
+                        </button>
                     </div>
-                    <a :href="`/storage/${member.payment_proof_path}`" target="_blank"
-                        class="block border p-2 rounded hover:bg-gray-100 text-blue-600 underline">
-                        Ver comprobante
-                    </a>
+                </div>
+
+                <!-- ACTIVE -->
+                <div v-if="activeMemberships.length">
+                    <h3 class="text-base font-semibold mb-2">✅ Activas</h3>
+                    <div v-for="member in activeMemberships" :key="member.id" class="mb-4">
+                        <div class="mb-1 text-sm text-gray-600">
+                            # {{ formatToSpanishDateTime(member.created_at) }}
+                        </div>
+                        <a :href="`/storage/${member.payment_proof_path}`" target="_blank"
+                            class="block border p-2 rounded hover:bg-gray-100 text-green-600 underline">
+                            Ver comprobante
+                        </a>
+                    </div>
+                </div>
+
+                <!-- EXPIRED -->
+                <div v-if="expiredMemberships.length">
+                    <h3 class="text-base font-semibold mb-2">📅 Expiradas</h3>
+                    <div v-for="member in expiredMemberships" :key="member.id" class="mb-4">
+                        <div class="mb-1 text-sm text-gray-600">
+                            # {{ formatToSpanishDateTime(member.created_at) }}
+                        </div>
+                        <a :href="`/storage/${member.payment_proof_path}`" target="_blank"
+                            class="block border p-2 rounded hover:bg-gray-100 text-gray-600 underline">
+                            Ver comprobante
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
