@@ -46,8 +46,6 @@ function formatToSpanishDateTime(isoDate) {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
     });
 }
 
@@ -56,7 +54,6 @@ async function activateMembership(userId) {
         const response = await axios.post(`/admin/users/${userId}/activate-membership`)
         alert(response.data.message)
         showModal.value = false
-        // Opcional: recargar usuarios
         window.location.reload()
     } catch (error) {
         alert('Hubo un error al activar la membresía.')
@@ -165,7 +162,7 @@ const expiredMemberships = computed(() => {
                 <button @click="showModal = false"
                     class="absolute top-2 right-2 text-gray-600 hover:text-black">&times;</button>
                 <h2 class="text-lg font-semibold mb-4">Comprobantes de {{ selectedUser.name }} {{ selectedUser.surname
-                    }}</h2>
+                }}</h2>
                 <!-- PENDING -->
                 <div v-if="pendingMemberships.length">
                     <h3 class="text-base font-semibold mb-2">⏳ Pendientes</h3>
@@ -187,6 +184,9 @@ const expiredMemberships = computed(() => {
                 <!-- ACTIVE -->
                 <div v-if="activeMemberships.length">
                     <h3 class="text-base font-semibold mb-2">✅ Activas</h3>
+                    <div class="mb-1 text-sm text-gray-600">
+                        Socio hasta {{ formatToSpanishDateTime(selectedUser.membership_expires_at) }}
+                    </div>
                     <div v-for="member in activeMemberships" :key="member.id" class="mb-4">
                         <div class="mb-1 text-sm text-gray-600">
                             # {{ formatToSpanishDateTime(member.created_at) }}
