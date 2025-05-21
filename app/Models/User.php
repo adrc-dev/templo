@@ -24,12 +24,17 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'surname',
+        'phone',
         'email',
         'password',
         'role',
     ];
 
-    public function members()
+    protected $casts = [
+        'membership_expires_at' => 'datetime',
+    ];
+
+    public function memberships()
     {
         return $this->hasMany(Member::class);
     }
