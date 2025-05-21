@@ -38,5 +38,7 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(fu
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])
     ->patch('/users/{user}/role', [UserController::class, 'updateRole']);
 
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('can:delete,user');
+
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

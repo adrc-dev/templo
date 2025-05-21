@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
 
-import DeleteUser from '@/components/DeleteUser.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
@@ -9,7 +8,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import { type BreadcrumbItem, type SharedData, type User } from '@/types';
 
 interface Props {
     mustVerifyEmail: boolean;
@@ -23,7 +21,7 @@ const user = page.props.auth.user as User;
 
 const form = useForm({
     name: user.name,
-    surname: user.name,
+    surname: user.surname,
     email: user.email,
 });
 
@@ -35,9 +33,11 @@ const submit = () => {
 </script>
 
 <template>
+
+    <Head title="Configuración del perfil" />
+
     <AppLayout>
 
-        <Head title="Configuración del perfil" />
         <SettingsLayout>
             <div class="space-y-6 w-xl">
                 <HeadingSmall title="Información del perfil"
