@@ -18,7 +18,7 @@ function toggleMenu() {
         <div class="py-1 bg-secondary-color w-full">
             <div class="flex items-center text-primary-color justify-between w-full max-w-[1512px] mx-auto px-8">
                 <div><a href="/contact" class="hover:text-tertiary-color">Entrar en contacto</a></div>
-                <TextLink :href="route('socio.create')"
+                <TextLink :href="route('member.create')"
                     class="text-primary-color hover:text-tertiary-color font-normal">¡Hazte socio!</TextLink>
             </div>
         </div>

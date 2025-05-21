@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MemberController;
 
 //home
 Route::get('/', function () {
@@ -28,6 +29,10 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/hazte-socio', [MemberController::class, 'create'])->name('member.create');
+    Route::post('/hazte-socio', [MemberController::class, 'store'])->name('member.store');
+});
 
 Route::resource('posts', PostController::class);
 

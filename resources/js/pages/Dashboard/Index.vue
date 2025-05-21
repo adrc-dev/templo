@@ -30,7 +30,25 @@ defineProps(['users', 'authRole'])
 const page = usePage();
 const auth = page.props.auth;
 
+const showModal = ref(false);
+const selectedUser = ref(null);
 
+function openModal(user) {
+    selectedUser.value = user;
+    showModal.value = true;
+}
+
+function formatToSpanishDateTime(isoDate) {
+    const date = new Date(isoDate);
+    return date.toLocaleString('es-ES', {
+        timeZone: 'Europe/Madrid',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+    });
+}
 </script>
 
 <template>
@@ -62,6 +80,7 @@ const auth = page.props.auth;
                     <th class="p-2">Nombre</th>
                     <th class="p-2">Email</th>
                     <th class="p-2">Rol</th>
+                    <th class="p-2">Comprobante</th>
                     <th v-if="authRole === 'admin'" class="p-2">Borrar usuarios</th>
                 </tr>
             </thead>
@@ -76,6 +95,7 @@ const auth = page.props.auth;
                     <td class="p-2">{{ user.id }}</td>
                     <td class="p-2">{{ user.name }} {{ user.surname }}</td>
                     <td class="p-2">{{ user.email }}</td>
+
                     <td class="p-2" v-if="authRole === 'admin' || authRole === 'operator'">
                         <span v-if="user.role === 'admin' || (authRole === 'operator' && user.role === 'operator')">
                             {{ user.role }}
@@ -86,6 +106,14 @@ const auth = page.props.auth;
                             <option v-if="authRole === 'admin'" value="operator">Operator</option>
                         </select>
                     </td>
+
+                    <td class="p-2">
+                        <button v-if="user.members.length" @click="openModal(user)" class="text-blue-600 underline">
+                            Ver ({{ user.members.length }})
+                        </button>
+                        <span v-else class="text-gray-400 italic">No enviado</span>
+                    </td>
+
                     <td v-if="authRole === 'admin'" class="p-2">
                         <button v-if="user.id !== auth.user.id" @click="deleteUser(user.id)"
                             class="text-red-600 hover:text-red-800 cursor-pointer">
@@ -107,6 +135,25 @@ const auth = page.props.auth;
                 <span v-else class="px-3 py-1 border rounded-full text-sm text-gray-400 cursor-not-allowed"
                     v-html="link.label" />
             </template>
+        </div>
+
+        <!-- Modal -->
+        <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto relative">
+                <button @click="showModal = false"
+                    class="absolute top-2 right-2 text-gray-600 hover:text-black">&times;</button>
+                <h2 class="text-lg font-semibold mb-4">Comprobantes de {{ selectedUser.name }} {{ selectedUser.surname
+                    }}</h2>
+                <div v-for="(member) in selectedUser.members" :key="member.id" class="mb-4">
+                    <div class="mb-1 text-sm text-gray-600"># {{
+                        formatToSpanishDateTime(member.created_at) }}
+                    </div>
+                    <a :href="`/storage/${member.payment_proof_path}`" target="_blank"
+                        class="block border p-2 rounded hover:bg-gray-100 text-blue-600 underline">
+                        Ver comprobante
+                    </a>
+                </div>
+            </div>
         </div>
     </AppLayout>
 </template>

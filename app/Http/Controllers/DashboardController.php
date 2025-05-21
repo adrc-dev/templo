@@ -22,6 +22,7 @@ class DashboardController extends Controller
         }
 
         $users = $query
+            ->with('members')
             ->orderBy('id', 'asc')
             ->paginate(25)
             ->withQueryString();
