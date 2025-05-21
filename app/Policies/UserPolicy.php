@@ -7,20 +7,42 @@ use Illuminate\Auth\Access\Response;
 
 class UserPolicy
 {
-    public function changeRole(User $authUser, User $targetUser): bool
+    public function changeRole(User $authUser, User $targetUser, string $newRole): bool
     {
-        if ($authUser->isAdmin()) {
-            // admin puede asignar cualquier rol
-            return true;
+        // No puede cambiarse a sí mismo si es admin
+        if ($authUser->id === $targetUser->id && $authUser->role === User::ROLE_ADMIN) {
+            return false;
         }
 
-        if ($authUser->isOperator()) {
-            // operator solo puede hacer socios
-            return $targetUser->role === User::ROLE_USER;
+        // Operador no puede modificar admins ni otros operadores
+        if ($authUser->role === User::ROLE_OPERATOR) {
+            if (in_array($targetUser->role, [User::ROLE_ADMIN, User::ROLE_OPERATOR])) {
+                return false;
+            }
+
+            // operador solo puede asignar rol 'socio' o 'user'
+            return in_array($newRole, [User::ROLE_SOCIO, User::ROLE_USER]);
         }
 
-        return false;
+        // Solo admin puede cambiar el rol de otro admin
+        if ($targetUser->role === User::ROLE_ADMIN && $authUser->role !== User::ROLE_ADMIN) {
+            return false;
+        }
+
+        return true;
     }
+
+    public function delete(User $authUser, User $user): bool
+    {
+        // Un admin no puede borrarse a sí mismo
+        if ($authUser->id === $user->id) {
+            return false;
+        }
+
+        // Solo los admins pueden borrar usuarios (que no sean ellos mismos)
+        return $authUser->role === User::ROLE_ADMIN;
+    }
+
     /**
      * Determine whether the user can view any models.
      */
@@ -49,14 +71,6 @@ class UserPolicy
      * Determine whether the user can update the model.
      */
     public function update(User $user, User $model): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, User $model): bool
     {
         return false;
     }
