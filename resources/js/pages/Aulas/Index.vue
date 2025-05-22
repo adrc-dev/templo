@@ -15,8 +15,8 @@ defineProps<{
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Aulas</h2>
 
+            <!-- free -->
             <h3 class="text-2xl font-semibold mb-6 text-green-700">Contenido gratuito</h3>
-            <!-- Vídeos gratuitos -->
             <div v-if="freeVideos && freeVideos.data && freeVideos.data.length" class="space-y-8 mb-12">
                 <article v-for="video in freeVideos.data" :key="video.id"
                     class="md:h-94 grid md:grid-cols-2 border border-gray-300 rounded-lg overflow-hidden shadow-sm">
@@ -33,7 +33,6 @@ defineProps<{
                     </div>
                 </article>
 
-                <!-- Paginación para gratuitos -->
                 <div class="mt-6 flex justify-center gap-2">
                     <button v-if="freeVideos.prev_page_url" @click="$inertia.visit(freeVideos.prev_page_url)"
                         class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Anterior</button>
@@ -64,7 +63,6 @@ defineProps<{
                         </div>
                     </article>
 
-                    <!-- Paginación para gratuitos -->
                     <div class="mt-6 flex justify-center gap-2">
                         <button v-if="premiumVideos.prev_page_url" @click="$inertia.visit(premiumVideos.prev_page_url)"
                             class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Anterior</button>
