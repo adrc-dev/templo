@@ -2,6 +2,10 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import HeaderBanner from '@/components/adr/HeaderBanner.vue';
 import AulasImage from '@assets/banner-aulas.png';
+import { usePage } from '@inertiajs/vue3';
+
+const page = usePage();
+const user = page.props.auth.user;
 
 defineProps<{
     freeVideos: any,
@@ -14,6 +18,13 @@ defineProps<{
         <HeaderBanner :imageUrl="AulasImage" pageTitle="Aulas" />
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Aulas</h2>
+            <div class="mt-12 flex justify-end">
+                <button v-if="user && (user.role === 'admin' || user.role === 'operator')"
+                    @click="$inertia.visit('/videos')"
+                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                    Administrar videos
+                </button>
+            </div>
 
             <!-- free -->
             <h3 class="text-2xl font-semibold mb-6 text-green-700">Contenido gratuito</h3>
