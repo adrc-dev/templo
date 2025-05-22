@@ -41,7 +41,7 @@ function submit() {
             </div>
 
             <div class="w-full mx-auto grid md:grid-cols-2 gap-6 items-stretch mb-20">
-                <div class="bg-secondary-color/20 px-16 py-6 rounded-lg mb-8 max-w-2xl mx-auto h-full">
+                <div class="bg-secondary-color/20 px-6 lg:px-16 py-6 rounded-lg mb-8 max-w-2xl mx-auto h-full">
                     <h3 class="text-2xl font-semibold text-primary-color mb-4">Opciones de pago</h3>
 
                     <div class="space-y-6 text-primary-color">
@@ -65,7 +65,7 @@ function submit() {
                 </div>
 
                 <div
-                    class="max-w-xl mx-auto bg-primary-color px-16 py-6 rounded-lg shadow-lg h-full flex flex-col justify-center">
+                    class="max-w-xl mx-auto bg-primary-color px-6 lg:px-16 py-6 rounded-lg shadow-lg h-full flex flex-col justify-center">
                     <p class="mb-10 text-white">
                         Envía una imagen o PDF del comprobante de pago. El equipo validará manualmente tu solicitud y
                         activará

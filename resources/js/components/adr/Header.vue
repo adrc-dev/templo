@@ -20,7 +20,8 @@ function toggleMenu() {
                 <div>
                     <TextLink :href="route('contact')" class="text-primary-color hover:text-tertiary-color font-normal">
                         Entrar en contacto</TextLink>
-                    <a href="https://wa.me/5511989964269" class="text-white hover:text-tertiary-color ml-10">+55 11
+                    <a href="https://wa.me/5511989964269"
+                        class="text-white hover:text-tertiary-color ml-10 hidden md:inline-block">+55 11
                         98996-4269</a>
                 </div>
                 <TextLink :href="route('member.create')"
