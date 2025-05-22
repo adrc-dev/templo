@@ -17,7 +17,12 @@ function toggleMenu() {
         <!-- barra superior -->
         <div class="py-1 bg-secondary-color w-full">
             <div class="flex items-center text-primary-color justify-between w-full max-w-[1512px] mx-auto px-8">
-                <div><a href="/contact" class="hover:text-tertiary-color">Entrar en contacto</a></div>
+                <div>
+                    <TextLink :href="route('contact')" class="text-primary-color hover:text-tertiary-color font-normal">
+                        Entrar en contacto</TextLink>
+                    <a href="https://wa.me/5511989964269" class="text-white hover:text-tertiary-color ml-10">+55 11
+                        98996-4269</a>
+                </div>
                 <TextLink :href="route('member.create')"
                     class="text-primary-color hover:text-tertiary-color font-normal">¡Hazte socio!</TextLink>
             </div>
