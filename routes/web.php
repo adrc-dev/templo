@@ -7,45 +7,60 @@ use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\AulaController;
 
-//home
+// home
 Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
-//about us
+// quienes somos
 Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 })->name('about-us');
 
-//events
+// eventos?
 Route::get('/events', function () {
     return Inertia::render('Events');
 })->name('events');
 
-//contact
+//contacto
 Route::get('/contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
 
-
+// hacerse socio
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/hazte-socio', [MemberController::class, 'create'])->name('member.create');
     Route::post('/hazte-socio', [MemberController::class, 'store'])->name('member.store');
 });
 
+// eventos?
 Route::resource('posts', PostController::class);
 
+// dashboard
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
+// cambiar rol de usuario
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])
     ->patch('/users/{user}/role', [UserController::class, 'updateRole']);
 
+// borrar usuarios
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('can:delete,user');
 
+// activar socio
 Route::post('/admin/users/{user}/activate-membership', [UserController::class, 'activateMembership'])->middleware('auth');
+
+// aulas
+Route::middleware(['auth'])->group(function () {
+    Route::get('/aulas', [AulaController::class, 'index'])->name('aulas.index');
+});
+
+Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
+    Route::resource('videos', \App\Http\Controllers\VideoController::class)->except(['show']);
+});
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

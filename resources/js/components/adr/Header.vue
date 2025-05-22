@@ -48,7 +48,9 @@ function toggleMenu() {
                             <li>
                                 <TextLink :href="route('posts.index')" class="font-normal">Eventos</TextLink>
                             </li>
-                            <li><a href="#" class="text-white hover:text-gray-300">Aulas</a></li>
+                            <li>
+                                <TextLink :href="route('aulas.index')" class="font-normal">Aulas</TextLink>
+                            </li>
                             <li><a href="#" class="text-white hover:text-gray-300">Nuestra tienda</a></li>
                             <!--<li><a href="#" class="text-white hover:text-gray-300">Novedades</a></li>-->
                         </ul>
