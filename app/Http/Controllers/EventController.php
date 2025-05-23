@@ -29,6 +29,7 @@ class EventController extends Controller
             'event' => $event,
             'isSubscribed' => Auth::check() && $event->registeredUsers()->where('user_id', Auth::id())->exists(),
             'userRole' => Auth::check() ? Auth::user()->role : null,
+            'suscribeCount' => $event->registeredUsers->count(),
         ]);
     }
 
@@ -39,7 +40,7 @@ class EventController extends Controller
         return Inertia::render('Events/Attendees', [
             'event' => $event,
             'inscritos' => $event->registeredUsers,
-            'inscritosCount' => $event->registeredUsers->count(),
+            'suscribeCount' => $event->registeredUsers->count(),
         ]);
     }
 }

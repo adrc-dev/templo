@@ -6,7 +6,7 @@ import { router } from '@inertiajs/vue3';
 import { Button } from '@/components/ui/button';
 import FlashMassage from '@/components/FlashMassage.vue';
 
-const { event, isSubscribed, userRole } = defineProps<{
+const { event, isSubscribed, userRole, suscribeCount } = defineProps<{
     event: {
         id: number
         title: string
@@ -27,6 +27,7 @@ const { event, isSubscribed, userRole } = defineProps<{
     },
     isSubscribed: boolean,
     userRole: string | null,
+    suscribeCount: number,
 }>()
 
 function subscribe() {
@@ -50,13 +51,6 @@ function unsubscribe() {
             <HeaderBanner :imageUrl="event.featured_image" :pageTitle="event.title" class="bg-primary-color/50" />
         </div>
         <section class="w-full px-4 max-w-[1200px] mx-auto">
-            <!-- boton admin -->
-            <div v-if="userRole === 'admin' || userRole === 'operator'" class="mb-6 text-center">
-                <Link :href="`/events/${event.id}/attendees`"
-                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-20">
-                Ver inscritos
-                </Link>
-            </div>
 
             <img :src="event.featured_image" alt="Evento fijo"
                 class="w-full max-h-[600px] object-cover rounded-xl shadow-lg mt-6 md:mt-20" />
@@ -108,10 +102,25 @@ function unsubscribe() {
 
                 <!-- Botones de inscribirse y desinscribirse -->
                 <div>
-                    <Button v-if="!isSubscribed" @click="subscribe"
+                    <!-- botón admin -->
+                    <div v-if="userRole === 'admin' || userRole === 'operator'"
+                        class="mb-6 text-center relative mx-auto block">
+                        <Link :href="`/events/${event.slug}/attendees`"
+                            class="relative inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                        Ver inscritos
+
+                        <span v-if="suscribeCount > 0"
+                            class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg">
+                            {{ suscribeCount }}
+                        </span>
+                        </Link>
+                    </div>
+
+                    <Button v-else-if="!isSubscribed" @click="subscribe"
                         class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mx-auto block">
                         Inscribirme
                     </Button>
+
                     <Button v-else class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 mx-auto block"
                         @click="unsubscribe">
                         Desinscribirme

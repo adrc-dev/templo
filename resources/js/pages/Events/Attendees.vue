@@ -16,7 +16,7 @@ defineProps<{
         }
         created_at: string
     }[],
-    inscritosCount: number
+    suscribeCount: number
 }>()
 </script>
 
@@ -24,7 +24,7 @@ defineProps<{
     <AppLayout>
         <section class="max-w-[1200px] mx-auto px-4 py-10">
             <h1 class="text-3xl font-bold text-primary-color mb-6">
-                Hay {{ inscritosCount }} inscritos en {{ event.title }}
+                Hay {{ suscribeCount }} inscritos en {{ event.title }}
             </h1>
 
             <table class="w-full border border-gray-200 rounded shadow-md">

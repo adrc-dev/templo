@@ -36,7 +36,7 @@ Route::delete('/events/{event:slug}/unsubscribe', [EventRegistrationController::
 
 // eventos admin
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
-    Route::get('events/{event}/attendees', [EventController::class, 'attendees'])
+    Route::get('events/{event:slug}/attendees', [EventController::class, 'attendees'])
         ->name('admin.events.attendees');
 });
 
