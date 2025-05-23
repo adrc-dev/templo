@@ -2,17 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\AulaController;
+use App\Http\Controllers\EventController;
 
 // home
-Route::get('/', function () {
-    return Inertia::render('Home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // quienes somos
 Route::get('/about-us', function () {
@@ -20,9 +20,8 @@ Route::get('/about-us', function () {
 })->name('about-us');
 
 // eventos?
-Route::get('/events', function () {
-    return Inertia::render('Events');
-})->name('events');
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
 
 //contacto
 Route::get('/contact', function () {
@@ -57,7 +56,7 @@ Route::post('/admin/users/{user}/activate-membership', [UserController::class, '
 Route::middleware(['auth'])->group(function () {
     Route::get('/aulas', [AulaController::class, 'index'])->name('aulas.index');
 });
-
+// administrador videos
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
     Route::resource('videos', \App\Http\Controllers\VideoController::class)->except(['show']);
 });
