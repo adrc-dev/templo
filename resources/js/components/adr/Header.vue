@@ -99,7 +99,7 @@ function toggleMenu() {
                 <ul class="flex flex-col space-y-2">
                     <li><a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">Quienes somos</a></li>
                     <li><a href="/events" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
-                    <li><a href="" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
+                    <li><a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
                     <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a></li>
                     <!--<li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Novedades</a></li>-->
                 </ul>

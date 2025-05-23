@@ -7,11 +7,13 @@ import ContactImage from '@assets/contacto-banner.png';
 
 <template>
     <AppLayout>
-        <HeaderBanner :imageUrl="ContactImage" pageTitle="Contacto" />
+        <div class="hidden md:block">
+            <HeaderBanner :imageUrl="ContactImage" pageTitle="Contacto" />
+        </div>
 
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Contacto</h2>
-            <div class="flex mb-10">
+            <div class="flex flex-col md:flex-row mb-20">
                 <!-- Mapa -->
                 <div class="">
                     <img src="@assets/mapa-contacto1.jpeg" alt="Mapa con Barcelona y São Paulo"
@@ -19,7 +21,7 @@ import ContactImage from '@assets/contacto-banner.png';
                 </div>
 
                 <!-- Texto de presentación -->
-                <div class="py-4 ml-4 w-1/3 text-lg flex flex-col justify-between">
+                <div class="py-4 md:ml-4 w-full md:w-1/3 text-lg flex flex-col justify-between">
                     <p class="text-primary-color">
                         ¿Tienes alguna pregunta, deseas participar en nuestras actividades o simplemente quieres
                         conocernos
