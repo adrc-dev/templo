@@ -31,4 +31,9 @@ class Event extends Model
         'event_end_time' => 'datetime:H:i',
         'is_active' => 'boolean',
     ];
+
+    public function registeredUsers()
+    {
+        return $this->belongsToMany(User::class, 'event_registrations')->withTimestamps();
+    }
 }

@@ -39,6 +39,11 @@ class User extends Authenticatable
         return $this->hasMany(Member::class);
     }
 
+    public function eventRegistrations()
+    {
+        return $this->belongsToMany(Event::class, 'event_registrations')->withTimestamps();
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

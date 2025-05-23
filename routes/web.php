@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventRegistrationController;
 
 // home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -19,9 +20,25 @@ Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 })->name('about-us');
 
-// eventos?
+// eventos
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
+
+// eventos inscripciones
+Route::post('/events/{event:slug}/register', [EventRegistrationController::class, 'store'])
+    ->middleware(['auth'])
+    ->name('event.register');
+
+// eventos desinscripciones
+Route::delete('/events/{event:slug}/unsubscribe', [EventRegistrationController::class, 'destroy'])
+    ->middleware(['auth'])
+    ->name('event.unsubscribe');
+
+// eventos admin
+Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
+    Route::get('events/{event}/attendees', [EventController::class, 'attendees'])
+        ->name('admin.events.attendees');
+});
 
 //contacto
 Route::get('/contact', function () {
