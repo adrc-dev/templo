@@ -14,7 +14,7 @@ const formattedDate = props.date ? new Date(props.date).toLocaleDateString() : '
 <template>
     <div
         class="bg-amber-50 shadow-lg rounded-xl overflow-hidden hover:shadow-md transition pb-16 relative min-h-[450px]">
-        <img :src="image" :alt="alt || 'Imagen de evento'" class="w-full h-40 object-cover" />
+        <img :src="image" :alt="alt || 'Imagen de evento'" class="w-full h-60 object-cover" />
 
         <div class="py-4 px-6 md:px-8">
             <slot>
