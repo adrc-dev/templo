@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label';
 import { useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 import { Textarea } from '@/components/ui/textarea';
-import LegalModal from '@/components/adr/LegalModal.vue';
 import { useLegalModal } from '@/composables/useLegalModal';
 
 const { openModal } = useLegalModal();
@@ -80,7 +79,7 @@ const submit = () => {
                         </div>
                         <InputError :message="form.errors.privacy" />
 
-                        <Button type="submit" class="mt-2 w-full" :disabled="form.processing || !form.privacy"
+                        <Button type="submit" class="mt-2 w-30 self-center" :disabled="form.processing || !form.privacy"
                             variant="transparent">
                             <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                             Enviar
