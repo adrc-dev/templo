@@ -14,7 +14,7 @@ import ContactImage from '@assets/contacto-banner.png';
             <div class="flex mb-10">
                 <!-- Mapa -->
                 <div class="">
-                    <img src="@assets/mapa-contacto.png" alt="Mapa con Barcelona y São Paulo"
+                    <img src="@assets/mapa-contacto1.jpeg" alt="Mapa con Barcelona y São Paulo"
                         class="w-full rounded-2xl shadow-xl" />
                 </div>
 
