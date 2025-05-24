@@ -19,7 +19,7 @@ export const buttonVariants = cva(
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
         transparent:
-            'bg-transparent border border-white text-white hover:bg-secondary-color hover:text-primary-color hover:border-secondary-color transition-all duration-400 ease-in-out cursor-pointer',
+            'bg-transparent border border-white text-white hover:bg-secondary-color hover:text-primary-color hover:border-secondary-color focus:outline-none focus:ring-2 focus:ring-secondary-color focus:border-secondary-color focus:ring-offset-0 transition-all duration-400 ease-in-out cursor-pointer',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
