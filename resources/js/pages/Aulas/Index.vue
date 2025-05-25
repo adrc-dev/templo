@@ -31,7 +31,7 @@ defineProps<{
             </div>
 
             <!-- Contenido gratuito -->
-            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Contenido gratuito</h2>
+            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Aulas gratuitas</h2>
             <div v-if="freeVideos && freeVideos.data && freeVideos.data.length"
                 class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <article v-for="video in freeVideos.data" :key="video.id"
@@ -71,7 +71,7 @@ defineProps<{
             </div>
 
             <!-- Premium -->
-            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Contenido solo para socios</h2>
+            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Aulas solo para socios</h2>
             <div v-if="premiumVideos && premiumVideos.data && premiumVideos.data.length"
                 class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <article v-for="video in premiumVideos.data" :key="video.id"

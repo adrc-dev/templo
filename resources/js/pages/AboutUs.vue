@@ -16,7 +16,11 @@ import DonationBanner from '@/components/adr/DonationBanner.vue';
 
 <template>
     <AppLayout>
-        <HeaderBanner :imageUrl="headerImage" pageTitle="¿Quienes somos?" />
+        <div class="hidden md:block">
+            <HeaderBanner :imageUrl="headerImage" pageTitle="¿Quienes somos?" />
+        </div>
+
+        <h2 class="text-4xl font-bold text-center text-primary-color my-20">¿Quienes somos?</h2>
         <div class="w-full max-w-[1200px] mx-auto flex flex-col justify-center mt-16 mb-32 px-4">
             <AboutUsBlock title="Nuestro centro" :image="fachadaTemplo" alt="Imagen de nuestro centro" :paragraphs="[
                 'Fundado en septiembre de 2007 por inspiración de la monja Ani Sherab Wangmo, y pertenece a la linaje Dagpo Shangpa Kagyü, una transmisión oral ininterrumpida de más de mil años. Su apertura fue bendecida por Mingyur Rinpoche y actualmente está bajo la dirección espiritual de Ani Sherab.',
