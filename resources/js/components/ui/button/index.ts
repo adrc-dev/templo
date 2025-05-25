@@ -8,7 +8,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-primary-color text-secondary-color hover:bg-secondary-color hover:text-primary-color  transition-all duration-400 ease-in-out cursor-pointer',
+          'bg-primary-color text-white font-semibold hover:bg-tertiary-color transition-all duration-400 ease-in-out cursor-pointer',
         destructive:
           'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline:

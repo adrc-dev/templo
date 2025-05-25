@@ -52,7 +52,9 @@ import DonationBanner from '@/components/adr/DonationBanner.vue';
             ]" reverse />
         </div>
 
-        <DonationBanner :imageUrl="donationImage" />
+        <DonationBanner :imageUrl="donationImage" title="Ayúdanos a seguir mejorando"
+            description="Tu contribución es fundamental para mantener nuestro templo y actividades."
+            buttonText="Haz tu donación" buttonUrl="/donar" />
     </AppLayout>
 </template>
 

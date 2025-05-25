@@ -2,6 +2,9 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import HeaderBanner from '@/components/adr/HeaderBanner.vue';
 import AulasImage from '@assets/banner-aulas.png';
+import HazteSocioImage from '@assets/hazte-socio-aulas.png';
+import Button from '@/components/ui/button/Button.vue';
+import DonationBanner from '@/components/adr/DonationBanner.vue';
 import { usePage } from '@inertiajs/vue3';
 
 const page = usePage();
@@ -15,75 +18,103 @@ defineProps<{
 
 <template>
     <AppLayout>
-        <HeaderBanner :imageUrl="AulasImage" pageTitle="Aulas" />
+        <div class="hidden md:block">
+            <HeaderBanner :imageUrl="AulasImage" pageTitle="Aulas" />
+        </div>
+
         <section class="w-full px-4 max-w-[1200px] mx-auto">
-            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Aulas</h2>
-            <div class="mt-12 flex justify-end">
-                <button v-if="user && (user.role === 'admin' || user.role === 'operator')"
-                    @click="$inertia.visit('/videos')"
-                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+            <!-- Administración -->
+            <div v-if="user && (user.role === 'admin' || user.role === 'operator')" class="mt-12 flex justify-end">
+                <Button @click="$inertia.visit('/videos')">
                     Administrar videos
-                </button>
+                </Button>
             </div>
 
-            <!-- free -->
-            <h3 class="text-2xl font-semibold mb-6 text-green-700">Contenido gratuito</h3>
-            <div v-if="freeVideos && freeVideos.data && freeVideos.data.length" class="space-y-8 mb-12">
+            <!-- Contenido gratuito -->
+            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Contenido gratuito</h2>
+            <div v-if="freeVideos && freeVideos.data && freeVideos.data.length"
+                class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <article v-for="video in freeVideos.data" :key="video.id"
-                    class="md:h-94 grid md:grid-cols-2 border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-                    <div class="w-full h-full">
+                    class="rounded-xl overflow-hidden shadow hover:shadow-md transition duration-300 bg-amber-50 min-h-[375px]">
+                    <div class="aspect-video w-full">
                         <iframe class="w-full h-full"
                             :src="`https://www.youtube.com/embed/${video.youtube_id}?modestbranding=1&rel=0&enablejsapi=1`"
                             frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"
-                            referrerpolicy="no-referrer">
-                        </iframe>
+                            referrerpolicy="no-referrer"></iframe>
                     </div>
-                    <div class="p-6 flex flex-col justify-center">
-                        <h4 class="text-xl font-bold mb-2">{{ video.title }}</h4>
-                        <p class="text-gray-600">{{ video.description }}</p>
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold mb-2">{{ video.title }}</h4>
+
+                        <p class="text-gray-600">
+                            <span v-if="!video.showFull">{{ video.description.slice(0, 100) }}<span
+                                    v-if="video.description.length > 100">... <button
+                                        class="text-primary-color hover:text-tertiary-color cursor-pointer"
+                                        @click="video.showFull = true">leer más</button></span></span>
+                            <span v-else>
+                                {{ video.description }}
+                                <button class="text-primary-color hover:text-tertiary-color cursor-pointer"
+                                    @click="video.showFull = false">mostrar menos</button>
+                            </span>
+                        </p>
                     </div>
                 </article>
-
-                <div class="mt-6 flex justify-center gap-2">
-                    <button v-if="freeVideos.prev_page_url" @click="$inertia.visit(freeVideos.prev_page_url)"
-                        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Anterior</button>
-
-                    <button v-if="freeVideos.next_page_url" @click="$inertia.visit(freeVideos.next_page_url)"
-                        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Siguiente</button>
-                </div>
             </div>
-            <p v-else class="text-gray-500 italic">No hay videos gratuitos por el momento.</p>
+            <p v-else class="text-tertiary-color italic">No hay videos gratuitos por el momento.</p>
+
+            <!-- Paginación -->
+            <div class="md:col-span-2 mt-6 flex justify-center gap-2">
+                <Button v-if="freeVideos.prev_page_url"
+                    @click="$inertia.visit(freeVideos.prev_page_url)">Anterior</Button>
+
+                <Button v-if="freeVideos.next_page_url"
+                    @click="$inertia.visit(freeVideos.next_page_url)">Siguiente</Button>
+            </div>
 
             <!-- Premium -->
-            <div>
-                <h3 class="text-2xl font-semibold mb-6 text-blue-700">Contenido para socios</h3>
-                <div v-if="premiumVideos && premiumVideos.data && premiumVideos.data.length" class="space-y-8 mb-12">
-                    <article v-for="video in premiumVideos.data" :key="video.id"
-                        class="md:h-94 grid md:grid-cols-2 border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-                        <div class="w-full h-full">
-                            <iframe class="w-full h-full"
-                                :src="`https://www.youtube.com/embed/${video.youtube_id}?modestbranding=1&rel=0&enablejsapi=1`"
-                                frameborder="0" allowfullscreen
-                                sandbox="allow-same-origin allow-scripts allow-presentation"
-                                referrerpolicy="no-referrer">
-                            </iframe>
-                        </div>
-                        <div class="p-6 flex flex-col justify-center">
-                            <h4 class="text-xl font-bold mb-2">{{ video.title }}</h4>
-                            <p class="text-gray-600">{{ video.description }}</p>
-                        </div>
-                    </article>
-
-                    <div class="mt-6 flex justify-center gap-2">
-                        <button v-if="premiumVideos.prev_page_url" @click="$inertia.visit(premiumVideos.prev_page_url)"
-                            class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Anterior</button>
-
-                        <button v-if="premiumVideos.next_page_url" @click="$inertia.visit(premiumVideos.next_page_url)"
-                            class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Siguiente</button>
+            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Contenido solo para socios</h2>
+            <div v-if="premiumVideos && premiumVideos.data && premiumVideos.data.length"
+                class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <article v-for="video in premiumVideos.data" :key="video.id"
+                    class="rounded-xl overflow-hidden shadow hover:shadow-md transition duration-300 bg-amber-50 min-h-[375px]">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full"
+                            :src="`https://www.youtube.com/embed/${video.youtube_id}?modestbranding=1&rel=0&enablejsapi=1`"
+                            frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"
+                            referrerpolicy="no-referrer"></iframe>
                     </div>
-                </div>
-                <p v-else class="text-gray-500 italic">Este contenido está reservado para socios.</p>
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold mb-2">{{ video.title }}</h4>
+
+                        <p class="text-gray-600">
+                            <span v-if="!video.showFull">{{ video.description.slice(0, 100) }}<span
+                                    v-if="video.description.length > 100">... <button
+                                        class="text-primary-color hover:text-tertiary-color cursor-pointer"
+                                        @click="video.showFull = true">leer más</button></span></span>
+                            <span v-else>
+                                {{ video.description }}
+                                <button class="text-primary-color hover:text-tertiary-color cursor-pointer"
+                                    @click="video.showFull = false">mostrar menos</button>
+                            </span>
+                        </p>
+                    </div>
+                </article>
             </div>
+
+            <!-- Paginación -->
+            <div class="md:col-span-2 mt-6 flex justify-center gap-2 mb-20">
+                <Button v-if="premiumVideos.prev_page_url"
+                    @click="$inertia.visit(premiumVideos.prev_page_url)">Anterior</Button>
+
+                <Button v-if="premiumVideos.next_page_url"
+                    @click="$inertia.visit(premiumVideos.next_page_url)">Siguiente</Button>
+            </div>
+
         </section>
+        <!-- Hazte socio -->
+        <div v-if="user.role != 'socio'">
+            <DonationBanner :imageUrl="HazteSocioImage" title="¡Hazte socio y accede a contenido exclusivo!"
+                description="Conviértete en socio del Jardín del Despertar y disfruta de acceso ilimitado a nuestros clases premium"
+                buttonText="Hazte socio" buttonUrl="/hazte-socio" />
+        </div>
     </AppLayout>
 </template>
