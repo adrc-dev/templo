@@ -5,10 +5,12 @@ defineProps<{
     event: {
         id: number
         title: string
+        slug: string
     },
     inscritos: {
         id: number
         name: string
+        surname: string
         email: string
         phone: string
         pivot: {
@@ -41,7 +43,7 @@ defineProps<{
                         class="border-b text-primary-color odd:bg-white even:bg-gray-200 block md:table-row">
                         <!-- Nombre -->
                         <td class="p-2 block md:table-cell">
-                            <span class="font-semibold md:hidden">Nombre: </span>{{ user.name }}
+                            <span class="font-semibold md:hidden">Nombre: </span>{{ user.name }} {{ user.surname }}
                         </td>
                         <!-- Teléfono -->
                         <td class="p-2 hidden md:table-cell">
@@ -61,7 +63,9 @@ defineProps<{
             </table>
 
             <div class="mt-6">
-                <a href="/events" class="text-primary-color font-semibold hover:underline">← Volver a eventos</a>
+                <a :href="`/events/${event.slug}`"
+                    class="text-xl text-primary-color hover:text-tertiary-color hover:text-tertiary-color my-8 block text-left font-medium cursor-pointer">←
+                    Volver al evento</a>
             </div>
         </section>
     </AppLayout>

@@ -105,30 +105,27 @@ function unsubscribe() {
                     <!-- botón admin -->
                     <div v-if="userRole === 'admin' || userRole === 'operator'"
                         class="mb-6 text-center relative mx-auto block">
-                        <Link :href="`/events/${event.slug}/attendees`"
-                            class="relative inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                        Ver inscritos
+                        <Button @click="$inertia.visit(`/events/${event.slug}/attendees`)" class="relative">
+                            Ver inscritos
 
-                        <span v-if="suscribeCount > 0"
-                            class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg">
-                            {{ suscribeCount }}
-                        </span>
-                        </Link>
+                            <span v-if="suscribeCount > 0"
+                                class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg">
+                                {{ suscribeCount }}
+                            </span>
+                        </Button>
                     </div>
 
-                    <Button v-else-if="!isSubscribed" @click="subscribe"
-                        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mx-auto block">
+                    <Button v-else-if="!isSubscribed" @click="subscribe" class="mx-auto block">
                         Inscribirme
                     </Button>
 
-                    <Button v-else class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 mx-auto block"
-                        @click="unsubscribe">
+                    <Button v-else class="bg-red-400 hover:bg-red-700 mx-auto block" @click="unsubscribe">
                         Desinscribirme
 
                     </Button>
                 </div>
                 <Link href="/events"
-                    class="text-primary-color font-semibold hover:underline flex items-center gap-2 my-6">
+                    class="text-xl text-primary-color hover:text-tertiary-color hover:text-tertiary-color my-8 block text-left font-medium cursor-pointer">
                 ← Volver a eventos
                 </Link>
             </div>
