@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from '../ui/button/Button.vue';
 const props = defineProps({
     image: String,
     title: String,
@@ -33,10 +34,9 @@ const formattedDate = props.date ? new Date(props.date).toLocaleDateString() : '
 
             <div class="mt-4 flex justify-center absolute bottom-0 left-0 right-0 p-4">
                 <slot name="button">
-                    <a :href="link"
-                        class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
+                    <Button :href="link">
                         Más información
-                    </a>
+                    </Button>
                 </slot>
             </div>
         </div>

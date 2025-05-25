@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from '../ui/button/Button.vue'
 defineProps<{
     imageUrl: string
     title: string
@@ -14,10 +15,9 @@ defineProps<{
         <div class="w-full max-w-[1200px] flex flex-col justify-center items-center text-center relative z-10 mx-4">
             <h2 class="text-4xl font-bold text-white mb-4">{{ title }}</h2>
             <p class="text-lg text-white mb-8">{{ description }}</p>
-            <a :href="buttonUrl"
-                class="bg-transparent text-white border border-white py-3 px-6 rounded-full hover:bg-secondary-color hover:text-primary-color hover:border-secondary-color transition duration-300">
+            <Button :href="buttonUrl" variant="transparent">
                 {{ buttonText }}
-            </a>
+            </Button>
         </div>
     </div>
 </template>

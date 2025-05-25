@@ -3,6 +3,7 @@ import HeaderBanner from '@/components/adr/HeaderBanner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import EventCard from '@/components/adr/EventCard.vue';
 import EventsImage from '@assets/eventos-banner.jpg';
+import Button from '@/components/ui/button/Button.vue';
 
 const { events } = defineProps<{
     events: {
@@ -29,7 +30,9 @@ const otherEvents = events.slice(1)
 
 <template>
     <AppLayout>
-        <HeaderBanner :imageUrl="EventsImage" pageTitle="Eventos" class="bg-primary-color/50" />
+        <div class="hidden md:block">
+            <HeaderBanner :imageUrl="EventsImage" pageTitle="Eventos" class="bg-primary-color/50" />
+        </div>
         <!-- evento fijo estático -->
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">Eventos fijos</h2>
@@ -60,10 +63,9 @@ const otherEvents = events.slice(1)
                         </div>
                     </div>
                     <div class="mt-6 flex align-center justify-center">
-                        <a href="#" target="_blank"
-                            class="bg-primary-color text-white py-3 px-6 rounded-full hover:bg-tertiary-color hover:text-white transition duration-300">
+                        <Button href="#" target="_blank">
                             Únete al grupo de WhatsApp
-                        </a>
+                        </Button>
                     </div>
                 </div>
             </div>
@@ -82,10 +84,9 @@ const otherEvents = events.slice(1)
                     <h2 class="text-3xl font-bold text-primary-color mb-4">{{ upcomingEvent.title }}</h2>
                     <p class="text-primary-color mb-4 line-clamp-8">{{ upcomingEvent.content }}</p>
                     <div class="mt-4 flex justify-center">
-                        <a :href="`/events/${upcomingEvent.slug}`"
-                            class="bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300">
+                        <Button :href="`/events/${upcomingEvent.slug}`">
                             Más información
-                        </a>
+                        </Button>
                     </div>
                 </div>
             </div>
