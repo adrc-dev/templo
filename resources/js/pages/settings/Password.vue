@@ -11,13 +11,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { type BreadcrumbItem } from '@/types';
 
-const breadcrumbItems: BreadcrumbItem[] = [
-    {
-        title: 'Password settings',
-        href: '/settings/password',
-    },
-];
-
 const passwordInput = ref<HTMLInputElement | null>(null);
 const currentPasswordInput = ref<HTMLInputElement | null>(null);
 
@@ -56,7 +49,7 @@ const updatePassword = () => {
         <Head title="Configuración del perfil" />
 
         <SettingsLayout>
-            <div class="space-y-6 w-xl">
+            <div class="space-y-6 w-full md:w-xl">
                 <HeadingSmall title="Actualizar contraseña"
                     description="Asegúrate de que tu cuenta utilice una contraseña larga y aleatoria para mantenerla segura." />
 

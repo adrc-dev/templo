@@ -40,7 +40,7 @@ const submit = () => {
     <AppLayout>
 
         <SettingsLayout>
-            <div class="space-y-6 w-xl">
+            <div class="space-y-6 w-full md:w-xl">
                 <HeadingSmall title="Información del perfil"
                     description="Actualiza tu nombre o tu correo electrónico" />
 
