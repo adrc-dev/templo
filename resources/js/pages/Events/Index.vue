@@ -63,7 +63,7 @@ const otherEvents = events.slice(1)
                         </div>
                     </div>
                     <div class="mt-6 flex align-center justify-center">
-                        <Button href="#" target="_blank">
+                        <Button @click="$inertia.visit('#')" target="_blank">
                             Únete al grupo de WhatsApp
                         </Button>
                     </div>
@@ -84,7 +84,7 @@ const otherEvents = events.slice(1)
                     <h2 class="text-3xl font-bold text-primary-color mb-4">{{ upcomingEvent.title }}</h2>
                     <p class="text-primary-color mb-4 line-clamp-8">{{ upcomingEvent.content }}</p>
                     <div class="mt-4 flex justify-center">
-                        <Button :href="`/events/${upcomingEvent.slug}`">
+                        <Button @click="$inertia.visit(`/events/${upcomingEvent.slug}`)">
                             Más información
                         </Button>
                     </div>

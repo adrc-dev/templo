@@ -34,7 +34,7 @@ const formattedDate = props.date ? new Date(props.date).toLocaleDateString() : '
 
             <div class="mt-4 flex justify-center absolute bottom-0 left-0 right-0 p-4">
                 <slot name="button">
-                    <Button :href="link">
+                    <Button @click="$inertia.visit(link)">
                         Más información
                     </Button>
                 </slot>

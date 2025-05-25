@@ -15,7 +15,7 @@ defineProps<{
         <div class="w-full max-w-[1200px] flex flex-col justify-center items-center text-center relative z-10 mx-4">
             <h2 class="text-4xl font-bold text-white mb-4">{{ title }}</h2>
             <p class="text-lg text-white mb-8">{{ description }}</p>
-            <Button :href="buttonUrl" variant="transparent">
+            <Button @click="$inertia.visit(buttonUrl)" variant="transparent">
                 {{ buttonText }}
             </Button>
         </div>
