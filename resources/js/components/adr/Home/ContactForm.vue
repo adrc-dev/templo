@@ -52,7 +52,7 @@ const submit = () => {
                                 <InputError :message="form.errors.phone" />
                             </div>
 
-                            <div class="md:w-1/2 grid gap-2">
+                            <div class="md:w-1/2 grid gap-2 mt-6 md:mt-0">
                                 <Label for="email">Correo electrónico:</Label>
                                 <Input id="email" v-model="form.email" type="email" required
                                     placeholder="email@ejemplo.com" />
