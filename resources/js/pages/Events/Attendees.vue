@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue'
-import { Link } from '@inertiajs/vue3';
+import GoLink from '@/components/adr/GoLink.vue'
 
 defineProps<{
     event: {
@@ -64,10 +64,9 @@ defineProps<{
             </table>
 
             <div class="mt-6">
-                <Link :href="`/events/${event.slug}`"
-                    class="text-xl text-primary-color hover:text-tertiary-color my-8 block text-left font-medium cursor-pointer">
-                ←
-                Volver al evento</Link>
+                <GoLink :href="`/events/${event.slug}`">
+                    ← Volver al evento
+                </GoLink>
             </div>
         </section>
     </AppLayout>

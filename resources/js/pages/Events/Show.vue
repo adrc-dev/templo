@@ -5,7 +5,7 @@ import EventDescription from '@/components/adr/Events/EventDescription.vue';
 import EventInfoGrid from '@/components/adr/Events/EventInfoGrid.vue';
 import EventActions from '@/components/adr/Events/EventActions.vue';
 import HeaderBanner from '@/components/adr/HeaderBanner.vue';
-import { Link } from '@inertiajs/vue3';
+import GoLink from '@/components/adr/GoLink.vue';
 import { router } from '@inertiajs/vue3';
 
 const { event, isSubscribed, userRole, suscribeCount } = defineProps<{
@@ -33,10 +33,9 @@ function refreshData() {
                 :price="event.price" :currency="event.currency" />
             <EventActions :event="event" :isSubscribed="isSubscribed" :userRole="userRole"
                 :suscribeCount="suscribeCount" @refresh="refreshData" />
-            <Link href="/events"
-                class="text-xl text-primary-color hover:text-tertiary-color my-8 block text-left font-medium cursor-pointer">
-            ← Volver a eventos
-            </Link>
+            <GoLink href="/events">
+                ← Volver a eventos
+            </GoLink>
         </section>
     </AppLayout>
 </template>
