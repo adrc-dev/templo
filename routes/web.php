@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/hazte-socio', [MemberController::class, 'store'])->name('member.store');
 });
 
-// eventos?
+// Lets see later TODOOOOOO
 Route::resource('posts', PostController::class);
 
 // dashboard

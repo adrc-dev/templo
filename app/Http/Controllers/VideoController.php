@@ -59,6 +59,6 @@ class VideoController extends Controller
     {
         $video->delete();
 
-        return redirect()->route('videos.index');
+        return redirect()->route('videos.index')->with('message', 'El vídeo se ha eliminado correctamente.');
     }
 }

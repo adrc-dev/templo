@@ -1,36 +1,42 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
-import { Link } from '@inertiajs/vue3';
+import Heading from '@/components/Heading.vue';
+import { Button } from '@/components/ui/button';
+import { Head, router } from '@inertiajs/vue3';
+import { ref, computed } from 'vue';
+import FlashMassage from '@/components/FlashMassage.vue';
+import VideosTable from '@/components/adr/Aulas/VideosTable.vue';
 
-defineProps(['videos']);
+const props = defineProps<{ videos: any[] }>();
+const videos = ref([...props.videos]);
+
+const premiumVideos = computed(() => videos.value.filter(video => video.is_premium));
+const freeVideos = computed(() => videos.value.filter(video => !video.is_premium));
+
+function deleteVideo(id: number) {
+    router.delete(`/videos/${id}`, {
+        onSuccess: () => {
+            videos.value = videos.value.filter(video => video.id !== id);
+        }
+    });
+}
 </script>
 
 <template>
-    <AppLayout title="Gestión de vídeos">
-        <div class="max-w-4xl mx-auto p-6">
-            <h1 class="text-2xl font-bold mb-6">Gestión de vídeos</h1>
 
-            <Link href="/videos/create"
-                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mb-4 inline-block">Nuevo vídeo</Link>
+    <Head title="Gestión de vídeos" />
+    <FlashMassage />
 
-            <table class="w-full mt-4">
-                <thead>
-                    <tr class="text-left border-b">
-                        <th>Título</th>
-                        <th>Premium</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="video in videos" :key="video.id" class="border-b">
-                        <td>{{ video.title }}</td>
-                        <td>{{ video.is_premium ? 'Sí' : 'No' }}</td>
-                        <td class="space-x-2">
-                            <Link :href="`/videos/${video.id}/edit`" class="text-blue-600">Editar</Link>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <AppLayout>
+        <section class="w-full px-4 max-w-[1200px] mx-auto my-20">
+            <Heading title="Gestión de vídeos" description="Aquí puedes gestionar los vídeos del templo." />
+            <div class="flex justify-end">
+                <Button @click="$inertia.visit('/videos/create')">Nuevo vídeo</Button>
+            </div>
+
+            <VideosTable :videos="freeVideos" title="Vídeos gratuitos" @delete="deleteVideo" />
+
+            <VideosTable :videos="premiumVideos" title="Vídeos premium" @delete="deleteVideo" />
+        </section>
     </AppLayout>
 </template>
