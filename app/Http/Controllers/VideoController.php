@@ -29,7 +29,14 @@ class VideoController extends Controller
             'description' => 'nullable',
         ]);
 
-        Video::create($request->all());
+        $youtubeId = $this->extractYoutubeId($request->youtube_id) ?? $request->youtube_id;
+
+        Video::create([
+            'title' => $request->title,
+            'youtube_id' => $youtubeId,
+            'is_premium' => $request->is_premium,
+            'description' => $request->description,
+        ]);
 
         return redirect()->route('videos.index');
     }
@@ -50,7 +57,14 @@ class VideoController extends Controller
             'description' => 'nullable',
         ]);
 
-        $video->update($request->all());
+        $youtubeId = $this->extractYoutubeId($request->youtube_id) ?? $request->youtube_id;
+
+        $video->update([
+            'title' => $request->title,
+            'youtube_id' => $youtubeId,
+            'is_premium' => $request->is_premium,
+            'description' => $request->description,
+        ]);
 
         return redirect()->route('videos.index');
     }
@@ -60,5 +74,34 @@ class VideoController extends Controller
         $video->delete();
 
         return redirect()->route('videos.index')->with('message', 'El vídeo se ha eliminado correctamente.');
+    }
+
+    private function extractYoutubeId(string $url): ?string
+    {
+        // Parsear la URL para sacar query params
+        $parts = parse_url($url);
+
+        if (!isset($parts['host'])) {
+            return null;
+        }
+
+        // Si es un enlace corto tipo youtu.be
+        if (strpos($parts['host'], 'youtu.be') !== false) {
+            return ltrim($parts['path'], '/');
+        }
+
+        // Si es enlace normal youtube.com
+        if (strpos($parts['host'], 'youtube.com') !== false) {
+            if (!isset($parts['query'])) {
+                return null;
+            }
+
+            parse_str($parts['query'], $queryParams);
+
+            // El id está en "v"
+            return $queryParams['v'] ?? null;
+        }
+
+        return null;
     }
 }

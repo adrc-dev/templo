@@ -6,6 +6,7 @@ import { Head, router } from '@inertiajs/vue3';
 import { ref, computed } from 'vue';
 import FlashMassage from '@/components/FlashMassage.vue';
 import VideosTable from '@/components/adr/Aulas/VideosTable.vue';
+import GoLink from '@/components/adr/GoLink.vue';
 
 const props = defineProps<{ videos: any[] }>();
 const videos = ref([...props.videos]);
@@ -37,6 +38,8 @@ function deleteVideo(id: number) {
             <VideosTable :videos="freeVideos" title="Vídeos gratuitos" @delete="deleteVideo" />
 
             <VideosTable :videos="premiumVideos" title="Vídeos premium" @delete="deleteVideo" />
+
+            <GoLink class="mt-12" :href="route('aulas.index')" text="← Volver a Aulas" />
         </section>
     </AppLayout>
 </template>
