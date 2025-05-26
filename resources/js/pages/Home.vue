@@ -4,7 +4,7 @@ import VideoHeader from '@/components/adr/Home/VideoHeader.vue';
 import EventCard from '@/components/adr/EventCard.vue';
 import LastNews from '@/components/adr/Home/LastNews.vue'
 import StoreCards from '@/components/adr/Home/StoreCards.vue';
-import ContactForm from '@/components/adr/Home/ContactForm.vue';
+import ContactForm from '@/components/adr/ContactForm.vue';
 import DonationBanner from '@/components/adr/DonationBanner.vue';
 
 import DonationImage from '@assets/banderas.jpg'
