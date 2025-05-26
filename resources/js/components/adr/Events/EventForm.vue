@@ -105,7 +105,7 @@ function handleFileUpload(event: Event) {
 
         <div>
             <Label>Contenido*</Label>
-            <Textarea v-model="form.content" placeholder="Descripción detallada del evento" rows="8" required />
+            <Textarea v-model="form.content" placeholder="Descripción detallada del evento" :rows="8" required />
         </div>
 
         <div class="grid grid-cols-2 gap-4">
@@ -171,7 +171,7 @@ function handleFileUpload(event: Event) {
 
         <div>
             <Label>Descripción SEO</Label>
-            <Textarea v-model="form.seo_description" placeholder="Descripción corta para SEO (opcional)" rows="2" />
+            <Textarea v-model="form.seo_description" placeholder="Descripción corta para SEO (opcional)" :rows="2" />
         </div>
 
         <div>
