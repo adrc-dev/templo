@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import { LoaderCircle } from 'lucide-vue-next';
 
 const props = defineProps<{ video?: any }>();
 const emit = defineEmits(['submit']);
@@ -50,7 +51,10 @@ function submit() {
         </div>
 
         <div class="flex justify-center items-center mt-6">
-            <Button type="submit" variant="transparent">Guardar</Button>
+            <Button type="submit" variant="transparent">
+                <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+                Guardar
+            </Button>
         </div>
     </form>
 </template>

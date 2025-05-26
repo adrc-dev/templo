@@ -6,12 +6,13 @@ import { usePage } from '@inertiajs/vue3';
 const { props } = usePage();
 const emit = defineEmits(['refresh']);
 
-const { event, isSubscribed, userRole, suscribeCount } = defineProps<{
+const { event, isSubscribed, suscribeCount } = defineProps<{
     event: any,
     isSubscribed: boolean,
-    userRole: string | null,
     suscribeCount: number
 }>()
+
+const userRole = props.auth?.user?.role ?? null;
 
 function subscribe() {
     router.post(`/events/${event.slug}/register`, {
@@ -28,7 +29,8 @@ function unsubscribe() {
 
 <template>
     <div>
-        <div v-if="userRole === 'admin' || userRole === 'operator'" class="mb-6 text-center relative mx-auto block">
+        <div v-if="userRole === 'admin' || userRole === 'operator'"
+            class="mb-6 text-center relative mx-auto flex gap-4 justify-center">
             <Button @click="$inertia.visit(`/events/${event.slug}/attendees`)" class="relative">
                 Ver inscritos
                 <span v-if="suscribeCount > 0"
@@ -36,6 +38,7 @@ function unsubscribe() {
                     {{ suscribeCount }}
                 </span>
             </Button>
+            <Button @click="$inertia.visit('/Events.edit')">Editar evento</Button>
         </div>
 
         <Button v-else-if="!isSubscribed" @click="subscribe" class="mx-auto block">

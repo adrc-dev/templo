@@ -28,7 +28,7 @@ defineProps<{
         <div>
             <span class="block font-semibold text-primary-color">⏰ Hora</span>
             <span class="text-primary-color">
-                {{ event_time }} - {{ event_end_time }}
+                {{ event_time }}<span v-if="event_end_time"> - {{ event_end_time }} </span>
             </span>
         </div>
         <div>

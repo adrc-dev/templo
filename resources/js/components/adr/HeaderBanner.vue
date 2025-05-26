@@ -1,17 +1,35 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
+import { ref, watch } from 'vue';
 
-defineProps({
+const props = defineProps({
     imageUrl: String,
     pageTitle: String
 })
+
+const fallback = '/fallback-event.png';
+const backgroundImage = ref(fallback);
+
+watch(() => props.imageUrl, (url) => {
+    if (!url) return;
+
+    const img = new Image();
+    img.src = url;
+    img.onload = () => {
+        backgroundImage.value = url;
+    };
+    img.onerror = () => {
+        console.warn(`No se pudo cargar la imagen: ${url}, usando fallback.`);
+        backgroundImage.value = fallback;
+    };
+}, { immediate: true });
 </script>
 <template>
 
     <Head :title="pageTitle" />
 
     <div v-bind="$attrs" class="w-full mx-auto min-h-[400px] bg-cover bg-center relative"
-        :style="{ backgroundImage: `url(${imageUrl})` }">
+        :style="{ backgroundImage: `url(${backgroundImage})` }">
         <!-- degradado -->
         <div class="hidden md:block absolute inset-0 bg-gradient-to-l from-primary-color to-primary-color/10]">
         </div>

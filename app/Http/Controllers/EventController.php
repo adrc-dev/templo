@@ -28,9 +28,84 @@ class EventController extends Controller
         return Inertia::render('Events/Show', [
             'event' => $event,
             'isSubscribed' => Auth::check() && $event->registeredUsers()->where('user_id', Auth::id())->exists(),
-            'userRole' => Auth::check() ? Auth::user()->role : null,
             'suscribeCount' => $event->registeredUsers->count(),
         ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('Events/Create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:events,slug',
+            'content' => 'required|string',
+            'event_date' => 'required|date',
+            'event_time' => 'required',
+            'event_end_date' => 'nullable|date|after_or_equal:event_date',
+            'event_end_time' => 'nullable',
+            'event_location' => 'required|string',
+            'modality' => 'required|string',
+            'price' => 'nullable|numeric',
+            'currency' => 'nullable|string|max:3',
+            'featured_image' => 'nullable|image|max:2048',
+            'is_active' => 'boolean',
+            'language' => 'nullable|string|max:2',
+            'seo_title' => 'nullable|string|max:255',
+            'seo_description' => 'nullable|string|max:255',
+        ]);
+
+        if ($request->hasFile('featured_image')) {
+            $path = $request->file('featured_image')->store('events', 'public');
+            $validated['featured_image'] = $path;
+        }
+
+        Event::create($validated);
+
+        return redirect()->route('events.index')->with('message', 'Evento creado correctamente.');
+    }
+
+    public function edit(Event $event)
+    {
+        return Inertia::render('Events/Edit', [
+            'event' => $event
+        ]);
+    }
+
+    public function update(Request $request, Event $event)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:events,slug,' . $event->id,
+            'content' => 'required|string',
+            'event_date' => 'required|date',
+            'event_time' => 'required',
+            'event_end_date' => 'nullable|date|after_or_equal:event_date',
+            'event_end_time' => 'nullable',
+            'event_location' => 'required|string',
+            'modality' => 'required|string',
+            'price' => 'nullable|numeric',
+            'currency' => 'nullable|string|max:3',
+            'featured_image' => 'nullable|string',
+            'is_active' => 'boolean',
+            'language' => 'required|string|max:2',
+            'seo_title' => 'nullable|string|max:255',
+            'seo_description' => 'nullable|string|max:255',
+        ]);
+
+        $event->update($validated);
+
+        return redirect()->route('events.index')->with('message', 'Evento actualizado correctamente.');
+    }
+
+    public function destroy(Event $event)
+    {
+        $event->delete();
+
+        return redirect()->route('events.index')->with('message', 'Evento eliminado correctamente.');
     }
 
     public function attendees(Event $event)

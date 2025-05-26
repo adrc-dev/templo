@@ -20,6 +20,17 @@ Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 })->name('about-us');
 
+// eventos admin
+Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    Route::post('/events', [EventController::class, 'store'])->name('events.store');
+    Route::get('/events/{event:slug}/edit', [EventController::class, 'edit'])->name('events.edit');
+    Route::put('/events/{event:slug}', [EventController::class, 'update'])->name('events.update');
+    Route::delete('/events/{event:slug}', [EventController::class, 'destroy'])->name('events.destroy');
+    Route::get('events/{event:slug}/attendees', [EventController::class, 'attendees'])
+        ->name('admin.events.attendees');
+});
+
 // eventos
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
@@ -34,12 +45,6 @@ Route::delete('/events/{event:slug}/unsubscribe', [EventRegistrationController::
     ->middleware(['auth'])
     ->name('event.unsubscribe');
 
-// eventos admin
-Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
-    Route::get('events/{event:slug}/attendees', [EventController::class, 'attendees'])
-        ->name('admin.events.attendees');
-});
-
 //contacto
 Route::get('/contact', function () {
     return Inertia::render('Contact');
@@ -52,7 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 // Lets see later TODOOOOOO
-Route::resource('posts', PostController::class);
+// Route::resource('posts', PostController::class);
 
 // dashboard
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {

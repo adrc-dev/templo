@@ -24,7 +24,8 @@ function refreshData() {
     <FlashMassage />
     <AppLayout>
         <div class="hidden md:block">
-            <HeaderBanner :imageUrl="event.featured_image" :pageTitle="event.title" class="bg-primary-color/50" />
+            <HeaderBanner :imageUrl="`/storage/${event.featured_image}`" :pageTitle="event.title"
+                class="bg-primary-color/50" />
         </div>
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <EventDescription :image="event.featured_image" :title="event.title" :content="event.content" />

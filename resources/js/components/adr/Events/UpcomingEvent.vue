@@ -10,7 +10,7 @@ defineProps<{
     <section class="w-full px-4 max-w-[1200px] mx-auto">
         <h2 class="text-4xl font-bold text-center text-primary-color my-20">Proximo Evento</h2>
         <div class="w-full mx-auto grid md:grid-cols-2 gap-6 items-center">
-            <img :src="event.featured_image" alt="Proximo evento"
+            <img :src="`/storage/${event.featured_image}`" :alt="`Imagen del evento ${event.title}`"
                 class="w-full h-90 object-cover rounded-xl shadow-lg" />
             <div>
                 <p class="text-sm text-secondary-color mb-2">{{ new Date(event.event_date).toLocaleDateString() }}</p>
