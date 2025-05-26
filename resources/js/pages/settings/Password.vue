@@ -46,7 +46,7 @@ const updatePassword = () => {
 <template>
     <AppLayout>
 
-        <Head title="Configuración del perfil" />
+        <Head title="Configuración de contraseña" />
 
         <SettingsLayout>
             <div class="space-y-6 w-full md:w-xl">
