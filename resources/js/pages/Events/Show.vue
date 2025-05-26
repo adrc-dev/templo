@@ -52,7 +52,7 @@ function unsubscribe() {
         </div>
         <section class="w-full px-4 max-w-[1200px] mx-auto">
 
-            <img :src="event.featured_image" alt="Evento fijo"
+            <img :src="event.featured_image" alt="Foto del evento"
                 class="w-full max-h-[600px] object-cover rounded-xl shadow-lg mt-6 md:mt-20" />
             <div>
 
@@ -100,7 +100,7 @@ function unsubscribe() {
                     </div>
                 </div>
 
-                <!-- Botones de inscribirse y desinscribirse -->
+                <!-- botones de inscribirse y desinscribirse y admin-->
                 <div>
                     <!-- botón admin -->
                     <div v-if="userRole === 'admin' || userRole === 'operator'"
