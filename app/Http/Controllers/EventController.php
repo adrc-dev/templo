@@ -49,7 +49,7 @@ class EventController extends Controller
             'event_end_time' => 'nullable',
             'event_location' => 'required|string',
             'modality' => 'required|string',
-            'price' => 'nullable|numeric',
+            'price' => 'numeric',
             'currency' => 'nullable|string|max:3',
             'featured_image' => 'nullable|image|max:2048',
             'is_active' => 'boolean',
@@ -89,12 +89,19 @@ class EventController extends Controller
             'modality' => 'required|string',
             'price' => 'nullable|numeric',
             'currency' => 'nullable|string|max:3',
-            'featured_image' => 'nullable|string',
+            'featured_image' => 'nullable|image|max:2048',
             'is_active' => 'boolean',
             'language' => 'required|string|max:2',
             'seo_title' => 'nullable|string|max:255',
             'seo_description' => 'nullable|string|max:255',
         ]);
+
+        if ($request->hasFile('featured_image')) {
+            $path = $request->file('featured_image')->store('events', 'public');
+            $validated['featured_image'] = $path;
+        } else {
+            $validated['featured_image'] = $event->featured_image;
+        }
 
         $event->update($validated);
 

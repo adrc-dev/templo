@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
 import { LoaderCircle } from 'lucide-vue-next'
+import { Select } from '@/components/ui/select'
+import { router } from '@inertiajs/vue3'
 
 const props = defineProps<{ event?: any }>()
 const emit = defineEmits(['submit'])
@@ -21,7 +23,7 @@ const form = useForm({
     event_end_time: props.event?.event_end_time ?? '',
     event_location: props.event?.event_location ?? '',
     modality: props.event?.modality ?? '',
-    price: props.event?.price ?? '',
+    price: Number(props.event?.price ?? 0),
     currency: props.event?.currency ?? 'EUR',
     featured_image: props.event?.featured_image ?? '',
     is_active: props.event?.is_active ?? true,
@@ -43,13 +45,46 @@ function generateSlug(text: string): string {
 // Watch para actualizar el slug automáticamente
 watch(() => form.title, (newTitle) => {
     if (!props.event?.slug) {
-        form.slug = generateSlug(newTitle)
+        form.slug = generateSlug(newTitle + `-${Date.now()}`)
     }
 })
 
+
 function submit() {
-    form.post(route('events.store'), {
-        forceFormData: true,
+    const formData = new FormData()
+    formData.append('title', form.title)
+    formData.append('slug', form.slug)
+    formData.append('content', form.content)
+    formData.append('event_date', form.event_date)
+    formData.append('event_time', form.event_time)
+    formData.append('event_end_date', form.event_end_date)
+    formData.append('event_end_time', form.event_end_time)
+    formData.append('event_location', form.event_location)
+    formData.append('modality', form.modality)
+    formData.append('price', form.price.toString())
+    formData.append('currency', form.currency)
+    formData.append('language', form.language)
+    formData.append('seo_title', form.seo_title)
+    formData.append('seo_description', form.seo_description)
+    formData.append('is_active', form.is_active ? '1' : '0')
+
+    if (form.featured_image instanceof File) {
+        formData.append('featured_image', form.featured_image)
+    }
+
+    const url = props.event
+        ? route('events.update', props.event.slug)
+        : route('events.store')
+
+    const method = props.event ? 'post' : 'post'
+    const _method = props.event ? 'PUT' : 'POST'
+    formData.append('_method', _method)
+
+    router.visit(url, {
+        method,
+        data: formData,
+        preserveScroll: true,
+        onSuccess: () => emit('submit'),
     })
 }
 
@@ -102,17 +137,16 @@ function handleFileUpload(event: Event) {
 
         <div>
             <Label>Modalidad*</Label>
-            <select v-model="form.modality" class="border p-2 rounded w-full" required>
-                <option value="">Selecciona una modalidad</option>
-                <option value="Presencial">Presencial</option>
-                <option value="Online">Online</option>
-            </select>
+            <Select v-model="form.modality" :options="[
+                { value: 'Presencial', label: 'Presencial' },
+                { value: 'Online', label: 'Online' }
+            ]" required placeholder="Selecciona una modalidad" />
         </div>
 
         <div class="grid grid-cols-2 gap-4">
             <div>
-                <Label>Precio</Label>
-                <Input type="number" v-model="form.price" min="0" step="0.01" placeholder="Ej: 20.00" />
+                <Label>Precio*</Label>
+                <Input type="number" v-model="form.price" min="0" step="0.01" placeholder="Ej: 20.00" required />
             </div>
             <div>
                 <Label>Moneda</Label>

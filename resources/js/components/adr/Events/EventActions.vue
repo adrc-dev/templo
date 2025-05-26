@@ -38,7 +38,7 @@ function unsubscribe() {
                     {{ suscribeCount }}
                 </span>
             </Button>
-            <Button @click="$inertia.visit('/Events.edit')">Editar evento</Button>
+            <Button @click="$inertia.visit(`/events/${event.slug}/edit`)">Editar eventos</Button>
         </div>
 
         <Button v-else-if="!isSubscribed" @click="subscribe" class="mx-auto block">

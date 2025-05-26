@@ -5,6 +5,7 @@ import EventsImage from '@assets/eventos-banner.jpg';
 import StaticEvent from '@/components/adr/Events/StaticEvent.vue';
 import UpcomingEvent from '@/components/adr/Events/UpcomingEvent.vue';
 import EventsGrid from '@/components/adr/Events/EventsGrid.vue';
+import FlashMassage from '@/components/FlashMassage.vue';
 
 const { events } = defineProps<{ events: any[] }>()
 const upcomingEvent = events[0]
@@ -12,6 +13,7 @@ const otherEvents = events.slice(1)
 </script>
 
 <template>
+    <FlashMassage />
     <AppLayout>
         <div class="hidden md:block">
             <HeaderBanner :imageUrl="EventsImage" pageTitle="Eventos" class="bg-primary-color/50" />

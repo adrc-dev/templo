@@ -19,7 +19,6 @@ function onSubmit(form: any) {
         <div class="bg-tertiary-color/80">
             <section class="w-full px-4 max-w-3xl mx-auto py-20">
                 <Heading title="Editar vídeo" description="Aquí puedes editar los vídeos del templo." />
-                <!-- Aquí PASA la prop video -->
                 <VideoForm :video="props.video" @submit="onSubmit" />
                 <GoLink class="mt-6 text-white hover:text-white" :href="route('videos.index')"
                     text="← Volver a la lista de vídeos" />

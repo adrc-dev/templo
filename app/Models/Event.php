@@ -17,6 +17,7 @@ class Event extends Model
         'event_location',
         'modality',
         'price',
+        'currency',
         'featured_image',
         'is_active',
         'language',

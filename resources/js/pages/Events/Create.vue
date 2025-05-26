@@ -12,7 +12,7 @@ function onSubmit(form: any) {
 
 <template>
 
-    <Head title="Crear Vídeo" />
+    <Head title="Crear Evento" />
     <AppLayout>
         <div class="bg-tertiary-color/80">
             <section class="w-full px-4 max-w-3xl mx-auto py-20">
