@@ -24,7 +24,7 @@ class AulaController extends Controller
 
         $freeVideos = $freeVideosQuery->paginate(3, ['*'], 'free_page');
 
-        return Inertia::render('Aulas/Index', [
+        return Inertia::render('Aulas', [
             'freeVideos' => $freeVideos,
             'premiumVideos' => $premiumVideos,
         ]);
