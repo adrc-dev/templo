@@ -7,6 +7,7 @@ import SociosImage from '@assets/about-us-header.jpeg';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { LoaderCircle } from 'lucide-vue-next';
+import InputError from '@/components/InputError.vue';
 
 const form = useForm({
     payment_proof: null,
@@ -78,6 +79,7 @@ function submit() {
                     <form @submit.prevent="submit">
                         <Input type="file" @change="e => form.payment_proof = e.target.files[0]" required
                             class="mb-10 w-full border p-2 rounded text-white" />
+                        <InputError :message="form.errors.payment_proof" />
 
                         <Button type="submit" class="mt-2 w-full" :disabled="form.processing" variant="transparent">
                             <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
