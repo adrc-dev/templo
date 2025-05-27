@@ -65,7 +65,7 @@ const submit = () => {
                     </Label>
                 </div>
 
-                <Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="form.processing"
+                <Button type="submit" class="mt-2 w-30 mx-auto" :tabindex="4" :disabled="form.processing"
                     variant="transparent">
                     <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                     Entrar

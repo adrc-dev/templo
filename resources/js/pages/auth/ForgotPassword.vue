@@ -41,7 +41,7 @@ const submit = () => {
                 </div>
 
                 <div class="my-6 flex items-center justify-start">
-                    <Button class="w-full" :disabled="form.processing" variant="transparent">
+                    <Button class="mt-2 w-30 mx-auto" :disabled="form.processing" variant="transparent">
                         <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                         Enviar
                     </Button>

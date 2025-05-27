@@ -73,7 +73,7 @@ const submit = () => {
                     <InputError :message="form.errors.password_confirmation" />
                 </div>
 
-                <Button type="submit" class="mt-2 w-full" tabindex="7" :disabled="form.processing"
+                <Button type="submit" class="mt-2 w-30 mx-auto" tabindex="7" :disabled="form.processing"
                     variant="transparent">
                     <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
                     Crear cuenta
