@@ -86,5 +86,10 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(fu
     Route::resource('videos', \App\Http\Controllers\VideoController::class)->except(['show']);
 });
 
+// tienda
+Route::get('/shop', function () {
+    return Inertia::render('Shop');
+})->name('shop');
+
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

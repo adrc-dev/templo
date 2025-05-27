@@ -51,8 +51,9 @@ function toggleMenu() {
                             <li>
                                 <TextLink :href="route('aulas.index')" class="font-normal">Aulas</TextLink>
                             </li>
-                            <li><a href="#" class="text-white hover:text-gray-300">Nuestra tienda</a></li>
-                            <!--<li><a href="#" class="text-white hover:text-gray-300">Novedades</a></li>-->
+                            <li>
+                                <TextLink :href="route('shop')" class="font-normal">Nuestra tienda</TextLink>
+                            </li>
                         </ul>
                     </nav>
 
@@ -100,8 +101,7 @@ function toggleMenu() {
                     <li><a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">Quienes somos</a></li>
                     <li><a href="/events" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
                     <li><a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
-                    <li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a></li>
-                    <!--<li><a href="#" class="hover:text-gray-300" @click="toggleMenu">Novedades</a></li>-->
+                    <li><a href="/shop" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a></li>
                 </ul>
             </nav>
         </transition>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import GoLink from '../GoLink.vue'
 
 import incienso from '@assets/incienso.jpg'
 import cuenco from '@assets/cuenco.jpg'
@@ -24,16 +25,19 @@ const products = ref([
                 <img :src="product.image" :alt="product.name" class="w-full h-48 object-cover rounded-xl mb-4" />
                 <h3 class="text-xl font-semibold text-primary-color mb-1 text-center">{{ product.name }}</h3>
                 <p class="text-lg font-medium text-secondary-color mb-4">{{ product.price }} €</p>
-                <button @click="addToCart(product)"
+                <!--<button @click="addToCart(product)"
+                    class="mt-auto bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300 cursor-pointer">
+                    Agregar al carrito
+                </button>-->
+                <button
                     class="mt-auto bg-primary-color text-white font-semibold py-2 px-4 rounded-lg hover:bg-tertiary-color transition duration-300 cursor-pointer">
                     Agregar al carrito
                 </button>
             </div>
         </div>
-        <router-link to="/tienda"
-            class="text-xl text-primary-color hover:text-tertiary-color hover:text-tertiary-color my-8 block text-right font-medium cursor-pointer">
+        <GoLink href="/shop" class="text-right block ml-auto">
             Ver todos los productos →
-        </router-link>
+        </GoLink>
     </section>
 </template>
 
