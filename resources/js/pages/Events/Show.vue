@@ -31,7 +31,7 @@ function refreshData() {
                 <EventDescription :image="event.featured_image" :title="event.title" :content="event.content" />
                 <EventInfoGrid :event_date="event.event_date" :event_end_date="event.event_end_date"
                     :event_time="event.event_time" :event_end_time="event.event_end_time" :modality="event.modality"
-                    :price="event.price" :currency="event.currency" />
+                    :price="event.price" :currency="event.currency" :location="event.event_location" />
                 <EventActions :event="event" :isSubscribed="isSubscribed" :suscribeCount="suscribeCount"
                     @refresh="refreshData" />
                 <GoLink href="/events" class="mb-0 pb-12">

@@ -6,12 +6,13 @@ defineProps<{
     event_end_time: string | null,
     modality: string,
     price: string,
-    currency: string
+    currency: string,
+    location: string | null
 }>()
 </script>
 
 <template>
-    <div class="mt-4 mb-20 grid gap-4 sm:grid-cols-4 text-center text-lg">
+    <div class="mt-4 mb-20 grid gap-4 sm:grid-cols-5 text-center text-lg">
         <div>
             <span class="block font-semibold text-primary-color">📅 Cuándo</span>
             <span class="text-primary-color">
@@ -39,6 +40,10 @@ defineProps<{
             <span class="block font-semibold text-primary-color">💲 Precio</span>
             <span v-if="price <= 0">Gratuito</span>
             <span v-else class="text-primary-color">{{ price }} {{ currency }}</span>
+        </div>
+        <div>
+            <span class="block font-semibold text-primary-color">📍 Lugar</span>
+            <span class="text-primary-color">{{ location }}</span>
         </div>
     </div>
 </template>

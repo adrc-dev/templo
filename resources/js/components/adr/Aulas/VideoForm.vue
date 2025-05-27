@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { LoaderCircle } from 'lucide-vue-next';
+import InputError from '@/components/InputError.vue';
 
 const props = defineProps<{ video?: any }>();
 const emit = defineEmits(['submit']);
@@ -28,6 +29,7 @@ function submit() {
         <div class="grid gap-2">
             <Label class="block mb-1">Título</Label>
             <Input v-model="form.title" class="w-full border rounded p-2" placeholder="Título" required />
+            <InputError :message="form.errors.title" />
         </div>
 
         <div class="grid gap-2 mt-4">
@@ -35,12 +37,14 @@ function submit() {
             <Input v-model="form.youtube_id" class="w-full border rounded p-2"
                 placeholder="Ej: https://www.youtube.com/watch?v=qfMIgYvebho&list=PL3tGU3_EgiHZiICIIwoOaOF50GmLQ7iQW"
                 required />
+            <InputError :message="form.errors.youtube_id" />
         </div>
 
         <div class="grid gap-2 mt-4">
             <Label class="block mb-1">Descripción</Label>
             <Textarea v-model="form.description" class="w-full border rounded p-2"
                 placeholder="Escribe la descripción" />
+            <InputError :message="form.errors.description" />
         </div>
 
         <div class="grid gap-2 mt-4">
@@ -48,6 +52,7 @@ function submit() {
                 <Checkbox id="premium" v-model="form.is_premium" />
                 <span class="ml-2">¿Es un vídeo premium?</span>
             </Label>
+            <InputError :message="form.errors.is_premium" />
         </div>
 
         <div class="flex justify-center items-center mt-6">
