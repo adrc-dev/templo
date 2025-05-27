@@ -29,7 +29,9 @@ defineProps<{
             </div>
 
             <VideoSection title="Aulas gratuitas" :videos="freeVideos" />
-            <VideoSection title="Aulas solo para socios" :videos="premiumVideos" />
+            <div v-if="user && user.role == 'socio' || user.role == 'admin' || user.role == 'operator'">
+                <VideoSection title="Aulas solo para socios" :videos="premiumVideos" />
+            </div>
         </section>
 
         <div v-if="user && user.role !== 'socio'">
