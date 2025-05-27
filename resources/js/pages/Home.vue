@@ -39,9 +39,9 @@ const { events } = defineProps<{
 
         <DonationBanner :imageUrl="DonationImage" title="Ayúdanos a seguir mejorando"
             description="Tu contribución es fundamental para mantener nuestro templo y actividades."
-            buttonText="Haz tu donación" buttonUrl="/donar" />
+            buttonText="Haz tu donación" />
 
-        <LastNews />
+        <!--<LastNews />-->
 
         <StoreCards />
 

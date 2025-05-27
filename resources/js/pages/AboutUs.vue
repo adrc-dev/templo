@@ -2,7 +2,7 @@
 import HeaderBanner from '@/components/adr/HeaderBanner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import headerImage from '@assets/about-us-header.jpeg';
-import donationImage from '@assets/buda-maitreya.webp';
+import donationImage from '@assets/buda-maitreya.png';
 import AboutUsBlock from '@/components/adr/AboutUsBlock.vue';
 
 import fachadaTemplo from '@assets/fachada-templo.png';
@@ -58,7 +58,7 @@ import DonationBanner from '@/components/adr/DonationBanner.vue';
 
         <DonationBanner :imageUrl="donationImage" title="Ayúdanos a seguir mejorando"
             description="Tu contribución es fundamental para mantener nuestro templo y actividades."
-            buttonText="Haz tu donación" buttonUrl="/donar" />
+            buttonText="Haz tu donación" />
     </AppLayout>
 </template>
 
