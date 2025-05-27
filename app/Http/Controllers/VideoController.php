@@ -73,7 +73,7 @@ class VideoController extends Controller
     {
         $video->delete();
 
-        return redirect()->route('videos.index')->with('message', 'El vídeo se ha eliminado correctamente.');
+        return redirect()->route('videos.index')->with('success', 'El vídeo se ha eliminado correctamente.');
     }
 
     private function extractYoutubeId(string $url): ?string

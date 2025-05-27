@@ -14,22 +14,22 @@ class EventRegistrationController extends Controller
         $user = Auth::user();
 
         if ($event->registeredUsers()->where('user_id', $user->id)->exists()) {
-            return back()->with('message', 'Ya estás inscrito/a en este evento.');
+            return back()->with('error', 'Ya estás inscrito/a en este evento.');
         }
 
         $event->registeredUsers()->attach($user->id);
 
-        return back()->with('message', 'Inscripción realizada correctamente.');
+        return back()->with('success', 'Inscripción realizada correctamente.');
     }
     public function destroy(Event $event)
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
         if ($event->registeredUsers()->where('user_id', $user->id)->exists()) {
             $event->registeredUsers()->detach($user->id);
-            return back()->with('message', 'Te has desinscrito del evento.');
+            return back()->with('success', 'Te has desinscrito del evento.');
         }
 
-        return back()->with('message', 'No estás inscrito en este evento.');
+        return back()->with('error', 'No estás inscrito en este evento.');
     }
 }

@@ -12,7 +12,7 @@ class HomeController extends Controller
         $events = Event::where('is_active', true)
             ->whereDate('event_date', '>=', now())
             ->orderBy('event_date')
-            ->take(3) // opcional: solo los 3 primeros
+            ->take(3)
             ->get();
 
         return Inertia::render('Home', [
