@@ -1,19 +1,32 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { Pencil, SquareX } from 'lucide-vue-next';
+import ConfirmDialog from '@/components/ConfirmDialog.vue';
+
+const showConfirmDialog = ref(false);
+const videoIdToDelete = ref<number | null>(null);
 
 const props = defineProps<{ videos: any[], title: string }>();
 const emit = defineEmits(['delete']);
 
 function onDelete(id: number) {
-    if (confirm('¿Estás seguro de que quieres eliminar este vídeo?')) {
-        emit('delete', id);
+    videoIdToDelete.value = id;
+    showConfirmDialog.value = true;
+}
+function confirmDelete() {
+    if (videoIdToDelete.value !== null) {
+        emit('delete', videoIdToDelete.value);
+        showConfirmDialog.value = false;
+        videoIdToDelete.value = null;
     }
 }
 </script>
 
 <template>
+    <ConfirmDialog :show="showConfirmDialog" title="¿Eliminar vídeo?"
+        message="¿Seguro que deseas eliminar este vídeo? Esta acción no se puede deshacer." confirm-text="Eliminar"
+        confirm-color="red" @confirm="confirmDelete" @cancel="showConfirmDialog = false" />
     <div>
         <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ title }}</h2>
         <table class="w-full border border-gray-200 rounded shadow-md">

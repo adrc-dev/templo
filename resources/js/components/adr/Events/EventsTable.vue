@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
 import { Pencil, SquareX } from 'lucide-vue-next';
+import ConfirmDialog from '@/components/ConfirmDialog.vue';
 
 const props = defineProps<{ events: any[], title: string }>();
 const emit = defineEmits(['delete']);
+
+const showConfirmDialog = ref(false);
+const eventSlugToDelete = ref<string | null>(null);
 
 function formatDate(dateStr: string): string {
     const date = new Date(dateStr);
@@ -23,8 +27,15 @@ function formatTime(timeStr: string): string {
 }
 
 function onDelete(slug: string) {
-    if (confirm('¿Estás seguro de que quieres eliminar este evento?')) {
-        emit('delete', slug);
+    eventSlugToDelete.value = slug;
+    showConfirmDialog.value = true;
+}
+
+function confirmDelete() {
+    if (eventSlugToDelete.value !== null) {
+        emit('delete', eventSlugToDelete.value);
+        showConfirmDialog.value = false;
+        eventSlugToDelete.value = null;
     }
 }
 
@@ -39,6 +50,10 @@ function toggleStatus(event: any) {
 </script>
 
 <template>
+    <ConfirmDialog :show="showConfirmDialog" title="¿Eliminar evento?"
+        message="¿Seguro que deseas eliminar este evento? Esta acción no se puede deshacer." confirm-text="Eliminar"
+        confirm-color="red" @confirm="confirmDelete" @cancel="showConfirmDialog = false" />
+
     <div>
         <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ title }}</h2>
         <table class="w-full border border-gray-200 rounded shadow-md">
