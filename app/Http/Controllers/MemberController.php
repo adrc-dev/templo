@@ -22,7 +22,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return inertia('Member/Create');
+        return inertia('Membership');
     }
 
     /**
