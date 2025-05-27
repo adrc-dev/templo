@@ -6,13 +6,11 @@ import { Pencil, SquareX } from 'lucide-vue-next';
 const props = defineProps<{ events: any[], title: string }>();
 const emit = defineEmits(['delete']);
 
-// Formatear fecha en español (Ej: 27 mayo 2025)
 function formatDate(dateStr: string): string {
     const date = new Date(dateStr);
     return new Intl.DateTimeFormat('es-ES').format(date);
 }
 
-// Formatear hora en español (Ej: 15:30)
 function formatTime(timeStr: string): string {
     const [hours, minutes] = timeStr.split(':');
     const date = new Date();

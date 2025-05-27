@@ -29,7 +29,6 @@ class DashboardController extends Controller
 
         return Inertia::render('Dashboard/Index', [
             'users' => $users,
-            'authRole' => auth()->user()->role,
         ]);
     }
 }

@@ -26,10 +26,11 @@ function deleteUser(userId: number) {
     }
 }
 
-defineProps(['users', 'authRole'])
+defineProps(['users'])
 
 const page = usePage();
 const auth = page.props.auth;
+const authRole = auth.user.role;
 
 const showModal = ref(false);
 const selectedUser = ref(null);
@@ -127,10 +128,15 @@ const expiredMemberships = computed(() => {
                     </td>
 
                     <td class="p-2">
-                        <button v-if="user.memberships.length" @click="openModal(user)" class="text-blue-600 underline">
-                            Ver ({{user.memberships.filter(m => m.status === 'pending').length}})
-                        </button>
-                        <span v-else class="text-gray-400 italic">No enviado</span>
+                        <template v-if="user.role === 'admin' || user.role === 'operator'">
+                        </template>
+                        <template v-else>
+                            <button v-if="user.memberships.length" @click="openModal(user)"
+                                class="text-blue-600 underline">
+                                Ver ({{user.memberships.filter(m => m.status === 'pending').length}})
+                            </button>
+                            <span v-else class="text-tertiary-color italic">No enviado</span>
+                        </template>
                     </td>
 
                     <td v-if="authRole === 'admin'" class="p-2">
