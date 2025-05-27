@@ -105,14 +105,14 @@ class EventController extends Controller
 
         $event->update($validated);
 
-        return redirect()->route('events.index')->with('success', 'Evento actualizado correctamente.');
+        return redirect()->route('events.show', $event->slug)->with('success', 'Evento actualizado correctamente.');
     }
 
     public function destroy(Event $event)
     {
         $event->delete();
 
-        return redirect()->route('events.index')->with('success', 'Evento eliminado correctamente.');
+        return redirect()->route('admin.events')->with('success', 'Evento eliminado correctamente.');
     }
 
     public function attendees(Event $event)
