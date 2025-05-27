@@ -8,8 +8,9 @@ const user = page.props.auth.user;
 
 <template>
     <section class="w-full px-4 max-w-[1200px] mx-auto">
-        <div v-if="user && (user.role === 'admin' || user.role === 'operator')" class="mt-12 flex justify-end">
+        <div v-if="user && (user.role === 'admin' || user.role === 'operator')" class="mt-12 flex justify-end gap-6">
             <Button @click="$inertia.visit('/events/create')">Crear eventos</Button>
+            <Button @click="$inertia.visit('/events/admin')">Administrar eventos</Button>
         </div>
         <h2 class="text-4xl font-bold text-center text-primary-color my-20">Eventos fijos</h2>
         <div class="w-full mx-auto grid md:grid-cols-2 gap-6 items-center">

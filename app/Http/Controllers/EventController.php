@@ -125,4 +125,35 @@ class EventController extends Controller
             'suscribeCount' => $event->registeredUsers->count(),
         ]);
     }
+
+    public function adminEvents()
+    {
+        $activeEvents = Event::where('is_active', true)
+            ->whereDate('event_date', '>=', now())
+            ->orderBy('event_date')
+            ->get();
+
+        $pastEvents = Event::where('is_active', true)
+            ->whereDate('event_date', '<', now())
+            ->orderBy('event_date')
+            ->get();
+
+        $inactiveEvents = Event::where('is_active', false)
+            ->orderBy('event_date')
+            ->get();
+
+        return Inertia::render('Events/AdminEvents', [
+            'activeEvents' => $activeEvents,
+            'inactiveEvents' => $inactiveEvents,
+            'pastEvents' => $pastEvents,
+        ]);
+    }
+
+    public function toggleStatus(Event $event)
+    {
+        $event->is_active = !$event->is_active;
+        $event->save();
+
+        return back()->with('success', 'Estado del evento actualizado.');
+    }
 }

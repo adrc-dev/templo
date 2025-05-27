@@ -29,6 +29,9 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(fu
     Route::delete('/events/{event:slug}', [EventController::class, 'destroy'])->name('events.destroy');
     Route::get('events/{event:slug}/attendees', [EventController::class, 'attendees'])
         ->name('admin.events.attendees');
+    Route::get('events/admin', [EventController::class, 'adminEvents'])
+        ->name('admin.events');
+    Route::put('/events/{event:slug}/toggle', [EventController::class, 'toggleStatus']);
 });
 
 // eventos
