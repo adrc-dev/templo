@@ -2,13 +2,13 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import VideoHeader from '@/components/adr/Home/VideoHeader.vue';
 import EventCard from '@/components/adr/EventCard.vue';
-import LastNews from '@/components/adr/Home/LastNews.vue'
 import StoreCards from '@/components/adr/Home/StoreCards.vue';
 import ContactForm from '@/components/adr/ContactForm.vue';
 import DonationBanner from '@/components/adr/DonationBanner.vue';
 import { Head } from '@inertiajs/vue3';
-
 import DonationImage from '@assets/banderas.jpg'
+import HazteSocioImage from '@assets/hazt-socio-home.png';
+import RegisterInvitation from '@/components/adr/Home/RegisterInvitation.vue';
 
 const { events } = defineProps<{
     events: {
@@ -41,9 +41,13 @@ const { events } = defineProps<{
             description="Tu contribución es fundamental para mantener nuestro templo y actividades."
             buttonText="Haz tu donación" />
 
-        <!--<LastNews />-->
-
         <StoreCards />
+
+        <DonationBanner :imageUrl="HazteSocioImage" title="¡Hazte socio y accede a contenido exclusivo!"
+            description="Conviértete en socio del Jardín del Despertar y disfruta de acceso ilimitado a todas nuestras clases premium"
+            buttonText="Hazte socio" buttonUrl="/hazte-socio" />
+
+        <RegisterInvitation />
 
         <ContactForm />
 
