@@ -6,6 +6,7 @@ import LastNews from '@/components/adr/Home/LastNews.vue'
 import StoreCards from '@/components/adr/Home/StoreCards.vue';
 import ContactForm from '@/components/adr/ContactForm.vue';
 import DonationBanner from '@/components/adr/DonationBanner.vue';
+import { Head } from '@inertiajs/vue3';
 
 import DonationImage from '@assets/banderas.jpg'
 
@@ -22,6 +23,8 @@ const { events } = defineProps<{
 </script>
 
 <template>
+
+    <Head title="Home" />
     <AppLayout>
         <VideoHeader />
 
