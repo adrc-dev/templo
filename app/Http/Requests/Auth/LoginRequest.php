@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class LoginRequest extends FormRequest
 {
@@ -29,7 +31,24 @@ class LoginRequest extends FormRequest
         return [
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
+            'recaptcha_token' => ['required', 'string'],
         ];
+    }
+
+    protected function passedValidation()
+    {
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $this->recaptcha_token,
+            'remoteip' => $this->ip(),
+        ]);
+
+        $result = $response->json();
+        if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5) {
+            throw ValidationException::withMessages([
+                'recaptcha_token' => 'La verificación de seguridad falló. Inténtalo de nuevo.',
+            ]);
+        }
     }
 
     /**
@@ -80,6 +99,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 }

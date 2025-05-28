@@ -27,7 +27,6 @@ const { executeRecaptcha } = useRecaptcha();
 const submit = async () => {
     const token = await executeRecaptcha('contact');
     form.recaptcha_token = token;
-
     form.post(route('contact.send'), {
         onFinish: () => form.reset('message'),
     });

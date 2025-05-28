@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {
     public function send(Request $request)
     {
-        // Validar reCAPTCHA v3
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => config('services.recaptcha.secret'),
             'response' => $request->input('recaptcha_token'),
@@ -24,7 +24,6 @@ class ContactController extends Controller
             );
         }
 
-        // Validación de campos
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:25',

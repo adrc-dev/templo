@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
+import { useRecaptcha } from '@/composables/useRecaptcha';
 
 defineProps<{
     status?: string;
@@ -18,9 +19,14 @@ const form = useForm({
     email: '',
     password: '',
     remember: false,
+    recaptcha_token: '',
 });
 
-const submit = () => {
+const { executeRecaptcha } = useRecaptcha();
+
+const submit = async () => {
+    const token = await executeRecaptcha('login');
+    form.recaptcha_token = token;
     form.post(route('login'), {
         onFinish: () => form.reset('password'),
     });
