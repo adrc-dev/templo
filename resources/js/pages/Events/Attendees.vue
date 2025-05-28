@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue'
-import GoLink from '@/components/adr/GoLink.vue'
+import GoLink from '@/components/GoLink.vue'
 
 defineProps<{
     event: {

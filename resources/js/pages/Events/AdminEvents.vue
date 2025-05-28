@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Head, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import FlashMassage from '@/components/FlashMassage.vue';
-import EventsTable from '@/components/adr/Events/EventsTable.vue';
-import GoLink from '@/components/adr/GoLink.vue';
+import EventsTable from '@/components/Events/EventsTable.vue';
+import GoLink from '@/components/GoLink.vue';
 
 const props = defineProps<{
     activeEvents: any[],

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
 import FlashMassage from '@/components/FlashMassage.vue';
-import EventDescription from '@/components/adr/Events/EventDescription.vue';
-import EventInfoGrid from '@/components/adr/Events/EventInfoGrid.vue';
-import EventActions from '@/components/adr/Events/EventActions.vue';
-import HeaderBanner from '@/components/adr/HeaderBanner.vue';
-import GoLink from '@/components/adr/GoLink.vue';
+import EventDescription from '@/components/Events/EventDescription.vue';
+import EventInfoGrid from '@/components/Events/EventInfoGrid.vue';
+import EventActions from '@/components/Events/EventActions.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
+import GoLink from '@/components/GoLink.vue';
 import { router } from '@inertiajs/vue3';
 
 const { event, isSubscribed, suscribeCount } = defineProps<{

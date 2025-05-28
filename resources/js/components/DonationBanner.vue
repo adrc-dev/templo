@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Button from '../ui/button/Button.vue';
-import Modal from '@/components/adr/LegalModal.vue';
+import Button from '@/components/ui/button/Button.vue';
+import Modal from '@/components/LegalModal.vue';
 
 defineProps<{
     imageUrl: string

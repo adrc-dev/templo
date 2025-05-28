@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import GoLink from '../GoLink.vue'
+import GoLink from '@/components/GoLink.vue'
 import { Button } from '@/components/ui/button'
 import incienso from '@assets/incienso.jpg'
 import cuenco from '@assets/cuenco.jpg'

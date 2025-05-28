@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import EventCard from '@/components/adr/EventCard.vue'
+import EventCard from '@/components/EventCard.vue'
 
 defineProps<{
     events: any[]

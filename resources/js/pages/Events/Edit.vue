@@ -2,8 +2,8 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import Heading from '@/components/Heading.vue';
-import EventForm from '@/components/adr/Events/EventForm.vue';
-import GoLink from '@/components/adr/GoLink.vue';
+import EventForm from '@/components/Events/EventForm.vue';
+import GoLink from '@/components/GoLink.vue';
 
 const props = defineProps<{ event: any }>()
 

@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Head, router } from '@inertiajs/vue3';
 import { ref, computed } from 'vue';
 import FlashMassage from '@/components/FlashMassage.vue';
-import VideosTable from '@/components/adr/Aulas/VideosTable.vue';
-import GoLink from '@/components/adr/GoLink.vue';
+import VideosTable from '@/components/Aulas/VideosTable.vue';
+import GoLink from '@/components/GoLink.vue';
 
 const props = defineProps<{ videos: any[] }>();
 const videos = ref([...props.videos]);

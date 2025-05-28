@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
-import HeaderBanner from '@/components/adr/HeaderBanner.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
 import ShopImage from '@assets/bg-shop.png';
 </script>
 

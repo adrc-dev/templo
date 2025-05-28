@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LegalModal from '@/Components/adr/LegalModal.vue'
+import LegalModal from '@/components/LegalModal.vue'
 import { useLegalModal } from '@/composables/useLegalModal'
 
 const { activeModal, openModal, closeModal, modalTitle, modalContent } = useLegalModal()

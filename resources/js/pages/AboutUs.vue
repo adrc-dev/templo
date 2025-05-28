@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HeaderBanner from '@/components/adr/HeaderBanner.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import headerImage from '@assets/about-us-header.jpeg';
 import donationImage from '@assets/buda-maitreya.png';
-import AboutUsBlock from '@/components/adr/AboutUsBlock.vue';
+import AboutUsBlock from '@/components/AboutUsBlock.vue';
 
 import fachadaTemplo from '@assets/fachada-templo.png';
 import meditacionFazenda from '@assets/meditacion-fazenda.png';
@@ -11,7 +11,7 @@ import atencionIndividual from '@assets/atencion-individual.png';
 import introBudismo from '@assets/intro-budismo.png';
 import clasesOnline from '@assets/clases-online.png';
 import tarotTibetano from '@assets/tarot-tibetano.webp';
-import DonationBanner from '@/components/adr/DonationBanner.vue';
+import DonationBanner from '@/components/DonationBanner.vue';
 </script>
 
 <template>

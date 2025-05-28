@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
-import HeaderBanner from '@/components/adr/HeaderBanner.vue';
-import DonationBanner from '@/components/adr/DonationBanner.vue';
-import VideoSection from '@/components/adr/Aulas/VideoSection.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
+import DonationBanner from '@/components/DonationBanner.vue';
+import VideoSection from '@/components/Aulas/VideoSection.vue';
 import Button from '@/components/ui/button/Button.vue';
 import AulasImage from '@assets/banner-aulas.png';
 import HazteSocioImage from '@assets/hazte-socio-aulas.png';

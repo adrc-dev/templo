@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
-import VideoHeader from '@/components/adr/Home/VideoHeader.vue';
-import EventCard from '@/components/adr/EventCard.vue';
-import StoreCards from '@/components/adr/Home/StoreCards.vue';
-import ContactForm from '@/components/adr/ContactForm.vue';
-import DonationBanner from '@/components/adr/DonationBanner.vue';
+import VideoHeader from '@/components/Home/VideoHeader.vue';
+import EventCard from '@/components/EventCard.vue';
+import StoreCards from '@/components/Home/StoreCards.vue';
+import ContactForm from '@/components/ContactForm.vue';
+import DonationBanner from '@/components/DonationBanner.vue';
 import { Head } from '@inertiajs/vue3';
 import DonationImage from '@assets/banderas.jpg'
 import HazteSocioImage from '@assets/hazt-socio-home.png';
-import RegisterInvitation from '@/components/adr/Home/RegisterInvitation.vue';
+import RegisterInvitation from '@/components/Home/RegisterInvitation.vue';
 import FlashMassage from '@/components/FlashMassage.vue';
 
 const { events } = defineProps<{

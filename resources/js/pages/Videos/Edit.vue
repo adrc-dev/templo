@@ -2,8 +2,8 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import Heading from '@/components/Heading.vue';
-import VideoForm from '@/components/adr/Aulas/VideoForm.vue';
-import GoLink from '@/components/adr/GoLink.vue';
+import VideoForm from '@/components/Aulas/VideoForm.vue';
+import GoLink from '@/components/GoLink.vue';
 
 const props = defineProps<{ video: any }>();
 

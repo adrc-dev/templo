@@ -3,7 +3,7 @@ import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import FlashMassage from '@/components/FlashMassage.vue';
-import HeaderBanner from '@/components/adr/HeaderBanner.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
 import SociosImage from '@assets/about-us-header.jpeg';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

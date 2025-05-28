@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import HeaderBanner from '@/components/adr/HeaderBanner.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import EventsImage from '@assets/eventos-banner.jpg';
-import StaticEvent from '@/components/adr/Events/StaticEvent.vue';
-import UpcomingEvent from '@/components/adr/Events/UpcomingEvent.vue';
-import EventsGrid from '@/components/adr/Events/EventsGrid.vue';
+import StaticEvent from '@/components/Events/StaticEvent.vue';
+import UpcomingEvent from '@/components/Events/UpcomingEvent.vue';
+import EventsGrid from '@/components/Events/EventsGrid.vue';
 import FlashMassage from '@/components/FlashMassage.vue';
 
 const { events } = defineProps<{ events: any[] }>()

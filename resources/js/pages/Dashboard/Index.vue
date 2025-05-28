@@ -5,9 +5,9 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import Heading from '@/components/Heading.vue';
 import FlashMassage from '@/components/FlashMassage.vue';
 import Pagination from '@/components/ui/pagination/Pagination.vue';
-import MembershipModal from '@/components/adr/Dashboard/MembershipModal.vue';
-import UserSearch from '@/components/adr/Dashboard/UserSearch.vue';
-import UserTable from '@/components/adr/Dashboard/UserTable.vue';
+import MembershipModal from '@/components/Dashboard/MembershipModal.vue';
+import UserSearch from '@/components/Dashboard/UserSearch.vue';
+import UserTable from '@/components/Dashboard/UserTable.vue';
 import ConfirmDialog from '@/components/ConfirmDialog.vue';
 
 const search = ref('');

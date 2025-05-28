@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 import { CircleUserRound, UserRoundCheck } from 'lucide-vue-next';
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
-import TextLink from '../TextLink.vue';
+import TextLink from '@/components/TextLink.vue';
 const isMenuOpen = ref(false)
 
 function toggleMenu() {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
-import HeaderBanner from '@/components/adr/HeaderBanner.vue';
-import ContactForm from '@/components/adr/ContactForm.vue';
+import HeaderBanner from '@/components/HeaderBanner.vue';
+import ContactForm from '@/components/ContactForm.vue';
 import ContactImage from '@assets/contacto-banner.png';
 import FlashMassage from '@/components/FlashMassage.vue';
 </script>
