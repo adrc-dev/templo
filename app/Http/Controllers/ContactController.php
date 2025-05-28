@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
+use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -31,6 +32,7 @@ class ContactController extends Controller
             'message' => 'required|string',
             'privacy' => 'accepted',
         ]);
+        Mail::to(config('mail.contact'))->send(new ContactFormMail($validated));
 
         return back()->with('success', '¡Gracias por tu mensaje!');
     }
