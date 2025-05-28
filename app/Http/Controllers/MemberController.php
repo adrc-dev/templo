@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-
 
 class MemberController extends Controller
 {
@@ -24,8 +24,21 @@ class MemberController extends Controller
     {
         $request->validate([
             'payment_proof' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
+            'recaptcha_token' => ['required', 'string'],
         ]);
 
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $request->input('recaptcha_token'),
+        ]);
+
+        $result = $response->json();
+
+        if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5) {
+            return back()->with('error', 'La verificación de seguridad falló. Inténtalo de nuevo.');
+        }
+
+        // Guardar el comprobante
         $path = $request->file('payment_proof')->store('proofs', 'public');
 
         Member::create([

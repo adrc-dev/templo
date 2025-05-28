@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
+import { ref } from 'vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import FlashMassage from '@/components/FlashMassage.vue';
 import HeaderBanner from '@/components/adr/HeaderBanner.vue';
@@ -8,13 +9,30 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { LoaderCircle } from 'lucide-vue-next';
 import InputError from '@/components/InputError.vue';
+import { useRecaptcha } from '@/composables/useRecaptcha';
 
 const form = useForm({
     payment_proof: null,
+    recaptcha_token: '',
 });
 
-function submit() {
-    form.post(route('member.store'));
+const fileInputRef = ref<HTMLInputElement | null>(null);
+
+const { executeRecaptcha } = useRecaptcha();
+
+const submit = async () => {
+    const token = await executeRecaptcha('payment_proof');
+    form.recaptcha_token = token;
+
+    form.post(route('member.store'), {
+        onSuccess: () => {
+            form.reset('payment_proof');
+            if (fileInputRef.value) {
+                fileInputRef.value.value = '';
+            }
+        },
+        preserveScroll: true,
+    });
 }
 </script>
 
@@ -77,14 +95,18 @@ function submit() {
                     </p>
 
                     <form @submit.prevent="submit">
-                        <Input type="file" @change="e => form.payment_proof = e.target.files[0]" required
-                            class="mb-10 w-full border p-2 rounded text-white" />
+                        <input type="file" ref="fileInputRef" @change="e => form.payment_proof = e.target.files[0]"
+                            required
+                            class="text-white bg-primary-color border border-secondary-color rounded-lg px-3 py-2
+                            file:bg-primary-color file:text-secondary-color file:border-0 file:rounded file:px-4 file:py-2 file:cursor-pointer" />
                         <InputError :message="form.errors.payment_proof" />
 
-                        <Button type="submit" class="mt-2 w-full" :disabled="form.processing" variant="transparent">
-                            <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                            Enviar comprobante
-                        </Button>
+                        <div class="flex justify-center mt-12">
+                            <Button type="submit" :disabled="form.processing" variant="transparent">
+                                <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+                                Enviar comprobante
+                            </Button>
+                        </div>
                     </form>
                 </div>
             </div>
