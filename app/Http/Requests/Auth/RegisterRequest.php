@@ -27,6 +27,35 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'El nombre es obligatorio.',
+            'name.string' => 'El nombre debe ser un texto.',
+            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+
+            'surname.required' => 'Los apellidos son obligatorios.',
+            'surname.string' => 'Los apellidos deben ser un texto.',
+            'surname.max' => 'Los apellidos no pueden tener más de 255 caracteres.',
+
+            'phone.required' => 'El teléfono es obligatorio.',
+            'phone.regex' => 'El formato del teléfono no es válido.',
+
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.string' => 'El correo electrónico debe ser un texto.',
+            'email.email' => 'El correo electrónico debe ser válido.',
+            'email.max' => 'El correo electrónico no puede tener más de 255 caracteres.',
+            'email.lowercase' => 'El correo electrónico debe estar en minúsculas.',
+            'email.unique' => 'Este correo electrónico ya está registrado.',
+
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.confirmed' => 'Las contraseñas no coinciden.',
+            'password.*' => 'La contraseña no cumple con los requisitos de seguridad.',
+
+            'recaptcha_token.required' => 'La verificación de seguridad es obligatoria.',
+        ];
+    }
+
     protected function passedValidation()
     {
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [

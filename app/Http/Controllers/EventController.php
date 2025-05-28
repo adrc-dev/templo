@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use Illuminate\Http\Request;
+use App\Http\Requests\Events\StoreEventRequest;
+use App\Http\Requests\Events\UpdateEventRequest;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -37,26 +38,9 @@ class EventController extends Controller
         return Inertia::render('Events/Create');
     }
 
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:events,slug',
-            'content' => 'required|string',
-            'event_date' => 'required|date',
-            'event_time' => 'required',
-            'event_end_date' => 'nullable|date|after_or_equal:event_date',
-            'event_end_time' => 'nullable',
-            'event_location' => 'required|string',
-            'modality' => 'required|string',
-            'price' => 'numeric',
-            'currency' => 'nullable|string|max:3',
-            'featured_image' => 'nullable|image|max:2048',
-            'is_active' => 'boolean',
-            'language' => 'nullable|string|max:2',
-            'seo_title' => 'nullable|string|max:255',
-            'seo_description' => 'nullable|string|max:255',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('featured_image')) {
             $path = $request->file('featured_image')->store('events', 'public');
@@ -75,26 +59,9 @@ class EventController extends Controller
         ]);
     }
 
-    public function update(Request $request, Event $event)
+    public function update(UpdateEventRequest $request, Event $event)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:events,slug,' . $event->id,
-            'content' => 'required|string',
-            'event_date' => 'required|date',
-            'event_time' => 'required',
-            'event_end_date' => 'nullable|date|after_or_equal:event_date',
-            'event_end_time' => 'nullable',
-            'event_location' => 'required|string',
-            'modality' => 'required|string',
-            'price' => 'nullable|numeric',
-            'currency' => 'nullable|string|max:3',
-            'featured_image' => 'nullable|image|max:2048',
-            'is_active' => 'boolean',
-            'language' => 'required|string|max:2',
-            'seo_title' => 'nullable|string|max:255',
-            'seo_description' => 'nullable|string|max:255',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('featured_image')) {
             $path = $request->file('featured_image')->store('events', 'public');

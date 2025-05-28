@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -20,15 +20,8 @@ class VideoController extends Controller
         return Inertia::render('Videos/Create');
     }
 
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'youtube_id' => 'required',
-            'is_premium' => 'boolean',
-            'description' => 'nullable',
-        ]);
-
         $youtubeId = $this->extractYoutubeId($request->youtube_id) ?? $request->youtube_id;
 
         Video::create([
@@ -48,15 +41,8 @@ class VideoController extends Controller
         ]);
     }
 
-    public function update(Request $request, Video $video)
+    public function update(VideoRequest $request, Video $video)
     {
-        $request->validate([
-            'title' => 'required',
-            'youtube_id' => 'required',
-            'is_premium' => 'boolean',
-            'description' => 'nullable',
-        ]);
-
         $youtubeId = $this->extractYoutubeId($request->youtube_id) ?? $request->youtube_id;
 
         $video->update([

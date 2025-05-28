@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 
 class LoginRequest extends FormRequest
 {
@@ -32,6 +31,21 @@ class LoginRequest extends FormRequest
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
             'recaptcha_token' => ['required', 'string'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.string' => 'El correo electrónico debe ser un texto.',
+            'email.email' => 'El correo electrónico debe ser válido.',
+
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.string' => 'La contraseña debe ser un texto.',
+
+            'recaptcha_token.required' => 'La verificación de seguridad es obligatoria.',
+            'recaptcha_token.string' => 'El token de verificación debe ser un texto válido.',
         ];
     }
 

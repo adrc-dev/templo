@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Http;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    public function send(Request $request)
+
+    public function send(ContactRequest $request)
     {
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => config('services.recaptcha.secret'),
@@ -25,14 +26,7 @@ class ContactController extends Controller
             );
         }
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:25',
-            'email' => 'required|email|max:255',
-            'message' => 'required|string',
-            'privacy' => 'accepted',
-        ]);
-        Mail::to(config('mail.contact'))->send(new ContactFormMail($validated));
+        Mail::to(config('mail.contact'))->send(new ContactFormMail($request->validated()));
 
         return back()->with('success', '¡Gracias por tu mensaje!');
     }
