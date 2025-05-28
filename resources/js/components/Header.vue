@@ -57,7 +57,7 @@ function toggleMenu() {
                         </ul>
                     </nav>
 
-                    <div v-if="$page.props.auth.user" class="relative flex items-center pl-5">
+                    <div v-if="$page.props.auth.user" class="hidden relative md:flex items-center pl-5">
                         <DropdownMenu>
                             <DropdownMenuTrigger as-child>
                                 <button
@@ -72,13 +72,13 @@ function toggleMenu() {
                         </DropdownMenu>
                     </div>
 
-                    <template v-else>
+                    <div v-else class="hidden md:block">
                         <Link :href="route('login')"
                             class="flex flex-col justify-center items-center pl-5 py-1.5 leading-normal hover:text-gray-300 text-white font-bold">
                         <CircleUserRound class="w-7 h-7 inline-block" />
                         Entrar
                         </Link>
-                    </template>
+                    </div>
                 </div>
 
                 <!-- botón hamburguesa -->
@@ -96,12 +96,33 @@ function toggleMenu() {
         <!-- menú móvil con transición -->
         <transition name="fade">
             <nav v-show="isMenuOpen"
-                class="md:hidden bg-primary-color text-white px-4 pb-4 transition-all duration-300 ease-in-out">
+                class="md:hidden bg-primary-color text-white transition-all duration-300 ease-in-out text-center">
                 <ul class="flex flex-col space-y-2">
-                    <li><a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">Quienes somos</a></li>
-                    <li><a href="/events" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
-                    <li><a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
-                    <li><a href="/shop" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a></li>
+                    <li class="mt-2 px-4"><a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">Quienes
+                            somos</a></li>
+                    <li class="px-4"><a href="/events" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
+                    <li class="px-4"><a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
+                    <li class="px-4"><a href="/shop" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a>
+                    </li>
+                    <li class="px-4 py-2 rounded-b bg-white text-primary-color">
+                        <div v-if="$page.props.auth.user" class="relative">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger as-child>
+                                    <button class="">
+                                        {{ $page.props.auth.user.name }}
+                                    </button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" class="w-56 mt-2">
+                                    <UserMenuContent :user="$page.props.auth.user" />
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
+                        <div v-else>
+                            <Link :href="route('login')" class=" hover:text-gray-300 text-white">
+                            Iniciar sesión
+                            </Link>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </transition>
