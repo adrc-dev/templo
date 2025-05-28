@@ -109,6 +109,9 @@
     .fade-leave-from {
         opacity: 1;
     }
+    .grecaptcha-badge {
+        z-index: 9999;
+    }
 }
 
 :root {

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import InputError from '@/components/InputError.vue';
-import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
@@ -9,8 +8,10 @@ import { useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 import { Textarea } from '@/components/ui/textarea';
 import { useLegalModal } from '@/composables/useLegalModal';
+import { useRecaptcha } from '@/composables/useRecaptcha';
 
 const { openModal } = useLegalModal();
+
 
 const form = useForm({
     name: '',
@@ -18,9 +19,15 @@ const form = useForm({
     email: '',
     message: '',
     privacy: false,
+    recaptcha_token: '',
 });
 
-const submit = () => {
+const { executeRecaptcha } = useRecaptcha();
+
+const submit = async () => {
+    const token = await executeRecaptcha('contact');
+    form.recaptcha_token = token;
+
     form.post(route('contact.send'), {
         onFinish: () => form.reset('message'),
     });

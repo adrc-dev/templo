@@ -11,6 +11,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegistrationController;
+use App\Http\Controllers\ContactController;
 
 // home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -52,6 +53,7 @@ Route::delete('/events/{event:slug}/unsubscribe', [EventRegistrationController::
 Route::get('/contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 // hacerse socio
 Route::middleware(['auth', 'verified'])->group(function () {

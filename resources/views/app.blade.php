@@ -24,6 +24,8 @@
         })();
     </script>
 
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.key') }}"></script>
+
     {{-- Inline style to set the HTML background color based on our theme in app.css --}}
     <style>
         html {
