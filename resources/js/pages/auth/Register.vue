@@ -24,6 +24,7 @@ const { executeRecaptcha } = useRecaptcha();
 const submit = async () => {
     const token = await executeRecaptcha('register');
     form.recaptcha_token = token;
+    form.email = form.email.toLowerCase();
     form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
