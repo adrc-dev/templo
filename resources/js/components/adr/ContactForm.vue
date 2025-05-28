@@ -85,6 +85,7 @@ const submit = async () => {
                             </Label>
                         </div>
                         <InputError :message="form.errors.privacy" />
+                        <InputError :message="form.errors.recaptcha_token" />
 
                         <Button type="submit" class="mt-2 w-30 self-center" :disabled="form.processing || !form.privacy"
                             variant="transparent">
