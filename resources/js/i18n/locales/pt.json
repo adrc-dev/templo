@@ -51,7 +51,7 @@
         "bizumNumber": "Número: 655255355",
         "sendReceipt": "Enviar comprovante pelo WhatsApp"
     },
-    "contact": {
+    "contactForm": {
         "title": "Você tem alguma dúvida?",
         "subtitle": "Entre em contato!",
         "nameLabel": "Nome:",
@@ -129,5 +129,20 @@
     "headingBanner": {
         "title": "Templo Jardín del Despertar",
         "subtitle": "Um espaço para meditação e o crescimento pessoal"
+    },
+    "contact": {
+        "title": "Contato",
+        "part1": "Você tem alguma dúvida, deseja participar das nossas atividades ou simplesmente nos conhecer melhor? Ficaremos felizes em ouvir você.",
+        "part2_1": "Desde setembro de 2007, nosso templo está sediado em",
+        "city": "São Caetano do Sul, São Paulo, Brasil",
+        "part2_2": "na",
+        "address": "Rua Engenheiro Rebouças 1040, 09540-000",
+        "part2_3": "Também realizamos retiros ocasionais em",
+        "barcelona": "Barcelona, Espanha",
+        "part2_4": "embora ainda não tenhamos uma sede fixa lá",
+        "part3_1": "Você pode nos enviar um e-mail para",
+        "email": "monjasherab@gmail.com",
+        "part3_2": "ou nos mandar uma mensagem no WhatsApp para",
+        "whatsapp": "+55 11 98996-4269"
     }
 }

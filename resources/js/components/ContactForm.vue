@@ -39,10 +39,10 @@ const submit = async () => {
         <div class="relative z-10">
             <div class="w-full max-w-[1200px] mx-auto text-white mb-16">
                 <h2 class="text-4xl font-bold text-center mt-16 tracking-tight">
-                    {{ $t('contact.title') }}
+                    {{ $t('contactForm.title') }}
                 </h2>
                 <p class="text-2xl text-center tracking-tight mt-2">
-                    {{ $t('contact.subtitle') }}
+                    {{ $t('contactForm.subtitle') }}
                 </p>
             </div>
 
@@ -51,22 +51,22 @@ const submit = async () => {
                     <form @submit.prevent="submit" class="flex flex-col gap-6">
 
                         <div class="grid gap-2">
-                            <Label for="name">{{ $t('contact.nameLabel') }}</Label>
+                            <Label for="name">{{ $t('contactForm.nameLabel') }}</Label>
                             <Input id="name" v-model="form.name" type="text" required autofocus
-                                :placeholder="$t('contact.namePlaceholder')" />
+                                :placeholder="$t('contactForm.namePlaceholder')" />
                             <InputError :message="form.errors.name" />
                         </div>
 
                         <div class="md:flex md:space-x-4">
                             <div class="md:w-1/2 grid gap-2">
-                                <Label for="phone">{{ $t('contact.phoneLabel') }}</Label>
+                                <Label for="phone">{{ $t('contactForm.phoneLabel') }}</Label>
                                 <Input id="phone" v-model="form.phone" type="tel" required
-                                    :placeholder="$t('contact.phonePlaceholder')" />
+                                    :placeholder="$t('contactForm.phonePlaceholder')" />
                                 <InputError :message="form.errors.phone" />
                             </div>
 
                             <div class="md:w-1/2 grid gap-2 mt-6 md:mt-0">
-                                <Label for="email">{{ $t('contact.emailLabel') }}</Label>
+                                <Label for="email">{{ $t('contactForm.emailLabel') }}</Label>
                                 <Input id="email" v-model="form.email" type="email" required
                                     placeholder="email@example.com" />
                                 <InputError :message="form.errors.email" />
@@ -74,19 +74,19 @@ const submit = async () => {
                         </div>
 
                         <div class="grid gap-2">
-                            <Label for="message">{{ $t('contact.messageLabel') }}</Label>
+                            <Label for="message">{{ $t('contactForm.messageLabel') }}</Label>
                             <Textarea id="message" v-model="form.message" :rows="6"
-                                :placeholder="$t('contact.messagePlaceholder')" required />
+                                :placeholder="$t('contactForm.messagePlaceholder')" required />
                             <InputError :message="form.errors.message" />
                         </div>
 
                         <div class="flex items-start space-x-3">
                             <Checkbox id="privacy" v-model="form.privacy" required />
                             <Label for="privacy" class="text-base font-medium text-white">
-                                {{ $t('contact.privacyText') }}
+                                {{ $t('contactForm.privacyText') }}
                                 <span @click="openModal('privacyPolicy')"
                                     class="font-bold hover:text-gray-300 cursor-pointer">
-                                    {{ $t('contact.privacyLink') }}
+                                    {{ $t('contactForm.privacyLink') }}
                                 </span>.
                             </Label>
                         </div>
@@ -97,7 +97,7 @@ const submit = async () => {
                         <Button type="submit" class="mt-2 w-30 self-center" :disabled="form.processing || !form.privacy"
                             variant="transparent">
                             <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                            {{ $t('contact.submit') }}
+                            {{ $t('contactForm.submit') }}
                         </Button>
                     </form>
                 </div>
