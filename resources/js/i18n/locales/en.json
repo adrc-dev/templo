@@ -78,6 +78,7 @@
     },
     "legal": {
         "legalNotice": {
+            "title": "Legal Notice",
             "holder": "Holder: Buddhist Temple Jardín del Despertar",
             "address": "Registered address: Rua Engenheiro Rebouças 1040, São Caetano do Sul, SP, Brazil - 09540-000",
             "taxId": "Tax ID: 074.647.658-26",
@@ -103,6 +104,7 @@
             }
         },
         "privacyPolicy": {
+            "title": "Privacy policy",
             "responsible": "Responsible: Jardín del Despertar Buddhist Temple",
             "address": "Address: Engenheiro Rebouças 1040",
             "contactEmail": "Contact Email:",
@@ -114,6 +116,7 @@
             "guarantee": "The Buddhist temple guarantees the confidentiality of personal data and compliance with data protection regulations according to Regulation (EU) 2016/679 (GDPR) and Organic Law 3/2018 (LOPDGDD)."
         },
         "cookiesPolicy": {
+            "title": "Cookies policy",
             "introduction": "This website uses own and third-party cookies for technical and statistical purposes. A cookie is a small file downloaded to your browser when accessing certain web pages.",
             "typesTitle": "TYPES OF COOKIES USED:",
             "technicalCookies": "Technical cookies: necessary for the site’s operation.",
@@ -122,5 +125,9 @@
             "managementContent": "You can allow, block, or delete the cookies installed on your device by configuring your browser options.",
             "acceptance": "By continuing to browse this website, you accept the use of cookies under the conditions established in this Policy."
         }
+    },
+    "headingBanner": {
+        "title": "Temple Jardín del Despertar",
+        "subtitle": "A space for meditation and personal growth"
     }
 }

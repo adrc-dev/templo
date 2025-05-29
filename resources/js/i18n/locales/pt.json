@@ -78,6 +78,7 @@
     },
     "legal": {
         "legalNotice": {
+            "title": "Aviso legal",
             "holder": "Titular: Templo Budista Jardín del Despertar",
             "address": "Endereço registrado: Rua Engenheiro Rebouças 1040, São Caetano do Sul, SP, Brasil - 09540-000",
             "taxId": "NIF/CNPJ: 074.647.658-26",
@@ -103,6 +104,7 @@
             }
         },
         "privacyPolicy": {
+            "title": "Política de privacidade",
             "responsible": "Responsável: Jardín del Despertar",
             "address": "Endereço: Engenheiro Rebouças 1040",
             "contactEmail": "Email de contato:",
@@ -114,6 +116,7 @@
             "guarantee": "O templo budista garante a confidencialidade dos dados pessoais e o cumprimento da legislação de proteção de dados conforme o Regulamento (UE) 2016/679 (RGPD) e a Lei Orgânica 3/2018 (LOPDGDD)."
         },
         "cookiesPolicy": {
+            "title": "Política de cookies",
             "introduction": "Este site utiliza cookies próprios e de terceiros para fins técnicos e estatísticos. Um cookie é um pequeno arquivo que é baixado no seu navegador ao acessar determinadas páginas web.",
             "typesTitle": "TIPOS DE COOKIES UTILIZADOS:",
             "technicalCookies": "Cookies técnicas: necessárias para o funcionamento do site.",
@@ -122,5 +125,9 @@
             "managementContent": "Você pode permitir, bloquear ou eliminar os cookies instalados no seu dispositivo configurando as opções do navegador que estiver usando.",
             "acceptance": "Ao continuar navegando por este site, você aceita o uso de cookies nas condições estabelecidas nesta Política."
         }
+    },
+    "headingBanner": {
+        "title": "Templo Jardín del Despertar",
+        "subtitle": "Um espaço para meditação e o crescimento pessoal"
     }
 }

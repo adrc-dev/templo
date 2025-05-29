@@ -173,7 +173,7 @@ onUnmounted(() => {
                                         {{ $page.props.auth.user.name }}
                                     </button>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" class="w-56 mt-2">
+                                <DropdownMenuContent align="center" class="w-56 mt-2">
                                     <UserMenuContent :user="$page.props.auth.user" />
                                 </DropdownMenuContent>
                             </DropdownMenu>

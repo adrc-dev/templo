@@ -19,11 +19,11 @@ export function useLegalModal() {
     const modalTitle = computed(() => {
         switch (activeModal.value) {
             case 'legalNotice':
-                return 'Aviso legal';
+                return t('legal.legalNotice.title');
             case 'privacyPolicy':
-                return 'Política de privacidad';
+                return t('legal.privacyPolicy.title');
             case 'cookiesPolicy':
-                return 'Política de cookies';
+                return t('legal.cookiesPolicy.title');
             default:
                 return '';
         }

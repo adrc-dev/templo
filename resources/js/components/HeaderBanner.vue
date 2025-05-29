@@ -19,7 +19,6 @@ watch(() => props.imageUrl, (url) => {
         backgroundImage.value = url;
     };
     img.onerror = () => {
-        console.warn(`No se pudo cargar la imagen: ${url}, usando fallback.`);
         backgroundImage.value = fallback;
     };
 }, { immediate: true });
@@ -44,12 +43,12 @@ watch(() => props.imageUrl, (url) => {
             </div>
             <!-- title -->
             <div class="flex justify-end items-center flex-wrap w-full max-w-[350px] lg:max-w-[500px] ml-auto h-full">
-                <h1 class="text-5xl/16 lg:text-7xl/20 font-bold text-white">Templo Jardín del Despertar</h1>
+                <h1 class="text-5xl/16 lg:text-7xl/20 font-bold text-white">{{ $t('headingBanner.title') }}</h1>
             </div>
             <!-- subtitle -->
             <div class="flex justify-end items-center flex-wrap w-full max-w-[350px] lg:max-w-[500px] ml-auto h-full">
                 <h2 class="text-2xl font-bold text-secondary-color mt-4">
-                    Un espacio para la meditación y el crecimiento personal
+                    {{ $t('headingBanner.subtitle') }}
                 </h2>
             </div>
         </div>
