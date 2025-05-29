@@ -6,15 +6,43 @@ import UserMenuContent from '@/components/UserMenuContent.vue';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import TextLink from '@/components/TextLink.vue';
 import SelectLeguage from './SelectLeguage.vue';
-const isMenuOpen = ref(false)
+import { onMounted, onUnmounted } from 'vue';
+
+const isMenuOpen = ref(false);
+const isHeaderVisible = ref(true);
+
+let lastScrollY = window.scrollY;
 
 function toggleMenu() {
-    isMenuOpen.value = !isMenuOpen.value
+    isMenuOpen.value = !isMenuOpen.value;
 }
+
+function handleScroll() {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // scrolling down
+        isHeaderVisible.value = false;
+    } else {
+        // scrolling up
+        isHeaderVisible.value = true;
+    }
+    lastScrollY = currentScrollY;
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
-    <header class="z-20">
+    <header :class="[
+        'z-20 fixed top-0 left-0 w-full transition-transform duration-500',
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+    ]">
         <!-- barra superior -->
         <div class="py-1 bg-secondary-color w-full">
             <div class="flex items-center text-primary-color justify-between w-full max-w-[1512px] mx-auto px-8">

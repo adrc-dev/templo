@@ -7,6 +7,8 @@ import Footer from '@/components/Footer.vue';
     <div class="background-container bg-white relative overflow-hidden w-full mx-auto min-h-screen flex flex-col">
         <Header />
 
+        <div class="h-[132px]"></div><!-- compensar el header -->
+
         <main class="z-1">
             <slot />
         </main>
