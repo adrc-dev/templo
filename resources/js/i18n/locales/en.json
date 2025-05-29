@@ -144,5 +144,38 @@
         "email": "monjasherab@gmail.com",
         "part3_2": "or send us a WhatsApp to",
         "whatsapp": "+55 11 98996-4269"
+    },
+    "membership": {
+        "title": "Become a member!",
+        "image_alt": "Ani nun giving individual attention",
+        "part1_1": "By becoming a member, you get unlimited access to",
+        "part1_strong": "all classes",
+        "part1_2": ", both free and paid.",
+        "part2_1": "Additionally, you enjoy",
+        "part2_strong": "exclusive discounts in the store",
+        "part2_2": " and special products for members.",
+        "part3_1": "Your contribution is also a direct way to",
+        "part3_strong1": "support the continuity of the temple",
+        "part3_2": ", allowing it to continue offering teachings and",
+        "part3_strong2": "social actions",
+        "part3_3": " for the community.",
+        "part4_1": "For only",
+        "part4_strong": "20€ per month",
+        "part4_2": ", you can enjoy all the benefits: access to all classes, exclusive discounts, and the satisfaction of supporting a meaningful cause.",
+        "paymentOptions": {
+            "title": "Payment Options",
+            "bank_title": "💳 Bank Transfer",
+            "account_holder": "Account holder: Asociación Budista Templo del Dharma",
+            "iban": "IBAN:",
+            "iban_number": "ES12 3456 7890 1234 5678 9012",
+            "concept": "Concept:",
+            "concept_text": "Your name + Membership fee",
+            "bizum_title": "📱 Bizum",
+            "phone": "Number:",
+            "phone_number": "655255355",
+            "instructions": "Once payment is made, upload the receipt in the form to validate your membership.",
+            "upload_description": "Submit an image or PDF of your payment receipt. The team will manually validate your request and activate your membership.",
+            "submit_button": "Submit receipt"
+        }
     }
 }

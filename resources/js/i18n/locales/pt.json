@@ -144,5 +144,38 @@
         "email": "monjasherab@gmail.com",
         "part3_2": "ou nos mandar uma mensagem no WhatsApp para",
         "whatsapp": "+55 11 98996-4269"
+    },
+    "membership": {
+        "title": "Seja sócio!",
+        "image_alt": "Monja Ani dando atenção individual",
+        "part1_1": "Ao tornar-se sócio, obtém acesso ilimitado a",
+        "part1_strong": "todas as aulas",
+        "part1_2": ", tanto gratuitas como pagas.",
+        "part2_1": "Além disso, desfruta de",
+        "part2_strong": "descontos exclusivos na loja",
+        "part2_2": " e produtos especiais para membros.",
+        "part3_1": "Sua contribuição também é uma forma direta de",
+        "part3_strong1": "apoiar a continuidade do templo",
+        "part3_2": ", permitindo que continue oferecendo ensinamentos e",
+        "part3_strong2": "ações sociais",
+        "part3_3": " para a comunidade.",
+        "part4_1": "Por apenas",
+        "part4_strong": "20€ por mês",
+        "part4_2": ", poderá desfrutar de todos os benefícios: acesso a todas as aulas, descontos exclusivos e a satisfação de apoiar uma causa significativa.",
+        "paymentOptions": {
+            "title": "Opções de Pagamento",
+            "bank_title": "💳 Transferência Bancária",
+            "account_holder": "Titular: Asociación Budista Templo del Dharma",
+            "iban": "IBAN:",
+            "iban_number": "ES12 3456 7890 1234 5678 9012",
+            "concept": "Conceito:",
+            "concept_text": "Seu nome + Quota de sócio",
+            "bizum_title": "📱 Bizum",
+            "phone": "Número:",
+            "phone_number": "655255355",
+            "instructions": "Uma vez efetuado o pagamento, carregue o comprovativo no formulário para validar a sua adesão.",
+            "upload_description": "Envie uma imagem ou PDF do comprovativo de pagamento. A equipa validará manualmente o seu pedido e ativará a sua adesão.",
+            "submit_button": "Enviar comprovante"
+        }
     }
 }
