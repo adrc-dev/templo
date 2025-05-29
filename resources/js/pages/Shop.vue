@@ -7,19 +7,15 @@ import ShopImage from '@assets/bg-shop.png';
 <template>
     <AppLayout>
         <div class="hidden md:block">
-            <HeaderBanner pageTitle="Nuestra tienda" class="bg-primary-color/50" :imageUrl="ShopImage" />
+            <HeaderBanner :pageTitle="$t('shop.title')" class="bg-primary-color/50" :imageUrl="ShopImage" />
         </div>
 
-
         <section class="w-full px-4 max-w-[1200px] mx-auto text-primary-color mb-16">
-            <h2 class="text-4xl font-bold text-center my-16 tracking-tight">Nuestra tienda</h2>
+            <h2 class="text-4xl font-bold text-center my-16 tracking-tight">{{ $t('shop.title') }}</h2>
             <p class="text-center text-lg max-w-xl mx-auto leading-relaxed">
-                🌱 Estamos cultivando algo especial...
-                <br />
-                Nuestra tienda está en construcción y muy pronto florecerá con productos pensados para acompañarte en tu
-                camino.
-                <br />
-                Gracias por tu paciencia y apoyo 🙏
+                {{ $t('shop.message1') }}<br />
+                {{ $t('shop.message2') }}<br />
+                {{ $t('shop.message3') }}
             </p>
         </section>
     </AppLayout>
