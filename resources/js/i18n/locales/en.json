@@ -1,0 +1,10 @@
+{
+    "home": {
+        "welcome": "Welcome",
+        "intro": "This is Jardín del Despertar"
+    },
+    "contact": {
+        "title": "Contact",
+        "submit": "Send message"
+    }
+}

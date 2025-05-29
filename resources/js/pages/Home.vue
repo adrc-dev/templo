@@ -10,6 +10,7 @@ import DonationImage from '@assets/banderas.jpg'
 import HazteSocioImage from '@assets/hazt-socio-home.png';
 import RegisterInvitation from '@/components/Home/RegisterInvitation.vue';
 import FlashMassage from '@/components/FlashMassage.vue';
+import SelectLeguage from '@/components/SelectLeguage.vue';
 
 const { events } = defineProps<{
     events: {

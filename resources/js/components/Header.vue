@@ -5,6 +5,7 @@ import { CircleUserRound, UserRoundCheck } from 'lucide-vue-next';
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import TextLink from '@/components/TextLink.vue';
+import SelectLeguage from './SelectLeguage.vue';
 const isMenuOpen = ref(false)
 
 function toggleMenu() {
@@ -53,6 +54,9 @@ function toggleMenu() {
                             </li>
                             <li>
                                 <TextLink :href="route('shop')" class="font-normal">Nuestra tienda</TextLink>
+                            </li>
+                            <li>
+                                <SelectLeguage />
                             </li>
                         </ul>
                     </nav>
@@ -104,7 +108,10 @@ function toggleMenu() {
                     <li class="px-4"><a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
                     <li class="px-4"><a href="/shop" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a>
                     </li>
-                    <li class="px-4 py-2 rounded-b bg-white text-primary-color">
+                    <li class="px-4 self-center">
+                        <SelectLeguage />
+                    </li>
+                    <li class="px-4 py-2 bg-secondary-color text-primary-color">
                         <div v-if="$page.props.auth.user" class="relative">
                             <DropdownMenu>
                                 <DropdownMenuTrigger as-child>

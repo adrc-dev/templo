@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
@@ -12,6 +11,7 @@ use App\Http\Controllers\AulaController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegistrationController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LocaleController;
 
 // home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -92,6 +92,9 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(fu
 Route::get('/shop', function () {
     return Inertia::render('Shop');
 })->name('shop');
+
+// cambiar idioma
+Route::post('/locale', [LocaleController::class, 'set'])->name('locale.set');
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
