@@ -1,10 +1,22 @@
 {
-    "home": {
-        "welcome": "Bemvindo",
-        "intro": "Esse é o Jardim do Despertar"
+    "header": {
+        "contact": "Entrar em contato",
+        "call_us": "+55 11 98996-4269",
+        "become_member": "Seja sócio!",
+        "menu": {
+            "about_us": "Quem somos",
+            "events": "Eventos",
+            "aulas": "Aulas",
+            "shop": "Nossa loja"
+        },
+        "auth": {
+            "login": "Entrar",
+            "logout": "Sair"
+        }
     },
-    "contact": {
-        "title": "Contato",
-        "submit": "Enviar mensagem"
-    }
+    "user_menu": {
+        "account": "Minha conta",
+        "logout": "Sair"
+    },
+    "events": "Eventos"
 }

@@ -26,20 +26,24 @@ defineProps<Props>();
             <UserInfo :user="user" :show-email="true" />
         </div>
     </DropdownMenuLabel>
+
     <DropdownMenuSeparator />
+
     <DropdownMenuGroup>
         <DropdownMenuItem :as-child="true">
             <Link class="block w-full cursor-pointer" :href="route('profile.edit')" as="button">
             <Settings class="mr-2 h-4 w-4" />
-            Mi cuenta
+            {{ $t('user_menu.account') }}
             </Link>
         </DropdownMenuItem>
     </DropdownMenuGroup>
+
     <DropdownMenuSeparator />
+
     <DropdownMenuItem :as-child="true">
         <Link class="block w-full cursor-pointer" method="post" :href="route('logout')" as="button">
         <LogOut class="mr-2 h-4 w-4" />
-        Cerrar sesión
+        {{ $t('user_menu.logout') }}
         </Link>
     </DropdownMenuItem>
 </template>

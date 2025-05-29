@@ -1,10 +1,22 @@
 {
-    "home": {
-        "welcome": "Welcome",
-        "intro": "This is Jardín del Despertar"
+    "header": {
+        "contact": "Contact us",
+        "call_us": "+55 11 98996-4269",
+        "become_member": "Become a member!",
+        "menu": {
+            "about_us": "About us",
+            "events": "Events",
+            "aulas": "Classes",
+            "shop": "Our shop"
+        },
+        "auth": {
+            "login": "Login",
+            "logout": "Logout"
+        }
     },
-    "contact": {
-        "title": "Contact",
-        "submit": "Send message"
-    }
+    "user_menu": {
+        "account": "My Account",
+        "logout": "Log out"
+    },
+    "events": "Events"
 }

@@ -20,13 +20,17 @@ function toggleMenu() {
             <div class="flex items-center text-primary-color justify-between w-full max-w-[1512px] mx-auto px-8">
                 <div>
                     <TextLink :href="route('contact')" class="text-primary-color hover:text-tertiary-color font-normal">
-                        Entrar en contacto</TextLink>
+                        {{ $t('header.contact') }}
+                    </TextLink>
                     <a href="https://wa.me/5511989964269"
-                        class="text-white hover:text-tertiary-color ml-10 hidden md:inline-block">+55 11
-                        98996-4269</a>
+                        class="text-white hover:text-tertiary-color ml-10 hidden md:inline-block">
+                        {{ $t('header.call_us') }}
+                    </a>
                 </div>
                 <TextLink :href="route('member.create')"
-                    class="text-primary-color hover:text-tertiary-color font-normal">¡Hazte socio!</TextLink>
+                    class="text-primary-color hover:text-tertiary-color font-normal">
+                    {{ $t('header.become_member') }}
+                </TextLink>
             </div>
         </div>
 
@@ -44,16 +48,24 @@ function toggleMenu() {
                     <nav class="hidden md:flex items-center">
                         <ul class="flex space-x-4">
                             <li>
-                                <TextLink :href="route('about-us')" class="font-normal">Quienes somos</TextLink>
+                                <TextLink :href="route('about-us')" class="font-normal">
+                                    {{ $t('header.menu.about_us') }}
+                                </TextLink>
                             </li>
                             <li>
-                                <TextLink :href="route('events.index')" class="font-normal">Eventos</TextLink>
+                                <TextLink :href="route('events.index')" class="font-normal">
+                                    {{ $t('header.menu.events') }}
+                                </TextLink>
                             </li>
                             <li>
-                                <TextLink :href="route('aulas.index')" class="font-normal">Aulas</TextLink>
+                                <TextLink :href="route('aulas.index')" class="font-normal">
+                                    {{ $t('header.menu.aulas') }}
+                                </TextLink>
                             </li>
                             <li>
-                                <TextLink :href="route('shop')" class="font-normal">Nuestra tienda</TextLink>
+                                <TextLink :href="route('shop')" class="font-normal">
+                                    {{ $t('header.menu.shop') }}
+                                </TextLink>
                             </li>
                             <li>
                                 <SelectLeguage />
@@ -70,7 +82,7 @@ function toggleMenu() {
                                     {{ $page.props.auth.user.name }}
                                 </button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end" class="w-56 mt-2">
+                            <DropdownMenuContent align="center" class="w-56 mt-2">
                                 <UserMenuContent :user="$page.props.auth.user" />
                             </DropdownMenuContent>
                         </DropdownMenu>
@@ -80,7 +92,7 @@ function toggleMenu() {
                         <Link :href="route('login')"
                             class="flex flex-col justify-center items-center pl-5 py-1.5 leading-normal hover:text-gray-300 text-white font-bold">
                         <CircleUserRound class="w-7 h-7 inline-block" />
-                        Entrar
+                        {{ $t('header.auth.login') }}
                         </Link>
                     </div>
                 </div>
@@ -97,16 +109,30 @@ function toggleMenu() {
             </div>
         </div>
 
-        <!-- menú móvil con transición -->
+        <!-- menú móvil -->
         <transition name="fade">
             <nav v-show="isMenuOpen"
                 class="md:hidden bg-primary-color text-white transition-all duration-300 ease-in-out text-center">
                 <ul class="flex flex-col space-y-2">
-                    <li class="mt-2 px-4"><a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">Quienes
-                            somos</a></li>
-                    <li class="px-4"><a href="/events" class="hover:text-gray-300" @click="toggleMenu">Eventos</a></li>
-                    <li class="px-4"><a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">Aulas</a></li>
-                    <li class="px-4"><a href="/shop" class="hover:text-gray-300" @click="toggleMenu">Nuestra tienda</a>
+                    <li class="mt-2 px-4">
+                        <a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">
+                            {{ $t('header.menu.about_us') }}
+                        </a>
+                    </li>
+                    <li class="px-4">
+                        <a href="/events" class="hover:text-gray-300" @click="toggleMenu">
+                            {{ $t('header.menu.events') }}
+                        </a>
+                    </li>
+                    <li class="px-4">
+                        <a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">
+                            {{ $t('header.menu.aulas') }}
+                        </a>
+                    </li>
+                    <li class="px-4">
+                        <a href="/shop" class="hover:text-gray-300" @click="toggleMenu">
+                            {{ $t('header.menu.shop') }}
+                        </a>
                     </li>
                     <li class="px-4 self-center">
                         <SelectLeguage />
@@ -125,8 +151,8 @@ function toggleMenu() {
                             </DropdownMenu>
                         </div>
                         <div v-else>
-                            <Link :href="route('login')" class=" hover:text-gray-300 text-white">
-                            Iniciar sesión
+                            <Link :href="route('login')" class="hover:text-gray-300 text-white">
+                            {{ $t('header.auth.login') }}
                             </Link>
                         </div>
                     </li>

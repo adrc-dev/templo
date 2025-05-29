@@ -32,7 +32,7 @@ const { events } = defineProps<{
         <VideoHeader />
 
         <section class="w-full px-4 max-w-[1200px] mx-auto">
-            <h2 class="text-4xl font-bold text-center text-primary-color my-20">Eventos</h2>
+            <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ $t('events') }}</h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4 mb-20">
                 <EventCard v-for="event in events" :key="event.id" :image="event.featured_image" :title="event.title"
