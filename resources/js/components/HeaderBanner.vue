@@ -60,11 +60,11 @@ watch(() => props.imageUrl, (url) => {
             <div class="text-2xl font-bold text-tertiary-color">{{ pageTitle }}</div>
         </div>
         <div class="flex justify-center items-center flex-wrap w-full">
-            <h1 class="text-6xl/18 font-bold text-primary-color text-center">Templo Jardín del Despertar</h1>
+            <h1 class="text-6xl/18 font-bold text-primary-color text-center">{{ $t('headingBanner.title') }}</h1>
         </div>
         <div class="flex justify-center items-center flex-wrap w-full h-full">
             <h2 class="text-2xl font-bold text-secondary-color text-center mt-4">
-                Un espacio para la meditación y el crecimiento personal
+                {{ $t('headingBanner.subtitle') }}
             </h2>
         </div>
     </div>
