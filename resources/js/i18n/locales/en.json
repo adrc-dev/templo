@@ -177,5 +177,45 @@
             "upload_description": "Submit an image or PDF of your payment receipt. The team will manually validate your request and activate your membership.",
             "submit_button": "Submit receipt"
         }
+    },
+    "aboutUs": {
+        "title": "Who are we?",
+        "our_center": {
+            "title": "Our center",
+            "alt": "Image of our center",
+            "paragraph1": "Founded in September 2007 inspired by the nun Ani Sherab Wangmo, it belongs to the Dagpo Shangpa Kagyü lineage, an unbroken oral transmission of over a thousand years. Its opening was blessed by Mingyur Rinpoche and it is currently under the spiritual direction of Ani Sherab.",
+            "paragraph2": "The temple offers teachings, prayers and practices with the aim of cultivating happiness, peace, compassion and spiritual awakening. Retreats are open to people of all levels."
+        },
+        "guided_meditation": {
+            "title": "Guided Meditation",
+            "alt": "Group meditation",
+            "paragraph1": "Connect with yourself through guided meditation sessions, designed to calm the mind and cultivate presence.",
+            "paragraph2": "Our classes are accessible to all levels and integrate traditional practices adapted to modern life."
+        },
+        "individual_attention": {
+            "title": "Individual Attention",
+            "alt": "Personalized attention",
+            "paragraph1": "We offer personalized accompaniment with instructors trained in mindful listening and Buddhist practice.",
+            "paragraph2": "These sessions allow you to delve into personal challenges with clarity, compassion and direction."
+        },
+        "tibetan_buddhism_intro": {
+            "title": "Introduction to Tibetan Buddhism",
+            "alt": "Introductory course",
+            "paragraph1": "A basic course to learn the fundamental teachings of Buddhism and how to apply them in daily life.",
+            "paragraph2": "Includes talks, guided reading and spaces for shared reflection."
+        },
+        "online_classes": {
+            "title": "Online Classes",
+            "alt": "Online classes",
+            "paragraph1": "Participate from anywhere in our live or recorded sessions.",
+            "paragraph2": "We use accessible platforms and offer complementary resources to accompany your learning at your own pace."
+        },
+        "tibetan_tarot": {
+            "title": "Tibetan Tarot",
+            "alt": "Tibetan tarot",
+            "paragraph1": "A self-knowledge tool based on symbols and archetypes from Tibetan Buddhism.",
+            "paragraph2": "Tibetan tarot does not predict the future, but helps understand the present from a spiritual perspective, revealing mental and emotional patterns that influence your daily life.",
+            "paragraph3": "We offer individual sessions where, through conscious reading, a space for reflection and internal guidance is opened."
+        }
     }
 }
