@@ -38,8 +38,12 @@ const submit = async () => {
     <section id="contact" class="w-full gradient-bg text-white pb-16">
         <div class="relative z-10">
             <div class="w-full max-w-[1200px] mx-auto text-white mb-16">
-                <h2 class="text-4xl font-bold text-center mt-16 tracking-tight">¿Tienes alguna duda?</h2>
-                <p class="text-2xl text-center tracking-tight mt-2">¡Entra en contacto!</p>
+                <h2 class="text-4xl font-bold text-center mt-16 tracking-tight">
+                    {{ $t('contact.title') }}
+                </h2>
+                <p class="text-2xl text-center tracking-tight mt-2">
+                    {{ $t('contact.subtitle') }}
+                </p>
             </div>
 
             <div class="w-full max-w-[1200px] flex justify-center items-center mt-8 mx-auto">
@@ -47,50 +51,53 @@ const submit = async () => {
                     <form @submit.prevent="submit" class="flex flex-col gap-6">
 
                         <div class="grid gap-2">
-                            <Label for="name">Nombre:</Label>
-                            <Input id="name" v-model="form.name" type="text" required autofocus placeholder="Nombre" />
+                            <Label for="name">{{ $t('contact.nameLabel') }}</Label>
+                            <Input id="name" v-model="form.name" type="text" required autofocus
+                                :placeholder="$t('contact.namePlaceholder')" />
                             <InputError :message="form.errors.name" />
                         </div>
 
                         <div class="md:flex md:space-x-4">
                             <div class="md:w-1/2 grid gap-2">
-                                <Label for="phone">Teléfono:</Label>
-                                <Input id="phone" v-model="form.phone" type="tel" required placeholder="Teléfono" />
+                                <Label for="phone">{{ $t('contact.phoneLabel') }}</Label>
+                                <Input id="phone" v-model="form.phone" type="tel" required
+                                    :placeholder="$t('contact.phonePlaceholder')" />
                                 <InputError :message="form.errors.phone" />
                             </div>
 
                             <div class="md:w-1/2 grid gap-2 mt-6 md:mt-0">
-                                <Label for="email">Correo electrónico:</Label>
+                                <Label for="email">{{ $t('contact.emailLabel') }}</Label>
                                 <Input id="email" v-model="form.email" type="email" required
-                                    placeholder="email@ejemplo.com" />
+                                    placeholder="email@example.com" />
                                 <InputError :message="form.errors.email" />
                             </div>
                         </div>
 
                         <div class="grid gap-2">
-                            <Label for="message">Mensaje:</Label>
-                            <Textarea id="message" v-model="form.message" :rows="6" placeholder="Escribe tu mensaje..."
-                                required />
+                            <Label for="message">{{ $t('contact.messageLabel') }}</Label>
+                            <Textarea id="message" v-model="form.message" :rows="6"
+                                :placeholder="$t('contact.messagePlaceholder')" required />
                             <InputError :message="form.errors.message" />
                         </div>
 
                         <div class="flex items-start space-x-3">
                             <Checkbox id="privacy" v-model="form.privacy" required />
                             <Label for="privacy" class="text-base font-medium text-white">
-                                Al enviar este formulario acepto la
+                                {{ $t('contact.privacyText') }}
                                 <span @click="openModal('privacyPolicy')"
-                                    class="font-bold hover:text-gray-300 cursor-pointer">Política
-                                    de
-                                    privacidad</span>.
+                                    class="font-bold hover:text-gray-300 cursor-pointer">
+                                    {{ $t('contact.privacyLink') }}
+                                </span>.
                             </Label>
                         </div>
+
                         <InputError :message="form.errors.privacy" />
                         <InputError :message="form.errors.recaptcha_token" />
 
                         <Button type="submit" class="mt-2 w-30 self-center" :disabled="form.processing || !form.privacy"
                             variant="transparent">
                             <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                            Enviar
+                            {{ $t('contact.submit') }}
                         </Button>
                     </form>
                 </div>

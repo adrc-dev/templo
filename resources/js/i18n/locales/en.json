@@ -18,5 +18,109 @@
         "account": "My Account",
         "logout": "Log out"
     },
-    "events": "Events"
+    "home": {
+        "events": "Events",
+        "donationBanner": {
+            "title": "Help us keep improving",
+            "description": "Your contribution is essential to maintain our temple and activities.",
+            "buttonText": "Make your donation"
+        },
+        "membershipBanner": {
+            "title": "Become a member and access exclusive content!",
+            "description": "Join the Jardín del Despertar as a member and enjoy unlimited access to all our premium classes",
+            "buttonText": "Become a member"
+        },
+        "aulasBanner": {
+            "title": "Access the free classrooms",
+            "description": "Register for free to start exploring our classrooms and access teachings and resources that nurture your spiritual path.",
+            "goToClasses": "Go to classrooms",
+            "createAccount": "Create a free account"
+        },
+        "shop": {
+            "title": "Our shop (under construction)",
+            "addToCart": "Add to cart",
+            "viewAll": "View all products"
+        }
+    },
+    "paymentModal": {
+        "title": "Your support makes a difference 🧘‍♂️",
+        "bankTitle": "Bank transfer",
+        "accountHolder": "Account holder: Buddhist Association Templo del Dharma",
+        "concept": "Reference: Your name (if you wish to identify yourself)",
+        "bizumTitle": "Bizum",
+        "bizumNumber": "Number: 655255355",
+        "sendReceipt": "Send receipt via WhatsApp"
+    },
+    "contact": {
+        "title": "Do you have any questions?",
+        "subtitle": "Get in touch!",
+        "nameLabel": "Name:",
+        "namePlaceholder": "Name",
+        "phoneLabel": "Phone:",
+        "phonePlaceholder": "Phone",
+        "emailLabel": "Email:",
+        "messageLabel": "Message:",
+        "messagePlaceholder": "Write your message...",
+        "privacyText": "By submitting this form I accept the ",
+        "privacyLink": "Privacy Policy",
+        "submit": "Send"
+    },
+    "footer": {
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "tiktok": "Tiktok",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "legalNotice": "Legal Notice",
+        "cookiesPolicy": "Cookies Policy",
+        "privacyPolicy": "Privacy Policy",
+        "rightsReserved": "All rights reserved."
+    },
+    "legal": {
+        "legalNotice": {
+            "holder": "Holder: Buddhist Temple Jardín del Despertar",
+            "address": "Registered address: Rua Engenheiro Rebouças 1040, São Caetano do Sul, SP, Brazil - 09540-000",
+            "taxId": "Tax ID: 074.647.658-26",
+            "object": {
+                "title": "OBJECT:",
+                "content": "This website aims to provide information about the Buddhist temple, its activities, events, teachings, and resources for interested people."
+            },
+            "intellectualProperty": {
+                "title": "INTELLECTUAL PROPERTY:",
+                "content": "All content on this website, including texts, images, logos, videos, or any other material, is owned by the Buddhist temple or its respective authors and is protected by intellectual and industrial property rights."
+            },
+            "responsibility": {
+                "title": "RESPONSIBILITY:",
+                "content": "The holder is not responsible for misuse of the site's content or any damages resulting from its use. We reserve the right to modify the site's content without prior notice."
+            },
+            "externalLinks": {
+                "title": "EXTERNAL LINKS:",
+                "content": "This site may contain links to third-party websites. We are not responsible for the content or privacy policies of those sites."
+            },
+            "applicableLaw": {
+                "title": "APPLICABLE LAW:",
+                "content": "The relationship between the user and the site holder shall be governed by the current Spanish legislation."
+            }
+        },
+        "privacyPolicy": {
+            "responsible": "Responsible: Jardín del Despertar Buddhist Temple",
+            "address": "Address: Engenheiro Rebouças 1040",
+            "contactEmail": "Contact Email:",
+            "purpose": "Purpose: To manage communications, activities, and services offered by the temple through the website.",
+            "legalBasis": "Legal basis: User consent and compliance with legal obligations.",
+            "recipients": "Recipients: Data will not be transferred to third parties, except under legal obligation.",
+            "rights": "Rights: To access, rectify, and delete data, as well as other rights detailed in the additional information.",
+            "additionalInfo": "Additional information: You can consult the detailed information about Data Protection by requesting it via email to our responsible person.",
+            "guarantee": "The Buddhist temple guarantees the confidentiality of personal data and compliance with data protection regulations according to Regulation (EU) 2016/679 (GDPR) and Organic Law 3/2018 (LOPDGDD)."
+        },
+        "cookiesPolicy": {
+            "introduction": "This website uses own and third-party cookies for technical and statistical purposes. A cookie is a small file downloaded to your browser when accessing certain web pages.",
+            "typesTitle": "TYPES OF COOKIES USED:",
+            "technicalCookies": "Technical cookies: necessary for the site’s operation.",
+            "analyticalCookies": "Analytical cookies: used to obtain usage statistics through tools like Google Analytics.",
+            "managementTitle": "COOKIE MANAGEMENT:",
+            "managementContent": "You can allow, block, or delete the cookies installed on your device by configuring your browser options.",
+            "acceptance": "By continuing to browse this website, you accept the use of cookies under the conditions established in this Policy."
+        }
+    }
 }

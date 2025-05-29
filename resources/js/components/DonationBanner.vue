@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import Button from '@/components/ui/button/Button.vue';
 import Modal from '@/components/LegalModal.vue';
 
@@ -11,30 +12,35 @@ defineProps<{
     buttonUrl?: string
 }>()
 
-const showModal = ref(false)
-const modalTitle = 'Tu apoyo hace la diferencia 🧘‍♂️';
-const modalContent = `<div class="bg-secondary-color/20 px-6 lg:px-16 py-6 rounded-lg mb-8 max-w-2xl mx-auto h-full">
+const showModal = ref(false);
+const { t } = useI18n();
+
+const modalTitle = computed(() => t('paymentModal.title'));
+
+const modalContent = computed(() => `
+<div class="bg-secondary-color/20 px-6 lg:px-16 py-6 rounded-lg mb-8 max-w-2xl mx-auto h-full">
     <div class="space-y-6 text-primary-color">
         <div>
-            <h4 class="text-lg font-medium">💳 Transferencia bancaria</h4>
-            <p>Titular: Asociación Budista Templo del Dharma</p>
+            <h4 class="text-lg font-medium">💳 ${t('paymentModal.bankTitle')}</h4>
+            <p>${t('paymentModal.accountHolder')}</p>
             <p>IBAN: <strong>ES12 3456 7890 1234 5678 9012</strong></p>
-            <p>Concepto: <em>Tu nombre (caso quieras identificarte)</em></p>
+            <p>${t('paymentModal.concept')}</p>
         </div>
 
         <div>
-            <h4 class="text-lg font-medium">📱 Bizum</h4>
-            <p>Número: <strong>655255355</strong></p>
-            <p>Concepto: <em>Tu nombre (caso quieras identificarte)</em></p>
+            <h4 class="text-lg font-medium">📱 ${t('paymentModal.bizumTitle')}</h4>
+            <p>${t('paymentModal.bizumNumber')}</p>
+            <p>${t('paymentModal.concept')}</p>
         </div>
 
         <div class="flex flex-col items-center">
             <a href="https://wa.me/5511989964269" target="_blank" rel="noopener" class="inline-block bg-primary-color text-white text-center px-6 py-3 rounded-lg hover:bg-primary-color/80 transition">
-                Enviar comprobante por WhatsApp
+                ${t('paymentModal.sendReceipt')}
             </a>
         </div>
     </div>
-</div>`;
+</div>
+`);
 </script>
 
 <template>

@@ -18,5 +18,109 @@
         "account": "Minha conta",
         "logout": "Sair"
     },
-    "events": "Eventos"
+    "home": {
+        "events": "Eventos",
+        "donationBanner": {
+            "title": "Ajude-nos a continuar melhorando",
+            "description": "Sua contribuição é fundamental para manter nosso templo e atividades.",
+            "buttonText": "Faça sua doação"
+        },
+        "membershipBanner": {
+            "title": "Seja sócio e tenha acesso a conteúdo exclusivo!",
+            "description": "Registre-se como sócio do Jardim do Despertar e aproveite acesso ilimitado a todas as nossas aulas premium",
+            "buttonText": "Seja sócio"
+        },
+        "aulasBanner": {
+            "title": "Acesse as salas de aula gratuitas",
+            "description": "Cadastre-se gratuitamente para começar a explorar nossas salas de aula e acessar ensinamentos e recursos que nutrem o seu caminho espiritual.",
+            "goToClasses": "Ir para as salas de aula",
+            "createAccount": "Criar uma conta gratuita"
+        },
+        "shop": {
+            "title": "Nossa loja (em construção)",
+            "addToCart": "Adicionar ao carrinho",
+            "viewAll": "Ver todos os produtos"
+        }
+    },
+    "paymentModal": {
+        "title": "Seu apoio faz a diferença 🧘‍♂️",
+        "bankTitle": "Transferência bancária",
+        "accountHolder": "Titular: Associação Budista Templo do Dharma",
+        "concept": "Conceito: Seu nome (caso queira se identificar)",
+        "bizumTitle": "Bizum",
+        "bizumNumber": "Número: 655255355",
+        "sendReceipt": "Enviar comprovante pelo WhatsApp"
+    },
+    "contact": {
+        "title": "Você tem alguma dúvida?",
+        "subtitle": "Entre em contato!",
+        "nameLabel": "Nome:",
+        "namePlaceholder": "Nome",
+        "phoneLabel": "Telefone:",
+        "phonePlaceholder": "Telefone",
+        "emailLabel": "Email:",
+        "messageLabel": "Mensagem:",
+        "messagePlaceholder": "Escreva sua mensagem...",
+        "privacyText": "Ao enviar este formulário aceito a ",
+        "privacyLink": "Política de privacidade",
+        "submit": "Enviar"
+    },
+    "footer": {
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "tiktok": "Tiktok",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "legalNotice": "Aviso legal",
+        "cookiesPolicy": "Política de cookies",
+        "privacyPolicy": "Política de privacidade",
+        "rightsReserved": "Todos os direitos reservados."
+    },
+    "legal": {
+        "legalNotice": {
+            "holder": "Titular: Templo Budista Jardín del Despertar",
+            "address": "Endereço registrado: Rua Engenheiro Rebouças 1040, São Caetano do Sul, SP, Brasil - 09540-000",
+            "taxId": "NIF/CNPJ: 074.647.658-26",
+            "object": {
+                "title": "OBJETO:",
+                "content": "Este site tem como finalidade oferecer informações sobre o templo budista, suas atividades, eventos, ensinamentos e recursos para pessoas interessadas."
+            },
+            "intellectualProperty": {
+                "title": "PROPRIEDADE INTELECTUAL:",
+                "content": "Todos os conteúdos deste site, incluindo textos, imagens, logotipos, vídeos ou qualquer outro material, são propriedade do templo budista ou de seus respectivos autores, e estão protegidos pelos direitos de propriedade intelectual e industrial."
+            },
+            "responsibility": {
+                "title": "RESPONSABILIDADE:",
+                "content": "O titular não se responsabiliza pelo uso indevido dos conteúdos do site, nem por possíveis danos decorrentes de seu uso. Reservamo-nos o direito de modificar o conteúdo do site sem aviso prévio."
+            },
+            "externalLinks": {
+                "title": "LINKS EXTERNOS:",
+                "content": "Este site pode conter links para páginas de terceiros. Não nos responsabilizamos pelo conteúdo nem pela política de privacidade dessas páginas."
+            },
+            "applicableLaw": {
+                "title": "LEGISLAÇÃO APLICÁVEL:",
+                "content": "A relação entre o usuário e o titular do site será regida pela legislação espanhola vigente."
+            }
+        },
+        "privacyPolicy": {
+            "responsible": "Responsável: Jardín del Despertar",
+            "address": "Endereço: Engenheiro Rebouças 1040",
+            "contactEmail": "Email de contato:",
+            "purpose": "Finalidade: Gerenciar as comunicações, atividades e serviços oferecidos pelo templo através do site.",
+            "legalBasis": "Base legal: Consentimento do usuário e cumprimento de obrigações legais.",
+            "recipients": "Destinatários: Não serão cedidos dados a terceiros, salvo obrigação legal.",
+            "rights": "Direitos: Acessar, retificar e excluir dados, bem como outros direitos detalhados na informação adicional.",
+            "additionalInfo": "Informação adicional: Você pode consultar a informação adicional e detalhada sobre Proteção de Dados solicitando-a por email ao nosso responsável.",
+            "guarantee": "O templo budista garante a confidencialidade dos dados pessoais e o cumprimento da legislação de proteção de dados conforme o Regulamento (UE) 2016/679 (RGPD) e a Lei Orgânica 3/2018 (LOPDGDD)."
+        },
+        "cookiesPolicy": {
+            "introduction": "Este site utiliza cookies próprios e de terceiros para fins técnicos e estatísticos. Um cookie é um pequeno arquivo que é baixado no seu navegador ao acessar determinadas páginas web.",
+            "typesTitle": "TIPOS DE COOKIES UTILIZADOS:",
+            "technicalCookies": "Cookies técnicas: necessárias para o funcionamento do site.",
+            "analyticalCookies": "Cookies analíticas: utilizadas para obter estatísticas de uso através de ferramentas como o Google Analytics.",
+            "managementTitle": "GESTÃO DE COOKIES:",
+            "managementContent": "Você pode permitir, bloquear ou eliminar os cookies instalados no seu dispositivo configurando as opções do navegador que estiver usando.",
+            "acceptance": "Ao continuar navegando por este site, você aceita o uso de cookies nas condições estabelecidas nesta Política."
+        }
+    }
 }

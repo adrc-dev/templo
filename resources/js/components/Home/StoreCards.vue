@@ -17,7 +17,9 @@ const products = ref([
 
 <template>
     <section class="w-full px-4 max-w-[1200px] mx-auto text-primary-color mb-16">
-        <h2 class="text-4xl font-bold text-center my-16 tracking-tight">Nuestra tienda</h2>
+        <h2 class="text-4xl font-bold text-center my-16 tracking-tight">
+            {{ $t('home.shop.title') }}
+        </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div v-for="product in products" :key="product.id"
@@ -25,13 +27,13 @@ const products = ref([
                 <img :src="product.image" :alt="product.name" class="w-full h-48 object-cover rounded-xl mb-4" />
                 <h3 class="text-xl font-semibold text-primary-color mb-1 text-center">{{ product.name }}</h3>
                 <p class="text-lg font-medium text-secondary-color mb-4">{{ product.price }} €</p>
-                <Button @click="addToCart(product)" class="mt-auto " disabled>
-                    Agregar al carrito
+                <Button @click="addToCart(product)" class="mt-auto" disabled>
+                    {{ $t('home.shop.addToCart') }}
                 </Button>
             </div>
         </div>
         <GoLink href="/shop" class="text-right block ml-auto">
-            Ver todos los productos →
+            {{ $t('home.shop.viewAll') }} →
         </GoLink>
     </section>
 </template>
