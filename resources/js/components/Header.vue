@@ -143,24 +143,24 @@ onUnmounted(() => {
                 class="md:hidden bg-primary-color text-white transition-all duration-300 ease-in-out text-center">
                 <ul class="flex flex-col space-y-2">
                     <li class="mt-2 px-4">
-                        <a href="/about-us" class="hover:text-gray-300" @click="toggleMenu">
+                        <TextLink :href="route('about-us')" class="font-normal" @click="toggleMenu">
                             {{ $t('header.menu.about_us') }}
-                        </a>
+                        </TextLink>
                     </li>
                     <li class="px-4">
-                        <a href="/events" class="hover:text-gray-300" @click="toggleMenu">
+                        <TextLink :href="route('events.index')" class="font-normal" @click="toggleMenu">
                             {{ $t('header.menu.events') }}
-                        </a>
+                        </TextLink>
                     </li>
                     <li class="px-4">
-                        <a href="/aulas" class="hover:text-gray-300" @click="toggleMenu">
+                        <TextLink :href="route('aulas.index')" class="font-normal" @click="toggleMenu">
                             {{ $t('header.menu.aulas') }}
-                        </a>
+                        </TextLink>
                     </li>
                     <li class="px-4">
-                        <a href="/shop" class="hover:text-gray-300" @click="toggleMenu">
+                        <TextLink :href="route('shop')" class="font-normal" @click="toggleMenu">
                             {{ $t('header.menu.shop') }}
-                        </a>
+                        </TextLink>
                     </li>
                     <li class="px-4 self-center">
                         <SelectLeguage />
