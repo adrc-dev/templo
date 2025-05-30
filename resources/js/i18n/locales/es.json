@@ -249,11 +249,52 @@
         },
         "otherEvents": {
             "title": "Otros Eventos"
+        },
+        "eventCards": {
+            "image_alt": "Imagen del evento {title}",
+            "date_not_available": "Fecha no disponible",
+            "more_info_button": "Más información"
+        },
+        "createEvents": {
+            "page_title": "Crear Evento",
+            "heading_title": "Crear evento",
+            "heading_description": "Aquí puedes crear los eventos del templo.",
+            "back_link": "← Volver a la lista de eventos"
+        },
+        "editEvents": {
+            "page_title": "Editar Evento",
+            "heading_title": "Editar evento",
+            "heading_description": "Aquí puedes editar el evento del templo.",
+            "back_link": "← Volver a la lista de eventos"
+        },
+        "eventForm": {
+            "title_label": "Título*",
+            "title_placeholder": "Título del evento",
+            "content_label": "Contenido*",
+            "content_placeholder": "Descripción detallada del evento",
+            "start_date_label": "Fecha inicio*",
+            "start_time_label": "Hora inicio*",
+            "end_date_label": "Fecha fin",
+            "end_time_label": "Hora fin",
+            "location_label": "Localización*",
+            "location_placeholder": "Dirección o lugar del evento",
+            "modality_label": "Modalidad*",
+            "modality_placeholder": "Selecciona una modalidad",
+            "modality_presential": "Presencial",
+            "modality_online": "Online",
+            "price_label": "Precio*",
+            "price_placeholder": "Ej: 20.00",
+            "currency_label": "Moneda",
+            "currency_placeholder": "EUR, USD...",
+            "featured_image_label": "Imagen destacada",
+            "language_label": "Idioma*",
+            "language_placeholder": "es, en...",
+            "seo_title_label": "Título SEO",
+            "seo_title_placeholder": "Título para motores de búsqueda (opcional)",
+            "seo_description_label": "Descripción SEO",
+            "seo_description_placeholder": "Descripción corta para SEO (opcional)",
+            "active_label": "¿Evento activo?",
+            "save_button": "Guardar evento"
         }
-    },
-    "eventCards": {
-        "image_alt": "Imagen del evento {title}",
-        "date_not_available": "Fecha no disponible",
-        "more_info_button": "Más información"
     }
 }

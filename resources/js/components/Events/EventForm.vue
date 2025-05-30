@@ -8,7 +8,6 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
 import { LoaderCircle } from 'lucide-vue-next'
 import Select from '@/components/ui/Select/Select.vue'
-import { router } from '@inertiajs/vue3'
 import InputError from '@/components/InputError.vue';
 
 const props = defineProps<{ event?: any }>()
@@ -49,7 +48,6 @@ watch(() => form.title, (newTitle) => {
         form.slug = generateSlug(newTitle + `-${Date.now()}`)
     }
 })
-
 
 function submit() {
     form.transform((data) => {
@@ -102,25 +100,26 @@ function handleFileUpload(event: Event) {
 <template>
     <form @submit.prevent="submit" class="space-y-4">
         <div>
-            <Label>Título*</Label>
-            <Input v-model="form.title" placeholder="Título del evento" required />
+            <Label>{{ $t('events.eventForm.title_label') }}</Label>
+            <Input v-model="form.title" :placeholder="$t('events.eventForm.title_placeholder')" required />
             <InputError :message="form.errors.title" />
         </div>
 
         <div>
-            <Label>Contenido*</Label>
-            <Textarea v-model="form.content" placeholder="Descripción detallada del evento" :rows="8" required />
+            <Label>{{ $t('events.eventForm.content_label') }}</Label>
+            <Textarea v-model="form.content" :placeholder="$t('events.eventForm.content_placeholder')" :rows="8"
+                required />
             <InputError :message="form.errors.content" />
         </div>
 
         <div class="grid grid-cols-2 gap-4">
             <div>
-                <Label>Fecha inicio*</Label>
+                <Label>{{ $t('events.eventForm.start_date_label') }}</Label>
                 <Input type="date" v-model="form.event_date" required />
                 <InputError :message="form.errors.event_date" />
             </div>
             <div>
-                <Label>Hora inicio*</Label>
+                <Label>{{ $t('events.eventForm.start_time_label') }}</Label>
                 <Input type="time" v-model="form.event_time" required />
                 <InputError :message="form.errors.event_time" />
             </div>
@@ -128,80 +127,86 @@ function handleFileUpload(event: Event) {
 
         <div class="grid grid-cols-2 gap-4">
             <div>
-                <Label>Fecha fin</Label>
+                <Label>{{ $t('events.eventForm.end_date_label') }}</Label>
                 <Input type="date" v-model="form.event_end_date" />
                 <InputError :message="form.errors.event_end_date" />
             </div>
             <div>
-                <Label>Hora fin</Label>
+                <Label>{{ $t('events.eventForm.end_time_label') }}</Label>
                 <Input type="time" v-model="form.event_end_time" />
                 <InputError :message="form.errors.event_end_time" />
             </div>
         </div>
 
         <div>
-            <Label>Localización*</Label>
-            <Input v-model="form.event_location" placeholder="Dirección o lugar del evento" required />
+            <Label>{{ $t('events.eventForm.location_label') }}</Label>
+            <Input v-model="form.event_location" :placeholder="$t('events.eventForm.location_placeholder')" required />
             <InputError :message="form.errors.event_location" />
         </div>
 
         <div>
-            <Label>Modalidad*</Label>
+            <Label>{{ $t('events.eventForm.modality_label') }}</Label>
             <Select v-model="form.modality" :options="[
-                { value: 'Presencial', label: 'Presencial' },
-                { value: 'Online', label: 'Online' }
-            ]" required placeholder="Selecciona una modalidad" />
+                { value: 'Presencial', label: $t('events.eventForm.modality_presential') },
+                { value: 'Online', label: $t('events.eventForm.modality_online') }
+            ]" required :placeholder="$t('events.eventForm.modality_placeholder')" />
             <InputError :message="form.errors.modality" />
         </div>
 
         <div class="grid grid-cols-2 gap-4">
             <div>
-                <Label>Precio*</Label>
-                <Input type="number" v-model="form.price" min="0" step="0.01" placeholder="Ej: 20.00" required />
+                <Label>{{ $t('events.eventForm.price_label') }}</Label>
+                <Input type="number" v-model="form.price" min="0" step="0.01"
+                    :placeholder="$t('events.eventForm.price_placeholder')" required />
                 <InputError :message="form.errors.price" />
             </div>
             <div>
-                <Label>Moneda</Label>
-                <Input v-model="form.currency" placeholder="EUR, USD..." maxlength="3" />
+                <Label>{{ $t('events.eventForm.currency_label') }}</Label>
+                <Input v-model="form.currency" :placeholder="$t('events.eventForm.currency_placeholder')"
+                    maxlength="3" />
                 <InputError :message="form.errors.currency" />
             </div>
         </div>
 
         <div>
-            <Label>Imagen destacada</Label>
+            <Label>{{ $t('events.eventForm.featured_image_label') }}</Label>
             <Input type="file" @change="handleFileUpload" accept="image/*" />
             <InputError :message="form.errors.featured_image" />
         </div>
 
         <div>
-            <Label>Idioma*</Label>
-            <Input v-model="form.language" placeholder="es, en..." maxlength="2" required />
+            <Label>{{ $t('events.eventForm.language_label') }}</Label>
+            <Input v-model="form.language" :placeholder="$t('events.eventForm.language_placeholder')" maxlength="2"
+                required />
             <InputError :message="form.errors.language" />
         </div>
 
         <div>
-            <Label>Título SEO</Label>
-            <Input v-model="form.seo_title" placeholder="Título para motores de búsqueda (opcional)" />
+            <Label>{{ $t('events.eventForm.seo_title_label') }}</Label>
+            <Input v-model="form.seo_title" :placeholder="$t('events.eventForm.seo_title_placeholder')" />
             <InputError :message="form.errors.seo_title" />
         </div>
 
         <div>
-            <Label>Descripción SEO</Label>
-            <Textarea v-model="form.seo_description" placeholder="Descripción corta para SEO (opcional)" :rows="2" />
+            <Label>{{ $t('events.eventForm.seo_description_label') }}</Label>
+            <Textarea v-model="form.seo_description" :placeholder="$t('events.eventForm.seo_description_placeholder')"
+                :rows="2" />
             <InputError :message="form.errors.seo_description" />
         </div>
 
         <div>
             <Label class="flex items-center">
                 <Checkbox v-model="form.is_active" />
-                <span class="ml-2">¿Evento activo?</span>
+                <span class="ml-2">{{ $t('events.eventForm.active_label') }}</span>
             </Label>
             <InputError :message="form.errors.is_active" />
         </div>
 
         <div class="flex justify-center mt-6">
             <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-            <Button type="submit" variant="transparent">Guardar evento</Button>
+            <Button type="submit" variant="transparent">
+                {{ $t('events.eventForm.save_button') }}
+            </Button>
         </div>
     </form>
 </template>

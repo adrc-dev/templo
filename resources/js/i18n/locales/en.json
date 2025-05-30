@@ -254,6 +254,47 @@
             "image_alt": "Image for event {title}",
             "date_not_available": "Date not available",
             "more_info_button": "More information"
+        },
+        "createEvents": {
+            "page_title": "Create Event",
+            "heading_title": "Create event",
+            "heading_description": "Here you can create temple events.",
+            "back_link": "← Back to events list"
+        },
+        "editEvents": {
+            "page_title": "Edit Event",
+            "heading_title": "Edit event",
+            "heading_description": "Here you can edit the temple event.",
+            "back_link": "← Back to events list"
+        },
+        "eventForm": {
+            "title_label": "Title*",
+            "title_placeholder": "Event title",
+            "content_label": "Content*",
+            "content_placeholder": "Detailed event description",
+            "start_date_label": "Start date*",
+            "start_time_label": "Start time*",
+            "end_date_label": "End date",
+            "end_time_label": "End time",
+            "location_label": "Location*",
+            "location_placeholder": "Event address or venue",
+            "modality_label": "Modality*",
+            "modality_placeholder": "Select a modality",
+            "modality_presential": "In-person",
+            "modality_online": "Online",
+            "price_label": "Price*",
+            "price_placeholder": "E.g.: 20.00",
+            "currency_label": "Currency",
+            "currency_placeholder": "EUR, USD...",
+            "featured_image_label": "Featured image",
+            "language_label": "Language*",
+            "language_placeholder": "es, en...",
+            "seo_title_label": "SEO Title",
+            "seo_title_placeholder": "Title for search engines (optional)",
+            "seo_description_label": "SEO Description",
+            "seo_description_placeholder": "Short description for SEO (optional)",
+            "active_label": "Is event active?",
+            "save_button": "Save event"
         }
     }
 }

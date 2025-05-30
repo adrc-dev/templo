@@ -255,6 +255,47 @@
             "image_alt": "Imagem do evento {title}",
             "date_not_available": "Data não disponível",
             "more_info_button": "Mais informações"
+        },
+        "createEvents": {
+            "page_title": "Criar Evento",
+            "heading_title": "Criar evento",
+            "heading_description": "Aqui você pode criar eventos do templo.",
+            "back_link": "← Voltar para a lista de eventos"
+        },
+        "editEvents": {
+            "page_title": "Editar Evento",
+            "heading_title": "Editar evento",
+            "heading_description": "Aqui você pode editar o evento do templo.",
+            "back_link": "← Voltar para a lista de eventos"
+        },
+        "eventForm": {
+            "title_label": "Título*",
+            "title_placeholder": "Título do evento",
+            "content_label": "Conteúdo*",
+            "content_placeholder": "Descrição detalhada do evento",
+            "start_date_label": "Data de início*",
+            "start_time_label": "Hora de início*",
+            "end_date_label": "Data de término",
+            "end_time_label": "Hora de término",
+            "location_label": "Localização*",
+            "location_placeholder": "Endereço ou local do evento",
+            "modality_label": "Modalidade*",
+            "modality_placeholder": "Selecione uma modalidade",
+            "modality_presential": "Presencial",
+            "modality_online": "Online",
+            "price_label": "Preço*",
+            "price_placeholder": "Ex: 20.00",
+            "currency_label": "Moeda",
+            "currency_placeholder": "EUR, USD...",
+            "featured_image_label": "Imagem em destaque",
+            "language_label": "Idioma*",
+            "language_placeholder": "es, en...",
+            "seo_title_label": "Título SEO",
+            "seo_title_placeholder": "Título para motores de busca (opcional)",
+            "seo_description_label": "Descrição SEO",
+            "seo_description_placeholder": "Descrição curta para SEO (opcional)",
+            "active_label": "Evento ativo?",
+            "save_button": "Salvar evento"
         }
     }
 }

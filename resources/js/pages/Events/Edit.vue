@@ -14,14 +14,15 @@ function onSubmit(form: any) {
 
 <template>
 
-    <Head title="Editar Evento" />
+    <Head :title="$t('events.editEvents.page_title')" />
     <AppLayout>
         <div class="bg-tertiary-color/80">
             <section class="w-full px-4 max-w-3xl mx-auto py-20">
-                <Heading title="Editar evento" description="Aquí puedes editar el evento del templo." />
+                <Heading :title="$t('events.editEvents.heading_title')"
+                    :description="$t('events.editEvents.heading_description')" />
                 <EventForm :event="props.event" @submit="onSubmit" />
                 <GoLink class="mt-12 text-white hover:text-white" :href="route('events.index')"
-                    text="← Volver a la lista de eventos" />
+                    :text="$t('events.editEvents.back_link')" />
             </section>
         </div>
     </AppLayout>
