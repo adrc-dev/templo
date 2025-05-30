@@ -1,21 +1,26 @@
 <script setup lang="ts">
 import Button from '@/components/ui/button/Button.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 const props = defineProps({
     image: String,
     title: String,
     description: String,
     date: String,
     link: String,
-})
+});
 
-const formattedDate = props.date ? new Date(props.date).toLocaleDateString() : 'Fecha no disponible'
+const formattedDate = props.date
+    ? new Date(props.date).toLocaleDateString()
+    : t('events.eventCards.date_not_available');
 </script>
 
 <template>
     <div
         class="bg-amber-50 shadow-lg rounded-xl overflow-hidden hover:shadow-md transition pb-16 relative min-h-[450px]">
-        <img :src="`/storage/${image}`" :alt="`Imagen del evento ${title}`" class="w-full h-60 object-cover"
-            @error="(e) => e.target.src = '/fallback-event.png'" />
+        <img :src="`/storage/${image}`" :alt="t('events.eventCards.image_alt', { title: title })"
+            class="w-full h-60 object-cover" @error="(e) => e.target.src = '/fallback-event.png'" />
 
         <div class="py-4 px-6 md:px-8">
             <slot>
@@ -35,7 +40,7 @@ const formattedDate = props.date ? new Date(props.date).toLocaleDateString() : '
             <div class="mt-4 flex justify-center absolute bottom-0 left-0 right-0 p-4">
                 <slot name="button">
                     <Button @click="$inertia.visit(link)">
-                        Más información
+                        {{ t('events.eventCards.more_info_button') }}
                     </Button>
                 </slot>
             </div>

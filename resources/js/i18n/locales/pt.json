@@ -242,6 +242,19 @@
             "mode_label": "🌐 Modalidade",
             "mode_value": "Online via Zoom",
             "join_button": "Junte-se ao grupo do WhatsApp"
+        },
+        "upcomingEvent": {
+            "title": "Próximo Evento",
+            "image_alt": "Imagem do evento {title}",
+            "more_info_button": "Mais informações"
+        },
+        "otherEvents": {
+            "title": "Outros Eventos"
+        },
+        "eventCards": {
+            "image_alt": "Imagem do evento {title}",
+            "date_not_available": "Data não disponível",
+            "more_info_button": "Mais informações"
         }
     }
 }
