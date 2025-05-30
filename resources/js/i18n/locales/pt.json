@@ -224,5 +224,24 @@
         "message1": "🌱 Estamos cultivando algo especial...",
         "message2": "A nossa loja está em construção e em breve florescerá com produtos pensados para acompanhá-lo(a) no seu caminho.",
         "message3": "Agradecemos a sua paciência e apoio 🙏"
+    },
+    "events": {
+        "title": "Eventos",
+        "staticEvent": {
+            "create_button": "Criar eventos",
+            "manage_button": "Gerir eventos",
+            "title": "Eventos fixos",
+            "image_alt": "Imagem de meditação online",
+            "schedule": "Todas as quintas-feiras às 20:00",
+            "event_title": "Aulas de meditação online",
+            "description": "Convidamos você a conectar-se consigo mesmo e encontrar paz interior no conforto da sua casa. Todas as quintas-feiras oferecemos sessões de meditação guiada online, projetadas para reduzir o estresse, acalmar a mente e cultivar a atenção plena. Não importa se você é iniciante ou já tem experiência: nossas aulas estão abertas a todos.",
+            "when_label": "📅 Quando",
+            "when_value": "Todas as quintas-feiras",
+            "time_label": "⏰ Horário",
+            "time_value": "20:00 - 21:00",
+            "mode_label": "🌐 Modalidade",
+            "mode_value": "Online via Zoom",
+            "join_button": "Junte-se ao grupo do WhatsApp"
+        }
     }
 }

@@ -179,7 +179,7 @@
         }
     },
     "aboutUs": {
-        "title": "¿Quienes somos?",
+        "title": "¿Quiénes somos?",
         "our_center": {
             "title": "Nuestro centro",
             "alt": "Imagen de nuestro centro",
@@ -223,5 +223,24 @@
         "message1": "🌱 Estamos cultivando algo especial...",
         "message2": "Nuestra tienda está en construcción y muy pronto florecerá con productos pensados para acompañarte en tu camino.",
         "message3": "Gracias por tu paciencia y apoyo 🙏"
+    },
+    "events": {
+        "title": "Eventos",
+        "staticEvent": {
+            "create_button": "Crear eventos",
+            "manage_button": "Administrar eventos",
+            "title": "Eventos fijos",
+            "image_alt": "Imagen de meditación en línea",
+            "schedule": "Todos los jueves a las 20:00",
+            "event_title": "Clases de meditación en línea",
+            "description": "Te invitamos a conectar contigo mismo y encontrar paz interior desde la comodidad de tu hogar. Cada jueves ofrecemos sesiones de meditación guiada en línea, diseñadas para reducir el estrés, calmar la mente y cultivar la atención plena. No importa si eres principiante o ya tienes experiencia: nuestras clases están abiertas para todos.",
+            "when_label": "📅 Cuándo",
+            "when_value": "Todos los jueves",
+            "time_label": "⏰ Hora",
+            "time_value": "20:00 - 21:00",
+            "mode_label": "🌐 Modalidad",
+            "mode_value": "Online por Zoom",
+            "join_button": "Únete al grupo de WhatsApp"
+        }
     }
 }

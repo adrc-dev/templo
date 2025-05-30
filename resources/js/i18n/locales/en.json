@@ -223,5 +223,24 @@
         "message1": "🌱 We are cultivating something special...",
         "message2": "Our shop is under construction and will soon blossom with products designed to accompany you on your journey.",
         "message3": "Thank you for your patience and support 🙏"
+    },
+    "events": {
+        "title": "Events",
+        "staticEvent": {
+            "create_button": "Create events",
+            "manage_button": "Manage events",
+            "title": "Fixed events",
+            "image_alt": "Online meditation image",
+            "schedule": "Every Thursday at 8:00 PM",
+            "event_title": "Online meditation classes",
+            "description": "We invite you to connect with yourself and find inner peace from the comfort of your home. Every Thursday we offer guided online meditation sessions, designed to reduce stress, calm the mind and cultivate mindfulness. It doesn't matter if you're a beginner or already experienced: our classes are open to everyone.",
+            "when_label": "📅 When",
+            "when_value": "Every Thursday",
+            "time_label": "⏰ Time",
+            "time_value": "8:00 PM - 9:00 PM",
+            "mode_label": "🌐 Mode",
+            "mode_value": "Online via Zoom",
+            "join_button": "Join WhatsApp group"
+        }
     }
 }

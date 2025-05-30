@@ -16,7 +16,7 @@ const otherEvents = events.slice(1)
     <FlashMassage />
     <AppLayout>
         <div class="hidden md:block">
-            <HeaderBanner :imageUrl="EventsImage" pageTitle="Eventos" class="bg-primary-color/50" />
+            <HeaderBanner :imageUrl="EventsImage" :pageTitle="$t('events.title')" class="bg-primary-color/50" />
         </div>
 
         <StaticEvent />
