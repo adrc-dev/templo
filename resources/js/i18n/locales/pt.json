@@ -296,6 +296,26 @@
             "seo_description_placeholder": "Descrição curta para SEO (opcional)",
             "active_label": "Evento ativo?",
             "save_button": "Salvar evento"
+        },
+        "adminEvents": {
+            "page_title": "Gestão de Eventos",
+            "heading_title": "Gestão de Eventos",
+            "heading_description": "Aqui você pode gerenciar os eventos do templo.",
+            "new_event_button": "Novo evento",
+            "active_events_title": "Próximos eventos ativos",
+            "past_events_title": "Eventos ativos passados",
+            "inactive_events_title": "Eventos inativos",
+            "back_link": "← Voltar para Eventos"
+        },
+        "eventsTable": {
+            "title": "Título",
+            "dateTime": "Data e hora",
+            "active": "Ativo",
+            "edit": "Editar",
+            "delete": "Excluir",
+            "confirmTitle": "Excluir evento?",
+            "confirmMessage": "Tem certeza de que deseja excluir este evento? Esta ação não pode ser desfeita.",
+            "confirmDelete": "Excluir"
         }
     }
 }

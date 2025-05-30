@@ -31,21 +31,26 @@ function deleteEvent(id: number) {
 
 <template>
 
-    <Head title="Gestión de eventos" />
+    <Head :title="$t('events.adminEvents.page_title')" />
     <FlashMassage />
-
     <AppLayout>
         <section class="w-full px-4 max-w-[1200px] mx-auto my-20">
-            <Heading title="Gestión de eventos" description="Aquí puedes gestionar los eventos del templo." />
+            <Heading :title="$t('events.adminEvents.heading_title')"
+                :description="$t('events.adminEvents.heading_description')" />
             <div class="flex justify-end">
-                <Button @click="$inertia.visit('/events/create')">Nuevo evento</Button>
+                <Button @click="$inertia.visit('/events/create')">
+                    {{ $t('events.adminEvents.new_event_button') }}
+                </Button>
             </div>
 
-            <EventsTable :events="activeEvents" title="Próximos eventos activos" @delete="deleteEvent" />
-            <EventsTable :events="pastEvents" title="Eventos activos pasados" @delete="deleteEvent" />
-            <EventsTable :events="inactiveEvents" title="Eventos inactivos" @delete="deleteEvent" />
+            <EventsTable :events="activeEvents" :title="$t('events.adminEvents.active_events_title')"
+                @delete="deleteEvent" />
+            <EventsTable :events="pastEvents" :title="$t('events.adminEvents.past_events_title')"
+                @delete="deleteEvent" />
+            <EventsTable :events="inactiveEvents" :title="$t('events.adminEvents.inactive_events_title')"
+                @delete="deleteEvent" />
 
-            <GoLink class="mt-12" :href="route('events.index')" text="← Volver a Eventos" />
+            <GoLink class="mt-12" :href="route('events.index')" :text="$t('events.adminEvents.back_link')" />
         </section>
     </AppLayout>
 </template>

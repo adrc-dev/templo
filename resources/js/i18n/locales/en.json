@@ -295,6 +295,26 @@
             "seo_description_placeholder": "Short description for SEO (optional)",
             "active_label": "Is event active?",
             "save_button": "Save event"
+        },
+        "adminEvents": {
+            "page_title": "Events Management",
+            "heading_title": "Events Management",
+            "heading_description": "Here you can manage temple events.",
+            "new_event_button": "New event",
+            "active_events_title": "Upcoming active events",
+            "past_events_title": "Past active events",
+            "inactive_events_title": "Inactive events",
+            "back_link": "← Back to Events"
+        },
+        "eventsTable": {
+            "title": "Title",
+            "dateTime": "Date and time",
+            "active": "Active",
+            "edit": "Edit",
+            "delete": "Delete",
+            "confirmTitle": "Delete event?",
+            "confirmMessage": "Are you sure you want to delete this event? This action cannot be undone.",
+            "confirmDelete": "Delete"
         }
     }
 }

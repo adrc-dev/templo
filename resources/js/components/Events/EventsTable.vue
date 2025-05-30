@@ -50,8 +50,8 @@ function toggleStatus(event: any) {
 </script>
 
 <template>
-    <ConfirmDialog :show="showConfirmDialog" title="¿Eliminar evento?"
-        message="¿Seguro que deseas eliminar este evento? Esta acción no se puede deshacer." confirm-text="Eliminar"
+    <ConfirmDialog :show="showConfirmDialog" :title="$t('events.eventsTable.confirmTitle')"
+        :message="$t('events.eventsTable.confirmMessage')" :confirm-text="$t('events.eventsTable.confirmDelete')"
         confirm-color="red" @confirm="confirmDelete" @cancel="showConfirmDialog = false" />
 
     <div>
@@ -59,26 +59,27 @@ function toggleStatus(event: any) {
         <table class="w-full border border-gray-200 rounded shadow-md">
             <thead class="bg-primary-color text-white hidden md:table-header-group">
                 <tr>
-                    <th class="p-2 text-left">Título</th>
-                    <th class="p-2 text-left">Fecha y hora</th>
-                    <th class="p-2 text-left">Activo</th>
-                    <th class="p-2 text-left">Editar</th>
-                    <th class="p-2 text-left">Eliminar</th>
+                    <th class="p-2 text-left">{{ $t('events.eventsTable.title') }}</th>
+                    <th class="p-2 text-left">{{ $t('events.eventsTable.dateTime') }}</th>
+                    <th class="p-2 text-left">{{ $t('events.eventsTable.active') }}</th>
+                    <th class="p-2 text-left">{{ $t('events.eventsTable.edit') }}</th>
+                    <th class="p-2 text-left">{{ $t('events.eventsTable.delete') }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="event in props.events" :key="event.id"
                     class="border-b text-primary-color odd:bg-white even:bg-gray-200 block md:table-row">
                     <td class="p-2 block md:table-cell">
-                        <span class="font-semibold md:hidden">Título: </span>{{ event.title }}
+                        <span class="font-semibold md:hidden">{{ $t('events.eventsTable.title') }}: </span>{{
+                        event.title }}
                     </td>
                     <td class="p-2 block md:table-cell">
-                        <span class="font-semibold md:hidden">Fecha y hora: </span>
+                        <span class="font-semibold md:hidden">{{ $t('events.eventsTable.dateTime') }}: </span>
                         {{ formatDate(event.event_date) }} - {{ formatTime(event.event_time) }}
                     </td>
                     <td class="p-2 block md:table-cell">
                         <div class="flex items-center gap-2">
-                            <span class="font-semibold md:hidden">Activo:</span>
+                            <span class="font-semibold md:hidden">{{ $t('events.eventsTable.active') }}:</span>
                             <label class="inline-flex relative items-center cursor-pointer">
                                 <input type="checkbox" :checked="event.is_active" @change="toggleStatus(event)"
                                     class="sr-only peer" />
@@ -93,7 +94,7 @@ function toggleStatus(event: any) {
                     </td>
                     <td class="p-2 block md:table-cell">
                         <div class="flex items-center gap-2">
-                            <span class="font-semibold md:hidden">Editar:</span>
+                            <span class="font-semibold md:hidden">{{ $t('events.eventsTable.edit') }}:</span>
                             <Link :href="`/events/${event.slug}/edit`" class="text-blue-600 hover:text-blue-800">
                             <Pencil />
                             </Link>
@@ -101,7 +102,7 @@ function toggleStatus(event: any) {
                     </td>
                     <td class="p-2 block md:table-cell">
                         <div class="flex items-center gap-2">
-                            <span class="font-semibold md:hidden">Eliminar:</span>
+                            <span class="font-semibold md:hidden">{{ $t('events.eventsTable.delete') }}:</span>
                             <button @click="onDelete(event.slug)" class="text-red-600 hover:text-red-800">
                                 <SquareX />
                             </button>
