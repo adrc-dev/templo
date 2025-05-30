@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-    <img :src="`/storage/${image}`" :alt="`Imagen del evento ${title}`"
+    <img :src="`/storage/${image}`" :alt="$t('events.eventShow.imageAlt', { title })"
         class="w-full max-h-[600px] object-cover rounded-xl shadow-lg mt-6 md:mt-20"
         @error="(e) => e.target.src = '/fallback-event.png'" />
 

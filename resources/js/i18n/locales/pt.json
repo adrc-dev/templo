@@ -316,6 +316,28 @@
             "confirmTitle": "Excluir evento?",
             "confirmMessage": "Tem certeza de que deseja excluir este evento? Esta ação não pode ser desfeita.",
             "confirmDelete": "Excluir"
+        },
+        "eventAttendees": {
+            "title": "Há {count} inscritos em {title}",
+            "name": "Nome",
+            "phone": "Telefone",
+            "email": "Email",
+            "registrationDate": "Data de inscrição",
+            "backToEvent": "Voltar para o evento"
+        },
+        "eventShow": {
+            "backToEvent": "Voltar para os eventos",
+            "imageAlt": "Imagem do evento {title}",
+            "when": "Quando",
+            "time": "Hora",
+            "modality": "Modalidade",
+            "price": "Preço",
+            "free": "Grátis",
+            "location": "Local",
+            "viewAttendees": "Ver inscritos",
+            "editEvent": "Editar evento",
+            "subscribe": "Inscrever-me",
+            "unsubscribe": "Desinscrever-me"
         }
     }
 }

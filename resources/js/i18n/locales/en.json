@@ -315,6 +315,28 @@
             "confirmTitle": "Delete event?",
             "confirmMessage": "Are you sure you want to delete this event? This action cannot be undone.",
             "confirmDelete": "Delete"
+        },
+        "eventAttendees": {
+            "title": "There are {count} attendees in {title}",
+            "name": "Name",
+            "phone": "Phone",
+            "email": "Email",
+            "registrationDate": "Registration date",
+            "backToEvent": "Back to event"
+        },
+        "eventShow": {
+            "backToEvents": "Back to events",
+            "imageAlt": "Image for event {title}",
+            "when": "When",
+            "time": "Time",
+            "modality": "Modality",
+            "price": "Price",
+            "free": "Free",
+            "location": "Location",
+            "viewAttendees": "View attendees",
+            "editEvent": "Edit event",
+            "subscribe": "Subscribe",
+            "unsubscribe": "Unsubscribe"
         }
     }
 }

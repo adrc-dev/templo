@@ -315,6 +315,28 @@
             "confirmTitle": "¿Eliminar evento?",
             "confirmMessage": "¿Seguro que deseas eliminar este evento? Esta acción no se puede deshacer.",
             "confirmDelete": "Eliminar"
+        },
+        "eventAttendees": {
+            "title": "Hay {count} inscritos en {title}",
+            "name": "Nombre",
+            "phone": "Teléfono",
+            "email": "Email",
+            "registrationDate": "Fecha de inscripción",
+            "backToEvent": "Volver al evento"
+        },
+        "eventShow": {
+            "backToEvents": "Volver a eventos",
+            "imageAlt": "Imagen del evento {title}",
+            "when": "Cuándo",
+            "time": "Hora",
+            "modality": "Modalidad",
+            "price": "Precio",
+            "free": "Gratuito",
+            "location": "Lugar",
+            "viewAttendees": "Ver inscritos",
+            "editEvent": "Editar evento",
+            "subscribe": "Inscribirme",
+            "unsubscribe": "Desinscribirme"
         }
     }
 }

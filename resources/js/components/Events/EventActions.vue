@@ -32,21 +32,23 @@ function unsubscribe() {
         <div v-if="userRole === 'admin' || userRole === 'operator'"
             class="mb-6 text-center relative mx-auto flex gap-4 justify-center">
             <Button @click="$inertia.visit(`/events/${event.slug}/attendees`)" class="relative">
-                Ver inscritos
+                {{ $t('events.eventShow.viewAttendees') }}
                 <span v-if="suscribeCount > 0"
                     class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg">
                     {{ suscribeCount }}
                 </span>
             </Button>
-            <Button @click="$inertia.visit(`/events/${event.slug}/edit`)">Editar eventos</Button>
+            <Button @click="$inertia.visit(`/events/${event.slug}/edit`)">
+                {{ $t('events.eventShow.editEvent') }}
+            </Button>
         </div>
 
         <Button v-else-if="!isSubscribed" @click="subscribe" class="mx-auto block">
-            Inscribirme
+            {{ $t('events.eventShow.subscribe') }}
         </Button>
 
         <Button v-else class="bg-red-400 hover:bg-red-700 mx-auto block" @click="unsubscribe">
-            Desinscribirme
+            {{ $t('events.eventShow.unsubscribe') }}
         </Button>
     </div>
 </template>

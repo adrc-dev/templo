@@ -35,7 +35,7 @@ function refreshData() {
                 <EventActions :event="event" :isSubscribed="isSubscribed" :suscribeCount="suscribeCount"
                     @refresh="refreshData" />
                 <GoLink href="/events" class="mb-0 pb-12">
-                    ← Volver a eventos
+                    ← {{ $t('events.eventShow.backToEvents') }}
                 </GoLink>
             </section>
         </div>
