@@ -141,7 +141,6 @@
         "barcelona": "Barcelona, Espanha",
         "part2_4": "embora ainda não tenhamos uma sede fixa lá",
         "part3_1": "Você pode nos enviar um e-mail para",
-        "email": "monjasherab@gmail.com",
         "part3_2": "ou nos mandar uma mensagem no WhatsApp para",
         "whatsapp": "+55 11 98996-4269"
     },
@@ -459,5 +458,46 @@
             "cancel_button": "Cancelar recibo",
             "member_until": "Sócio até"
         }
+    },
+    "login": {
+        "page_title": "Iniciar sessão",
+        "title": "Aceda à sua conta",
+        "description": "Insira as suas credenciais para aceder à sua conta.",
+        "email_label": "Email",
+        "password_label": "Palavra-passe",
+        "password_placeholder": "Palavra-passe",
+        "forgot_password": "Esqueceu-se da palavra-passe?",
+        "remember_me": "Lembrar-me",
+        "submit_button": "Entrar",
+        "no_account": "Não tem uma conta?",
+        "register_link": "Registe-se"
+    },
+    "register": {
+        "page_title": "Registo",
+        "title": "Criar conta",
+        "description": "Preencha o seguinte formulário para criar uma conta.",
+        "name_label": "Nome",
+        "name_placeholder": "Nome",
+        "surname_label": "Apelido",
+        "surname_placeholder": "Apelido",
+        "phone_label": "Telefone",
+        "phone_placeholder": "Telefone",
+        "email_label": "Email",
+        "password_label": "Palavra-passe",
+        "password_placeholder": "Palavra-passe",
+        "confirm_password_label": "Confirmar palavra-passe",
+        "confirm_password_placeholder": "Confirmar palavra-passe",
+        "submit_button": "Criar conta",
+        "already_registered": "Já está registado?",
+        "login_link": "Entrar"
+    },
+    "forgotPassword": {
+        "page_title": "Esqueceu a palavra-passe?",
+        "title": "Esqueceu a palavra-passe?",
+        "description": "Insira o seu email para receber um link de redefinição de palavra-passe.",
+        "email_label": "Email",
+        "submit_button": "Enviar",
+        "or_text": "Ou volte para",
+        "login_link": "iniciar sessão"
     }
 }

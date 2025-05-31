@@ -32,64 +32,73 @@ const submit = async () => {
 </script>
 
 <template>
-    <AuthBase title="Crear cuenta" description="Completa el siguiente formulario para crear una cuenta.">
+    <AuthBase :title="$t('register.title')" :description="$t('register.description')">
 
-        <Head title="Register" />
+        <Head :title="$t('register.page_title')" />
 
         <form @submit.prevent="submit" class="flex flex-col gap-6">
             <div class="grid gap-6">
+                <!-- Nombre -->
                 <div class="grid gap-2">
-                    <Label for="name">Nombre</Label>
+                    <Label for="name">{{ $t('register.name_label') }}</Label>
                     <Input id="name" type="text" required autofocus :tabindex="1" autocomplete="name"
-                        v-model="form.name" placeholder="Nombre" />
+                        v-model="form.name" :placeholder="$t('register.name_placeholder')" />
                     <InputError :message="form.errors.name" />
                 </div>
 
+                <!-- Apellidos -->
                 <div class="grid gap-2">
-                    <Label for="surname">Apellidos</Label>
-                    <Input id="surname" type="text" required autofocus :tabindex="2" autocomplete="surname"
-                        v-model="form.surname" placeholder="Apellidos" />
-                    <InputError :message="form.errors.name" />
+                    <Label for="surname">{{ $t('register.surname_label') }}</Label>
+                    <Input id="surname" type="text" required :tabindex="2" autocomplete="surname" v-model="form.surname"
+                        :placeholder="$t('register.surname_placeholder')" />
+                    <InputError :message="form.errors.surname" />
                 </div>
 
+                <!-- Teléfono -->
                 <div class="grid gap-2">
-                    <Label for="phone">Teléfono</Label>
-                    <Input id="phone" type="tel" required autofocus :tabindex="3" autocomplete="tel"
-                        v-model="form.phone" placeholder="Teléfono" />
+                    <Label for="phone">{{ $t('register.phone_label') }}</Label>
+                    <Input id="phone" type="tel" required :tabindex="3" autocomplete="tel" v-model="form.phone"
+                        :placeholder="$t('register.phone_placeholder')" />
                     <InputError :message="form.errors.phone" />
                 </div>
 
+                <!-- Email -->
                 <div class="grid gap-2">
-                    <Label for="email">Correo electrónico</Label>
+                    <Label for="email">{{ $t('register.email_label') }}</Label>
                     <Input id="email" type="email" required :tabindex="4" autocomplete="email" v-model="form.email"
-                        placeholder="email@example.com" />
+                        placeholder="email@exemplo.com" />
                     <InputError :message="form.errors.email" />
                 </div>
 
+                <!-- Contraseña -->
                 <div class="grid gap-2">
-                    <Label for="password">Contraseña</Label>
+                    <Label for="password">{{ $t('register.password_label') }}</Label>
                     <Input id="password" type="password" required :tabindex="5" autocomplete="new-password"
-                        v-model="form.password" placeholder="Contraseña" />
+                        v-model="form.password" :placeholder="$t('register.password_placeholder')" />
                     <InputError :message="form.errors.password" />
                 </div>
 
+                <!-- Confirmar Contraseña -->
                 <div class="grid gap-2">
-                    <Label for="password_confirmation">Confirmar contraseña</Label>
+                    <Label for="password_confirmation">{{ $t('register.confirm_password_label') }}</Label>
                     <Input id="password_confirmation" type="password" required :tabindex="6" autocomplete="new-password"
-                        v-model="form.password_confirmation" placeholder="Confirmar contraseña" />
+                        v-model="form.password_confirmation"
+                        :placeholder="$t('register.confirm_password_placeholder')" />
                     <InputError :message="form.errors.password_confirmation" />
                 </div>
 
-                <Button type="submit" class="mt-2 w-30 mx-auto" tabindex="7" :disabled="form.processing"
+                <!-- Botón de Registro -->
+                <Button type="submit" class="mt-2 w-40 mx-auto" tabindex="7" :disabled="form.processing"
                     variant="transparent">
                     <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                    Crear cuenta
+                    {{ $t('register.submit_button') }}
                 </Button>
             </div>
 
+            <!-- Enlace a Login -->
             <div class="text-center text-sm text-white">
-                Ya estas registrado?
-                <TextLink :href="route('login')" :tabindex="8">Entrar</TextLink>
+                {{ $t('register.already_registered') }}
+                <TextLink :href="route('login')" :tabindex="8">{{ $t('register.login_link') }}</TextLink>
             </div>
         </form>
     </AuthBase>

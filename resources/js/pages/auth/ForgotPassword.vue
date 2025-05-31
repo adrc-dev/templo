@@ -22,10 +22,9 @@ const submit = () => {
 </script>
 
 <template>
-    <AuthLayout title="¿Has olvidado la contraseña?"
-        description="Insiere tu correo electrónico para recibir un enlace de restablecimiento de contraseña.">
+    <AuthLayout :title="$t('forgotPassword.title')" :description="$t('forgotPassword.description')">
 
-        <Head title="¿Has olvidado la contraseña?" />
+        <Head :title="$t('forgotPassword.page_title')" />
 
         <div v-if="status" class="mb-4 text-center text-sm font-medium text-green-600">
             {{ status }}
@@ -34,23 +33,23 @@ const submit = () => {
         <div class="space-y-6">
             <form @submit.prevent="submit">
                 <div class="grid gap-2">
-                    <Label for="email">Correo electrónico</Label>
+                    <Label for="email">{{ $t('forgotPassword.email_label') }}</Label>
                     <Input id="email" type="email" name="email" autocomplete="off" v-model="form.email" autofocus
-                        placeholder="email@example.com" />
+                        placeholder="email@exemplo.com" />
                     <InputError :message="form.errors.email" />
                 </div>
 
                 <div class="my-6 flex items-center justify-start">
                     <Button class="mt-2 w-30 mx-auto" :disabled="form.processing" variant="transparent">
                         <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                        Enviar
+                        {{ $t('forgotPassword.submit_button') }}
                     </Button>
                 </div>
             </form>
 
             <div class="space-x-1 text-center text-sm text-white">
-                <span>O vuelve a </span>
-                <TextLink :href="route('login')">iniciar session</TextLink>
+                <span>{{ $t('forgotPassword.or_text') }}</span>
+                <TextLink :href="route('login')">{{ $t('forgotPassword.login_link') }}</TextLink>
             </div>
         </div>
     </AuthLayout>

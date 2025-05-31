@@ -141,7 +141,6 @@
         "barcelona": "Barcelona, España",
         "part2_4": "aunque aún no contamos con una sede fija allí",
         "part3_1": "Puedes escribirnos a",
-        "email": "monjasherab@gmail.com",
         "part3_2": "o enviarnos un WhatsApp al",
         "whatsapp": "+55 11 98996-4269"
     },
@@ -458,5 +457,46 @@
             "cancel_button": "Cancelar recibo",
             "member_until": "Socio hasta"
         }
+    },
+    "login": {
+        "page_title": "Iniciar sesión",
+        "title": "Accede a tu cuenta",
+        "description": "Inserta tus credenciales para acceder a tu cuenta.",
+        "email_label": "Correo electrónico",
+        "password_label": "Contraseña",
+        "password_placeholder": "Contraseña",
+        "forgot_password": "¿Has olvidado tu contraseña?",
+        "remember_me": "Recordarme",
+        "submit_button": "Entrar",
+        "no_account": "¿No tienes una cuenta?",
+        "register_link": "Regístrate"
+    },
+    "register": {
+        "page_title": "Registro",
+        "title": "Crear cuenta",
+        "description": "Completa el siguiente formulario para crear una cuenta.",
+        "name_label": "Nombre",
+        "name_placeholder": "Nombre",
+        "surname_label": "Apellidos",
+        "surname_placeholder": "Apellidos",
+        "phone_label": "Teléfono",
+        "phone_placeholder": "Teléfono",
+        "email_label": "Correo electrónico",
+        "password_label": "Contraseña",
+        "password_placeholder": "Contraseña",
+        "confirm_password_label": "Confirmar contraseña",
+        "confirm_password_placeholder": "Confirmar contraseña",
+        "submit_button": "Crear cuenta",
+        "already_registered": "¿Ya estás registrado?",
+        "login_link": "Entrar"
+    },
+    "forgotPassword": {
+        "page_title": "¿Has olvidado la contraseña?",
+        "title": "¿Has olvidado la contraseña?",
+        "description": "Inserta tu correo electrónico para recibir un enlace de restablecimiento de contraseña.",
+        "email_label": "Correo electrónico",
+        "submit_button": "Enviar",
+        "or_text": "O vuelve a",
+        "login_link": "iniciar sesión"
     }
 }

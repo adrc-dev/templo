@@ -141,7 +141,6 @@
         "barcelona": "Barcelona, Spain",
         "part2_4": "though we don't yet have a permanent location there",
         "part3_1": "You can email us at",
-        "email": "monjasherab@gmail.com",
         "part3_2": "or send us a WhatsApp to",
         "whatsapp": "+55 11 98996-4269"
     },
@@ -458,5 +457,46 @@
             "cancel_button": "Cancel receipt",
             "member_until": "Member until"
         }
+    },
+    "login": {
+        "page_title": "Login",
+        "title": "Access your account",
+        "description": "Enter your credentials to access your account.",
+        "email_label": "Email",
+        "password_label": "Password",
+        "password_placeholder": "Password",
+        "forgot_password": "Forgot your password?",
+        "remember_me": "Remember me",
+        "submit_button": "Login",
+        "no_account": "Don't have an account?",
+        "register_link": "Register"
+    },
+    "register": {
+        "page_title": "Register",
+        "title": "Create account",
+        "description": "Complete the following form to create an account.",
+        "name_label": "First name",
+        "name_placeholder": "First name",
+        "surname_label": "Last name",
+        "surname_placeholder": "Last name",
+        "phone_label": "Phone",
+        "phone_placeholder": "Phone",
+        "email_label": "Email",
+        "password_label": "Password",
+        "password_placeholder": "Password",
+        "confirm_password_label": "Confirm password",
+        "confirm_password_placeholder": "Confirm password",
+        "submit_button": "Create account",
+        "already_registered": "Already registered?",
+        "login_link": "Login"
+    },
+    "forgotPassword": {
+        "page_title": "Forgot Password",
+        "title": "Forgot your password?",
+        "description": "Enter your email to receive a password reset link.",
+        "email_label": "Email",
+        "submit_button": "Send",
+        "or_text": "Or return to",
+        "login_link": "login"
     }
 }
