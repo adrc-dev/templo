@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -9,31 +9,12 @@
     {{-- Iconos --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    {{-- Inline script to detect system dark mode preference and apply it immediately --}}
-    <script>
-        (function() {
-            const appearance = '{{ $appearance ?? 'system' }}';
-
-            if (appearance === 'system') {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-                if (prefersDark) {
-                    document.documentElement.classList.add('dark');
-                }
-            }
-        })();
-    </script>
-
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.key') }}"></script>
 
     {{-- Inline style to set the HTML background color based on our theme in app.css --}}
     <style>
         html {
             background-color: oklch(1 0 0);
-        }
-
-        html.dark {
-            background-color: oklch(0.145 0 0);
         }
     </style>
 
