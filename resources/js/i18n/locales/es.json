@@ -416,5 +416,47 @@
         "profileTitle": "Perfil",
         "passwordTitle": "Contraseña",
         "description": "Aquí podrás gestionar tu información personal."
+    },
+    "dashboard": {
+        "page_title": "Panel de administración",
+        "greeting": "Tashi delek",
+        "description": "Aquí podrás administrar los usuarios de la web.",
+        "delete_user_title": "¿Eliminar usuario?",
+        "delete_user_message": "Esta acción no se puede deshacer. ¿Seguro que deseas continuar?",
+        "delete_user_confirm": "Eliminar",
+        "activate_membership_title": "¿Activar membresía?",
+        "activate_membership_message": "¿Estás seguro de que deseas activar la membresía de este usuario?",
+        "activate_membership_confirm": "Activar",
+        "cancel_receipt_title": "¿Cancelar recibo?",
+        "cancel_receipt_message": "¿Estás seguro de que deseas cancelar este recibo? Esta acción no se puede deshacer.",
+        "cancel_receipt_confirm": "Cancelar recibo",
+        "userSearch": {
+            "placeholder": "Buscar usuario..."
+        },
+        "userTable": {
+            "id": "ID",
+            "name": "Nombre",
+            "email": "Email",
+            "role": "Rol",
+            "proof": "Comprobante",
+            "delete": "Eliminar",
+            "proof_not_sent": "No enviado",
+            "roles": {
+                "admin": "Administrador",
+                "operator": "Operador",
+                "socio": "Socio",
+                "user": "Usuario"
+            }
+        },
+        "membershipModal": {
+            "title": "Comprobantes de {name} {surname}",
+            "pending_section": "Pendientes",
+            "active_section": "Activas",
+            "expired_section": "Expiradas",
+            "view_proof": "Ver comprobante",
+            "activate_button": "Activar membresía 30 días",
+            "cancel_button": "Cancelar recibo",
+            "member_until": "Socio hasta"
+        }
     }
 }

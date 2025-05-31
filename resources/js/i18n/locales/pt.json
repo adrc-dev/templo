@@ -417,5 +417,47 @@
         "profileTitle": "Perfil",
         "passwordTitle": "Senha",
         "description": "Aqui você pode gerenciar suas informações pessoais."
+    },
+    "dashboard": {
+        "page_title": "Painel de Controle",
+        "greeting": "Tashi delek",
+        "description": "Aqui você pode gerenciar os usuários do site.",
+        "delete_user_title": "Excluir usuário?",
+        "delete_user_message": "Esta ação não pode ser desfeita. Tem certeza de que deseja continuar?",
+        "delete_user_confirm": "Excluir",
+        "activate_membership_title": "Ativar associação?",
+        "activate_membership_message": "Tem certeza de que deseja ativar a associação deste usuário?",
+        "activate_membership_confirm": "Ativar",
+        "cancel_receipt_title": "Cancelar recibo?",
+        "cancel_receipt_message": "Tem certeza de que deseja cancelar este recibo? Esta ação não pode ser desfeita.",
+        "cancel_receipt_confirm": "Cancelar recibo",
+        "userSearch": {
+            "placeholder": "Pesquisar usuário..."
+        },
+        "userTable": {
+            "id": "ID",
+            "name": "Nome",
+            "email": "Email",
+            "role": "Função",
+            "proof": "Comprovante",
+            "delete": "Excluir",
+            "proof_not_sent": "Não enviado",
+            "roles": {
+                "admin": "Administrador",
+                "operator": "Operador",
+                "socio": "Sócio",
+                "user": "Usuário"
+            }
+        },
+        "membershipModal": {
+            "title": "Comprovantes de {name} {surname}",
+            "pending_section": "Pendentes",
+            "active_section": "Ativas",
+            "expired_section": "Expiradas",
+            "view_proof": "Ver comprovante",
+            "activate_button": "Ativar associação de 30 dias",
+            "cancel_button": "Cancelar recibo",
+            "member_until": "Sócio até"
+        }
     }
 }

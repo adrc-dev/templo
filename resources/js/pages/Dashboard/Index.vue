@@ -120,7 +120,7 @@ function confirmCancelReceipt() {
 
 <template>
 
-    <Head title="Dashboard" />
+    <Head :title="$t('dashboard.page_title')" />
     <FlashMessage />
 
     <!-- Modal de comprobantes -->
@@ -128,25 +128,25 @@ function confirmCancelReceipt() {
         @cancel="cancelReceipt" />
 
     <!-- Confirmación de eliminación -->
-    <ConfirmDialog :show="showConfirmDialog" title="¿Eliminar usuario?"
-        message="Esta acción no se puede deshacer. ¿Seguro que deseas continuar?" confirmText="Eliminar"
+    <ConfirmDialog :show="showConfirmDialog" :title="$t('dashboard.delete_user_title')"
+        :message="$t('dashboard.delete_user_message')" :confirm-text="$t('dashboard.delete_user_confirm')"
         confirm-color="red" @confirm="confirmDeleteUser" @cancel="showConfirmDialog = false" />
 
     <!-- Confirmación de activación de membresía -->
-    <ConfirmDialog :show="showConfirmMembershipDialog" title="¿Activar membresía?"
-        message="¿Estás seguro de que deseas activar la membresía de este usuario?" confirm-text="Activar"
-        confirm-color="green" @confirm="confirmActivateMembership" @cancel="showConfirmMembershipDialog = false" />
+    <ConfirmDialog :show="showConfirmMembershipDialog" :title="$t('dashboard.activate_membership_title')"
+        :message="$t('dashboard.activate_membership_message')"
+        :confirm-text="$t('dashboard.activate_membership_confirm')" confirm-color="green"
+        @confirm="confirmActivateMembership" @cancel="showConfirmMembershipDialog = false" />
 
-    <!-- Confirmaciñon de cancelación de comprobante -->
-    <ConfirmDialog :show="showCancelReceiptDialog" title="¿Cancelar recibo?"
-        message="¿Estás seguro de que deseas cancelar este recibo? Esta acción no se puede deshacer."
-        confirm-text="Cancelar recibo" confirm-color="red" @confirm="confirmCancelReceipt"
-        @cancel="showCancelReceiptDialog = false" />
+    <!-- Confirmación de cancelación de comprobante -->
+    <ConfirmDialog :show="showCancelReceiptDialog" :title="$t('dashboard.cancel_receipt_title')"
+        :message="$t('dashboard.cancel_receipt_message')" :confirm-text="$t('dashboard.cancel_receipt_confirm')"
+        confirm-color="red" @confirm="confirmCancelReceipt" @cancel="showCancelReceiptDialog = false" />
 
     <AppLayout>
         <div class="max-w-[1200px] mx-auto px-4 py-6">
-            <Heading :title="`Tashi delek, ${auth.user.name} ${auth.user.surname}`"
-                description="Aquí podrás administrar los usuarios de la web." />
+            <Heading :title="`${$t('dashboard.greeting')}, ${auth.user.name} ${auth.user.surname}`"
+                :description="$t('dashboard.description')" />
 
             <!-- Buscador -->
             <UserSearch v-model="search" />

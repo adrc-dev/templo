@@ -28,8 +28,8 @@ const clearSearch = () => {
 
 <template>
     <div class="relative max-w-sm mx-auto my-6">
-        <input v-model="input" type="text" placeholder="Buscar usuario..."
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 pr-10 text-sm focus:outline-none focus:ring focus:border-primary-color" />
+        <input v-model="input" type="text" :placeholder="$t('dashboard.userSearch.placeholder')"
+            class="w-full border border-primary-color rounded-lg px-4 py-2 pr-10 text-sm focus:outline-none focus:ring focus:border-primary-color bg-white" />
         <button v-if="input" @click="clearSearch"
             class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-500 text-xl font-bold">
             &times;

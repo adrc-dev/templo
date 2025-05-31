@@ -17,12 +17,12 @@ defineProps<{
         <table class="min-w-full text-base text-center text-primary-color">
             <thead class="bg-primary-color text-white hidden md:table-header-group">
                 <tr>
-                    <th class="p-3">ID</th>
-                    <th class="p-3">Nombre</th>
-                    <th class="p-3">Email</th>
-                    <th class="p-3">Rol</th>
-                    <th class="p-3">Comprobante</th>
-                    <th v-if="authRole === 'admin'" class="p-3">Eliminar</th>
+                    <th class="p-3">{{ $t('dashboard.userTable.id') }}</th>
+                    <th class="p-3">{{ $t('dashboard.userTable.name') }}</th>
+                    <th class="p-3">{{ $t('dashboard.userTable.email') }}</th>
+                    <th class="p-3">{{ $t('dashboard.userTable.role') }}</th>
+                    <th class="p-3">{{ $t('dashboard.userTable.proof') }}</th>
+                    <th v-if="authRole === 'admin'" class="p-3">{{ $t('dashboard.userTable.delete') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,28 +34,32 @@ defineProps<{
                     </td>
                     <!-- Nombre -->
                     <td class="p-3 block md:table-cell text-left md:text-center">
-                        <span class="font-semibold md:hidden">Nombre: </span>{{ user.name }} {{ user.surname }}
+                        <span class="font-semibold md:hidden">{{ $t('dashboard.userTable.name') }}: </span>
+                        {{ user.name }} {{ user.surname }}
                     </td>
                     <!-- Email -->
                     <td class="p-3 block md:table-cell text-left md:text-center">
-                        <span class="font-semibold md:hidden">Email: </span>{{ user.email }}
+                        <span class="font-semibold md:hidden">{{ $t('dashboard.userTable.email') }}: </span>
+                        {{ user.email }}
                     </td>
                     <!-- Rol -->
                     <td class="p-3 block md:table-cell text-left md:text-center">
-                        <span class="font-semibold md:hidden">Rol: </span>
+                        <span class="font-semibold md:hidden">{{ $t('dashboard.userTable.role') }}: </span>
                         <span v-if="user.role === 'admin' || (authRole === 'operator' && user.role === 'operator')">
-                            {{ user.role }}
+                            {{ $t(`dashboard.userTable.roles.${user.role}`) }}
                         </span>
                         <select v-else v-model="user.role" @change="updateRole(user)" :class="bgClass(user.role)"
                             class="border border-primary-color rounded px-2 py-1 text-sm focus:outline-none focus:ring-0 focus:border-primary-color w-full md:w-auto">
-                            <option value="user">User</option>
-                            <option value="socio">Socio</option>
-                            <option v-if="authRole === 'admin'" value="operator">Operator</option>
+                            <option value="user">{{ $t('dashboard.userTable.roles.user') }}</option>
+                            <option value="socio">{{ $t('dashboard.userTable.roles.socio') }}</option>
+                            <option v-if="authRole === 'admin'" value="operator">
+                                {{ $t('dashboard.userTable.roles.operator') }}
+                            </option>
                         </select>
                     </td>
                     <!-- Comprobante -->
                     <td class="p-3 block md:table-cell text-left md:text-center">
-                        <span class="font-semibold md:hidden">Comprobante: </span>
+                        <span class="font-semibold md:hidden">{{ $t('dashboard.userTable.proof') }}: </span>
                         <template v-if="['admin', 'operator'].includes(user.role)"></template>
                         <template v-else>
                             <div class="relative inline-block" v-if="user.memberships.length">
@@ -68,12 +72,14 @@ defineProps<{
                                     {{user.memberships.filter(m => m.status === 'pending').length}}
                                 </span>
                             </div>
-                            <span v-else class="italic text-gray-500">No enviado</span>
+                            <span v-else class="italic text-gray-500">
+                                {{ $t('dashboard.userTable.proof_not_sent') }}
+                            </span>
                         </template>
                     </td>
                     <!-- Eliminar -->
                     <td v-if="authRole === 'admin'" class="p-3 block md:table-cell text-left md:text-center">
-                        <span class="font-semibold md:hidden">Eliminar: </span>
+                        <span class="font-semibold md:hidden">{{ $t('dashboard.userTable.delete') }}: </span>
                         <button v-if="user.id !== auth.user.id" @click="deleteUser(user.id)"
                             class="text-red-600 hover:text-red-800 cursor-pointer">
                             <SquareX class="w-5 h-5 inline-block" />

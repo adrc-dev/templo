@@ -416,5 +416,47 @@
         "profileTitle": "Profile",
         "passwordTitle": "Password",
         "description": "Here you can manage your personal information."
+    },
+    "dashboard": {
+        "page_title": "Dashboard",
+        "greeting": "Tashi delek",
+        "description": "Here you can manage the website users.",
+        "delete_user_title": "Delete user?",
+        "delete_user_message": "This action cannot be undone. Are you sure you want to continue?",
+        "delete_user_confirm": "Delete",
+        "activate_membership_title": "Activate membership?",
+        "activate_membership_message": "Are you sure you want to activate this user's membership?",
+        "activate_membership_confirm": "Activate",
+        "cancel_receipt_title": "Cancel receipt?",
+        "cancel_receipt_message": "Are you sure you want to cancel this receipt? This action cannot be undone.",
+        "cancel_receipt_confirm": "Cancel receipt",
+        "userSearch": {
+            "placeholder": "Search user..."
+        },
+        "userTable": {
+            "id": "ID",
+            "name": "Name",
+            "email": "Email",
+            "role": "Role",
+            "proof": "Proof",
+            "delete": "Delete",
+            "proof_not_sent": "Not sent",
+            "roles": {
+                "admin": "Admin",
+                "operator": "Operator",
+                "socio": "Member",
+                "user": "User"
+            }
+        },
+        "membershipModal": {
+            "title": "Receipts for {name} {surname}",
+            "pending_section": "Pending",
+            "active_section": "Active",
+            "expired_section": "Expired",
+            "view_proof": "View receipt",
+            "activate_button": "Activate 30-day membership",
+            "cancel_button": "Cancel receipt",
+            "member_until": "Member until"
+        }
     }
 }
