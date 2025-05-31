@@ -381,5 +381,41 @@
     "pagination": {
         "previous": "Anterior",
         "next": "Próximo"
+    },
+    "settings": {
+        "profile": {
+            "pageTitle": "Configurações de perfil",
+            "title": "Informações do perfil",
+            "description": "Atualize seu nome ou endereço de e-mail",
+            "nameLabel": "Nome",
+            "surnameLabel": "Sobrenome",
+            "phoneLabel": "Telefone",
+            "emailLabel": "E-mail",
+            "namePlaceholder": "Nome",
+            "surnamePlaceholder": "Sobrenome",
+            "phonePlaceholder": "Telefone",
+            "emailPlaceholder": "email@example.com",
+            "emailUnverified": "Seu endereço de e-mail não está verificado.",
+            "resendVerification": "Clique aqui para reenviar o e-mail de verificação.",
+            "verificationSent": "Um novo link de verificação foi enviado para o seu endereço de e-mail.",
+            "saveButton": "Salvar",
+            "savedSuccess": "Salvo com sucesso."
+        },
+        "password": {
+            "pageTitle": "Configurações de senha",
+            "title": "Atualizar senha",
+            "description": "Certifique-se de que sua conta está usando uma senha longa e aleatória para mantê-la segura.",
+            "currentPasswordLabel": "Senha atual",
+            "newPasswordLabel": "Nova senha",
+            "confirmPasswordLabel": "Confirme sua senha",
+            "currentPasswordPlaceholder": "Senha atual",
+            "newPasswordPlaceholder": "Nova senha",
+            "confirmPasswordPlaceholder": "Confirme sua senha",
+            "saveButton": "Salvar senha",
+            "savedSuccess": "Salvo com sucesso."
+        },
+        "profileTitle": "Perfil",
+        "passwordTitle": "Senha",
+        "description": "Aqui você pode gerenciar suas informações pessoais."
     }
 }

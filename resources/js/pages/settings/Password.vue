@@ -46,43 +46,48 @@ const updatePassword = () => {
 <template>
     <AppLayout>
 
-        <Head title="Configuración de contraseña" />
+        <Head :title="$t('settings.password.pageTitle')" />
 
         <SettingsLayout>
             <div class="space-y-6 w-full md:w-xl">
-                <HeadingSmall title="Actualizar contraseña"
-                    description="Asegúrate de que tu cuenta utilice una contraseña larga y aleatoria para mantenerla segura." />
+                <HeadingSmall :title="$t('settings.password.title')"
+                    :description="$t('settings.password.description')" />
 
                 <form @submit.prevent="updatePassword" class="space-y-6">
                     <div class="grid gap-2">
-                        <Label for="current_password">Contraseña actual</Label>
+                        <Label for="current_password">{{ $t('settings.password.currentPasswordLabel') }}</Label>
                         <Input id="current_password" ref="currentPasswordInput" v-model="form.current_password"
                             type="password" class="mt-1 block w-full" autocomplete="current-password"
-                            placeholder="Contraseña actual" />
+                            :placeholder="$t('settings.password.currentPasswordPlaceholder')" />
                         <InputError :message="form.errors.current_password" />
                     </div>
 
                     <div class="grid gap-2">
-                        <Label for="password">Nueva contraseña</Label>
+                        <Label for="password">{{ $t('settings.password.newPasswordLabel') }}</Label>
                         <Input id="password" ref="passwordInput" v-model="form.password" type="password"
-                            class="mt-1 block w-full" autocomplete="new-password" placeholder="Nueva contraseña" />
+                            class="mt-1 block w-full" autocomplete="new-password"
+                            :placeholder="$t('settings.password.newPasswordPlaceholder')" />
                         <InputError :message="form.errors.password" />
                     </div>
 
                     <div class="grid gap-2">
-                        <Label for="password_confirmation">Confirma tu contraseña</Label>
+                        <Label for="password_confirmation">{{ $t('settings.password.confirmPasswordLabel') }}</Label>
                         <Input id="password_confirmation" v-model="form.password_confirmation" type="password"
                             class="mt-1 block w-full" autocomplete="new-password"
-                            placeholder="Confirma tu contraseña" />
+                            :placeholder="$t('settings.password.confirmPasswordPlaceholder')" />
                         <InputError :message="form.errors.password_confirmation" />
                     </div>
 
                     <div class="flex items-center gap-4">
-                        <Button :disabled="form.processing">Guardar contraseña</Button>
+                        <Button :disabled="form.processing">
+                            {{ $t('settings.password.saveButton') }}
+                        </Button>
 
                         <Transition enter-active-class="transition ease-in-out" enter-from-class="opacity-0"
                             leave-active-class="transition ease-in-out" leave-to-class="opacity-0">
-                            <p v-show="form.recentlySuccessful" class="text-sm text-green-600">Guardado con éxito.</p>
+                            <p v-show="form.recentlySuccessful" class="text-sm text-green-600">
+                                {{ $t('settings.password.savedSuccess') }}
+                            </p>
                         </Transition>
                     </div>
                 </form>

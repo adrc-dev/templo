@@ -380,5 +380,41 @@
     "pagination": {
         "previous": "Anterior",
         "next": "Siguiente"
+    },
+    "settings": {
+        "profile": {
+            "pageTitle": "Configuración del perfil",
+            "title": "Información del perfil",
+            "description": "Actualiza tu nombre o tu correo electrónico",
+            "nameLabel": "Nombre",
+            "surnameLabel": "Apellidos",
+            "phoneLabel": "Teléfono",
+            "emailLabel": "Correo electrónico",
+            "namePlaceholder": "Nombre",
+            "surnamePlaceholder": "Apellidos",
+            "phonePlaceholder": "Teléfono",
+            "emailPlaceholder": "email@example.com",
+            "emailUnverified": "Tu dirección de correo electrónico no está verificada.",
+            "resendVerification": "Haz clic aquí para reenviar el correo de verificación.",
+            "verificationSent": "Se ha enviado un nuevo enlace de verificación a tu dirección de correo electrónico.",
+            "saveButton": "Guardar",
+            "savedSuccess": "Guardado con éxito."
+        },
+        "password": {
+            "pageTitle": "Configuración de contraseña",
+            "title": "Actualizar contraseña",
+            "description": "Asegúrate de que tu cuenta utilice una contraseña larga y aleatoria para mantenerla segura.",
+            "currentPasswordLabel": "Contraseña actual",
+            "newPasswordLabel": "Nueva contraseña",
+            "confirmPasswordLabel": "Confirma tu contraseña",
+            "currentPasswordPlaceholder": "Contraseña actual",
+            "newPasswordPlaceholder": "Nueva contraseña",
+            "confirmPasswordPlaceholder": "Confirma tu contraseña",
+            "saveButton": "Guardar contraseña",
+            "savedSuccess": "Guardado con éxito."
+        },
+        "profileTitle": "Perfil",
+        "passwordTitle": "Contraseña",
+        "description": "Aquí podrás gestionar tu información personal."
     }
 }

@@ -4,17 +4,21 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue'; // Importa computed
 
-const sidebarNavItems: NavItem[] = [
+const { t } = useI18n();
+
+const sidebarNavItems = computed<NavItem[]>(() => [
     {
-        title: 'Perfil',
+        title: t("settings.profileTitle"),
         href: '/settings/profile',
     },
     {
-        title: 'Contraseña',
+        title: t("settings.passwordTitle"),
         href: '/settings/password',
     },
-];
+]);
 
 const page = usePage();
 
@@ -25,7 +29,7 @@ const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.locati
     <div class="bg-tertiary-color/80">
         <div class="px-4 py-14 mx-auto max-w-[1200px] min-h-[80vh] flex flex-col justify-center">
             <Heading :title="`Tashi delek, ${page.props.auth.user.name} ${page.props.auth.user.surname}`"
-                description="Aquí podrás gestionar tu información personal." />
+                :description="t('settings.description')" />
 
             <div class="flex flex-col mx-0 md:mx-auto space-y-8 md:space-y-0 lg:flex-row lg:space-x-12 lg:space-y-0">
                 <aside class="w-full max-w-xl lg:w-48">
@@ -49,6 +53,5 @@ const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.locati
                 </div>
             </div>
         </div>
-
     </div>
 </template>

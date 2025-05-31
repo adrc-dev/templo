@@ -380,5 +380,41 @@
     "pagination": {
         "previous": "Previous",
         "next": "Next"
+    },
+    "settings": {
+        "profile": {
+            "pageTitle": "Profile Settings",
+            "title": "Profile Information",
+            "description": "Update your name or email address",
+            "nameLabel": "Name",
+            "surnameLabel": "Surname",
+            "phoneLabel": "Phone",
+            "emailLabel": "Email",
+            "namePlaceholder": "Name",
+            "surnamePlaceholder": "Surname",
+            "phonePlaceholder": "Phone",
+            "emailPlaceholder": "email@example.com",
+            "emailUnverified": "Your email address is unverified.",
+            "resendVerification": "Click here to resend the verification email.",
+            "verificationSent": "A new verification link has been sent to your email address.",
+            "saveButton": "Save",
+            "savedSuccess": "Saved successfully."
+        },
+        "password": {
+            "pageTitle": "Password Settings",
+            "title": "Update Password",
+            "description": "Ensure your account is using a long, random password to stay secure.",
+            "currentPasswordLabel": "Current Password",
+            "newPasswordLabel": "New Password",
+            "confirmPasswordLabel": "Confirm Password",
+            "currentPasswordPlaceholder": "Current Password",
+            "newPasswordPlaceholder": "New Password",
+            "confirmPasswordPlaceholder": "Confirm Password",
+            "saveButton": "Save Password",
+            "savedSuccess": "Saved successfully."
+        },
+        "profileTitle": "Profile",
+        "passwordTitle": "Password",
+        "description": "Here you can manage your personal information."
     }
 }
