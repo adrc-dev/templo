@@ -18,14 +18,33 @@ const activeEvents = ref([...props.activeEvents]);
 const pastEvents = ref([...props.pastEvents]);
 const inactiveEvents = ref([...props.inactiveEvents]);
 
-function deleteEvent(id: number) {
-    router.delete(`/events/${id}`, {
+function deleteEvent(event: any) {
+    router.delete(`/events/${event.slug}`, {
+        preserveScroll: true,
         onSuccess: () => {
-            activeEvents.value = activeEvents.value.filter(event => event.id !== id);
-            pastEvents.value = activeEvents.value.filter(event => event.id !== id);
-            inactiveEvents.value = inactiveEvents.value.filter(event => event.id !== id);
+            activeEvents.value = activeEvents.value.filter(e => e.slug !== event.slug);
+            pastEvents.value = pastEvents.value.filter(e => e.slug !== event.slug);
+            inactiveEvents.value = inactiveEvents.value.filter(e => e.slug !== event.slug);
         }
     });
+}
+
+function handleToggle(updatedEvent: any) {
+    activeEvents.value = activeEvents.value.filter(e => e.slug !== updatedEvent.slug);
+    pastEvents.value = pastEvents.value.filter(e => e.slug !== updatedEvent.slug);
+    inactiveEvents.value = inactiveEvents.value.filter(e => e.slug !== updatedEvent.slug);
+
+    // Determina a qué lista pertenece ahora
+    const today = new Date();
+    const eventDate = new Date(updatedEvent.event_date);
+
+    if (eventDate < today) {
+        pastEvents.value.push(updatedEvent);
+    } else if (updatedEvent.is_active) {
+        activeEvents.value.push(updatedEvent);
+    } else {
+        inactiveEvents.value.push(updatedEvent);
+    }
 }
 </script>
 
@@ -44,11 +63,11 @@ function deleteEvent(id: number) {
             </div>
 
             <EventsTable :events="activeEvents" :title="$t('events.adminEvents.active_events_title')"
-                @delete="deleteEvent" />
-            <EventsTable :events="pastEvents" :title="$t('events.adminEvents.past_events_title')"
-                @delete="deleteEvent" />
+                @delete="deleteEvent" @toggle="handleToggle" />
+            <EventsTable :events="pastEvents" :title="$t('events.adminEvents.past_events_title')" @delete="deleteEvent"
+                @toggle="handleToggle" />
             <EventsTable :events="inactiveEvents" :title="$t('events.adminEvents.inactive_events_title')"
-                @delete="deleteEvent" />
+                @delete="deleteEvent" @toggle="handleToggle" />
 
             <GoLink class="mt-12" :href="route('events.index')" :text="$t('events.adminEvents.back_link')" />
         </section>

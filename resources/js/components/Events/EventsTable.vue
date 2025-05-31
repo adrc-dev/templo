@@ -5,10 +5,10 @@ import { Pencil, SquareX } from 'lucide-vue-next';
 import ConfirmDialog from '@/components/ConfirmDialog.vue';
 
 const props = defineProps<{ events: any[], title: string }>();
-const emit = defineEmits(['delete']);
+const emit = defineEmits(['delete', 'toggle']);
 
 const showConfirmDialog = ref(false);
-const eventSlugToDelete = ref<string | null>(null);
+const eventToDelete = ref<any>(null);
 
 function formatDate(dateStr: string): string {
     const date = new Date(dateStr);
@@ -26,16 +26,16 @@ function formatTime(timeStr: string): string {
     }).format(date);
 }
 
-function onDelete(slug: string) {
-    eventSlugToDelete.value = slug;
+function onDelete(event: any) {
+    eventToDelete.value = event;
     showConfirmDialog.value = true;
 }
 
 function confirmDelete() {
-    if (eventSlugToDelete.value !== null) {
-        emit('delete', eventSlugToDelete.value);
+    if (eventToDelete.value !== null) {
+        emit('delete', eventToDelete.value);
         showConfirmDialog.value = false;
-        eventSlugToDelete.value = null;
+        eventToDelete.value = null;
     }
 }
 
@@ -43,7 +43,10 @@ function toggleStatus(event: any) {
     router.put(`/events/${event.slug}/toggle`, {}, {
         preserveScroll: true,
         onSuccess: () => {
-            event.is_active = !event.is_active;
+            emit('toggle', {
+                ...event,
+                is_active: !event.is_active
+            });
         }
     });
 }
@@ -71,7 +74,7 @@ function toggleStatus(event: any) {
                     class="border-b text-primary-color odd:bg-white even:bg-gray-200 block md:table-row">
                     <td class="p-2 block md:table-cell">
                         <span class="font-semibold md:hidden">{{ $t('events.eventsTable.title') }}: </span>{{
-                        event.title }}
+                            event.title }}
                     </td>
                     <td class="p-2 block md:table-cell">
                         <span class="font-semibold md:hidden">{{ $t('events.eventsTable.dateTime') }}: </span>
@@ -103,7 +106,7 @@ function toggleStatus(event: any) {
                     <td class="p-2 block md:table-cell">
                         <div class="flex items-center gap-2">
                             <span class="font-semibold md:hidden">{{ $t('events.eventsTable.delete') }}:</span>
-                            <button @click="onDelete(event.slug)" class="text-red-600 hover:text-red-800">
+                            <button @click="onDelete(event)" class="text-red-600 hover:text-red-800">
                                 <SquareX />
                             </button>
                         </div>
