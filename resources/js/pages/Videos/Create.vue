@@ -12,14 +12,14 @@ function onSubmit(form: any) {
 
 <template>
 
-    <Head title="Crear Vídeo" />
+    <Head :title="$t('videos.createVideo')" />
     <AppLayout>
         <div class="bg-tertiary-color/80">
             <section class="w-full px-4 max-w-3xl mx-auto py-20">
-                <Heading title="Crear vídeo" description="Aquí puedes crear los vídeos del templo." />
+                <Heading :title="$t('videos.createVideo')" :description="$t('videos.createDescription')" />
                 <VideoForm @submit="onSubmit" />
                 <GoLink class="mt-6 text-white hover:text-white" :href="route('videos.index')"
-                    text="← Volver a la lista de vídeos" />
+                    :text="$t('videos.backToList')" />
             </section>
         </div>
     </AppLayout>

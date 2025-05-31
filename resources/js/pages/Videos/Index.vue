@@ -25,21 +25,21 @@ function deleteVideo(id: number) {
 
 <template>
 
-    <Head title="Gestión de vídeos" />
+    <Head :title="$t('videos.management')" />
     <FlashMassage />
 
     <AppLayout>
         <section class="w-full px-4 max-w-[1200px] mx-auto my-20">
-            <Heading title="Gestión de vídeos" description="Aquí puedes gestionar los vídeos del templo." />
+            <Heading :title="$t('videos.management')" :description="$t('videos.managementDescription')" />
             <div class="flex justify-end">
-                <Button @click="$inertia.visit('/videos/create')">Nuevo vídeo</Button>
+                <Button @click="$inertia.visit('/videos/create')">{{ $t('videos.newVideo') }}</Button>
             </div>
 
-            <VideosTable :videos="freeVideos" title="Vídeos gratuitos" @delete="deleteVideo" />
+            <VideosTable :videos="freeVideos" :title="$t('videos.freeVideos')" @delete="deleteVideo" />
 
-            <VideosTable :videos="premiumVideos" title="Vídeos premium" @delete="deleteVideo" />
+            <VideosTable :videos="premiumVideos" :title="$t('videos.premiumVideos')" @delete="deleteVideo" />
 
-            <GoLink class="mt-12" :href="route('aulas.index')" text="← Volver a Aulas" />
+            <GoLink class="mt-12" :href="route('aulas.index')" :text="$t('videos.backToAulas')" />
         </section>
     </AppLayout>
 </template>

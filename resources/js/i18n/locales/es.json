@@ -338,5 +338,47 @@
             "subscribe": "Inscribirme",
             "unsubscribe": "Desinscribirme"
         }
+    },
+    "videos": {
+        "management": "Gestión de vídeos",
+        "managementDescription": "Aquí puedes gestionar los vídeos del templo.",
+        "newVideo": "Nuevo vídeo",
+        "freeVideos": "Vídeos gratuitos",
+        "premiumVideos": "Vídeos premium",
+        "backToAulas": "← Volver a Aulas",
+        "table": {
+            "confirmTitle": "¿Eliminar vídeo?",
+            "confirmMessage": "¿Seguro que deseas eliminar este vídeo? Esta acción no se puede deshacer.",
+            "confirmDelete": "Eliminar",
+            "title": "Título",
+            "edit": "Editar",
+            "delete": "Eliminar"
+        },
+        "createVideo": "Crear vídeo",
+        "createDescription": "Aquí puedes crear los vídeos del templo.",
+        "editVideo": "Editar vídeo",
+        "editDescription": "Aquí puedes editar los vídeos del templo.",
+        "backToList": "← Volver a la lista de vídeos",
+        "form": {
+            "title": "Título",
+            "youtubeUrl": "URL de YouTube",
+            "youtubePlaceholder": "Ej: https://www.youtube.com/watch?v=qfMIgYvebho&list=PL3tGU3_EgiHZiICIIwoOaOF50GmLQ7iQW",
+            "description": "Descripción",
+            "descriptionPlaceholder": "Escribe la descripción",
+            "premiumCheckbox": "¿Es un vídeo premium?",
+            "saveButton": "Guardar"
+        },
+        "aulas": "Aulas",
+        "manageVideos": "Administrar videos",
+        "freeAulas": "Aulas gratuitas",
+        "premiumAulas": "Aulas solo para socios",
+        "videoCard": {
+            "readMore": "leer más",
+            "showLess": "mostrar menos"
+        }
+    },
+    "pagination": {
+        "previous": "Anterior",
+        "next": "Siguiente"
     }
 }

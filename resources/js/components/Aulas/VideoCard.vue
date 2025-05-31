@@ -28,13 +28,17 @@ defineProps<{
                     <span v-if="video.description.length > 100">
                         ...
                         <button class="text-primary-color hover:text-tertiary-color cursor-pointer"
-                            @click="toggleDescription()">leer más</button>
+                            @click="toggleDescription()">
+                            {{ $t('videos.videoCard.readMore') }}
+                        </button>
                     </span>
                 </span>
                 <span v-else>
                     {{ video.description }}
                     <button class="text-primary-color hover:text-tertiary-color cursor-pointer"
-                        @click="toggleDescription()">mostrar menos</button>
+                        @click="toggleDescription()">
+                        {{ $t('videos.videoCard.showLess') }}
+                    </button>
                 </span>
             </p>
         </div>

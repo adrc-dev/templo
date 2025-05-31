@@ -24,24 +24,24 @@ function confirmDelete() {
 </script>
 
 <template>
-    <ConfirmDialog :show="showConfirmDialog" title="¿Eliminar vídeo?"
-        message="¿Seguro que deseas eliminar este vídeo? Esta acción no se puede deshacer." confirm-text="Eliminar"
+    <ConfirmDialog :show="showConfirmDialog" :title="$t('videos.table.confirmTitle')"
+        :message="$t('videos.table.confirmMessage')" :confirm-text="$t('videos.table.confirmDelete')"
         confirm-color="red" @confirm="confirmDelete" @cancel="showConfirmDialog = false" />
     <div>
         <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ title }}</h2>
         <table class="w-full border border-gray-200 rounded shadow-md">
             <thead class="bg-primary-color text-white hidden md:table-header-group">
                 <tr>
-                    <th class="p-2 text-left">Título</th>
-                    <th class="p-2 text-left">Editar</th>
-                    <th class="p-2 text-left">Eliminar</th>
+                    <th class="p-2 text-left">{{ $t('videos.table.title') }}</th>
+                    <th class="p-2 text-left">{{ $t('videos.table.edit') }}</th>
+                    <th class="p-2 text-left">{{ $t('videos.table.delete') }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="video in props.videos" :key="video.id"
                     class="border-b text-primary-color odd:bg-white even:bg-gray-200 block md:table-row">
                     <td class="p-2 block md:table-cell">
-                        <span class="font-semibold md:hidden">Título: </span>{{ video.title }}
+                        <span class="font-semibold md:hidden">{{ $t('videos.table.title') }}: </span>{{ video.title }}
                     </td>
                     <td class="p-2 block md:table-cell">
                         <div class="flex justify-center items-center">

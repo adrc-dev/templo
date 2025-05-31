@@ -338,5 +338,47 @@
             "subscribe": "Subscribe",
             "unsubscribe": "Unsubscribe"
         }
+    },
+    "videos": {
+        "management": "Video Management",
+        "managementDescription": "Here you can manage the temple videos.",
+        "newVideo": "New video",
+        "freeVideos": "Free videos",
+        "premiumVideos": "Premium videos",
+        "backToAulas": "← Back to Classrooms",
+        "table": {
+            "confirmTitle": "Delete video?",
+            "confirmMessage": "Are you sure you want to delete this video? This action cannot be undone.",
+            "confirmDelete": "Delete",
+            "title": "Title",
+            "edit": "Edit",
+            "delete": "Delete"
+        },
+        "createVideo": "Create Video",
+        "createDescription": "Here you can create temple videos.",
+        "editVideo": "Edit Video",
+        "editDescription": "Here you can edit temple videos.",
+        "backToList": "← Back to video list",
+        "form": {
+            "title": "Title",
+            "youtubeUrl": "YouTube URL",
+            "youtubePlaceholder": "Example: https://www.youtube.com/watch?v=qfMIgYvebho&list=PL3tGU3_EgiHZiICIIwoOaOF50GmLQ7iQW",
+            "description": "Description",
+            "descriptionPlaceholder": "Write the description",
+            "premiumCheckbox": "Is this a premium video?",
+            "saveButton": "Save"
+        },
+        "aulas": "Classes",
+        "manageVideos": "Manage videos",
+        "freeAulas": "Free classes",
+        "premiumAulas": "Members-only classes",
+        "videoCard": {
+            "readMore": "read more",
+            "showLess": "show less"
+        }
+    },
+    "pagination": {
+        "previous": "Previous",
+        "next": "Next"
     }
 }

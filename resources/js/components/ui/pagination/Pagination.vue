@@ -17,11 +17,11 @@ function goToPage(url: string) {
 <template>
     <div class="mt-6 flex justify-center gap-2">
         <Button v-if="pagination.prev_page_url" @click="goToPage(pagination.prev_page_url)">
-            Anterior
+            {{ $t('pagination.previous') }}
         </Button>
 
         <Button v-if="pagination.next_page_url" @click="goToPage(pagination.next_page_url)">
-            Siguiente
+            {{ $t('pagination.next') }}
         </Button>
     </div>
 </template>

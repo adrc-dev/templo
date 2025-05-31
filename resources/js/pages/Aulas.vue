@@ -20,24 +20,24 @@ defineProps<{
 <template>
     <AppLayout>
         <div class="hidden md:block">
-            <HeaderBanner :imageUrl="AulasImage" pageTitle="Aulas" />
+            <HeaderBanner :imageUrl="AulasImage" :pageTitle="$t('videos.aulas')" />
         </div>
 
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <div v-if="user && (user.role === 'admin' || user.role === 'operator')" class="mt-12 flex justify-end">
-                <Button @click="$inertia.visit('/videos')">Administrar videos</Button>
+                <Button @click="$inertia.visit('/videos')">{{ $t('videos.manageVideos') }}</Button>
             </div>
 
-            <VideoSection title="Aulas gratuitas" :videos="freeVideos" />
+            <VideoSection :title="$t('videos.freeAulas')" :videos="freeVideos" />
             <div v-if="user && user.role == 'socio' || user.role == 'admin' || user.role == 'operator'">
-                <VideoSection title="Aulas solo para socios" :videos="premiumVideos" />
+                <VideoSection :title="$t('videos.premiumAulas')" :videos="premiumVideos" />
             </div>
         </section>
 
         <div v-if="user && user.role !== 'socio'">
-            <DonationBanner :imageUrl="HazteSocioImage" title="¡Hazte socio y accede a contenido exclusivo!"
-                description="Conviértete en socio del Jardín del Despertar y disfruta de acceso ilimitado a nuestros clases premium"
-                buttonText="Hazte socio" buttonUrl="/hazte-socio" />
+            <DonationBanner :imageUrl="HazteSocioImage" :title="$t('home.membershipBanner.title')"
+                :description="$t('home.membershipBanner.description')"
+                :buttonText="$t('home.membershipBanner.buttonText')" buttonUrl="/hazte-socio" />
         </div>
     </AppLayout>
 </template>

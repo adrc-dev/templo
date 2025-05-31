@@ -27,30 +27,30 @@ function submit() {
 <template>
     <form @submit.prevent="submit">
         <div class="grid gap-2">
-            <Label class="block mb-1">Título</Label>
-            <Input v-model="form.title" class="w-full border rounded p-2" placeholder="Título" required />
+            <Label class="block mb-1">{{ $t('videos.form.title') }}</Label>
+            <Input v-model="form.title" class="w-full border rounded p-2" :placeholder="$t('videos.form.title')"
+                required />
             <InputError :message="form.errors.title" />
         </div>
 
         <div class="grid gap-2 mt-4">
-            <Label class="block mb-1">URL de YouTube</Label>
+            <Label class="block mb-1">{{ $t('videos.form.youtubeUrl') }}</Label>
             <Input v-model="form.youtube_id" class="w-full border rounded p-2"
-                placeholder="Ej: https://www.youtube.com/watch?v=qfMIgYvebho&list=PL3tGU3_EgiHZiICIIwoOaOF50GmLQ7iQW"
-                required />
+                :placeholder="$t('videos.form.youtubePlaceholder')" required />
             <InputError :message="form.errors.youtube_id" />
         </div>
 
         <div class="grid gap-2 mt-4">
-            <Label class="block mb-1">Descripción</Label>
+            <Label class="block mb-1">{{ $t('videos.form.description') }}</Label>
             <Textarea v-model="form.description" class="w-full border rounded p-2"
-                placeholder="Escribe la descripción" />
+                :placeholder="$t('videos.form.descriptionPlaceholder')" />
             <InputError :message="form.errors.description" />
         </div>
 
         <div class="grid gap-2 mt-4">
             <Label class="flex items-center">
                 <Checkbox id="premium" v-model="form.is_premium" />
-                <span class="ml-2">¿Es un vídeo premium?</span>
+                <span class="ml-2">{{ $t('videos.form.premiumCheckbox') }}</span>
             </Label>
             <InputError :message="form.errors.is_premium" />
         </div>
@@ -58,7 +58,7 @@ function submit() {
         <div class="flex justify-center items-center mt-6">
             <Button type="submit" variant="transparent">
                 <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                Guardar
+                {{ $t('videos.form.saveButton') }}
             </Button>
         </div>
     </form>
