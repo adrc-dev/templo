@@ -10,6 +10,7 @@ const props = defineProps<{
 const emit = defineEmits<{
     (e: 'close'): void;
     (e: 'activate', userId: number): void;
+    (e: 'cancel', membershipId: number): void; // Nuevo evento
 }>();
 
 function formatToSpanishDateTime(isoDate: Date | string) {
@@ -58,10 +59,17 @@ const expiredMemberships = computed(() => {
                             class="block text-primary-color hover:text-tertiary-color text-base p-2 rounded">
                             Ver comprobante
                         </a>
-                        <Button @click="emit('activate', user.id)" variant="transparent"
-                            class="mt-3 border-primary-color text-primary-color hover:text-white hover:bg-green-700 hover:border-green-700">
-                            Activar membresía 30 días
-                        </Button>
+                        <div class="flex gap-2 mt-3">
+                            <Button @click="emit('activate', user.id)" variant="transparent"
+                                class="border-primary-color text-primary-color hover:text-white hover:bg-green-700 hover:border-green-700">
+                                Activar membresía 30 días
+                            </Button>
+                            <!-- Botón para cancelar recibo -->
+                            <Button @click="emit('cancel', member.id)" variant="transparent"
+                                class="border-red-500 text-red-500 hover:text-white hover:bg-red-700 hover:border-red-700">
+                                Cancelar recibo
+                            </Button>
+                        </div>
                     </div>
                 </div>
 

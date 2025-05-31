@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MembershipRequest;
 use App\Models\Member;
+use Illuminate\Support\Facades\Storage;
 
 class MemberController extends Controller
 {
@@ -29,5 +30,25 @@ class MemberController extends Controller
         ]);
 
         return back()->with('success', 'Tu solicitud fue enviada correctamente. Espera la revisión del administrador.');
+    }
+
+    /**
+     * Eliminar una membresía (recibo)
+     */
+    public function destroy(Member $membership)
+    {
+        // Verificar permisos
+        if (!auth()->user()->isAdmin() && !auth()->user()->isOperator()) {
+            abort(403, 'No tienes permisos para esta acción');
+        }
+
+        // Eliminar el archivo de comprobante
+        if ($membership->payment_proof_path) {
+            Storage::disk('public')->delete($membership->payment_proof_path);
+        }
+
+        $membership->delete();
+
+        return redirect()->back()->with('success', 'Recibo eliminado correctamente');
     }
 }

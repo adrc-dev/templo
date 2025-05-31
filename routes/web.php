@@ -61,9 +61,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/hazte-socio', [MemberController::class, 'store'])->name('member.store');
 });
 
-// Lets see later TODOOOOOO
-// Route::resource('posts', PostController::class);
-
 // dashboard
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -76,13 +73,20 @@ Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])
 // borrar usuarios
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('can:delete,user');
 
-// activar socio
-Route::post('/admin/users/{user}/activate-membership', [UserController::class, 'activateMembership'])->middleware('auth');
+// activar socio o cancelar recibo
+Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
+    Route::post('/admin/users/{user}/activate-membership', [UserController::class, 'activateMembership'])->middleware('auth');
+
+    Route::delete('/memberships/{membership}', [MemberController::class, 'destroy'])
+        ->name('memberships.destroy');
+});
+
 
 // aulas
 Route::middleware(['auth'])->group(function () {
     Route::get('/aulas', [AulaController::class, 'index'])->name('aulas.index');
 });
+
 // administrador videos
 Route::middleware(['auth', RoleMiddleware::class . ':admin,operator'])->group(function () {
     Route::resource('videos', \App\Http\Controllers\VideoController::class)->except(['show']);

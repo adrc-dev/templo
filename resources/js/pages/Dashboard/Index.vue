@@ -20,9 +20,18 @@ const userIdToDelete = ref<number | null>(null);
 const showConfirmMembershipDialog = ref(false);
 const userIdToActivate = ref<number | null>(null);
 
+// Nuevo estado para cancelación de recibo
+const showCancelReceiptDialog = ref(false);
+const membershipIdToCancel = ref<number | null>(null);
+
 function activateMembership(userId: number) {
     userIdToActivate.value = userId;
     showConfirmMembershipDialog.value = true;
+}
+
+function cancelReceipt(membershipId: number) {
+    membershipIdToCancel.value = membershipId;
+    showCancelReceiptDialog.value = true;
 }
 
 function updateRole(user: any) {
@@ -85,6 +94,28 @@ async function confirmActivateMembership() {
         });
     }
 }
+
+function confirmCancelReceipt() {
+    if (membershipIdToCancel.value !== null) {
+        router.delete(route('memberships.destroy', {
+            membership: membershipIdToCancel.value
+        }), {
+            preserveScroll: true,
+            onSuccess: () => {
+                if (selectedUser.value) {
+                    const index = selectedUser.value.memberships.findIndex(
+                        m => m.id === membershipIdToCancel.value
+                    );
+                    if (index !== -1) {
+                        selectedUser.value.memberships.splice(index, 1);
+                    }
+                }
+                showCancelReceiptDialog.value = false;
+                membershipIdToCancel.value = null;
+            }
+        });
+    }
+}
 </script>
 
 <template>
@@ -93,7 +124,8 @@ async function confirmActivateMembership() {
     <FlashMassage />
 
     <!-- Modal de comprobantes -->
-    <MembershipModal :show="showModal" :user="selectedUser" @close="showModal = false" @activate="activateMembership" />
+    <MembershipModal :show="showModal" :user="selectedUser" @close="showModal = false" @activate="activateMembership"
+        @cancel="cancelReceipt" />
 
     <!-- Confirmación de eliminación -->
     <ConfirmDialog :show="showConfirmDialog" title="¿Eliminar usuario?"
@@ -104,6 +136,12 @@ async function confirmActivateMembership() {
     <ConfirmDialog :show="showConfirmMembershipDialog" title="¿Activar membresía?"
         message="¿Estás seguro de que deseas activar la membresía de este usuario?" confirm-text="Activar"
         confirm-color="green" @confirm="confirmActivateMembership" @cancel="showConfirmMembershipDialog = false" />
+
+    <!-- Confirmaciñon de cancelación de comprobante -->
+    <ConfirmDialog :show="showCancelReceiptDialog" title="¿Cancelar recibo?"
+        message="¿Estás seguro de que deseas cancelar este recibo? Esta acción no se puede deshacer."
+        confirm-text="Cancelar recibo" confirm-color="red" @confirm="confirmCancelReceipt"
+        @cancel="showCancelReceiptDialog = false" />
 
     <AppLayout>
         <div class="max-w-[1200px] mx-auto px-4 py-6">
