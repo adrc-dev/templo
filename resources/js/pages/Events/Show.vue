@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
-import FlashMassage from '@/components/FlashMassage.vue';
+import FlashMessage from '@/components/FlashMessage.vue';
 import EventDescription from '@/components/Events/EventDescription.vue';
 import EventInfoGrid from '@/components/Events/EventInfoGrid.vue';
 import EventActions from '@/components/Events/EventActions.vue';
@@ -20,7 +20,7 @@ function refreshData() {
 </script>
 
 <template>
-    <FlashMassage />
+    <FlashMessage />
     <AppLayout>
         <div class="bg-amber-50">
             <div class="hidden md:block">

@@ -3,7 +3,7 @@ import { ref, watch } from 'vue';
 import { usePage, router, Head } from '@inertiajs/vue3';
 import AppLayout from '@/layouts/AppLayout.vue';
 import Heading from '@/components/Heading.vue';
-import FlashMassage from '@/components/FlashMassage.vue';
+import FlashMessage from '@/components/FlashMessage.vue';
 import Pagination from '@/components/ui/pagination/Pagination.vue';
 import MembershipModal from '@/components/Dashboard/MembershipModal.vue';
 import UserSearch from '@/components/Dashboard/UserSearch.vue';
@@ -121,7 +121,7 @@ function confirmCancelReceipt() {
 <template>
 
     <Head title="Dashboard" />
-    <FlashMassage />
+    <FlashMessage />
 
     <!-- Modal de comprobantes -->
     <MembershipModal :show="showModal" :user="selectedUser" @close="showModal = false" @activate="activateMembership"

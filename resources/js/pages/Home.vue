@@ -9,7 +9,7 @@ import { Head } from '@inertiajs/vue3';
 import DonationImage from '@assets/banderas.jpg'
 import HazteSocioImage from '@assets/hazt-socio-home.png';
 import RegisterInvitation from '@/components/Home/RegisterInvitation.vue';
-import FlashMassage from '@/components/FlashMassage.vue';
+import FlashMessage from '@/components/FlashMessage.vue';
 
 const { events } = defineProps<{
     events: {
@@ -26,7 +26,7 @@ const { events } = defineProps<{
 <template>
 
     <Head title="Home" />
-    <FlashMassage />
+    <FlashMessage />
     <AppLayout>
         <VideoHeader />
 

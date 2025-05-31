@@ -2,7 +2,7 @@
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import FlashMassage from '@/components/FlashMassage.vue';
+import FlashMessage from '@/components/FlashMessage.vue';
 import HeaderBanner from '@/components/HeaderBanner.vue';
 import SociosImage from '@assets/about-us-header.jpeg';
 import { Button } from '@/components/ui/button';
@@ -36,7 +36,7 @@ const submit = async () => {
 </script>
 
 <template>
-    <FlashMassage />
+    <FlashMessage />
     <AppLayout>
 
         <div class="hidden md:block">
@@ -72,7 +72,7 @@ const submit = async () => {
             <div class="w-full mx-auto grid md:grid-cols-2 gap-6 items-stretch mb-20">
                 <div class="bg-secondary-color/20 px-6 lg:px-16 py-6 rounded-lg mb-8 max-w-2xl mx-auto h-full">
                     <h3 class="text-2xl font-semibold text-primary-color mb-4">{{ $t('membership.paymentOptions.title')
-                    }}</h3>
+                        }}</h3>
 
                     <div class="space-y-6 text-primary-color">
                         <div>

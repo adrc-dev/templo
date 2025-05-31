@@ -26,7 +26,7 @@ watchEffect(() => {
 <template>
     <transition name="fade">
         <div v-if="show" :class="[
-            'fixed top-1/5 left-1/2 transform -translate-x-1/2 translate-y-1/5 z-50 px-4 py-2 rounded shadow text-center border',
+            'fixed z-[9999] top-1/5 left-1/2 transform -translate-x-1/2 translate-y-1/5 px-4 py-2 rounded shadow text-center border',
             type === 'success' ? 'bg-green-100 text-green-800 border-green-400' :
                 type === 'error' ? 'bg-red-100 text-red-800 border-red-400' :
                     ''

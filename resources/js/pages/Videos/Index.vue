@@ -4,7 +4,7 @@ import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Head, router } from '@inertiajs/vue3';
 import { ref, computed } from 'vue';
-import FlashMassage from '@/components/FlashMassage.vue';
+import FlashMessage from '@/components/FlashMessage.vue';
 import VideosTable from '@/components/Aulas/VideosTable.vue';
 import GoLink from '@/components/GoLink.vue';
 
@@ -26,7 +26,7 @@ function deleteVideo(id: number) {
 <template>
 
     <Head :title="$t('videos.management')" />
-    <FlashMassage />
+    <FlashMessage />
 
     <AppLayout>
         <section class="w-full px-4 max-w-[1200px] mx-auto my-20">

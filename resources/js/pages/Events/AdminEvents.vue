@@ -4,7 +4,7 @@ import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Head, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
-import FlashMassage from '@/components/FlashMassage.vue';
+import FlashMessage from '@/components/FlashMessage.vue';
 import EventsTable from '@/components/Events/EventsTable.vue';
 import GoLink from '@/components/GoLink.vue';
 
@@ -51,7 +51,7 @@ function handleToggle(updatedEvent: any) {
 <template>
 
     <Head :title="$t('events.adminEvents.page_title')" />
-    <FlashMassage />
+    <FlashMessage />
     <AppLayout>
         <section class="w-full px-4 max-w-[1200px] mx-auto my-20">
             <Heading :title="$t('events.adminEvents.heading_title')"

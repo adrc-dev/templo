@@ -3,11 +3,11 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import HeaderBanner from '@/components/HeaderBanner.vue';
 import ContactForm from '@/components/ContactForm.vue';
 import ContactImage from '@assets/contacto-banner.png';
-import FlashMassage from '@/components/FlashMassage.vue';
+import FlashMessage from '@/components/FlashMessage.vue';
 </script>
 
 <template>
-    <FlashMassage />
+    <FlashMessage />
     <AppLayout>
         <div class="hidden md:block">
             <HeaderBanner :imageUrl="ContactImage" :pageTitle="$t('contact.title')" />
@@ -28,7 +28,8 @@ import FlashMassage from '@/components/FlashMassage.vue';
                         {{ $t('contact.part1') }}
                     </p>
                     <p class="text-primary-color">
-                        {{ $t('contact.part2_1') }} <strong>{{ $t('contact.city') }}</strong>, {{ $t('contact.part2_2') }}
+                        {{ $t('contact.part2_1') }} <strong>{{ $t('contact.city') }}</strong>, {{ $t('contact.part2_2')
+                        }}
                         {{ $t('contact.address') }}. {{ $t('contact.part2_3') }}
                         <strong>{{ $t('contact.barcelona') }}</strong>, {{ $t('contact.part2_4') }}
                     </p>
