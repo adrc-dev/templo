@@ -31,7 +31,7 @@ watchEffect(() => {
                 type === 'error' ? 'bg-red-100 text-red-800 border-red-400' :
                     ''
         ]">
-            {{ message }}
+            {{ $t(message) }}
         </div>
     </transition>
 </template>

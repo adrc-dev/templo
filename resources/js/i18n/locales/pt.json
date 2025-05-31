@@ -142,7 +142,9 @@
         "part2_4": "embora ainda não tenhamos uma sede fixa lá",
         "part3_1": "Você pode nos enviar um e-mail para",
         "part3_2": "ou nos mandar uma mensagem no WhatsApp para",
-        "whatsapp": "+55 11 98996-4269"
+        "whatsapp": "+55 11 98996-4269",
+        "recaptcha_failed": "A verificação de segurança falhou. Por favor, tente novamente.",
+        "thank_you_message": "Obrigado pela sua mensagem!"
     },
     "membership": {
         "title": "Seja sócio!",
@@ -161,6 +163,9 @@
         "part4_1": "Por apenas",
         "part4_strong": "20€ por mês",
         "part4_2": ", poderá desfrutar de todos os benefícios: acesso a todas as aulas, descontos exclusivos e a satisfação de apoiar uma causa significativa.",
+        "request_sent": "O seu pedido foi enviado com sucesso. Aguarde a revisão do administrador.",
+        "receipt_deleted": "Recibo eliminado com sucesso",
+        "unauthorized": "Não tem permissão para esta ação",
         "paymentOptions": {
             "title": "Opções de Pagamento",
             "bank_title": "💳 Transferência Bancária",
@@ -242,6 +247,14 @@
             "mode_value": "Online via Zoom",
             "join_button": "Junte-se ao grupo do WhatsApp"
         },
+        "event_created": "Evento criado com sucesso.",
+        "event_updated": "Evento atualizado com sucesso.",
+        "event_deleted": "Evento eliminado com sucesso.",
+        "status_updated": "Estado do evento atualizado.",
+        "already_registered": "Já estás inscrito/a neste evento.",
+        "registration_success": "Inscrição realizada com sucesso.",
+        "unregistration_success": "Cancelaste a tua inscrição do evento.",
+        "not_registered": "Não estás inscrito neste evento.",
         "upcomingEvent": {
             "title": "Próximo Evento",
             "image_alt": "Imagem do evento {title}",
@@ -325,7 +338,7 @@
             "backToEvent": "Voltar para o evento"
         },
         "eventShow": {
-            "backToEvent": "Voltar para os eventos",
+            "backToEvents": "Voltar para os eventos",
             "imageAlt": "Imagem do evento {title}",
             "when": "Quando",
             "time": "Hora",
@@ -375,7 +388,10 @@
         "videoCard": {
             "readMore": "ler mais",
             "showLess": "mostrar menos"
-        }
+        },
+        "created": "Vídeo criado com sucesso.",
+        "updated": "Vídeo atualizado com sucesso.",
+        "deleted": "Vídeo eliminado com sucesso."
     },
     "pagination": {
         "previous": "Anterior",
@@ -499,5 +515,15 @@
         "submit_button": "Enviar",
         "or_text": "Ou volte para",
         "login_link": "iniciar sessão"
+    },
+    "locale": {
+        "change_success": "Idioma alterado com sucesso"
+    },
+    "users": {
+        "at_least_one_admin": "Deve haver pelo menos um administrador.",
+        "role_updated": "Função atualizada com sucesso.",
+        "proof_not_found": "Comprovante não encontrado.",
+        "membership_activated": "Associação ativada com sucesso.",
+        "user_deleted": "Usuário eliminado com sucesso."
     }
 }

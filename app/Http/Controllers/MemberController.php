@@ -21,7 +21,6 @@ class MemberController extends Controller
      */
     public function store(MembershipRequest $request)
     {
-
         $path = $request->file('payment_proof')->store('proofs', 'public');
 
         Member::create([
@@ -29,7 +28,7 @@ class MemberController extends Controller
             'payment_proof_path' => $path,
         ]);
 
-        return back()->with('success', 'Tu solicitud fue enviada correctamente. Espera la revisión del administrador.');
+        return back()->with('success', 'membership.request_sent');
     }
 
     /**
@@ -49,6 +48,6 @@ class MemberController extends Controller
 
         $membership->delete();
 
-        return redirect()->back()->with('success', 'Recibo eliminado correctamente');
+        return redirect()->back()->with('success', 'membership.receipt_deleted');
     }
 }

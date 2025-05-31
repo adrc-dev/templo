@@ -142,7 +142,9 @@
         "part2_4": "aunque aún no contamos con una sede fija allí",
         "part3_1": "Puedes escribirnos a",
         "part3_2": "o enviarnos un WhatsApp al",
-        "whatsapp": "+55 11 98996-4269"
+        "whatsapp": "+55 11 98996-4269",
+        "recaptcha_failed": "La verificación de seguridad falló. Inténtalo de nuevo.",
+        "thank_you_message": "¡Gracias por tu mensaje!"
     },
     "membership": {
         "title": "¡Hazte socio!",
@@ -161,6 +163,9 @@
         "part4_1": "Por tan solo",
         "part4_strong": "20€ al mes",
         "part4_2": ", podrás disfrutar de todos los beneficios: acceso a todas las clases, descuentos exclusivos y la satisfacción de apoyar una causa significativa.",
+        "request_sent": "Tu solicitud fue enviada correctamente. Espera la revisión del administrador.",
+        "receipt_deleted": "Recibo eliminado correctamente",
+        "unauthorized": "No tienes permisos para esta acción",
         "paymentOptions": {
             "title": "Opciones de pago",
             "bank_title": "💳 Transferencia bancaria",
@@ -241,6 +246,14 @@
             "mode_value": "Online por Zoom",
             "join_button": "Únete al grupo de WhatsApp"
         },
+        "event_created": "Evento creado correctamente.",
+        "event_updated": "Evento actualizado correctamente.",
+        "event_deleted": "Evento eliminado correctamente.",
+        "status_updated": "Estado del evento actualizado.",
+        "already_registered": "Ya estás inscrito/a en este evento.",
+        "registration_success": "Inscripción realizada correctamente.",
+        "unregistration_success": "Te has desinscrito del evento.",
+        "not_registered": "No estás inscrito en este evento.",
         "upcomingEvent": {
             "title": "Próximo Evento",
             "image_alt": "Imagen del evento {title}",
@@ -374,7 +387,10 @@
         "videoCard": {
             "readMore": "leer más",
             "showLess": "mostrar menos"
-        }
+        },
+        "created": "Video creado correctamente.",
+        "updated": "Video actualizado correctamente.",
+        "deleted": "El vídeo se ha eliminado correctamente."
     },
     "pagination": {
         "previous": "Anterior",
@@ -498,5 +514,15 @@
         "submit_button": "Enviar",
         "or_text": "O vuelve a",
         "login_link": "iniciar sesión"
+    },
+    "locale": {
+        "change_success": "Cambio de idioma exitoso"
+    },
+    "users": {
+        "at_least_one_admin": "Debe haber al menos un administrador.",
+        "role_updated": "Rol actualizado correctamente.",
+        "proof_not_found": "No se encontró comprobante.",
+        "membership_activated": "Membresía activada con éxito.",
+        "user_deleted": "Usuario eliminado correctamente."
     }
 }

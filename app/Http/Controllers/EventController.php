@@ -49,7 +49,7 @@ class EventController extends Controller
 
         Event::create($validated);
 
-        return redirect()->route('events.index')->with('success', 'Evento creado correctamente.');
+        return redirect()->route('events.index')->with('success', 'events.event_created');
     }
 
     public function edit(Event $event)
@@ -72,14 +72,14 @@ class EventController extends Controller
 
         $event->update($validated);
 
-        return redirect()->route('events.show', $event->slug)->with('success', 'Evento actualizado correctamente.');
+        return redirect()->route('events.show', $event->slug)->with('success', 'events.event_updated');
     }
 
     public function destroy(Event $event)
     {
         $event->delete();
 
-        return redirect()->route('admin.events')->with('success', 'Evento eliminado correctamente.');
+        return redirect()->route('admin.events')->with('success', 'events.event_deleted');
     }
 
     public function attendees(Event $event)
@@ -121,6 +121,6 @@ class EventController extends Controller
         $event->is_active = !$event->is_active;
         $event->save();
 
-        return back()->with('success', 'Estado del evento actualizado.');
+        return back()->with('success', 'events.status_updated');
     }
 }

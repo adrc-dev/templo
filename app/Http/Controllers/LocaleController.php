@@ -14,6 +14,6 @@ class LocaleController extends Controller
 
         session(['locale' => $request->locale]);
 
-        return redirect()->back()->with('success', ('Cambio de idioma exitoso'));
+        return redirect()->back()->with('success', 'locale.change_success');
     }
 }

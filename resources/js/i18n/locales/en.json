@@ -142,7 +142,9 @@
         "part2_4": "though we don't yet have a permanent location there",
         "part3_1": "You can email us at",
         "part3_2": "or send us a WhatsApp to",
-        "whatsapp": "+55 11 98996-4269"
+        "whatsapp": "+55 11 98996-4269",
+        "recaptcha_failed": "Security verification failed. Please try again.",
+        "thank_you_message": "Thank you for your message!"
     },
     "membership": {
         "title": "Become a member!",
@@ -161,6 +163,9 @@
         "part4_1": "For only",
         "part4_strong": "20€ per month",
         "part4_2": ", you can enjoy all the benefits: access to all classes, exclusive discounts, and the satisfaction of supporting a meaningful cause.",
+        "request_sent": "Your request was sent successfully. Please wait for administrator review.",
+        "receipt_deleted": "Receipt deleted successfully",
+        "unauthorized": "You don't have permission for this action",
         "paymentOptions": {
             "title": "Payment Options",
             "bank_title": "💳 Bank Transfer",
@@ -266,6 +271,14 @@
             "heading_description": "Here you can edit the temple event.",
             "back_link": "← Back to events list"
         },
+        "event_created": "Event created successfully.",
+        "event_updated": "Event updated successfully.",
+        "event_deleted": "Event deleted successfully.",
+        "status_updated": "Event status updated.",
+        "already_registered": "You are already registered for this event.",
+        "registration_success": "Registration completed successfully.",
+        "unregistration_success": "You have unregistered from the event.",
+        "not_registered": "You are not registered for this event.",
         "eventForm": {
             "title_label": "Title*",
             "title_placeholder": "Event title",
@@ -374,7 +387,10 @@
         "videoCard": {
             "readMore": "read more",
             "showLess": "show less"
-        }
+        },
+        "created": "Video created successfully.",
+        "updated": "Video updated successfully.",
+        "deleted": "Video deleted successfully."
     },
     "pagination": {
         "previous": "Previous",
@@ -498,5 +514,15 @@
         "submit_button": "Send",
         "or_text": "Or return to",
         "login_link": "login"
+    },
+    "locale": {
+        "change_success": "Language changed successfully"
+    },
+    "users": {
+        "at_least_one_admin": "There must be at least one administrator.",
+        "role_updated": "Role updated successfully.",
+        "proof_not_found": "Proof not found.",
+        "membership_activated": "Membership activated successfully.",
+        "user_deleted": "User deleted successfully."
     }
 }

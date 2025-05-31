@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 class UserController extends Controller
 {
     use AuthorizesRequests;
+
     public function updateRole(Request $request, User $user)
     {
         $request->validate([
@@ -25,12 +26,12 @@ class UserController extends Controller
             $request->role !== User::ROLE_ADMIN &&
             User::where('role', User::ROLE_ADMIN)->count() === 1
         ) {
-            return redirect()->back()->with('error', 'Debe haber al menos un admin.');
+            return redirect()->back()->with('error', 'users.at_least_one_admin');
         }
 
         $user->update(['role' => $request->role]);
 
-        return back()->with('success', 'Rol actualizado correctamente.');
+        return back()->with('success', 'users.role_updated');
     }
 
     public function activateMembership(User $user)
@@ -38,7 +39,7 @@ class UserController extends Controller
         $member = $user->memberships()->where('status', 'pending')->latest()->first();
 
         if (!$member) {
-            return redirect()->back()->with('error', 'No se encontró comprobante.');
+            return redirect()->back()->with('error', 'users.proof_not_found');
         }
 
         // Cambiar estado del comprobante
@@ -57,7 +58,7 @@ class UserController extends Controller
         $user->role = 'socio';
         $user->save();
 
-        return redirect()->back()->with('success', 'Membresía activada con éxito');
+        return redirect()->back()->with('success', 'users.membership_activated');
     }
 
     public function destroy(User $user)
@@ -65,6 +66,6 @@ class UserController extends Controller
         $this->authorize('delete', $user);
 
         $user->delete();
-        return back()->with('success', 'Usuario eliminado correctamente.');
+        return back()->with('success', 'users.user_deleted');
     }
 }

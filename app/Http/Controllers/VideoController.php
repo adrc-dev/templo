@@ -31,7 +31,7 @@ class VideoController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('videos.index');
+        return redirect()->route('videos.index')->with('success', 'videos.created');
     }
 
     public function edit(Video $video)
@@ -52,14 +52,14 @@ class VideoController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('videos.index');
+        return redirect()->route('videos.index')->with('success', 'videos.updated');
     }
 
     public function destroy(Video $video)
     {
         $video->delete();
 
-        return redirect()->route('videos.index')->with('success', 'El vídeo se ha eliminado correctamente.');
+        return redirect()->route('videos.index')->with('success', 'videos.deleted');
     }
 
     private function extractYoutubeId(string $url): ?string

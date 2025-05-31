@@ -22,12 +22,12 @@ class ContactController extends Controller
         if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5) {
             return back()->with(
                 'error',
-                'La verificación de seguridad falló. Inténtalo de nuevo.'
+                'contact.recaptcha_failed'
             );
         }
 
         Mail::to(config('mail.contact'))->send(new ContactFormMail($request->validated()));
 
-        return back()->with('success', '¡Gracias por tu mensaje!');
+        return back()->with('success', 'contact.thank_you_message');
     }
 }

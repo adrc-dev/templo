@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,22 +13,23 @@ class EventRegistrationController extends Controller
         $user = Auth::user();
 
         if ($event->registeredUsers()->where('user_id', $user->id)->exists()) {
-            return back()->with('error', 'Ya estás inscrito/a en este evento.');
+            return back()->with('error', 'events.already_registered');
         }
 
         $event->registeredUsers()->attach($user->id);
 
-        return back()->with('success', 'Inscripción realizada correctamente.');
+        return back()->with('success', 'events.registration_success');
     }
+
     public function destroy(Event $event)
     {
         $user = Auth::user();
 
         if ($event->registeredUsers()->where('user_id', $user->id)->exists()) {
             $event->registeredUsers()->detach($user->id);
-            return back()->with('success', 'Te has desinscrito del evento.');
+            return back()->with('success', 'events.unregistration_success');
         }
 
-        return back()->with('error', 'No estás inscrito en este evento.');
+        return back()->with('error', 'events.not_registered');
     }
 }
