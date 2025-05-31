@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $users = $query
             ->with('memberships')
             ->orderBy('id', 'asc')
-            ->paginate(15)
+            ->paginate(10)
             ->withQueryString();
 
         return Inertia::render('Dashboard/Index', [

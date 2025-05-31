@@ -10,7 +10,14 @@ defineProps<{
 }>();
 
 function goToPage(url: string) {
-    router.visit(url, { preserveScroll: true });
+    const scrollY = window.scrollY;
+
+    router.visit(url, {
+        preserveScroll: true,
+        onSuccess: () => {
+            window.scrollTo(0, scrollY);
+        },
+    });
 }
 </script>
 
