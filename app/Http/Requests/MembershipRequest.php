@@ -23,12 +23,12 @@ class MembershipRequest extends FormRequest
     public function messages()
     {
         return [
-            'payment_proof.required' => 'El comprobante de pago es obligatorio.',
-            'payment_proof.file' => 'El comprobante debe ser un archivo válido.',
-            'payment_proof.mimes' => 'El comprobante debe ser un archivo de tipo: jpg, jpeg, png o pdf.',
-            'payment_proof.max' => 'El comprobante no debe pesar más de 2MB.',
-            'recaptcha_token.required' => 'La verificación de seguridad es obligatoria.',
-            'recaptcha_token.string' => 'La verificación de seguridad es inválida.',
+            'payment_proof.required' => 'validation.membership.payment_proof.required',
+            'payment_proof.file' => 'validation.membership.payment_proof.file',
+            'payment_proof.mimes' => 'validation.membership.payment_proof.mimes',
+            'payment_proof.max' => 'validation.membership.payment_proof.max',
+            'recaptcha_token.required' => 'validation.membership.recaptcha_token.required',
+            'recaptcha_token.string' => 'validation.membership.recaptcha_token.string',
         ];
     }
 
@@ -43,7 +43,7 @@ class MembershipRequest extends FormRequest
             $result = $response->json();
 
             if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5) {
-                $validator->errors()->add('recaptcha_token', 'La verificación de seguridad falló. Inténtalo de nuevo.');
+                $validator->errors()->add('recaptcha_token', 'validation.membership.recaptcha_token.failed');
             }
         });
     }

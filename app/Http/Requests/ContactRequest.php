@@ -3,9 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Support\Facades\Http;
-
 
 class ContactRequest extends FormRequest
 {
@@ -25,15 +22,16 @@ class ContactRequest extends FormRequest
             'recaptcha_token' => 'required|string',
         ];
     }
+
     public function messages(): array
     {
         return [
-            'name.required' => 'El nombre es obligatorio.',
-            'phone.required' => 'El teléfono es obligatorio.',
-            'email.required' => 'El correo electrónico es obligatorio.',
-            'message.required' => 'El mensaje es obligatorio.',
-            'privacy.accepted' => 'Debes aceptar la política de privacidad.',
-            'recaptcha_token.required' => 'La verificación de seguridad es obligatoria.',
+            'name.required' => 'validation.contact.name.required',
+            'phone.required' => 'validation.contact.phone.required',
+            'email.required' => 'validation.contact.email.required',
+            'message.required' => 'validation.contact.message.required',
+            'privacy.accepted' => 'validation.contact.privacy.accepted',
+            'recaptcha_token.required' => 'validation.contact.recaptcha_token.required',
         ];
     }
 }

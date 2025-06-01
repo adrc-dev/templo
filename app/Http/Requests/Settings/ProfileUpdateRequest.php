@@ -33,4 +33,27 @@ class ProfileUpdateRequest extends FormRequest
             ],
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'validation.settings.profile.update.name.required',
+            'name.string' => 'validation.settings.profile.update.name.string',
+            'name.max' => 'validation.settings.profile.update.name.max',
+
+            'surname.required' => 'validation.settings.profile.update.surname.required',
+            'surname.string' => 'validation.settings.profile.update.surname.string',
+            'surname.max' => 'validation.settings.profile.update.surname.max',
+
+            'phone.required' => 'validation.settings.profile.update.phone.required',
+            'phone.string' => 'validation.settings.profile.update.phone.string',
+            'phone.regex' => 'validation.settings.profile.update.phone.regex',
+
+            'email.required' => 'validation.settings.profile.update.email.required',
+            'email.string' => 'validation.settings.profile.update.email.string',
+            'email.lowercase' => 'validation.settings.profile.update.email.lowercase',
+            'email.email' => 'validation.settings.profile.update.email.email',
+            'email.max' => 'validation.settings.profile.update.email.max',
+            'email.unique' => 'validation.settings.profile.update.email.unique',
+        ];
+    }
 }

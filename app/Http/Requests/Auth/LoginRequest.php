@@ -37,15 +37,15 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'El correo electrónico es obligatorio.',
-            'email.string' => 'El correo electrónico debe ser un texto.',
-            'email.email' => 'El correo electrónico debe ser válido.',
+            'email.required' => 'validation.auth.login.email.required',
+            'email.string' => 'validation.auth.login.email.string',
+            'email.email' => 'validation.auth.login.email.email',
 
-            'password.required' => 'La contraseña es obligatoria.',
-            'password.string' => 'La contraseña debe ser un texto.',
+            'password.required' => 'validation.auth.login.password.required',
+            'password.string' => 'validation.auth.login.password.string',
 
-            'recaptcha_token.required' => 'La verificación de seguridad es obligatoria.',
-            'recaptcha_token.string' => 'El token de verificación debe ser un texto válido.',
+            'recaptcha_token.required' => 'validation.auth.login.recaptcha.required',
+            'recaptcha_token.string' => 'validation.auth.login.recaptcha.string',
         ];
     }
 
@@ -60,7 +60,7 @@ class LoginRequest extends FormRequest
         $result = $response->json();
         if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5) {
             throw ValidationException::withMessages([
-                'recaptcha_token' => 'La verificación de seguridad falló. Inténtalo de nuevo.',
+                'recaptcha_token' => 'validation.auth.login.recaptcha.failed',
             ]);
         }
     }
@@ -78,7 +78,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'email' => 'validation.auth.login.failed',
             ]);
         }
 
@@ -101,10 +101,9 @@ class LoginRequest extends FormRequest
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
+            'email' => 'validation.auth.login.throttle',
+            'seconds' => $seconds,
+            'minutes' => ceil($seconds / 60),
         ]);
     }
 

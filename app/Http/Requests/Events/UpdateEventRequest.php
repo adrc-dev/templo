@@ -45,41 +45,41 @@ class UpdateEventRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'El título es obligatorio.',
-            'title.max' => 'El título no puede superar los 255 caracteres.',
+            'title.required' => 'validation.events.update.title.required',
+            'title.max' => 'validation.events.update.title.max',
 
-            'slug.required' => 'El slug es obligatorio.',
-            'slug.max' => 'El slug no puede superar los 255 caracteres.',
-            'slug.unique' => 'Ya existe otro evento con ese slug.',
+            'slug.required' => 'validation.events.update.slug.required',
+            'slug.max' => 'validation.events.update.slug.max',
+            'slug.unique' => 'validation.events.update.slug.unique',
 
-            'content.required' => 'El contenido es obligatorio.',
+            'content.required' => 'validation.events.update.content.required',
 
-            'event_date.required' => 'La fecha del evento es obligatoria.',
-            'event_date.date' => 'La fecha del evento debe ser válida.',
+            'event_date.required' => 'validation.events.update.event_date.required',
+            'event_date.date' => 'validation.events.update.event_date.date',
 
-            'event_time.required' => 'La hora del evento es obligatoria.',
+            'event_time.required' => 'validation.events.update.event_time.required',
 
-            'event_end_date.date' => 'La fecha de fin debe ser válida.',
-            'event_end_date.after_or_equal' => 'La fecha de fin debe ser igual o posterior a la fecha del evento.',
+            'event_end_date.date' => 'validation.events.update.event_end_date.date',
+            'event_end_date.after_or_equal' => 'validation.events.update.event_end_date.after_or_equal',
 
-            'event_location.required' => 'La localización es obligatoria.',
+            'event_location.required' => 'validation.events.update.event_location.required',
 
-            'modality.required' => 'La modalidad es obligatoria.',
+            'modality.required' => 'validation.events.update.modality.required',
 
-            'price.numeric' => 'El precio debe ser un número.',
+            'price.numeric' => 'validation.events.update.price.numeric',
 
-            'currency.max' => 'El código de moneda no puede tener más de 3 caracteres.',
+            'currency.max' => 'validation.events.update.currency.max',
 
-            'featured_image.image' => 'La imagen destacada debe ser un archivo de imagen.',
-            'featured_image.max' => 'La imagen destacada no puede superar los 2MB.',
+            'featured_image.image' => 'validation.events.update.featured_image.image',
+            'featured_image.max' => 'validation.events.update.featured_image.max',
 
-            'is_active.boolean' => 'El estado activo debe ser verdadero o falso.',
+            'is_active.boolean' => 'validation.events.update.is_active.boolean',
 
-            'language.required' => 'El idioma es obligatorio.',
-            'language.max' => 'El idioma debe tener máximo 2 caracteres.',
+            'language.required' => 'validation.events.update.language.required',
+            'language.max' => 'validation.events.update.language.max',
 
-            'seo_title.max' => 'El título SEO no puede superar los 255 caracteres.',
-            'seo_description.max' => 'La descripción SEO no puede superar los 255 caracteres.',
+            'seo_title.max' => 'validation.events.update.seo_title.max',
+            'seo_description.max' => 'validation.events.update.seo_description.max',
         ];
     }
 }

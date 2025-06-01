@@ -482,7 +482,7 @@
         "email_label": "Email",
         "password_label": "Palavra-passe",
         "password_placeholder": "Palavra-passe",
-        "forgot_password": "Esqueceu-se da palavra-passe?",
+        "forgot_password": "Esqueceu da senha?",
         "remember_me": "Lembrar-me",
         "submit_button": "Entrar",
         "no_account": "Não tem uma conta?",
@@ -525,5 +525,242 @@
         "proof_not_found": "Comprovante não encontrado.",
         "membership_activated": "Associação ativada com sucesso.",
         "user_deleted": "Usuário eliminado com sucesso."
+    },
+    "validation": {
+        "contact": {
+            "name": {
+                "required": "Nome é obrigatório."
+            },
+            "phone": {
+                "required": "Telefone é obrigatório."
+            },
+            "email": {
+                "required": "Email é obrigatório."
+            },
+            "message": {
+                "required": "Mensagem é obrigatória."
+            },
+            "privacy": {
+                "accepted": "Deves aceitar a política de privacidade."
+            },
+            "recaptcha_token": {
+                "required": "Verificação de segurança é obrigatória."
+            }
+        },
+        "membership": {
+            "payment_proof": {
+                "required": "O comprovante de pagamento é obrigatório.",
+                "file": "O comprovante deve ser um arquivo válido.",
+                "mimes": "O comprovante deve ser um arquivo do tipo: jpg, jpeg, png ou pdf.",
+                "max": "O comprovante não deve exceder 2MB."
+            },
+            "recaptcha_token": {
+                "required": "A verificação de segurança é obrigatória.",
+                "string": "A verificação de segurança é inválida.",
+                "failed": "A verificação de segurança falhou. Por favor, tente novamente."
+            }
+        },
+        "videos": {
+            "title": {
+                "required": "O título é obrigatório."
+            },
+            "youtube_id": {
+                "required": "O link ou ID do YouTube é obrigatório."
+            },
+            "is_premium": {
+                "boolean": "O campo premium deve ser verdadeiro ou falso."
+            }
+        },
+        "events": {
+            "store": {
+                "title": {
+                    "required": "O título é obrigatório.",
+                    "max": "O título não pode exceder 255 caracteres."
+                },
+                "slug": {
+                    "required": "O slug é obrigatório.",
+                    "max": "O slug não pode exceder 255 caracteres.",
+                    "unique": "Já existe um evento com esse slug."
+                },
+                "content": {
+                    "required": "O conteúdo é obrigatório."
+                },
+                "event_date": {
+                    "required": "A data do evento é obrigatória.",
+                    "date": "A data do evento deve ser válida."
+                },
+                "event_time": {
+                    "required": "A hora do evento é obrigatória."
+                },
+                "event_end_date": {
+                    "date": "A data de término deve ser válida.",
+                    "after_or_equal": "A data de término deve ser igual ou posterior à data do evento."
+                },
+                "event_location": {
+                    "required": "A localização é obrigatória."
+                },
+                "modality": {
+                    "required": "A modalidade é obrigatória."
+                },
+                "price": {
+                    "numeric": "O preço deve ser um número."
+                },
+                "currency": {
+                    "max": "O código da moeda não pode ter mais de 3 caracteres."
+                },
+                "featured_image": {
+                    "image": "A imagem destacada deve ser um arquivo de imagem.",
+                    "max": "A imagem destacada não pode exceder 2MB."
+                },
+                "is_active": {
+                    "boolean": "O estado ativo deve ser verdadeiro ou falso."
+                },
+                "language": {
+                    "max": "O idioma deve ter no máximo 2 caracteres."
+                },
+                "seo_title": {
+                    "max": "O título SEO não pode exceder 255 caracteres."
+                },
+                "seo_description": {
+                    "max": "A descrição SEO não pode exceder 255 caracteres."
+                }
+            },
+            "update": {
+                "title": {
+                    "required": "O título é obrigatório.",
+                    "max": "O título não pode exceder 255 caracteres."
+                },
+                "slug": {
+                    "required": "O slug é obrigatório.",
+                    "max": "O slug não pode exceder 255 caracteres.",
+                    "unique": "Já existe um evento com esse slug."
+                },
+                "content": {
+                    "required": "O conteúdo é obrigatório."
+                },
+                "event_date": {
+                    "required": "A data do evento é obrigatória.",
+                    "date": "A data do evento deve ser válida."
+                },
+                "event_time": {
+                    "required": "A hora do evento é obrigatória."
+                },
+                "event_end_date": {
+                    "date": "A data final deve ser válida.",
+                    "after_or_equal": "A data final deve ser igual ou posterior à data do evento."
+                },
+                "event_location": {
+                    "required": "A localização é obrigatória."
+                },
+                "modality": {
+                    "required": "A modalidade é obrigatória."
+                },
+                "price": {
+                    "numeric": "O preço deve ser um número."
+                },
+                "currency": {
+                    "max": "O código da moeda não pode exceder 3 caracteres."
+                },
+                "featured_image": {
+                    "image": "A imagem destacada deve ser um arquivo de imagem.",
+                    "max": "A imagem destacada não pode exceder 2MB."
+                },
+                "is_active": {
+                    "boolean": "O estado ativo deve ser verdadeiro ou falso."
+                },
+                "language": {
+                    "required": "O idioma é obrigatório.",
+                    "max": "O idioma deve ter no máximo 2 caracteres."
+                },
+                "seo_title": {
+                    "max": "O título SEO não pode exceder 255 caracteres."
+                },
+                "seo_description": {
+                    "max": "A descrição SEO não pode exceder 255 caracteres."
+                }
+            }
+        },
+        "settings": {
+            "profile": {
+                "update": {
+                    "name": {
+                        "required": "O nome é obrigatório.",
+                        "string": "O nome deve ser uma string.",
+                        "max": "O nome não pode exceder 255 caracteres."
+                    },
+                    "surname": {
+                        "required": "O sobrenome é obrigatório.",
+                        "string": "O sobrenome deve ser uma string.",
+                        "max": "O sobrenome não pode exceder 255 caracteres."
+                    },
+                    "phone": {
+                        "required": "O telefone é obrigatório.",
+                        "string": "O telefone deve ser uma string.",
+                        "regex": "Formato de telefone inválido."
+                    },
+                    "email": {
+                        "required": "O e-mail é obrigatório.",
+                        "string": "O e-mail deve ser uma string.",
+                        "lowercase": "O e-mail deve estar em minúsculas.",
+                        "email": "Deve ser um endereço de e-mail válido.",
+                        "max": "O e-mail não pode exceder 255 caracteres.",
+                        "unique": "Este e-mail já está em uso."
+                    }
+                }
+            }
+        },
+        "auth": {
+            "register": {
+                "name": {
+                    "required": "O nome é obrigatório.",
+                    "string": "O nome deve ser texto.",
+                    "max": "O nome não pode exceder 255 caracteres."
+                },
+                "surname": {
+                    "required": "O sobrenome é obrigatório.",
+                    "string": "O sobrenome deve ser texto.",
+                    "max": "O sobrenome não pode exceder 255 caracteres."
+                },
+                "phone": {
+                    "required": "O telefone é obrigatório.",
+                    "regex": "Formato de telefone inválido."
+                },
+                "email": {
+                    "required": "O e-mail é obrigatório.",
+                    "string": "O e-mail deve ser texto.",
+                    "email": "O e-mail deve ser válido.",
+                    "max": "O e-mail não pode exceder 255 caracteres.",
+                    "lowercase": "O e-mail deve estar em minúsculas.",
+                    "unique": "Este e-mail já está registrado."
+                },
+                "password": {
+                    "required": "A senha é obrigatória.",
+                    "confirmed": "As senhas não coincidem.",
+                    "default": "A senha não atende aos requisitos de segurança."
+                },
+                "recaptcha": {
+                    "required": "A verificação de segurança é obrigatória.",
+                    "failed": "A verificação de segurança falhou. Tente novamente."
+                }
+            },
+            "login": {
+                "email": {
+                    "required": "O e-mail é obrigatório.",
+                    "string": "O e-mail deve ser texto.",
+                    "email": "O e-mail deve ser válido."
+                },
+                "password": {
+                    "required": "A senha é obrigatória.",
+                    "string": "A senha deve ser texto."
+                },
+                "recaptcha": {
+                    "required": "A verificação de segurança é obrigatória.",
+                    "string": "O token de verificação deve ser texto válido.",
+                    "failed": "A verificação de segurança falhou. Tente novamente."
+                },
+                "failed": "As credenciais fornecidas estão incorretas.",
+                "throttle": "Muitas tentativas de login. Por favor, tente novamente em :seconds segundos."
+            }
+        }
     }
 }

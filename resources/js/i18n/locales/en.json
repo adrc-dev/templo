@@ -524,5 +524,242 @@
         "proof_not_found": "Proof not found.",
         "membership_activated": "Membership activated successfully.",
         "user_deleted": "User deleted successfully."
+    },
+    "validation": {
+        "contact": {
+            "name": {
+                "required": "Name is required."
+            },
+            "phone": {
+                "required": "Phone is required."
+            },
+            "email": {
+                "required": "Email is required."
+            },
+            "message": {
+                "required": "Message is required."
+            },
+            "privacy": {
+                "accepted": "You must accept the privacy policy."
+            },
+            "recaptcha_token": {
+                "required": "Security verification is required."
+            }
+        },
+        "membership": {
+            "payment_proof": {
+                "required": "Payment proof is required.",
+                "file": "The proof must be a valid file.",
+                "mimes": "The proof must be a file of type: jpg, jpeg, png or pdf.",
+                "max": "The proof must not be larger than 2MB."
+            },
+            "recaptcha_token": {
+                "required": "Security verification is required.",
+                "string": "Security verification is invalid.",
+                "failed": "Security verification failed. Please try again."
+            }
+        },
+        "videos": {
+            "title": {
+                "required": "Title is required."
+            },
+            "youtube_id": {
+                "required": "YouTube link or ID is required."
+            },
+            "is_premium": {
+                "boolean": "The premium field must be true or false."
+            }
+        },
+        "events": {
+            "store": {
+                "title": {
+                    "required": "Title is required.",
+                    "max": "Title cannot exceed 255 characters."
+                },
+                "slug": {
+                    "required": "Slug is required.",
+                    "max": "Slug cannot exceed 255 characters.",
+                    "unique": "An event with that slug already exists."
+                },
+                "content": {
+                    "required": "Content is required."
+                },
+                "event_date": {
+                    "required": "Event date is required.",
+                    "date": "Event date must be valid."
+                },
+                "event_time": {
+                    "required": "Event time is required."
+                },
+                "event_end_date": {
+                    "date": "End date must be valid.",
+                    "after_or_equal": "End date must be equal to or after the event date."
+                },
+                "event_location": {
+                    "required": "Location is required."
+                },
+                "modality": {
+                    "required": "Modality is required."
+                },
+                "price": {
+                    "numeric": "Price must be a number."
+                },
+                "currency": {
+                    "max": "Currency code cannot exceed 3 characters."
+                },
+                "featured_image": {
+                    "image": "Featured image must be an image file.",
+                    "max": "Featured image cannot exceed 2MB."
+                },
+                "is_active": {
+                    "boolean": "Active status must be true or false."
+                },
+                "language": {
+                    "max": "Language must be maximum 2 characters."
+                },
+                "seo_title": {
+                    "max": "SEO title cannot exceed 255 characters."
+                },
+                "seo_description": {
+                    "max": "SEO description cannot exceed 255 characters."
+                }
+            },
+            "update": {
+                "title": {
+                    "required": "Title is required.",
+                    "max": "Title cannot exceed 255 characters."
+                },
+                "slug": {
+                    "required": "Slug is required.",
+                    "max": "Slug cannot exceed 255 characters.",
+                    "unique": "An event with that slug already exists."
+                },
+                "content": {
+                    "required": "Content is required."
+                },
+                "event_date": {
+                    "required": "Event date is required.",
+                    "date": "Event date must be valid."
+                },
+                "event_time": {
+                    "required": "Event time is required."
+                },
+                "event_end_date": {
+                    "date": "End date must be valid.",
+                    "after_or_equal": "End date must be equal to or after the event date."
+                },
+                "event_location": {
+                    "required": "Location is required."
+                },
+                "modality": {
+                    "required": "Modality is required."
+                },
+                "price": {
+                    "numeric": "Price must be a number."
+                },
+                "currency": {
+                    "max": "Currency code cannot exceed 3 characters."
+                },
+                "featured_image": {
+                    "image": "Featured image must be an image file.",
+                    "max": "Featured image cannot exceed 2MB."
+                },
+                "is_active": {
+                    "boolean": "Active status must be true or false."
+                },
+                "language": {
+                    "required": "Language is required.",
+                    "max": "Language must be a maximum of 2 characters."
+                },
+                "seo_title": {
+                    "max": "SEO title cannot exceed 255 characters."
+                },
+                "seo_description": {
+                    "max": "SEO description cannot exceed 255 characters."
+                }
+            }
+        },
+        "settings": {
+            "profile": {
+                "update": {
+                    "name": {
+                        "required": "Name is required.",
+                        "string": "Name must be a string.",
+                        "max": "Name cannot exceed 255 characters."
+                    },
+                    "surname": {
+                        "required": "Surname is required.",
+                        "string": "Surname must be a string.",
+                        "max": "Surname cannot exceed 255 characters."
+                    },
+                    "phone": {
+                        "required": "Phone is required.",
+                        "string": "Phone must be a string.",
+                        "regex": "Invalid phone format."
+                    },
+                    "email": {
+                        "required": "Email is required.",
+                        "string": "Email must be a string.",
+                        "lowercase": "Email must be lowercase.",
+                        "email": "Must be a valid email address.",
+                        "max": "Email cannot exceed 255 characters.",
+                        "unique": "This email is already in use."
+                    }
+                }
+            }
+        },
+        "auth": {
+            "register": {
+                "name": {
+                    "required": "Name is required.",
+                    "string": "Name must be text.",
+                    "max": "Name cannot exceed 255 characters."
+                },
+                "surname": {
+                    "required": "Surname is required.",
+                    "string": "Surname must be text.",
+                    "max": "Surname cannot exceed 255 characters."
+                },
+                "phone": {
+                    "required": "Phone is required.",
+                    "regex": "Invalid phone format."
+                },
+                "email": {
+                    "required": "Email is required.",
+                    "string": "Email must be text.",
+                    "email": "Email must be valid.",
+                    "max": "Email cannot exceed 255 characters.",
+                    "lowercase": "Email must be lowercase.",
+                    "unique": "This email is already registered."
+                },
+                "password": {
+                    "required": "Password is required.",
+                    "confirmed": "Passwords do not match.",
+                    "default": "Password does not meet security requirements."
+                },
+                "recaptcha": {
+                    "required": "Security verification is required.",
+                    "failed": "Security verification failed. Please try again."
+                }
+            },
+            "login": {
+                "email": {
+                    "required": "Email is required.",
+                    "string": "Email must be text.",
+                    "email": "Email must be valid."
+                },
+                "password": {
+                    "required": "Password is required.",
+                    "string": "Password must be text."
+                },
+                "recaptcha": {
+                    "required": "Security verification is required.",
+                    "string": "Verification token must be valid text.",
+                    "failed": "Security verification failed. Please try again."
+                },
+                "failed": "The provided credentials are incorrect.",
+                "throttle": "Too many login attempts. Please try again in :seconds seconds."
+            }
+        }
     }
 }

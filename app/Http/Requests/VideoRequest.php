@@ -24,9 +24,9 @@ class VideoRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'El título es obligatorio.',
-            'youtube_id.required' => 'El enlace o ID de YouTube es obligatorio.',
-            'is_premium.boolean' => 'El campo premium debe ser verdadero o falso.',
+            'title.required' => 'validation.videos.title.required',
+            'youtube_id.required' => 'validation.videos.youtube_id.required',
+            'is_premium.boolean' => 'validation.videos.is_premium.boolean',
         ];
     }
 }
