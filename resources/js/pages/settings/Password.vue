@@ -49,7 +49,7 @@ const updatePassword = () => {
         <Head :title="$t('settings.password.pageTitle')" />
 
         <SettingsLayout>
-            <div class="space-y-6 w-full md:w-xl">
+            <div class="space-y-6 w-full pt-6 lg:pt-0 md:w-xl">
                 <HeadingSmall :title="$t('settings.password.title')"
                     :description="$t('settings.password.description')" />
 

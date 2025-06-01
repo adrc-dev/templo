@@ -39,7 +39,7 @@ const submit = () => {
 
     <AppLayout>
         <SettingsLayout>
-            <div class="space-y-6 w-full md:w-xl">
+            <div class="space-y-6 w-full pt-6 lg:pt-0 md:w-xl">
                 <HeadingSmall :title="$t('settings.profile.title')" :description="$t('settings.profile.description')" />
 
                 <form @submit.prevent="submit" class="space-y-6">
