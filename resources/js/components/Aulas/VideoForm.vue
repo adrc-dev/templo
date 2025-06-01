@@ -16,7 +16,7 @@ const form = useForm({
     title: props.video?.title ?? '',
     youtube_id: props.video?.youtube_id ?? '',
     description: props.video?.description ?? '',
-    is_premium: props.video?.is_premium ?? false,
+    is_premium: Boolean(props.video?.is_premium),
 });
 
 function submit() {
