@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
 import HeaderBanner from '@/components/HeaderBanner.vue';
-import DonationBanner from '@/components/DonationBanner.vue';
+import InfoBanner from '@/components/InfoBanner.vue';
 import VideoSection from '@/components/Aulas/VideoSection.vue';
 import Button from '@/components/ui/button/Button.vue';
 import AulasImage from '@assets/banner-aulas.png';
@@ -35,7 +35,7 @@ defineProps<{
         </section>
 
         <div v-if="user && user.role !== 'socio'">
-            <DonationBanner :imageUrl="HazteSocioImage" :title="$t('home.membershipBanner.title')"
+            <InfoBanner :imageUrl="HazteSocioImage" :title="$t('home.membershipBanner.title')"
                 :description="$t('home.membershipBanner.description')"
                 :buttonText="$t('home.membershipBanner.buttonText')" buttonUrl="/hazte-socio" />
         </div>

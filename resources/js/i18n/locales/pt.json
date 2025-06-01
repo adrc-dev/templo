@@ -20,7 +20,7 @@
     },
     "home": {
         "events": "Eventos",
-        "donationBanner": {
+        "InfoBanner": {
             "title": "Ajude-nos a continuar melhorando",
             "description": "Sua contribuição é fundamental para manter nosso templo e atividades.",
             "buttonText": "Faça sua doação"

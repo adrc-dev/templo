@@ -10,7 +10,7 @@ import atencionIndividual from '@assets/atencion-individual.png';
 import introBudismo from '@assets/intro-budismo.png';
 import clasesOnline from '@assets/clases-online.png';
 import tarotTibetano from '@assets/tarot-tibetano.webp';
-import DonationBanner from '@/components/DonationBanner.vue';
+import InfoBanner from '@/components/InfoBanner.vue';
 </script>
 
 <template>
@@ -59,8 +59,8 @@ import DonationBanner from '@/components/DonationBanner.vue';
                 ]" reverse />
         </div>
 
-        <DonationBanner :imageUrl="donationImage" :title="$t('home.donationBanner.title')"
-            :description="$t('home.donationBanner.description')" :buttonText="$t('home.donationBanner.buttonText')" />
+        <InfoBanner :imageUrl="donationImage" :title="$t('home.InfoBanner.title')"
+            :description="$t('home.InfoBanner.description')" :buttonText="$t('home.InfoBanner.buttonText')" />
     </AppLayout>
 </template>
 

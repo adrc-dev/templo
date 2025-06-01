@@ -4,7 +4,7 @@ import VideoHeader from '@/components/Home/VideoHeader.vue';
 import EventCard from '@/components/EventCard.vue';
 import StoreCards from '@/components/Home/StoreCards.vue';
 import ContactForm from '@/components/ContactForm.vue';
-import DonationBanner from '@/components/DonationBanner.vue';
+import InfoBanner from '@/components/InfoBanner.vue';
 import { Head } from '@inertiajs/vue3';
 import DonationImage from '@assets/banderas.jpg'
 import HazteSocioImage from '@assets/hazt-socio-home.png';
@@ -40,12 +40,12 @@ const { events } = defineProps<{
             </div>
         </section>
 
-        <DonationBanner :imageUrl="DonationImage" :title="$t('home.donationBanner.title')"
-            :description="$t('home.donationBanner.description')" :buttonText="$t('home.donationBanner.buttonText')" />
+        <InfoBanner :imageUrl="DonationImage" :title="$t('home.InfoBanner.title')"
+            :description="$t('home.InfoBanner.description')" :buttonText="$t('home.InfoBanner.buttonText')" />
 
         <StoreCards />
 
-        <DonationBanner :imageUrl="HazteSocioImage" :title="$t('home.membershipBanner.title')"
+        <InfoBanner :imageUrl="HazteSocioImage" :title="$t('home.membershipBanner.title')"
             :description="$t('home.membershipBanner.description')" :buttonText="$t('home.membershipBanner.buttonText')"
             buttonUrl="/hazte-socio" />
 

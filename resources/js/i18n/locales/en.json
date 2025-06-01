@@ -20,7 +20,7 @@
     },
     "home": {
         "events": "Events",
-        "donationBanner": {
+        "InfoBanner": {
             "title": "Help us keep improving",
             "description": "Your contribution is essential to maintain our temple and activities.",
             "buttonText": "Make your donation"
