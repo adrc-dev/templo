@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
+import SelectLanguage from '@/components/SelectLanguage.vue';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from '@inertiajs/vue3';
 
@@ -21,6 +22,9 @@ defineProps<{
 
             <div class="flex flex-col gap-6">
                 <Card class="rounded-xl">
+                    <div class="flex flex-col items-center bg-tertiary-color w-16 ml-auto rounded-full mr-4">
+                        <SelectLanguage />
+                    </div>
                     <CardHeader class="px-10 pb-0 pt-8 text-center">
                         <CardTitle class="text-2xl">{{ title }}</CardTitle>
                         <CardDescription>
