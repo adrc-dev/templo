@@ -13,10 +13,19 @@ class ContactFormMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * Datos del formulario de contacto que se enviarán al correo.
+     *
+     * @var array
+     */
     public array $data;
 
     /**
-     * Create a new message instance.
+     * Crear una nueva instancia del mensaje.
+     *
+     * @param array $data Datos del formulario de contacto
+     *
+     * @return void
      */
     public function __construct(array $data)
     {
@@ -24,7 +33,9 @@ class ContactFormMail extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     * Obtener el sobre (envelope) del mensaje, incluyendo asunto y otros metadatos.
+     *
+     * @return \Illuminate\Mail\Mailables\Envelope
      */
     public function envelope(): Envelope
     {
@@ -34,7 +45,9 @@ class ContactFormMail extends Mailable
     }
 
     /**
-     * Get the message content definition.
+     * Obtener el contenido del mensaje, indicando la vista markdown y los datos asociados.
+     *
+     * @return \Illuminate\Mail\Mailables\Content
      */
     public function content(): Content
     {
@@ -47,9 +60,9 @@ class ContactFormMail extends Mailable
     }
 
     /**
-     * Get the attachments for the message.
+     * Obtener los archivos adjuntos del mensaje.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return array<int, \Illuminate\Mail\Mailables\Attachment> Array vacío ya que no se adjunta nada.
      */
     public function attachments(): array
     {

@@ -42,9 +42,11 @@ const submit = async () => {
         <div class="hidden md:block">
             <HeaderBanner :imageUrl="SociosImage" :pageTitle="$t('membership.title')" class="bg-primary-color/50" />
         </div>
+        <!-- titulo -->
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ $t('membership.title') }}</h2>
 
+            <!-- primer bloque -->
             <div class="w-full mx-auto grid md:grid-cols-2 gap-6 items-center mb-10">
                 <img src="@assets/atencion-individual.png" alt="{{ $t('membership.image_alt') }}"
                     class="w-full h-90 object-cover rounded-xl shadow-lg" />
@@ -68,11 +70,11 @@ const submit = async () => {
                     </p>
                 </div>
             </div>
-
+            <!-- segundo bloque -->
             <div class="w-full mx-auto grid md:grid-cols-2 gap-6 items-stretch mb-20">
                 <div class="bg-secondary-color/20 px-6 lg:px-16 py-6 rounded-lg mb-8 max-w-2xl mx-auto h-full">
                     <h3 class="text-2xl font-semibold text-primary-color mb-4">{{ $t('membership.paymentOptions.title')
-                        }}</h3>
+                    }}</h3>
 
                     <div class="space-y-6 text-primary-color">
                         <div>

@@ -7,14 +7,25 @@ use Illuminate\Validation\Rule;
 
 class UpdateEventRequest extends FormRequest
 {
+    /**
+     * Determina si el usuario está autorizado para realizar esta solicitud.
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
+        // Solo usuarios autenticados con rol 'admin' u 'operator' pueden actualizar eventos
         return auth()->check() && in_array(auth()->user()->role, ['admin', 'operator']);
     }
 
+    /**
+     * Define las reglas de validación para la actualización de un evento.
+     *
+     * @return array
+     */
     public function rules(): array
     {
-        // Obtener el ID del evento para la regla unique
+        // Obtener el ID del evento desde la ruta para ignorarlo en la regla unique
         $eventId = $this->route('event')->id ?? null;
 
         return [
@@ -23,6 +34,7 @@ class UpdateEventRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
+                // Validar unicidad del slug ignorando el actual para permitir edición sin error
                 Rule::unique('events', 'slug')->ignore($eventId),
             ],
             'content' => 'required|string',
@@ -42,6 +54,11 @@ class UpdateEventRequest extends FormRequest
         ];
     }
 
+    /**
+     * Define los mensajes de error personalizados para las reglas de validación.
+     *
+     * @return array
+     */
     public function messages(): array
     {
         return [

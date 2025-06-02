@@ -6,11 +6,23 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class VideoRequest extends FormRequest
 {
+    /**
+     * Determina si el usuario está autorizado para realizar esta solicitud.
+     *
+     * Solo usuarios autenticados con rol 'admin' u 'operator' pueden continuar.
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
         return auth()->check() && in_array(auth()->user()->role, ['admin', 'operator']);
     }
 
+    /**
+     * Obtiene las reglas de validación que se aplican a la solicitud para crear o actualizar videos.
+     *
+     * @return array<string, mixed>
+     */
     public function rules(): array
     {
         return [
@@ -21,6 +33,11 @@ class VideoRequest extends FormRequest
         ];
     }
 
+    /**
+     * Mensajes personalizados para errores de validación.
+     *
+     * @return array<string, string>
+     */
     public function messages(): array
     {
         return [

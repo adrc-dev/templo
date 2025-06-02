@@ -9,20 +9,41 @@ use Illuminate\Validation\Rule;
 class ProfileUpdateRequest extends FormRequest
 {
     /**
-     * Get the validation rules that apply to the request.
+     * Determina si el usuario está autorizado para realizar esta solicitud.
+     *
+     * Nota: Si se requiere autorización explícita, puede añadirse este método.
+     * Por defecto, FormRequest permite todas las solicitudes.
+     *
+     * @return bool
+     */
+    // public function authorize(): bool
+    // {
+    //     return auth()->check();
+    // }
+
+    /**
+     * Obtiene las reglas de validación que se aplican a la solicitud de actualización del perfil.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
+            // Nombre requerido, tipo cadena, máximo 255 caracteres
             'name' => ['required', 'string', 'max:255'],
+
+            // Apellido requerido, tipo cadena, máximo 255 caracteres
             'surname' => ['required', 'string', 'max:255'],
+
+            // Teléfono requerido, tipo cadena, con expresión regular para validar formato internacional y local
             'phone' => [
                 'required',
                 'string',
                 'regex:/^\+?[0-9\s\-\(\)]{7,20}$/',
             ],
+
+            // Email requerido, tipo cadena, debe estar en minúsculas, formato válido, máximo 255 caracteres
+            // Único en la tabla users, ignorando el email actual del usuario para permitir actualización sin conflicto
             'email' => [
                 'required',
                 'string',
@@ -33,6 +54,12 @@ class ProfileUpdateRequest extends FormRequest
             ],
         ];
     }
+
+    /**
+     * Define los mensajes personalizados para los errores de validación.
+     *
+     * @return array<string, string>
+     */
     public function messages(): array
     {
         return [

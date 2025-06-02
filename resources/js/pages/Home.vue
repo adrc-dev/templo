@@ -32,7 +32,7 @@ const { events } = defineProps<{
     <FlashMessage />
     <AppLayout>
         <VideoHeader />
-
+        <!-- sección de eventos -->
         <section class="w-full px-4 max-w-[1200px] mx-auto">
             <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ t('home.events') }}</h2>
 

@@ -6,11 +6,22 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreEventRequest extends FormRequest
 {
+    /**
+     * Determina si el usuario está autorizado para realizar esta solicitud.
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
+        // Solo usuarios autenticados con rol 'admin' u 'operator' pueden crear eventos
         return auth()->check() && in_array(auth()->user()->role, ['admin', 'operator']);
     }
 
+    /**
+     * Define las reglas de validación para la creación de un evento.
+     *
+     * @return array
+     */
     public function rules(): array
     {
         return [
@@ -33,6 +44,11 @@ class StoreEventRequest extends FormRequest
         ];
     }
 
+    /**
+     * Define los mensajes de error personalizados para las reglas de validación.
+     *
+     * @return array
+     */
     public function messages(): array
     {
         return [
