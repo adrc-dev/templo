@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
+import FlashMessage from '@/components/FlashMessage.vue';
 
 defineProps<{
     status?: string;
@@ -22,6 +23,8 @@ const submit = () => {
 </script>
 
 <template>
+
+    <FlashMessage />
     <AuthLayout :title="$t('forgotPassword.title')" :description="$t('forgotPassword.description')">
 
         <Head :title="$t('forgotPassword.page_title')" />

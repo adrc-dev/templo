@@ -516,6 +516,17 @@
         "or_text": "Ou volte para",
         "login_link": "iniciar sessão"
     },
+    "resetPassword": {
+        "title": "Redefinir Senha",
+        "description": "Por favor insira sua nova senha abaixo",
+        "emailLabel": "Email",
+        "passwordLabel": "Senha",
+        "passwordPlaceholder": "Digite sua senha",
+        "confirmPasswordLabel": "Confirmar Senha",
+        "confirmPasswordPlaceholder": "Confirme sua senha",
+        "buttonText": "Redefinir Senha",
+        "reset_link_sent": "Um link para redefinir a senha foi enviado para o seu e-mail."
+    },
     "locale": {
         "change_success": "Idioma alterado com sucesso"
     },

@@ -515,6 +515,17 @@
         "or_text": "O vuelve a",
         "login_link": "iniciar sesión"
     },
+    "resetPassword": {
+        "title": "Restablecer contraseña",
+        "description": "Por favor ingrese su nueva contraseña a continuación",
+        "emailLabel": "Correo electrónico",
+        "passwordLabel": "Contraseña",
+        "passwordPlaceholder": "Ingrese su contraseña",
+        "confirmPasswordLabel": "Confirmar contraseña",
+        "confirmPasswordPlaceholder": "Confirme su contraseña",
+        "buttonText": "Restablecer contraseña",
+        "reset_link_sent": "Un link para restablecer la contraseña ha sido enviado a su correo electrónico."
+    },
     "locale": {
         "change_success": "Cambio de idioma exitoso"
     },
