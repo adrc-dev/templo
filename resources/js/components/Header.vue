@@ -5,7 +5,7 @@ import { CircleUserRound, UserRoundCheck } from 'lucide-vue-next';
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import TextLink from '@/components/TextLink.vue';
-import SelectLeguage from './SelectLeguage.vue';
+import SelectLanguage from './SelectLanguage.vue';
 import { onMounted, onUnmounted } from 'vue';
 
 const isMenuOpen = ref(false);
@@ -96,7 +96,7 @@ onUnmounted(() => {
                                 </TextLink>
                             </li>
                             <li>
-                                <SelectLeguage />
+                                <SelectLanguage />
                             </li>
                         </ul>
                     </nav>
@@ -163,7 +163,7 @@ onUnmounted(() => {
                         </TextLink>
                     </li>
                     <li class="px-4 self-center">
-                        <SelectLeguage />
+                        <SelectLanguage />
                     </li>
                     <li class="px-4 py-2 bg-secondary-color text-primary-color">
                         <div v-if="$page.props.auth.user" class="relative">
