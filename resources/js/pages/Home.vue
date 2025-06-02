@@ -7,9 +7,12 @@ import ContactForm from '@/components/ContactForm.vue';
 import InfoBanner from '@/components/InfoBanner.vue';
 import { Head } from '@inertiajs/vue3';
 import DonationImage from '@assets/banderas.jpg'
-import HazteSocioImage from '@assets/hazt-socio-home.png';
+import HazteSocioImage from '@assets/hazte-socio-home.png';
 import RegisterInvitation from '@/components/Home/RegisterInvitation.vue';
 import FlashMessage from '@/components/FlashMessage.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const { events } = defineProps<{
     events: {
@@ -30,9 +33,8 @@ const { events } = defineProps<{
     <AppLayout>
         <VideoHeader />
 
-        <!-- TODO traduccion api -->
         <section class="w-full px-4 max-w-[1200px] mx-auto">
-            <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ $t('home.events') }}</h2>
+            <h2 class="text-4xl font-bold text-center text-primary-color my-20">{{ t('home.events') }}</h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4 mb-20">
                 <EventCard v-for="event in events" :key="event.id" :image="event.featured_image" :title="event.title"
@@ -40,13 +42,13 @@ const { events } = defineProps<{
             </div>
         </section>
 
-        <InfoBanner :imageUrl="DonationImage" :title="$t('home.InfoBanner.title')"
-            :description="$t('home.InfoBanner.description')" :buttonText="$t('home.InfoBanner.buttonText')" />
+        <InfoBanner :imageUrl="DonationImage" :title="t('home.InfoBanner.title')"
+            :description="t('home.InfoBanner.description')" :buttonText="t('home.InfoBanner.buttonText')" />
 
         <StoreCards />
 
-        <InfoBanner :imageUrl="HazteSocioImage" :title="$t('home.membershipBanner.title')"
-            :description="$t('home.membershipBanner.description')" :buttonText="$t('home.membershipBanner.buttonText')"
+        <InfoBanner :imageUrl="HazteSocioImage" :title="t('home.membershipBanner.title')"
+            :description="t('home.membershipBanner.description')" :buttonText="t('home.membershipBanner.buttonText')"
             buttonUrl="/hazte-socio" />
 
         <RegisterInvitation />

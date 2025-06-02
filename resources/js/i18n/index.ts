@@ -11,7 +11,7 @@ const locale = page.props?.locale || navigator.language.slice(0, 2) || 'en';
 export const i18n = createI18n({
     legacy: false,
     locale,
-    fallbackLocale: 'es',
+    fallbackLocale: 'en',
     messages: {
         es,
         en,
