@@ -6,10 +6,11 @@ import StaticEvent from '@/components/Events/StaticEvent.vue';
 import UpcomingEvent from '@/components/Events/UpcomingEvent.vue';
 import EventsGrid from '@/components/Events/EventsGrid.vue';
 import FlashMessage from '@/components/FlashMessage.vue';
+import { computed } from 'vue';
 
 const { events } = defineProps<{ events: any[] }>()
-const upcomingEvent = events[0]
-const otherEvents = events.slice(1)
+const upcomingEvent = computed(() => events[0]);
+const otherEvents = computed(() => events.slice(1));
 </script>
 
 <template>
