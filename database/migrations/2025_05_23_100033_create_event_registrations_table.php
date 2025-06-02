@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('event_id')->constrained()->onDelete('cascade');
             $table->timestamps();
 
-            $table->unique(['user_id', 'event_id']); // Un usuario solo puede inscribirse una vez
+            $table->unique(['user_id', 'event_id']);
         });
     }
 

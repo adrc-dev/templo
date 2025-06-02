@@ -8,7 +8,9 @@ import Pagination from '@/components/ui/pagination/Pagination.vue';
 import MembershipModal from '@/components/Dashboard/MembershipModal.vue';
 import UserSearch from '@/components/Dashboard/UserSearch.vue';
 import UserTable from '@/components/Dashboard/UserTable.vue';
-import ConfirmDialog from '@/components/ConfirmDialog.vue';
+import ConfirmDialog from '@/components/ConfirmDialog.vue'; import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const search = ref('');
 watch(search, (value) => {
@@ -20,7 +22,6 @@ const userIdToDelete = ref<number | null>(null);
 const showConfirmMembershipDialog = ref(false);
 const userIdToActivate = ref<number | null>(null);
 
-// Nuevo estado para cancelación de recibo
 const showCancelReceiptDialog = ref(false);
 const membershipIdToCancel = ref<number | null>(null);
 
@@ -120,7 +121,7 @@ function confirmCancelReceipt() {
 
 <template>
 
-    <Head :title="$t('dashboard.page_title')" />
+    <Head :title="t('dashboard.page_title')" />
     <FlashMessage />
 
     <!-- Modal de comprobantes -->
@@ -128,25 +129,24 @@ function confirmCancelReceipt() {
         @cancel="cancelReceipt" />
 
     <!-- Confirmación de eliminación -->
-    <ConfirmDialog :show="showConfirmDialog" :title="$t('dashboard.delete_user_title')"
-        :message="$t('dashboard.delete_user_message')" :confirm-text="$t('dashboard.delete_user_confirm')"
+    <ConfirmDialog :show="showConfirmDialog" :title="t('dashboard.delete_user_title')"
+        :message="t('dashboard.delete_user_message')" :confirm-text="t('dashboard.delete_user_confirm')"
         confirm-color="red" @confirm="confirmDeleteUser" @cancel="showConfirmDialog = false" />
 
     <!-- Confirmación de activación de membresía -->
-    <ConfirmDialog :show="showConfirmMembershipDialog" :title="$t('dashboard.activate_membership_title')"
-        :message="$t('dashboard.activate_membership_message')"
-        :confirm-text="$t('dashboard.activate_membership_confirm')" confirm-color="green"
-        @confirm="confirmActivateMembership" @cancel="showConfirmMembershipDialog = false" />
+    <ConfirmDialog :show="showConfirmMembershipDialog" :title="t('dashboard.activate_membership_title')"
+        :message="t('dashboard.activate_membership_message')" :confirm-text="t('dashboard.activate_membership_confirm')"
+        confirm-color="green" @confirm="confirmActivateMembership" @cancel="showConfirmMembershipDialog = false" />
 
     <!-- Confirmación de cancelación de comprobante -->
-    <ConfirmDialog :show="showCancelReceiptDialog" :title="$t('dashboard.cancel_receipt_title')"
-        :message="$t('dashboard.cancel_receipt_message')" :confirm-text="$t('dashboard.cancel_receipt_confirm')"
+    <ConfirmDialog :show="showCancelReceiptDialog" :title="t('dashboard.cancel_receipt_title')"
+        :message="t('dashboard.cancel_receipt_message')" :confirm-text="t('dashboard.cancel_receipt_confirm')"
         confirm-color="red" @confirm="confirmCancelReceipt" @cancel="showCancelReceiptDialog = false" />
 
     <AppLayout>
         <div class="max-w-[1200px] mx-auto px-4 py-6">
-            <Heading :title="`${$t('dashboard.greeting')}, ${auth.user.name} ${auth.user.surname}`"
-                :description="$t('dashboard.description')" />
+            <Heading :title="`${t('dashboard.greeting')}, ${auth.user.name} ${auth.user.surname}`"
+                :description="t('dashboard.description')" />
 
             <!-- Buscador -->
             <UserSearch v-model="search" />
