@@ -3,6 +3,8 @@ import Button from '@/components/ui/button/Button.vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
+
+// Props del componente
 const props = defineProps({
     image: String,
     title: String,
@@ -11,6 +13,7 @@ const props = defineProps({
     link: String,
 });
 
+// Formatea la fecha o muestra mensaje por defecto
 const formattedDate = props.date
     ? new Date(props.date).toLocaleDateString()
     : t('events.eventCards.date_not_available');
@@ -19,10 +22,14 @@ const formattedDate = props.date
 <template>
     <div
         class="bg-amber-50 shadow-lg rounded-xl overflow-hidden hover:shadow-md transition pb-16 relative min-h-[450px]">
+
+        <!-- Imagen con fallback si falla la carga -->
         <img :src="`/storage/${image}`" :alt="t('events.eventCards.image_alt', { title: title })"
-            class="w-full h-60 object-cover" @error="(e) => e.target.src = '/fallback-event.png'" />
+            class="w-full h-60 object-cover"
+            @error="(e) => ((e.target as HTMLImageElement).src = '/fallback-event.png')" />
 
         <div class="py-4 px-6 md:px-8">
+            <!-- Slots para contenido flexible -->
             <slot>
                 <slot name="date">
                     <p class="text-xs text-secondary-color mb-1">{{ formattedDate }}</p>
@@ -37,6 +44,7 @@ const formattedDate = props.date
                 </slot>
             </slot>
 
+            <!-- Botón con navegación Inertia -->
             <div class="mt-4 flex justify-center absolute bottom-0 left-0 right-0 p-4">
                 <slot name="button">
                     <Button @click="$inertia.visit(link)">

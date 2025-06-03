@@ -1,38 +1,46 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { Link } from '@inertiajs/vue3';
+import { usePage, Link } from '@inertiajs/vue3';
 import { CircleUserRound, UserRoundCheck } from 'lucide-vue-next';
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import TextLink from '@/components/TextLink.vue';
 import SelectLanguage from './SelectLanguage.vue';
 import { onMounted, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
+const page = usePage();
 const isMenuOpen = ref(false);
 const isHeaderVisible = ref(true);
 
+// Almacena la última posición de scroll para detectar dirección
 let lastScrollY = window.scrollY;
 
+// Alterna la visibilidad del menú móvil
 function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
 }
 
+// Controla la visibilidad del header al hacer scroll:
+// si se hace scroll hacia abajo y se ha pasado un umbral, oculta el header;
+// si se hace scroll hacia arriba, lo muestra.
 function handleScroll() {
     const currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // scrolling down
-        isHeaderVisible.value = false;
+        isHeaderVisible.value = false; // scroll hacia abajo
     } else {
-        // scrolling up
-        isHeaderVisible.value = true;
+        isHeaderVisible.value = true; // scroll hacia arriba
     }
     lastScrollY = currentScrollY;
 }
 
+// Añade el listener del scroll al montar el componente
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
 });
 
+// Elimina el listener al desmontar el componente
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll);
 });
@@ -48,16 +56,16 @@ onUnmounted(() => {
             <div class="flex items-center text-primary-color justify-between w-full max-w-[1512px] mx-auto px-8">
                 <div>
                     <TextLink :href="route('contact')" class="text-primary-color hover:text-tertiary-color font-normal">
-                        {{ $t('header.contact') }}
+                        {{ t('header.contact') }}
                     </TextLink>
                     <a href="https://wa.me/5511989964269"
                         class="text-white hover:text-tertiary-color ml-10 hidden md:inline-block">
-                        {{ $t('header.call_us') }}
+                        {{ t('header.call_us') }}
                     </a>
                 </div>
                 <TextLink :href="route('member.create')"
                     class="text-primary-color hover:text-tertiary-color font-normal">
-                    {{ $t('header.become_member') }}
+                    {{ t('header.become_member') }}
                 </TextLink>
             </div>
         </div>
@@ -77,22 +85,22 @@ onUnmounted(() => {
                         <ul class="flex space-x-4">
                             <li>
                                 <TextLink :href="route('about-us')" class="font-normal">
-                                    {{ $t('header.menu.about_us') }}
+                                    {{ t('header.menu.about_us') }}
                                 </TextLink>
                             </li>
                             <li>
                                 <TextLink :href="route('events.index')" class="font-normal">
-                                    {{ $t('header.menu.events') }}
+                                    {{ t('header.menu.events') }}
                                 </TextLink>
                             </li>
                             <li>
                                 <TextLink :href="route('aulas.index')" class="font-normal">
-                                    {{ $t('header.menu.aulas') }}
+                                    {{ t('header.menu.aulas') }}
                                 </TextLink>
                             </li>
                             <li>
                                 <TextLink :href="route('shop')" class="font-normal">
-                                    {{ $t('header.menu.shop') }}
+                                    {{ t('header.menu.shop') }}
                                 </TextLink>
                             </li>
                             <li>
@@ -101,17 +109,17 @@ onUnmounted(() => {
                         </ul>
                     </nav>
 
-                    <div v-if="$page.props.auth.user" class="hidden relative md:flex items-center pl-5">
+                    <div v-if="page.props.auth.user" class="hidden relative md:flex items-center pl-5">
                         <DropdownMenu>
                             <DropdownMenuTrigger as-child>
                                 <button
                                     class="flex flex-col items-center text-white font-bold hover:text-gray-300 focus:outline-none cursor-pointer">
                                     <UserRoundCheck class="w-7 h-7" />
-                                    {{ $page.props.auth.user.name }}
+                                    {{ page.props.auth.user.name }}
                                 </button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="center" class="w-56 mt-2">
-                                <UserMenuContent :user="$page.props.auth.user" />
+                                <UserMenuContent :user="page.props.auth.user" />
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
@@ -120,7 +128,7 @@ onUnmounted(() => {
                         <Link :href="route('login')"
                             class="flex flex-col justify-center items-center pl-5 py-1.5 leading-normal hover:text-gray-300 text-white font-bold">
                         <CircleUserRound class="w-7 h-7 inline-block" />
-                        {{ $t('header.auth.login') }}
+                        {{ t('header.auth.login') }}
                         </Link>
                     </div>
                 </div>
@@ -144,43 +152,43 @@ onUnmounted(() => {
                 <ul class="flex flex-col space-y-2">
                     <li class="mt-2 px-4">
                         <TextLink :href="route('about-us')" class="font-normal" @click="toggleMenu">
-                            {{ $t('header.menu.about_us') }}
+                            {{ t('header.menu.about_us') }}
                         </TextLink>
                     </li>
                     <li class="px-4">
                         <TextLink :href="route('events.index')" class="font-normal" @click="toggleMenu">
-                            {{ $t('header.menu.events') }}
+                            {{ t('header.menu.events') }}
                         </TextLink>
                     </li>
                     <li class="px-4">
                         <TextLink :href="route('aulas.index')" class="font-normal" @click="toggleMenu">
-                            {{ $t('header.menu.aulas') }}
+                            {{ t('header.menu.aulas') }}
                         </TextLink>
                     </li>
                     <li class="px-4">
                         <TextLink :href="route('shop')" class="font-normal" @click="toggleMenu">
-                            {{ $t('header.menu.shop') }}
+                            {{ t('header.menu.shop') }}
                         </TextLink>
                     </li>
                     <li class="px-4 self-center">
                         <SelectLanguage />
                     </li>
                     <li class="px-4 py-2 bg-secondary-color text-primary-color">
-                        <div v-if="$page.props.auth.user" class="relative">
+                        <div v-if="page.props.auth.user" class="relative">
                             <DropdownMenu>
                                 <DropdownMenuTrigger as-child>
                                     <button class="">
-                                        {{ $page.props.auth.user.name }}
+                                        {{ page.props.auth.user.name }}
                                     </button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="center" class="w-56 mt-2">
-                                    <UserMenuContent :user="$page.props.auth.user" />
+                                    <UserMenuContent :user="page.props.auth.user" />
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </div>
                         <div v-else>
                             <Link :href="route('login')" class="hover:text-gray-300 text-white">
-                            {{ $t('header.auth.login') }}
+                            {{ t('header.auth.login') }}
                             </Link>
                         </div>
                     </li>

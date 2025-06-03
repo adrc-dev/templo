@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n';
 import Button from '@/components/ui/button/Button.vue';
 import Modal from '@/components/LegalModal.vue';
 
+// Props del componente
 defineProps<{
     imageUrl: string
     title: string
@@ -12,11 +13,13 @@ defineProps<{
     buttonUrl?: string
 }>()
 
-const showModal = ref(false);
-const { t } = useI18n();
+const showModal = ref(false); // Controla la visibilidad del modal
+const { t } = useI18n(); // Traducción
 
+// Título del modal traducido
 const modalTitle = computed(() => t('paymentModal.title'));
 
+// Contenido del modal caso no se pasen props
 const modalContent = computed(() => `
 <div class="bg-secondary-color/20 px-6 lg:px-16 py-6 rounded-lg mb-8 max-w-2xl mx-auto h-full">
     <div class="space-y-6 text-primary-color">
@@ -49,16 +52,20 @@ const modalContent = computed(() => `
         <div class="w-full max-w-[1200px] flex flex-col justify-center items-center text-center relative z-10 mx-4">
             <h2 class="text-4xl font-bold text-white mb-4">{{ title }}</h2>
             <p class="text-lg text-white mb-8">{{ description }}</p>
+
+            <!-- Si hay buttonUrl, navega. Si no, muestra modal -->
             <Button @click="buttonUrl ? $inertia.visit(buttonUrl) : (showModal = true)" variant="transparent">
                 {{ buttonText }}
             </Button>
         </div>
 
+        <!-- Modal con título y contenido definidos arriba -->
         <Modal :visible="showModal" :title="modalTitle" :content="modalContent" @close="showModal = false" />
     </div>
 </template>
 
 <style scoped>
+/* Superposición oscura sobre la imagen de fondo */
 .donation-container::after {
     content: '';
     position: absolute;
