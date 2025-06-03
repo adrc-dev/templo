@@ -39,7 +39,13 @@
         "shop": {
             "title": "Our shop (under construction)",
             "addToCart": "Add to cart",
-            "viewAll": "View all products"
+            "viewAll": "View all products",
+            "items": {
+                "incienso": "Sandalwood Incense",
+                "cuenco": "Small Tibetan Bowl",
+                "esterilla": "Meditation Mat",
+                "lampara": "Salt Lamp"
+            }
         }
     },
     "paymentModal": {
@@ -772,5 +778,9 @@
                 "throttle": "Too many login attempts. Please try again in :seconds seconds."
             }
         }
+    },
+    "dialog": {
+        "cancel": "Cancel",
+        "confirm": "Confirm"
     }
 }

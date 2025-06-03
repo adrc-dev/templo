@@ -39,7 +39,13 @@
         "shop": {
             "title": "Nuestra tienda (en construcción)",
             "addToCart": "Agregar al carrito",
-            "viewAll": "Ver todos los productos"
+            "viewAll": "Ver todos los productos",
+            "items": {
+                "incienso": "Incienso de Sándalo",
+                "cuenco": "Cuenco tibetano pequeño",
+                "esterilla": "Esterilla de meditación",
+                "lampara": "Lámpara de sal"
+            }
         }
     },
     "paymentModal": {
@@ -772,5 +778,9 @@
                 "throttle": "Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos."
             }
         }
+    },
+    "dialog": {
+        "cancel": "Cancelar",
+        "confirm": "Confirmar"
     }
 }

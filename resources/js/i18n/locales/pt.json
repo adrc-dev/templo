@@ -39,7 +39,13 @@
         "shop": {
             "title": "Nossa loja (em construção)",
             "addToCart": "Adicionar ao carrinho",
-            "viewAll": "Ver todos os produtos"
+            "viewAll": "Ver todos os produtos",
+            "items": {
+                "incienso": "Incenso de Sândalo",
+                "cuenco": "Tigela tibetana pequena",
+                "esterilla": "Almofada de meditação",
+                "lampara": "Lâmpada de sal"
+            }
         }
     },
     "paymentModal": {
@@ -773,5 +779,9 @@
                 "throttle": "Muitas tentativas de login. Por favor, tente novamente em :seconds segundos."
             }
         }
+    },
+    "dialog": {
+        "cancel": "Cancelar",
+        "confirm": "Confirmar"
     }
 }
