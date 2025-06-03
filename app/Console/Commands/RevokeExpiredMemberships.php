@@ -25,7 +25,7 @@ class RevokeExpiredMemberships extends Command
             $user->membership_expires_at = null;
             $user->save();
 
-            $user->member()->where('status', 'active')->update(['status' => 'expired']);
+            $user->memberships()->where('status', 'active')->update(['status' => 'expired']);
         }
 
         $this->info("Se revocaron {$users->count()} membresías.");
