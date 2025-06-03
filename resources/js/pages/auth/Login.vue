@@ -52,7 +52,7 @@ const submit = async () => {
                 </div>
 
                 <div class="grid gap-2">
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-6 justify-between">
                         <Label for="password">{{ $t('login.password_label') }}</Label>
                         <TextLink v-if="canResetPassword" :href="route('password.request')" class="text-sm"
                             :tabindex="5">
