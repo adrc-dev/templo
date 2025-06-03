@@ -11,10 +11,10 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
 const products = ref([
-    { id: 1, name: 'Incienso de Sándalo', price: 8.99, image: incienso },
-    { id: 2, name: 'Cuenco tibetano pequeño', price: 29.99, image: cuenco },
-    { id: 3, name: 'Esterilla de meditación', price: 19.5, image: esterilla },
-    { id: 4, name: 'Lámpara de sal', price: 15.0, image: lampara },
+    { id: 1, name: t('home.shop.items.incienso'), price: 8.99, image: incienso },
+    { id: 2, name: t('home.shop.items.cuenco'), price: 29.99, image: cuenco },
+    { id: 3, name: t('home.shop.items.esterilla'), price: 19.5, image: esterilla },
+    { id: 4, name: t('home.shop.items.lampara'), price: 15.0, image: lampara }
 ])
 </script>
 
